@@ -1,0 +1,421 @@
+[gd_scene load_steps=15 format=3 uid="uid://brif25bd440f5"]
+
+[ext_resource type="Texture2D" uid="uid://5abo13622c8e" path="res://assets/art/combatbackground.jpg" id="1_ygydb"]
+[ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="3_raald"]
+[ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="4_4bn2s"]
+[ext_resource type="AudioStream" uid="uid://dr36l0rsjyhe4" path="res://assets/Music/battlemusic.mp3" id="4_n47bs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
+texture = ExtResource("1_ygydb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwcl3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.631373)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.887072, 0.322865, 7.70092e-07, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0qge"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_130br"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyx2p"]
+content_margin_left = 0.0
+bg_color = Color(0, 0, 0, 0.980392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.470004, 0.379457, 1, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiy4u"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.341176, 0.109804, 0, 0.345098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eja1t"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.125435, 0.035026, 1.8049e-08, 0.756863)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px7ps"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.00855591, 0, 0.251828, 0.619608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5y6qu"]
+bg_color = Color(0.420305, 0.0873191, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymc3m"]
+bg_color = Color(0, 0, 0, 0.658824)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.219608, 0.937255, 0.219608, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Panel" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5xsm5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Stats" type="Panel" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.61
+theme_override_styles/panel = SubResource("StyleBoxFlat_bwcl3")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/VBoxContainer/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 10
+
+[node name="Panel3" type="Panel" parent="Control/VBoxContainer/Stats/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/Stats/HSplitContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = -209.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0qge")
+
+[node name="Stats" type="Label" parent="Control/VBoxContainer/Stats/HSplitContainer/Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -37.5
+offset_right = 91.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Val: 120/150          AR: 15
+Sta: 75/100 
+Mana: 40/60 "
+
+[node name="Panel2" type="Panel" parent="Control/VBoxContainer/Stats/HSplitContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 223.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_130br")
+
+[node name="Condition" type="Label" parent="Control/VBoxContainer/Stats/HSplitContainer/Panel3/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -37.5
+offset_right = 78.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vitality: 80% (Stable)
+Bleeding: None
+Poisoned: No"
+metadata/_edit_use_anchors_ = true
+
+[node name="InfoPanel" type="Panel" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.62
+theme_override_styles/panel = SubResource("StyleBoxFlat_oyx2p")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/InfoPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Enemystats" type="PanelContainer" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.56
+theme_override_styles/panel = SubResource("StyleBoxFlat_hiy4u")
+
+[node name="Enemyinfo" type="RichTextLabel" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer/Enemystats"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][b]--- Enemy Status: Goblin Warrior ---[/b][/center]
+[center]Position: [color=lightblue][3 spaces ahead][/color][/center]
+[center]Health: [color=red][120/150][/color][/center]
+[center]Stamina: [color=yellow][80/100][/color][/center]
+[center]Mana: [color=purple][40/60][/color][/center]
+
+[center][b]Body Part Status:[/b][/center]
+[center]- Torso: [color=orange][Light Wounds][/color] (Minor bleeding)[/center]
+[center]- Left Arm: [color=red][Damaged][/color] (Reduced defense)[/center]
+
+[center][b]Debuffs:[/b][/center]
+[center]- [b][color=blue]Slow[/color][/b] (Movement speed -25%) [/center]
+[center]- [b][color=green]Bleeding[/color][/b] (5% damage per turn)[/center]
+
+[center][b]Combat Notes:[/b][/center]
+[center]- [color=yellow]Slower movement due to leg injury.[/color][/center]
+"
+scroll_following = true
+tab_size = 6
+
+[node name="outcome" type="PanelContainer" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.14
+theme_override_styles/panel = SubResource("StyleBoxFlat_eja1t")
+
+[node name="infonode" type="RichTextLabel" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer/outcome"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "									[b]--- Combat Log ---[/b]
+
+
+[b]Round 1:[/b]  
+- You moved [b]3 spaces forward[/b], closing in on the Goblin Warrior.  
+- [i]Goblin Warrior attempted to dodge but failed[/i], taking a minor slash to the torso ([color=red]light damage[/color]).
+
+[b]Round 2:[/b]  
+- You used [b]Heavy Axe Strike[/b] targeting the Goblin’s head. The strike was [color=green]successful[/color]! [b]Damage: 35[/b]  
+- Goblin Warrior attempts to parry but misses due to their [i]injured left arm[/i].
+
+[b]Round 3:[/b]  
+- Goblin Warrior retaliates with a quick [b]Dagger Thrust[/b] aimed at your chest. [b]Damage: 12[/b]  
+- You [b]dodge[/b] with your shield raised, deflecting most of the attack.  
+- Goblin Warrior now has [b][color=red]Bleeding[/color][/b] from the earlier axe strike.
+
+
+
+[b]Round 4:[/b]  
+- You used [b] Healing Potion [/b] and restored [b]20 Vitality[/b].  
+- Goblin Warrior is [i][color=yellow]stunned[/color][/i] due to their low stamina and bleeding damage.  
+- You now have a [b][color=green]slight advantage[/color][/b]!"
+scroll_following = true
+
+[node name="Playerinfo" type="PanelContainer" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.66
+theme_override_styles/panel = SubResource("StyleBoxFlat_px7ps")
+
+[node name="Playerchoice" type="RichTextLabel" parent="Control/VBoxContainer/InfoPanel/MarginContainer/HBoxContainer/Playerinfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_5y6qu")
+bbcode_enabled = true
+text = "[b][color=purple]You queued casting a magic spell at the Wolf, maintaining your stance. With focus and concentration, you send a bolt of magical energy toward your target, unwavering in your position.[/color][/b]
+
+[b][color=orange]You queued activating your special ability, Hirenkyaku Dasshubureizu, focusing all your energy into the strike as you dash toward the Giant Salamander, ready to deliver a devastating blow.[/color][/b]
+
+[b][color=yellow]You queued bracing yourself for the incoming strike, preparing to dodge and counterattack with precision, waiting for the perfect moment to exploit any opening.[/color][/b]
+
+[b][color=blue]You queued retreating cautiously, stepping backward to gain distance, then swiftly use a Healing Potion, feeling its cool, soothing effect as your wounds begin to heal.[/color][/b]
+
+[b][color=red]You queued bracing yourself, stepping forward with unwavering resolve. You wind up and unleash a powerful overhead strike with your axe, aiming for the Goblin’s head with crushing force, giving them no chance to evade.[/color][/b]
+
+[b][color=lime]You queued moving toward the Goblin Warrior, swiftly closing the gap. With a precise and practiced swing, you aim your axe at the Goblin’s head, determined to land a decisive blow with unflinching speed.[/color][/b]
+"
+scroll_following = true
+tab_size = 5
+context_menu_enabled = true
+threaded = true
+
+[node name="Menu" type="Panel" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.87
+theme_override_styles/panel = SubResource("StyleBoxFlat_ymc3m")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/VBoxContainer/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button Options" type="Panel" parent="Control/VBoxContainer/Menu/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Attack" type="Button" parent="Control/VBoxContainer/Menu/HSplitContainer/Button Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 40.0
+offset_right = -355.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_raald")
+theme_override_colors/icon_normal_color = Color(1, 0.951691, 0.956682, 1)
+text = "Attack"
+
+[node name="Move" type="Button" parent="Control/VBoxContainer/Menu/HSplitContainer/Button Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 95.0
+offset_right = -357.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_raald")
+text = "Move
+"
+
+[node name="Observe" type="Button" parent="Control/VBoxContainer/Menu/HSplitContainer/Button Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_top = 94.0
+offset_right = -250.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_raald")
+theme_override_colors/icon_normal_color = Color(1, 0.951691, 0.956682, 1)
+text = "Observe"
+
+[node name="Info" type="Button" parent="Control/VBoxContainer/Menu/HSplitContainer/Button Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_top = 43.0
+offset_right = -249.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_raald")
+text = "Info"
+
+[node name="Move2" type="Button" parent="Control/VBoxContainer/Menu/HSplitContainer/Button Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 373.0
+offset_top = 101.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_4bn2s")
+text = "main menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n47bs")
+pitch_scale = 1.09
+autoplay = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Menu/HSplitContainer/Button Options/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Menu/HSplitContainer/Button Options/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Menu/HSplitContainer/Button Options/Observe" to="." method="_on_observe_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Menu/HSplitContainer/Button Options/Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Menu/HSplitContainer/Button Options/Move2" to="." method="_on_main_menu_pressed"]

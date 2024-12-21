@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dlthd2qbic8o1"]
+
+[ext_resource type="Script" path="res://logic/data/info/Item.gd" id="1_5egts"]
+
+[resource]
+script = ExtResource("1_5egts")
+name = "Pizza"
+Item = ""
+equip = "Weapon"
+pstatus = ""
+nameis = ""
+vitality_points = 0
+max_vitality = 100
+current_vitality = 100
+max_stamina = 100
+current_stamina = 100
+exhaustion = 0.0
+stability = 1.0
+description = "itz a pizza"

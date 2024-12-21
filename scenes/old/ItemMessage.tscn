@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://csysinwbtjf81"]
+
+[ext_resource type="Script" path="res://logic/data/info/item_message.gd" id="1_rhnvb"]
+[ext_resource type="Resource" uid="uid://th1llugc7wnt" path="res://logic/data/resources/potion.tres" id="2_grr14"]
+
+[node name="ItemMessage" type="CanvasLayer"]
+script = ExtResource("1_rhnvb")
+ITEM = ExtResource("2_grr14")
+
+[node name="Message" type="RichTextLabel" parent="."]
+offset_top = -1.0
+offset_right = 480.0
+offset_bottom = 563.0
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_top = 0.129
+anchor_right = 0.177
+anchor_bottom = 0.204
+offset_left = 1.0
+offset_top = -0.0370102
+offset_right = 0.0400009
+offset_bottom = -0.0120087
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "lebel"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

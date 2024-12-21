@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://th1llugc7wnt"]
+
+[ext_resource type="Script" path="res://logic/data/info/Item.gd" id="1_t6jw8"]
+
+[resource]
+script = ExtResource("1_t6jw8")
+name = "potion"
+disk = "lma"
+type = "Item"
+rarity = "Common"
+description = "itz a potion boi"

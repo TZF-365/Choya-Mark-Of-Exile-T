@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7woe43g8ick"]
+
+[ext_resource type="Script" path="res://logic/data/info/CombatManager.gd" id="1_go1c1"]
+
+[node name="CombatScene" type="Node2D"]
+script = ExtResource("1_go1c1")

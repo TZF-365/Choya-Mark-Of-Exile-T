@@ -1,0 +1,879 @@
+[gd_scene load_steps=42 format=3 uid="uid://bgo6cn334xsl1"]
+
+[ext_resource type="Script" path="res://logic/data/combat/combat_screen.gd" id="1_6yria"]
+[ext_resource type="Script" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
+[ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
+[ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
+[ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
+[ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
+[ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
+[ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
+[ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="9_2aric"]
+[ext_resource type="Script" path="res://logic/data/info/CombatManager.gd" id="10_8u2d7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
+texture = ExtResource("3_jxhud")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57e17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylnvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qk0hy"]
+
+[sub_resource type="SystemFont" id="SystemFont_l1qmn"]
+font_names = PackedStringArray("Hack")
+font_italic = true
+font_weight = 650
+
+[sub_resource type="SystemFont" id="SystemFont_4dvq6"]
+font_names = PackedStringArray("Hack Nerd Font")
+font_weight = 575
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7dy3"]
+line_spacing = 15.0
+font = SubResource("SystemFont_4dvq6")
+font_size = 40
+outline_size = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2pr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyk2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5pvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keukx"]
+bg_color = Color(0, 0, 0, 0.476)
+border_blend = true
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ika47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evkuo"]
+
+[sub_resource type="SystemFont" id="SystemFont_x4bj8"]
+font_names = PackedStringArray("Trocchi")
+hinting = 0
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+msdf_size = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guyis"]
+
+[sub_resource type="SystemFont" id="SystemFont_0gou1"]
+font_names = PackedStringArray("Trocchi")
+multichannel_signed_distance_field = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sayef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2dfu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4e1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eao6o"]
+bg_color = Color(0, 0, 0, 0.675)
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="SystemFont" id="SystemFont_ims5v"]
+font_names = PackedStringArray("Trocchi")
+multichannel_signed_distance_field = true
+
+[sub_resource type="SystemFont" id="SystemFont_rqwof"]
+font_names = PackedStringArray("Trocchi")
+generate_mipmaps = true
+disable_embedded_bitmaps = false
+multichannel_signed_distance_field = true
+msdf_pixel_range = 50
+msdf_size = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbsuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kh3cg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kscbc"]
+bg_color = Color(0, 0, 0, 0.767)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0h3v8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvywa"]
+bg_color = Color(0, 0, 0, 0.551)
+
+[sub_resource type="Animation" id="Animation_ess8w"]
+resource_name = "Fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("vbox:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.222837, 3.93678, 4.30818),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1322, 4), Vector2(1322, 4), Vector2(1322, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_dp40x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("vbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1322, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnw03"]
+_data = {
+"Fade_in": SubResource("Animation_ess8w"),
+"RESET": SubResource("Animation_dp40x")
+}
+
+[node name="Combat_Screen_Logic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6yria")
+
+[node name="buttonpress" type="Node" parent="."]
+script = ExtResource("2_7jpoa")
+
+[node name="entity_var" type="Node" parent="."]
+script = ExtResource("9_2aric")
+
+[node name="Backgroundmusic" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.09
+
+[node name="soundeffects" type="AudioStreamPlayer" parent="."]
+pitch_scale = 1.09
+
+[node name="Main_Screen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Panel" parent="Main_Screen"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_5xsm5")
+
+[node name="InfoCombatScreens" type="MarginContainer" parent="Main_Screen/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.715104
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_Screen/Control/InfoCombatScreens"]
+layout_mode = 2
+
+[node name="InfoPanels" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_57e17")
+
+[node name="PlayerInfoPanel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.189797
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_o6s4n")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ylnvj")
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel"]
+custom_minimum_size = Vector2(240, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0903846
+anchor_top = 0.29249
+anchor_right = 0.321154
+anchor_bottom = 0.687747
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qk0hy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Status Bar" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_hqbrn")
+theme_override_font_sizes/font_size = 35
+text = "Status Bar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player Stats" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel"]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.331731
+anchor_top = 0.103175
+anchor_right = 0.668269
+anchor_bottom = 0.896825
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_l1qmn")
+theme_override_font_sizes/font_size = 35
+text = "HP: 80/100
+STA: 75/100
+MANA: 40/60"
+label_settings = SubResource("LabelSettings_l7dy3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 129
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8625
+anchor_top = 0.0592885
+anchor_right = 0.977885
+anchor_bottom = 0.533597
+grow_horizontal = 0
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xyk2d")
+icon = ExtResource("6_uqpg7")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.674038
+anchor_top = 0.0790514
+anchor_right = 0.974038
+anchor_bottom = 0.920949
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i5pvs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 192.0
+offset_bottom = 116.0
+theme_override_styles/panel = ExtResource("7_r5kdy")
+
+[node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "11:23PM"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 116.0
+offset_right = 317.0
+offset_bottom = 214.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_keukx")
+
+[node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "   Date: 1/30/33"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CombatPanel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.208552
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_o6s4n")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ika47")
+
+[node name="HSeparator" type="HSeparator" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.264706
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_hqbrn")
+
+[node name="Enemystats" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.580769
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_evkuo")
+
+[node name="vbox" type="VBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0900884
+anchor_right = 1.0
+anchor_bottom = 0.883422
+offset_top = 5.38074
+offset_bottom = -5.38075
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("SystemFont_x4bj8")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
+text = "Enemy Status: Goblin Warrier"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("SystemFont_0gou1")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
+text = "Posiion: [3 spaces apart - Preparing to attack]"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
+text = "Status: Weakened"
+horizontal_alignment = 1
+
+[node name="Enemydropdown" type="VBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.548263
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sayef")
+
+[node name="Hbox" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.105
+anchor_top = 0.200855
+anchor_right = 0.895
+anchor_bottom = 0.799145
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+text = "Behavior Notes"
+
+[node name="Button2" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+text = "Physical Condition"
+
+[node name="Button3" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+text = "Current Effects"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.270398
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eao6o")
+
+[node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.355769
+anchor_right = 0.644231
+anchor_bottom = 0.106667
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_ims5v")
+theme_override_font_sizes/font_size = 45
+text = "Combat Log"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0336538
+anchor_top = 0.113333
+anchor_right = 0.973077
+anchor_bottom = 0.968
+theme_override_fonts/normal_font = SubResource("SystemFont_rqwof")
+theme_override_font_sizes/normal_font_size = 29
+text = "Round One: \"You queued moving toward the Goblin Warrior, swiftly closing the gap. With a precise and practiced swing, you aim your axe at the Goblin’s head, determined to land a decisive blow with unflinching speed.\"
+
+Round Three: You queued retreating cautiously, stepping backward to gain distance, then swiftly use a Healing Potion, feeling its cool, soothing effect as your wounds begin to heal.\"
+
+Round Four: \"You queued casting a magic spell at the Wolf, maintaining your stance. With focus and concentration, you send a bolt of magical energy toward your target, unwavering in your position.\"
+
+Round Five: \"You queued bracing yourself for the incoming strike, preparing to dodge and counterattack with precision, waiting for the perfect moment to exploit any opening.\"
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Input Screens" type="MarginContainer" parent="Main_Screen/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.716146
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/Input Screens"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_16hm7")
+
+[node name="actionchainnbutton" type="Panel" parent="Main_Screen/Control/Input Screens/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.236697
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hbsuu")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kh3cg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Button" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 45
+text = "Back"
+
+[node name="Button2" type="Panel" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_kscbc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.139
+anchor_top = 0.13964
+anchor_right = 0.861
+anchor_bottom = 0.86036
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "ACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "ACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "ACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "ACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "ACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirm" type="Button" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 45
+text = "Confirm"
+
+[node name="action buttons" type="Panel" parent="Main_Screen/Control/Input Screens/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.240367
+anchor_right = 1.0
+anchor_bottom = 0.816514
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hbsuu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main_Screen/Control/Input Screens/Panel/action buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0h3v8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Action" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 0
+anchor_left = 0.250926
+anchor_top = 0.0574302
+anchor_right = 0.491667
+anchor_bottom = 0.440298
+offset_right = -40.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("8_cn3pl")
+text = "Acton"
+metadata/_edit_use_anchors_ = true
+
+[node name="Inspect" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 0
+anchor_left = 0.25
+anchor_top = 0.583874
+anchor_right = 0.490741
+anchor_bottom = 0.966742
+offset_right = -40.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
+theme_override_styles/normal = ExtResource("8_cn3pl")
+text = "Inspect
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Move" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.538889
+anchor_top = 0.0700637
+anchor_right = 0.77963
+anchor_bottom = 0.452932
+offset_right = -39.9997
+offset_bottom = -0.22023
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("8_cn3pl")
+text = "Move"
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 0
+anchor_left = 0.537037
+anchor_top = 0.580683
+anchor_right = 0.777778
+anchor_bottom = 0.963551
+offset_right = -40.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
+theme_override_styles/normal = ExtResource("8_cn3pl")
+text = "Items"
+metadata/_edit_use_anchors_ = true
+
+[node name="turn" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 0
+anchor_left = -0.025
+anchor_top = 0.0191434
+anchor_right = 0.178704
+anchor_bottom = 0.3382
+theme_override_font_sizes/font_size = 40
+text = "Turn"
+metadata/_edit_use_anchors_ = true
+
+[node name="TacticalOverview" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 0
+anchor_left = 0.835185
+anchor_top = 0.0319057
+anchor_right = 1.03889
+anchor_bottom = 0.350962
+theme_override_font_sizes/font_size = 40
+text = "TOV"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 0
+anchor_left = -0.0259259
+anchor_top = 0.472204
+anchor_right = 0.177778
+anchor_bottom = 0.79126
+offset_bottom = 1.52588e-05
+theme_override_font_sizes/font_size = 40
+text = "Panel"
+metadata/_edit_use_anchors_ = true
+
+[node name="Help" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(220, 100)
+layout_mode = 0
+anchor_left = 0.837037
+anchor_top = 0.469013
+anchor_right = 1.04074
+anchor_bottom = 0.78807
+theme_override_font_sizes/font_size = 40
+text = "HELP"
+metadata/_edit_use_anchors_ = true
+
+[node name="bottom button" type="Panel" parent="Main_Screen/Control/Input Screens/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.823853
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hbsuu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.444444
+anchor_top = 0.34375
+anchor_right = 0.555556
+anchor_bottom = 1.38542
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
+text = "Lycus"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dnw03")
+}
+
+[node name="vbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.69259
+anchor_top = 0.215625
+anchor_right = 2.50463
+anchor_bottom = 0.947917
+offset_left = -505.997
+offset_top = -410.0
+offset_right = -505.997
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Combatmanager" type="Node" parent="."]
+script = ExtResource("10_8u2d7")
+
+[connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="." method="_on_action_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect" to="." method="_on_inspect_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/turn" to="." method="_on_turn_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/TacticalOverview" to="." method="_on_tactical_overview_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Panel" to="." method="_on_panel_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Help" to="." method="_on_help_pressed"]
