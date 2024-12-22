@@ -1,7 +1,7 @@
 extends Node
 
 @onready var audio_player = $"../soundeffectplayer"
-@onready var timer = $Timer
+@onready var timer = $"../AudioStreamPlayer/Timer"
 
 # List of songs to play
 @onready var songs = [
