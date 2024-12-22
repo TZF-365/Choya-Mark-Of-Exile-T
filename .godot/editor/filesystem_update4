@@ -8,6 +8,3 @@ res://scenes/game_screen.tscn
 res://scenes/combat_screen.tscn
 res://scenes/utilities/CombatScene/CombatScene.tscn
 res://scenes/utilities/CombatScene/Character.tscn
-res://logic/data/info/CombatManager.gd
-res://logic/data/info/buttonpress.gd
-res://scenes/Simple_Combat_Ui.tscn

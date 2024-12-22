@@ -16,8 +16,8 @@ config/version="0.4"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
-boot_splash/image="res://assets/sprites/ui/ui-grabber.png"
 config/icon="res://icon.svg"
+boot_splash/image="res://assets/sprites/ui/ui-grabber.png"
 
 [autoload]
 
