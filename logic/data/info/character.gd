@@ -1,8 +1,8 @@
-extends Resource #use Resource for easy instancing
+extends Node2D #use Resource for easy instancing
 class_name BaseChar
 
-@export var name: String = "Unnamed"
-
+@export var health: int = 100
+@export var names: String = "Unname"
 @export var max_health: int = 100
 @export var current_health: int = 20
 @export var stamina: int = 50
@@ -10,8 +10,12 @@ class_name BaseChar
 @export var action_points: int = 4
 @export var val: int
 
+# New properties
+var is_defending: bool = false
+var is_dodging: bool = false
 
-@export var dstats: Dictionary = {
+
+@export var stats: Dictionary = {
 	"strength": 2,
 	"dextarity": 4,
 	"endurance": 5,
@@ -46,11 +50,14 @@ class_name BaseChar
 }
 
 
-func initialize():
-	current_health = max_health
-	action_points = stamina
-	val = current_health
-	print("Initialize called.")
+func _ready():
+	# Initialize stats and other necessary data
+	stats = {
+		"strength": 10,
+		"endurance": 5,
+		"agility": 7
+	}
+	health = 100
 
 
 func take_damage(amount: int):

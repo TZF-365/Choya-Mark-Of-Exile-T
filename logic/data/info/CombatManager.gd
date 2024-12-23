@@ -1,11 +1,11 @@
 extends Node
 class_name CombatManager
 
-@export var player_node: Resource
-@export var enemy_node: Resource
+@export var player_node: PackedScene
+@export var enemy_node: PackedScene
 
-var player = player_node
-var enemy = enemy_node
+var player: BaseChar
+var enemy: BaseChar
 
 @export var combat_log: RichTextLabel
 @export var player_health_label: Label
@@ -21,17 +21,20 @@ var current_action: String = ""
 
 func _ready():
 	# Initialize player and enemy
-	player = player_node.instance()
-	enemy = enemy_node.instance()
+	player = player_node.instantiate() as BaseChar
+	enemy = enemy_node.instantiate() as BaseChar
+	
+	# Add player and enemy to the scene
+	add_child(player)
+	add_child(enemy)
+	
 	update_health_labels()
 	add_to_log("Battle started! %s vs %s" % [player.name, enemy.name])
 	
 	# Connect button signals
-	_on_attack_button_pressed().connect("pressed", self, "_on_attack_button_pressed")
-	_on_defend_button_pressed().connect("pressed", self, "_on_defend_button_pressed")
-	_on_dodge_button_pressed().connect("pressed", self, "_on_dodge_button_pressed")
-
-		
+	_on_attack_pressed()
+	_on_defend_pressed()
+	_on_dodge_pressed()
 
 func resolve_action(actor: BaseChar, action: String, target: BaseChar):
 	if action == "attack":
@@ -114,14 +117,14 @@ func choose_enemy_action() -> String:
 	return actions[randi() % actions.size()]
 
 # Button signal handlers
-func _on_attack_button_pressed():
+func _on_attack_pressed():
 	current_action = "attack"
 	process_turn(current_action)
 
-func _on_defend_button_pressed():
+func _on_defend_pressed():
 	current_action = "defend"
 	process_turn(current_action)
 
-func _on_dodge_button_pressed():
+func _on_dodge_pressed():
 	current_action = "dodge"
 	process_turn(current_action)
