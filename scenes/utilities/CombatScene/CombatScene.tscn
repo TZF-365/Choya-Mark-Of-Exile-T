@@ -1,15 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7woe43g8ick"]
+[gd_scene load_steps=2 format=3 uid="uid://b7woe43g8ick"]
 
 [ext_resource type="Script" path="res://logic/data/info/CombatManager.gd" id="1_go1c1"]
-[ext_resource type="PackedScene" uid="uid://etan25408vrg" path="res://scenes/utilities/CombatScene/Character.tscn" id="4_3chjc"]
-
-[sub_resource type="GDScript" id="GDScript_nt2cj"]
-
-[sub_resource type="GDScript" id="GDScript_d55ua"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_go1c1")
-player_node = SubResource("GDScript_nt2cj")
-enemy_node = SubResource("GDScript_d55ua")
-
-[node name="Character" parent="." instance=ExtResource("4_3chjc")]

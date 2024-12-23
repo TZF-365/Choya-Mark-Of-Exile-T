@@ -9,7 +9,7 @@ names = "ssss"
 stats = {
 "agility": 100,
 "dextarity": 4,
-"endurance": 2,
+"endurance": 5,
 "perception": 2,
-"strength": 4
+"strength": 5
 }

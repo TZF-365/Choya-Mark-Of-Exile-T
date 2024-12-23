@@ -11,8 +11,8 @@ class_name BaseChar
 @export var val: int
 
 # New properties
-var is_defending: bool = false
-var is_dodging: bool = false
+@export var is_defending: bool = false
+@export var is_dodging: bool = false
 
 
 @export var stats: Dictionary = {
@@ -49,6 +49,7 @@ var is_dodging: bool = false
 	"right_leg": 40
 	
 }
+
 
 @export var story_var: Dictionary = {
 	"won": false,

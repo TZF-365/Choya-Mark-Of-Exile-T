@@ -5,8 +5,8 @@ class_name CombatManager
 @export var enemy_node: PackedScene
 @export var enemy_ai: EnemyAI  # The AI for the enemy
 
-var player: BaseChar
-var enemy: BaseChar
+@export var player: BaseChar
+@export var enemy: BaseChar
 
 @export var combat_log: RichTextLabel
 @export var player_health_label: Label
@@ -21,14 +21,6 @@ var current_state: State = State.PLAYER_TURN
 var current_action: String = ""
 
 func _ready():
-	# Initialize player and enemy
-	player = player_node.instantiate() as BaseChar
-	enemy = enemy_node.instantiate() as BaseChar
-	
-	# Add player and enemy to the scene
-	add_child(player)
-	add_child(enemy)
-	
 	# Initialize enemy AI
 	enemy_ai = EnemyAI.new()
 	enemy_ai.enemy = enemy  # Set the enemy for AI to control
@@ -39,12 +31,16 @@ func _ready():
 
 
 func resolve_action(actor: BaseChar, action: String, target: BaseChar):
+	# Initialize damage variable
+	var damage = 0
+	
 	if action == "attack":
-		# Calculate the damage and check if the target dodges
-		var damage = damage_calc(actor, target)
-
-		# Apply the damage to the target
+		# Calculate and apply damage
+		damage = damage_calc(actor, target)
 		target.health -= damage
+		target.health = clamp(target.health, 0, target.max_health)
+		
+		# Log the attack
 		add_to_log(generate_attack_description(actor, target, damage))
 	
 	elif action == "defend":
@@ -62,34 +58,24 @@ func resolve_action(actor: BaseChar, action: String, target: BaseChar):
 	check_battle_end()
 
 
+
 func damage_calc(actor: BaseChar, target: BaseChar) -> int:
 	var base_damage = actor.stats["strength"] * 2
-	var defense_modifier = target.stats["endurance"] * 0.5
-	var dodge_damage_reduction = 0.5  # Set percentage reduction if dodge fails
-
+	var defense_modifier = target.stats["endurance"] * 1.3
+	var final_damage = base_damage - defense_modifier
+		
 	# If the target is defending, reduce the damage more
 	if target.is_defending:
-		defense_modifier += 12  # Example: Defend reduces damage even more
-
+		final_damage -= 8  # Example: Defending reduces damage by 8
+		return max(final_damage, 0)
 	# Check if the target is dodging, and determine dodge chance
-	if target.is_dodging:
-		# Determine dodge success by comparing agility and dice roll
-		var player_roll = randi() % 6 + 1  # Random number between 1 and 6
-		var enemy_roll = randi() % 6 + 1  # Random number between 1 and 6
-		var player_agility = actor.stats["agility"]
-		var enemy_agility = target.stats["agility"]
+	if target.is_dodging and randf() < 0.5:  # Example: 50% chance to dodge
+		final_damage = 0
+		return max(final_damage, 0)
 
-		# If the player or enemy has a higher agility, they win the roll
-		if player_agility + player_roll > enemy_agility + enemy_roll:
-			add_to_log("%s dodged the attack!" % target.name)
-			return 0  # If dodge is successful, no damage
+	# Ensure damage is not negative
+	return max(final_damage, 0)
 
-		# If dodge fails, reduce damage by dodge damage reduction
-		base_damage *= dodge_damage_reduction
-		add_to_log("%s failed to dodge! Damage reduced." % target.name)
-
-	# Apply defense modifier and ensure damage is not negative
-	return max(base_damage - defense_modifier, 0)
 
 
 func add_to_log(text: String):

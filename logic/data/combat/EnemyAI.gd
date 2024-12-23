@@ -2,22 +2,18 @@ extends Node
 class_name EnemyAI
 
 # The enemy character the AI controls (you can assign this in the CombatManager)
-var enemy: BaseChar
+@export var enemy: BaseChar
 # The player character the AI interacts with (passed from CombatManager)
-var player: BaseChar
+@export var player: BaseChar
 
 # Randomly chooses an action for the enemy. You can expand this method for more sophisticated behavior.
 func choose_action() -> String:
 	if enemy == null:
+		print("No enemy connected to enemy AI")
 		return "idle"  # Safe fallback in case enemy is not assigned
 	if enemy == null or player == null:
+		print("No enemy or player connected to enemy AI")
 		return "idle"  # Safe fallback in case enemy or player is not assigned
-	if enemy.health < 50:
-		return "defend"  # Defend if low health
-	elif enemy.health < 30:
-		return "defend"  # More defensive behavior when health is low
-	elif enemy.stats["strength"] > player.stats["strength"]:
-		return "attack"  # Attack if the enemy is stronger
 	else:
 		var actions = ["attack", "defend", "dodge"]
 		return actions[randi() % actions.size()]
@@ -25,10 +21,11 @@ func choose_action() -> String:
 # Can be expanded for more complex decision making (e.g., based on health, player behavior, etc.)
 func choose_action_based_on_health() -> String:
 	if enemy == null or player == null:
+		print("No enemy or player connected to enemy AI")
 		return "idle"  # Safe fallback in case enemy or player is not assigned
 	
 	# If the enemy's health is very low, be more defensive
-	if enemy.health < 30:
+	if enemy.health < 20:
 		var actions = ["defend", "dodge"]
 		return actions[randi() % actions.size()]  # Randomly choose between defend or dodge
 	

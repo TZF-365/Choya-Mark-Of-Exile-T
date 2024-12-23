@@ -9,7 +9,7 @@ names = "sadadad"
 stats = {
 "agility": 100,
 "dextarity": 4,
-"endurance": 2,
+"endurance": 4,
 "perception": 2,
-"strength": 6
+"strength": 5
 }

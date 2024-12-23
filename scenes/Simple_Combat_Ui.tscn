@@ -121,10 +121,12 @@ theme = ExtResource("2_1e0dr")
 text = "Item
 "
 
-[node name="CombatScene" parent="." node_paths=PackedStringArray("enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button") instance=ExtResource("4_rin1x")]
-player_node = ExtResource("5_q67yx")
+[node name="CombatScene" parent="." node_paths=PackedStringArray("enemy_ai", "player", "enemy", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button") instance=ExtResource("4_rin1x")]
+player_node = ExtResource("6_psah1")
 enemy_node = ExtResource("6_psah1")
 enemy_ai = NodePath("../EnemyAi")
+player = NodePath("../EnemyAi/Player")
+enemy = NodePath("../EnemyAi/Goblin")
 combat_log = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/RichTextLabel")
 player_health_label = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/LabelP")
 enemy_health_label = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/LabelG")
@@ -132,7 +134,27 @@ attack_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBo
 defend_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/defend")
 dodge_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/dodge")
 
-[node name="EnemyAi" parent="." instance=ExtResource("7_tdk5w")]
+[node name="EnemyAi" parent="." node_paths=PackedStringArray("enemy", "player") instance=ExtResource("7_tdk5w")]
+enemy = NodePath("Goblin")
+player = NodePath("Player")
+
+[node name="Player" parent="EnemyAi" instance=ExtResource("5_q67yx")]
+stats = {
+"agility": 100,
+"dextarity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 10
+}
+
+[node name="Goblin" parent="EnemyAi" instance=ExtResource("6_psah1")]
+stats = {
+"agility": 100,
+"dextarity": 4,
+"endurance": 4,
+"perception": 2,
+"strength": 8
+}
 
 [connection signal="pressed" from="Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/attack" to="CombatScene" method="_on_attack_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/defend" to="CombatScene" method="_on_defend_pressed"]
