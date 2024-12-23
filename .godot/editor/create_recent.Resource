@@ -1,2 +1,3 @@
+BaseChar
 Resource
 Item

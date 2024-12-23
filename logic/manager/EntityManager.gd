@@ -1,4 +1,4 @@
-extends entity
+extends entity_var
 
 class_name EntityManager
 

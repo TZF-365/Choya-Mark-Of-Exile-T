@@ -1,3 +1,5 @@
+Node
+Node2D
 HBoxContainer
 Panel
 Label
@@ -6,10 +8,7 @@ Button
 VBoxContainer
 MarginContainer
 Control
-Node
 AudioStreamPlayer
 AudioStreamPlayer2D
 Timer
 entity_var
-CanvasLayer
-AnimationPlayer
