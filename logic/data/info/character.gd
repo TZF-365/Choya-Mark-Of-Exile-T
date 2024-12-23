@@ -20,6 +20,7 @@ var is_dodging: bool = false
 	"dextarity": 4,
 	"endurance": 5,
 	"perception": 2, 
+	"agility": 5
 }
 
 
@@ -49,22 +50,14 @@ var is_dodging: bool = false
 	
 }
 
-
-func _ready():
-	# Initialize stats and other necessary data
-	stats = {
-		"strength": 10,
-		"endurance": 5,
-		"agility": 7
-	}
-	health = 100
-
-
-func take_damage(amount: int):
-	current_health -= amount
-	if current_health <= 0:
-		die()
-
-
-func die():
-	pass
+@export var story_var: Dictionary = {
+	"won": false,
+	"lost": false, 
+	"wincondition1": false,
+	"wincondition2": false,
+	"wincondition3": false,
+	"wincondition4": false,
+	"playeruninjured": false,
+	"playerinjured": false,
+	"playerbadlyinjured": false,
+}

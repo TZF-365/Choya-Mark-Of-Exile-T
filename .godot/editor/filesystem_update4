@@ -19,3 +19,5 @@ res://scenes/entities/player.gd
 res://scenes/entities/goblin.gd
 res://scenes/entities/Player.tscn
 res://scenes/entities/Goblin.tscn
+res://logic/data/combat/EnemyAI.gd
+res://scenes/entities/EnemyAI.tscn
