@@ -19,6 +19,7 @@ class_name BaseChar
 	"strength": 2,
 	"dextarity": 4,
 	"endurance": 5,
+	"toughness": 10,
 	"perception": 2, 
 	"agility": 5
 }

@@ -4,12 +4,3 @@
 
 [node name="Goblin" type="Node2D"]
 script = ExtResource("1_jxhvx")
-health = 80
-names = "sadadad"
-stats = {
-"agility": 100,
-"dextarity": 4,
-"endurance": 4,
-"perception": 2,
-"strength": 5
-}

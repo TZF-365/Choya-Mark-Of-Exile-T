@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1734955148
+::res://::1735063851
 icon.svg::CompressedTexture2D::8033541193226466038::1732752806::1732938629::1::::<><>::
 README.md::TextFile::-1::1723063944::0::1::::<><>::
 ::res://assets/::1733127311
@@ -131,11 +131,11 @@ music.mp3::AudioStreamMP3::5676719817108424453::1731767872::1732938627::1::::<><
 orchestra-fantasy.mp3::AudioStreamMP3::8849514324509599559::1732856227::1732938627::1::::<><>::
 ::res://assets/palette/::1732939514
 dreamscape8-1x.png::CompressedTexture2D::504639097105344966::1732728515::1732939514::1::::<><>::
-::res://assets/pixelart/::1734915961
+::res://assets/pixelart/::1734969864
 button_normal_style.tres::StyleBoxTexture::4578519280328601274::1732926973::0::1::::<><>::uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png
 button_pressed_style.tres::StyleBoxTexture::7843060263320981031::1732728515::0::1::::<><>::uid://c8yfrjpm5qqjt::::res://sprites/ui/ui-tileset.png
-combatactionbuttons.tres::StyleBoxFlat::6599977088116559630::1734915961::0::1::::<><>::
-combat_buttons.tres::Theme::6761462430336280330::1734915047::0::1::::<><>::
+combatactionbuttons.tres::StyleBoxFlat::6599977088116559630::1734969864::0::1::::<><>::
+combat_buttons.tres::Theme::6761462430336280330::1734969864::0::1::::<><>::
 Combat_Screen Menu_flat.tres::StyleBoxFlat::1385216134319868067::1733333754::0::1::::<><>::
 game_screen_di.tres::Theme::6307965207777346128::1734912981::0::1::::<><>::
 pixelart.tres::Theme::4078286799650444101::1734912981::0::1::::<><>::uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://cg0tootlnej3o::::res://assets/pixelart/slider_grabber_area_texture.tres<>uid://c0coqpvq7hu6j::::res://assets/sprites/ui/ui-grabber.png<>uid://cd5suo51ch1ph::::res://assets/pixelart/slider_area_texture.tres<>uid://vcoxg8ao2cpn::::res://assets/sprites/ui/ui-grabber-disabled.png
@@ -179,12 +179,12 @@ transition.gd::GDScript::-1::1732728515::0::1::::Transition<>CanvasLayer<>::
 viewport_container.gd::GDScript::-1::1732728515::0::1::::<>AspectRatioContainer<>::
 viewport_texture_rect.gd::GDScript::-1::1732728515::0::1::::ViewportTextureRect<>TextureRect<>::
 ::res://logic/data/::1734653257
-::res://logic/data/combat/::1734926315
+::res://logic/data/combat/::1734956330
 actions.gd::GDScript::-1::1734654198::0::1::::Action<>Resource<>::
 combat.gd::GDScript::-1::1732984071::0::1::::<>entitymanager<>::
 combatmanager.gd::GDScript::-1::1733336677::0::1::::<>Node<>::
 combat_screen.gd::GDScript::-1::1734229545::0::1::::<>entity<>::
-EnemyAI.gd::GDScript::-1::1734926315::0::1::::EnemyAI<>Node<>::
+EnemyAI.gd::GDScript::-1::1734956330::0::1::::EnemyAI<>Node<>::
 ::res://logic/data/ent/::1734924930
 entity.gd::GDScript::-1::1733336677::0::1::::entity<>Node<>::
 entity_var.gd::GDScript::-1::1734236253::0::1::::entity_var<>Node<>::
@@ -193,14 +193,14 @@ goblin.gd::GDScript::-1::1734924602::0::1::::<>BaseChar<>::
 player.gd::GDScript::-1::1734924930::0::1::::<>BaseChar<>::
 test_goblin.tres::Resource/BaseChar::7117616680594626860::1734917941::0::1::::<><>::res://logic/data/info/character.gd
 test_player.tres::Resource/BaseChar::8479218403248957952::1734917929::0::1::::<><>::res://logic/data/info/character.gd
-::res://logic/data/info/::1734928101
+::res://logic/data/info/::1734977091
 audio_stream_player.gd::GDScript::-1::1734568128::0::1::::<>RefCounted<>::
 backgroundmusicmanager.gd::GDScript::-1::1734571307::0::1::::<>Node<>::
 backgroundmusic_1.gd::GDScript::-1::1734237380::0::1::::<>AudioStreamPlayer2D<>::
 buttonpress.gd::GDScript::-1::1734824065::0::1::::<>Node<>::
-character.gd::GDScript::-1::1734927153::0::1::::BaseChar<>Node2D<>::
+character.gd::GDScript::-1::1734970178::0::1::::BaseChar<>Node2D<>::
 ChoiceButtons.gd::GDScript::-1::1723063944::0::1::::<>PanelContainer<>::
-CombatManager.gd::GDScript::-1::1734928101::0::1::::CombatManager<>Node<>::
+CombatManager.gd::GDScript::-1::1734977091::0::1::::CombatManager<>Node<>::
 ContentContainer copy copy.gd::GDScript::-1::1732984071::0::1::::<>VBoxContainer<>::
 ContentContainer.gd::GDScript::-1::1733146792::0::1::::<>VBoxContainer<>::
 ContentContainercopy.gd::GDScript::-1::1732990696::0::1::::<>Control<>::
@@ -216,16 +216,16 @@ pizza.tres::Resource/Item::7970994327659442986::1733334256::0::1::::<><>::res://
 potion.tres::Resource/Item::1349637567875424389::1732992048::0::1::::<><>::res://logic/data/info/Item.gd
 ::res://logic/manager/::1734919378
 EntityManager.gd::GDScript::-1::1734919378::0::1::::EntityManager<>entity_var<>::
-::res://scenes/::1734928175
-combatui.gd::GDScript::-1::1734922174::0::1::::<>Control<>::
-combat_screen.tscn::PackedScene::2838341559811648736::1734928129::0::1::::<><>::res://logic/data/combat/combat_screen.gd<>res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>res://logic/data/ent/entity_var.gd<>res://logic/data/info/CombatManager.gd
+::res://scenes/::1734977091
+combatui.gd::GDScript::-1::1734956930::0::1::::<>Control<>::
+combat_screen.tscn::PackedScene::2838341559811648736::1734977031::0::1::::<><>::res://logic/data/combat/combat_screen.gd<>res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>res://logic/data/ent/entity_var.gd<>res://logic/data/info/CombatManager.gd
 game_screen.tscn::PackedScene::708872871568742017::1734848361::0::1::::<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>res://logic/data/info/game_screen.gd<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>res://logic/data/info/ContentContainer.gd<>uid://d2j8aqtfjj0r5::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>res://logic/data/ent/entity_var.gd<>res://logic/data/info/ChoiceButtons.gd<>uid://gw131jxas0sc::::res://assets/fonts/Peaberry/PeaberryBase.ttf<>res://logic/data/info/backgroundmusicmanager.gd<>res://logic/data/info/buttonpress.gd
 main_menu.tscn::PackedScene::5272711763444437011::1734848360::0::1::::<><>::uid://byds11vsd6ber::::res://assets/pixelart/pixelart.tres<>res://logic/backend/main_menu.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>res://scenes/utilities/circle_transition.tscn<>uid://dj0ib6qvmygdj::::res://assets/pixelart/button_pressed_style.tres<>uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png<>res://logic/backend/audio_menu.gd<>res://logic/backend/viewport_container.gd<>uid://dlwi6jgvvy220::::res://assets/art/titlescreenbackground.webp<>res://scenes/utilities/load_button.tscn
-Simple_Combat_Ui.tscn::PackedScene::3794774720178326408::1734928175::0::1::::<><>::res://scenes/combatui.gd<>uid://bwnjhsw1h5uq6::::res://assets/art/background3.jpg<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://b7woe43g8ick::::res://scenes/utilities/CombatScene/CombatScene.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn
-::res://scenes/entities/::1734928129
-EnemyAI.tscn::PackedScene::6073388567228241236::1734928129::0::1::::<><>::res://logic/data/combat/EnemyAI.gd
-Goblin.tscn::PackedScene::2177944059382825915::1734928129::0::1::::<><>::res://logic/data/ent/goblin.gd
-Player.tscn::PackedScene::4060235548628170963::1734928129::0::1::::<><>::res://logic/data/ent/player.gd
+Simple_Combat_Ui.tscn::PackedScene::3794774720178326408::1734977091::0::1::::<><>::res://scenes/combatui.gd<>uid://bwnjhsw1h5uq6::::res://assets/art/background3.jpg<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://b7woe43g8ick::::res://scenes/utilities/CombatScene/CombatScene.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn
+::res://scenes/entities/::1734977031
+EnemyAI.tscn::PackedScene::6073388567228241236::1734977031::0::1::::<><>::res://logic/data/combat/EnemyAI.gd
+Goblin.tscn::PackedScene::2177944059382825915::1734977031::0::1::::<><>::res://logic/data/ent/goblin.gd
+Player.tscn::PackedScene::4060235548628170963::1734977031::0::1::::<><>::res://logic/data/ent/player.gd
 ::res://scenes/old/::1734653529
 combat_screen.tscn::PackedScene::3596499426392931972::1733333757::0::1::::<><>::uid://5abo13622c8e::::res://assets/art/combatbackground.jpg<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://dr36l0rsjyhe4::::res://assets/Music/battlemusic.mp3
 game_screenimproved.tscn::PackedScene::1420937711389109508::1734653529::0::1::::<><>::uid://cnmjk245281us::::res://assets/Red.jpg<>res://logic/data/info/game_screen.gd<>res://logic/data/info/ContentContainer.gd<>res://logic/data/info/ChoiceButtons.gd
@@ -238,9 +238,10 @@ gamelogic.tscn::PackedScene::2979670439962583048::1734653687::0::1::::<><>::res:
 load_button.tscn::PackedScene::-1::1733080156::0::1::::<><>::res://logic/backend/load_button.gd
 save_button.tscn::PackedScene::-1::1732851652::0::1::::<><>::res://scripts/ui/save_button.gd
 scene_transition_manager.tscn::PackedScene::-1::1733080818::0::1::::<><>::res://logic/backend/scene_transition_manager.gd
-::res://scenes/utilities/CombatScene/::1734928128
-Character.tscn::PackedScene::320003233026972884::1734928128::0::1::::<><>::res://logic/data/info/character.gd
-CombatScene.tscn::PackedScene::137609962897720854::1734928128::0::1::::<><>::res://logic/data/info/CombatManager.gd<>uid://etan25408vrg::::res://scenes/utilities/CombatScene/Character.tscn
+::res://scenes/utilities/CombatScene/::1734977030
+Character.tscn::PackedScene::320003233026972884::1734977030::0::1::::<><>::res://logic/data/info/character.gd
+CombatScene.tscn::PackedScene::137609962897720854::1734977030::0::1::::<><>::res://logic/data/info/CombatManager.gd<>res://scenes/utilities/CombatScene/damage_calculator.gd
+damage_calculator.gd::GDScript::-1::1734974577::0::1::::<>Node2D<>::
 statemanagement.gd::GDScript::-1::1734918003::0::1::::<>RefCounted<>::
 ::res://story/::1734232459
 Sample_Story.json::JSON::-1::1734232459::0::1::::<><>::
