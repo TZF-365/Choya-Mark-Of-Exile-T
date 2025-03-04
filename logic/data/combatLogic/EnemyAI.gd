@@ -25,12 +25,12 @@ func choose_action_based_on_health() -> String:
 		return "idle"  # Safe fallback in case enemy or player is not assigned
 	
 	# If the enemy's health is very low, be more defensive
-	if enemy.health < 20:
+	if enemy.current_val < 20:
 		var actions = ["defend", "dodge"]
 		return actions[randi() % actions.size()]  # Randomly choose between defend or dodge
 	
 	# If the enemy has lower health but not critical, mix between attacking and defending
-	elif enemy.health < 50:
+	elif enemy.current_val < 50:
 		if randi() % 2 == 0:
 			return "defend"  # 50% chance to defend
 		else:

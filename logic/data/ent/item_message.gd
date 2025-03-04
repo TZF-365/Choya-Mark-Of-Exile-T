@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var message = $Message
-@export var ITEM : Item
+@export var ITEM : BaseItem
 
 
 func _ready():

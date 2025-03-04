@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=43 format=3 uid="uid://bgo6cn334xsl1"]
 
-[ext_resource type="Script" path="res://logic/data/combat/combat_screen.gd" id="1_6yria"]
+[ext_resource type="Script" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 [ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
 [ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
 [ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
-[ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="9_2aric"]
 [ext_resource type="Script" path="res://logic/data/info/CombatManager.gd" id="10_8u2d7"]
+[ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="10_dixns"]
+[ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
+[ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="12_08v13"]
+[ext_resource type="PackedScene" uid="uid://etan25408vrg" path="res://scenes/utilities/CombatScene/BaseCharacter.tscn" id="13_jrkkn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_jxhud")
@@ -52,18 +55,7 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evkuo"]
 
-[sub_resource type="SystemFont" id="SystemFont_x4bj8"]
-font_names = PackedStringArray("Trocchi")
-hinting = 0
-subpixel_positioning = 0
-multichannel_signed_distance_field = true
-msdf_size = 100
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guyis"]
-
-[sub_resource type="SystemFont" id="SystemFont_0gou1"]
-font_names = PackedStringArray("Trocchi")
-multichannel_signed_distance_field = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sayef"]
 
@@ -77,11 +69,9 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [sub_resource type="SystemFont" id="SystemFont_ims5v"]
-font_names = PackedStringArray("Trocchi")
 multichannel_signed_distance_field = true
 
 [sub_resource type="SystemFont" id="SystemFont_rqwof"]
-font_names = PackedStringArray("Trocchi")
 generate_mipmaps = true
 disable_embedded_bitmaps = false
 multichannel_signed_distance_field = true
@@ -156,7 +146,6 @@ script = ExtResource("1_6yria")
 script = ExtResource("2_7jpoa")
 
 [node name="entity_var" type="Node" parent="."]
-script = ExtResource("9_2aric")
 
 [node name="Backgroundmusic" type="AudioStreamPlayer" parent="."]
 pitch_scale = 1.09
@@ -421,7 +410,6 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_fonts/font = SubResource("SystemFont_x4bj8")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
 text = "Enemy Status: Goblin Warrier"
@@ -431,7 +419,6 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_fonts/font = SubResource("SystemFont_0gou1")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
 text = "Posiion: [3 spaces apart - Preparing to attack]"
@@ -540,14 +527,8 @@ anchor_right = 0.973077
 anchor_bottom = 0.968
 theme_override_fonts/normal_font = SubResource("SystemFont_rqwof")
 theme_override_font_sizes/normal_font_size = 29
-text = "Round One: \"You queued moving toward the Goblin Warrior, swiftly closing the gap. With a precise and practiced swing, you aim your axe at the Goblin’s head, determined to land a decisive blow with unflinching speed.\"
-
-Round Three: You queued retreating cautiously, stepping backward to gain distance, then swiftly use a Healing Potion, feeling its cool, soothing effect as your wounds begin to heal.\"
-
-Round Four: \"You queued casting a magic spell at the Wolf, maintaining your stance. With focus and concentration, you send a bolt of magical energy toward your target, unwavering in your position.\"
-
-Round Five: \"You queued bracing yourself for the incoming strike, preparing to dodge and counterattack with precision, waiting for the perfect moment to exploit any opening.\"
-"
+text = "L"
+scroll_following = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Input Screens" type="MarginContainer" parent="Main_Screen/Control"]
@@ -725,7 +706,8 @@ anchor_bottom = 0.440298
 offset_right = -40.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("8_cn3pl")
-text = "Acton"
+text = "Attack
+"
 metadata/_edit_use_anchors_ = true
 
 [node name="Inspect" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
@@ -739,7 +721,8 @@ offset_right = -40.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 theme_override_styles/normal = ExtResource("8_cn3pl")
-text = "Inspect
+text = "Defend
+
 "
 metadata/_edit_use_anchors_ = true
 
@@ -755,7 +738,7 @@ offset_right = -39.9997
 offset_bottom = -0.22023
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("8_cn3pl")
-text = "Move"
+text = "Dodge"
 metadata/_edit_use_anchors_ = true
 
 [node name="Items" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
@@ -856,20 +839,59 @@ anchor_left = 1.22407
 anchor_top = 0.00208333
 anchor_right = 2.03611
 anchor_bottom = 0.734375
-offset_left = -0.000244141
-offset_right = -0.000244141
+offset_left = 0.00439453
+offset_right = 0.00439453
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Combatmanager" type="Node" parent="."]
+[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button")]
 script = ExtResource("10_8u2d7")
+player = NodePath("../CombatScenes/Player")
+enemy = NodePath("../CombatScenes/Goblin")
+enemy_ai = NodePath("../CombatScenes/EnemyAi")
+combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/RichTextLabel")
+player_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Player Stats")
+enemy_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar")
+attack_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action")
+defend_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect")
+dodge_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move")
+
+[node name="CombatScenes" type="Node" parent="."]
+
+[node name="EnemyAi" parent="CombatScenes" instance=ExtResource("10_dixns")]
+
+[node name="Goblin" parent="CombatScenes" instance=ExtResource("11_msaj8")]
+names = "Goblin"
+max_val = 60
+current_val = 60
+stats = {
+"agility": 5,
+"dexterity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 9,
+"toughness": 6
+}
+
+[node name="Player" parent="CombatScenes" instance=ExtResource("12_08v13")]
+names = "Lycarus"
+stats = {
+"agility": 5,
+"dexterity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 11,
+"toughness": 8
+}
+
+[node name="BaseChar" parent="CombatScenes" instance=ExtResource("13_jrkkn")]
 
 [connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
-[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="." method="_on_action_pressed"]
-[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect" to="." method="_on_inspect_pressed"]
-[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="Combatmanager" method="_on_action_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect" to="Combatmanager" method="_on_inspect_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move" to="Combatmanager" method="_on_move_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/turn" to="." method="_on_turn_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/TacticalOverview" to="." method="_on_tactical_overview_pressed"]

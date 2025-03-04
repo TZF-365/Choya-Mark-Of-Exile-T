@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseChar" load_steps=2 format=3 uid="uid://c8n3dvq7hwxmy"]
 
-[ext_resource type="Script" path="res://logic/data/info/character.gd" id="1_p4hkq"]
+[ext_resource type="Script" path="res://logic/data/ent/BaseChar.gd" id="1_p4hkq"]
 
 [resource]
 script = ExtResource("1_p4hkq")

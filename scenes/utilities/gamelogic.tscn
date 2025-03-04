@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="1_fw337"]
 [ext_resource type="Script" path="res://logic/data/info/storyvariables.gd" id="3_ace8a"]
 [ext_resource type="Script" path="res://logic/data/ent/entity.gd" id="4_lopv4"]
-[ext_resource type="Script" path="res://logic/data/combat/combatmanager.gd" id="5_wohjv"]
+[ext_resource type="Script" path="res://logic/data/combatLogic/combatmanager.gd" id="5_wohjv"]
 
 [node name="Gamelogic" type="Node2D"]
 position = Vector2(7, 8)

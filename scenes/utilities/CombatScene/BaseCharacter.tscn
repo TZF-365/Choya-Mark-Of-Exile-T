@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://etan25408vrg"]
+
+[ext_resource type="Script" path="res://logic/data/ent/BaseChar.gd" id="1_h4ul8"]
+
+[node name="BaseChar" type="Node"]
+script = ExtResource("1_h4ul8")

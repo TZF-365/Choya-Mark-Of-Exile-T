@@ -8,13 +8,13 @@ class_name entity
 
 #core entity or main entity stats
 @export var core_entity = {
-	"name": "Kal Warrior",
-	"entity_type": "player",
+	"name": "",
+	"entity_type": "",
 	"Level": 1,
 	"Exp": 0,
-	"faction": "neutral",
-	"stance": "neutral",
-	"Val": 20,
+	"faction": "",
+	"stance": "",
+	"Val": 100,
 	"vitality_points": 3,  # Points available for investment
 	"max_mana": 50,
 	"Sta": 30,
@@ -86,10 +86,6 @@ func take_damage(amount: int, body_part: String):
 	print("%s's %s is damaged! Remaining health: %d" % [core_entity["name"], body_part, core_entity["body_parts"][body_part]["health"]])
 	if core_entity["current_health"] <= 0:
 		die()
-
-
-
-
 
 
 # Called when the node enters the scene tree for the first time.

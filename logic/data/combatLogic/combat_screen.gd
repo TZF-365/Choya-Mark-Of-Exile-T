@@ -1,7 +1,7 @@
-extends entity
+extends BaseChar
 
 @onready var entity_var = $entity_var
-@onready var stat = $entity_var.stat
+@onready var stat = $CombatScenes/BaseChar.stats
 @onready var action: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action"
 @onready var inspect: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect"
 @onready var items: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items"
@@ -11,8 +11,7 @@ extends entity
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	playerstat.text = str("Val: "+str(stat["Val"])+"\n "+"Sta: "+str(stat["Sta"])+"\n "+str("Mana: "+str(stat["mana"])))
-
+	pass
 
 
 
