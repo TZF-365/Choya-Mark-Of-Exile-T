@@ -12,3 +12,12 @@ res://scenes/entities/BaseItem.tscn
 res://logic/data/info/storyvariables.gd
 res://scenes/Mainmenumusic.gd
 res://logic/backend/viewport_container.gd
+res://logic/backend/audio_manager.gd
+res://logic/data/combatLogic/combat_screen.gd
+res://scenes/backgroundmusiccombatscreen.gd
+res://logic/backend/save_manager.gd
+res://logic/data/info/game_screen.gd
+res://logic/backend/save_button.gd
+res://logic/backend/load_button.gd
+res://logic/backend/main_menu.gd
+res://logic/data/info/ContentContainer.gd

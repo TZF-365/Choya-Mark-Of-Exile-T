@@ -64,51 +64,45 @@ func _process(_delta):
 
 # Function to process a choice made by the user
 func process_choice(choice_index: int) -> void:
-	# Reset the stat indicator text
 	statindicator.text = ""
-	
-	# If the player is dead, set the current page to the death page
-	if is_dead == true:
+
+	if is_dead:
 		current_page = death_page
-	
-	# Get the output value from the choices dictionary
+
 	if content_dict[current_page]["choices"][str(choice_index)].has("output"):
 		get_parent().scroll_vertical = 0
 		var output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
-		
-	# Check for requirements in the choice
+
 		if content_dict[current_page]["choices"][str(choice_index)].has("requirement"):
 			var requirements = content_dict[current_page]["choices"][str(choice_index)]["requirement"]
 			for requirement in requirements.keys():
 				if player_stats[requirement] < requirements[requirement] and content_dict[current_page]["choices"][str(choice_index)].has("failed_output"):
 					if requirement == "mana":
-						var health_deduction
-						health_deduction = player_stats[requirement] - requirements[requirement]
+						var health_deduction = player_stats[requirement] - requirements[requirement]
 						player_stats["health"] += round(health_deduction * 1.5)
-						statindicator.text = statindicator.text + "\n" + "[color=red]" + str("health") + " has decreased by " + str(round(-health_deduction * 1.5)) + "[/color]"
+						statindicator.text += "\n[color=red]" + str("health") + " has decreased by " + str(round(-health_deduction * 1.5)) + "[/color]"
 						used_hp = true
 						output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
 					else:
 						output_value = content_dict[current_page]["choices"][str(choice_index)]["failed_output"]
-						
-		
-		# Apply buffs if present in the choice
+
 		if content_dict[current_page]["choices"][str(choice_index)].has("buffs"):
 			var buff_value = content_dict[current_page]["choices"][str(choice_index)]["buffs"]
-			print(buff_value.keys())
 			for key in buff_value.keys():
 				if buff_value[key] >= 0:
-					statindicator.text = statindicator.text + "\n" + "[color=green]" + str([key][0]) + " has increased by " + str(buff_value[key]) + "[/color]"
-				elif buff_value[key] < 0:
-					statindicator.text = statindicator.text + "\n" + "[color=red]" + str([key][0]) + " has decreased by " + str(-buff_value[key]) + "[/color]"
+					statindicator.text += "\n[color=green]" + key + " has increased by " + str(buff_value[key]) + "[/color]"
+				else:
+					statindicator.text += "\n[color=red]" + key + " has decreased by " + str(-buff_value[key]) + "[/color]"
 				player_stats[key] += buff_value[key]
 
-		# Set the current page to the output value
+		# Update current page and load content
 		current_page = output_value
-		print(content_dict[output_value])
 		set_content(content_dict[output_value])
 
-		
+		# Save current progress (save_game is now a method on an instance)
+		var save_manager = SaveManager.new()
+		save_manager.save_game(current_page, player_stats)
+
 
 
 # Function to set the content of the current page

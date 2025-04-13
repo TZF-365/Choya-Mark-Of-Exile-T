@@ -26,6 +26,7 @@ exit="*res://logic/backend/exitgame.gd"
 entitymanager="*res://logic/manager/EntityManager.gd"
 Fadetransition="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
+Save="*res://logic/backend/save_manager.gd"
 
 [display]
 

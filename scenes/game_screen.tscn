@@ -428,10 +428,9 @@ autoplay = true
 [node name="Timer" type="Timer" parent="AudioStreamPlayer"]
 one_shot = true
 
-[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player", "sound_effect_player")]
+[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 script = ExtResource("14_g78m6")
 audio_player = NodePath("../AudioStreamPlayer")
-sound_effect_player = NodePath("../soundeffectplayer")
 
 [node name="soundeffectplayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_8tvxp")
