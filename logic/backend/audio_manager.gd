@@ -15,6 +15,7 @@ var scene_audio_streams = {
 	"Battlemusic": preload("res://assets/Music/03_Melee.ogg"), 
 	"victory": preload("res://assets/Music/2000_Peace.ogg"),
 	"Village1": preload("res://assets/Music/Scene1.ogg"),
+	"Silentforest": preload("res://assets/Music/i_just_want_to_go_home.mp3")
 }
 
 # Call this to change the background music

@@ -25,7 +25,8 @@ func _on_start_button_pressed():
 	Fadetransition.transition()
 	await Fadetransition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
-	
+
+
 
 
 func _on_exit_pressed():

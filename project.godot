@@ -12,11 +12,13 @@ config_version=5
 
 config/name="InteractiveNovel"
 config/description="Combat rpg story game made by Glenville Dixon Jr"
-config/version="0.4"
+config/version="0.5"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
-boot_splash/image="res://assets/sprites/ui/ui-grabber.png"
+boot_splash/show_image=false
+boot_splash/use_filter=false
+boot_splash/image="uid://j8f05j1djd2f"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -27,6 +29,8 @@ entitymanager="*res://logic/manager/EntityManager.gd"
 Fadetransition="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 Save="*res://logic/backend/save_manager.gd"
+LoadButton="*res://logic/backend/load_button.gd"
+SaveButton="*res://logic/backend/save_button.gd"
 
 [display]
 

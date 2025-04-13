@@ -50,7 +50,7 @@
 	"000_prologue_3": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "The forest looms around me, ancient and unyielding. Towering trees stretch into the heavens, their branches clawing at the sky.",
+		"narr_text": "The forest looms around me, ancient and unyielding. Towering trees stretch into the heavens, their branches clawing at the sky and dense green mana surrounds me, almost confusing my perception of day and night.",
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
@@ -61,7 +61,7 @@
 	"000_prologue_3_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "The air is thick with the scent of earth and decay. Somewhere in the distance, a howl shatters the silence, sending a chill down my spine.",
+		"narr_text": "The air is thick with the scent of earth and mana. Somewhere in the distance, a howl shatters the silence, sending a chill down my spine.",
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
@@ -165,7 +165,7 @@
 	"001_intro": {
 		"title": "",
 		"picture": "res://assets/art/Forest_Path.jpg",
-		"narr_text": "The forest is alive with sounds—howls that pierce the night, rustling leaves that hint at unseen predators. I stagger to my feet, my body screaming in protest. I have nothing but my will and this cursed mark. Somewhere in the distance, I see the faint glow of torches. A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
+		"narr_text": "The forest darkens as the mana subsides. and you realize the forest is alive with sounds—howls that pierce the night, rustling leaves that hint at unseen predators. I stagger to my feet, my body screaming in protest. I have nothing but my will and this cursed mark. Somewhere in the distance, I see the faint glow of torches. A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
 		"choices": {
 			"1": {
 				"text": "Head toward the lights, hoping for sanctuary.",
@@ -194,7 +194,7 @@
 	},
 	"001_wandering_2": {
 		"title": "W",
-		"picture": "res://assets/art/Dense_Forest.jpg",
+		"picture": "res://assets/art/Dark_Forest.jpg",
 		"narr_text": "The trees feel closer now, their ancient bark like gnarled faces frozen in silent judgment. My name echoes in my mind—Lyaris Alaric Talbot.",
 		"choices": {
 			"1": {
@@ -206,7 +206,7 @@
 
 	"001_wandering_2_c1": {
 		"title": "",
-		"picture": "res://assets/art/Dense_Forest.jpg",
+		"picture": "res://assets/art/Dark_Forest.jpg",
 		"narr_text": "I repeat it under my breath as though it might anchor me. I was a mercenary. No... more than that. A soldier? A sellsword? Images blur together—fights won, scars earned, faces forgotten.",
 		"choices": {
 			"1": {
@@ -236,7 +236,7 @@
 	},
 	"001_wandering_4": {
 		"title": "Wandering: The Endless Forest",
-		"picture": "res://assets/art/Thick_Forest.jpg",
+		"picture": "res://assets/art/Night_Forest.jpg",
 		"narr_text": "The darkness feels alive, the forest pressing in on all sides. I catch glimpses of movement in the corner of my eye, but when I turn, there’s nothing there. My breath is steady, but my mind races. Who am I really? The answer lies somewhere in the void of my memory. Each step feels heavier, as though the weight of the question is sinking me into the earth itself.",
 		"choices": {
 			"1": {
@@ -368,7 +368,7 @@
 	},
 	"005_partial_truth": {
 		"title": "A Fragile Alliance",
-		"picture": "res://assets/art/Inn_Dialogue.jpg",
+		"picture": "res://assets/art/iiXNCDUe.jpg",
 		"narr_text": "'My name is Lyaris,' you begin cautiously. 'I’ve been... searching for answers. That mark you saw—it’s tied to something I don’t fully understand yet.'\n\nHer gaze softens slightly. 'Answers, huh? Sounds like a dangerous kind of journey. You’re lucky I found you when I did.'\n\nShe leans back, crossing her arms. 'Name’s Kaela, by the way. And you’re not the only one with secrets. Let’s just say helping you wasn’t entirely selfless.'\n\nHer cryptic comment leaves you with more questions than answers. Before you can press her, she stands. 'We should talk more, but first, you need to eat. Rest up. We’ll need to move soon.'",
 		"choices": {
 			"1": {

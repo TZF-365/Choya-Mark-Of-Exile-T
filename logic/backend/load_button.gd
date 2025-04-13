@@ -1,8 +1,13 @@
-extends Button
+extends SaveManager
 
 # Preload SaveManager and the scene
 var save_manager_script = preload("res://logic/backend/save_manager.gd")
 var game_scene = preload("res://scenes/game_screen.tscn")
+var current_chapter = ""
+var stat = {}
+var start_page = ""
+
+
 
 func _pressed():
 	var save_manager = save_manager_script.new()
