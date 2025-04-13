@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 extends Node
 
 class_name SaveManager
@@ -21,3 +22,6 @@ func load_game() -> Dictionary:
 		file.close()
 		return data
 	return {}  # Return empty if load fails
+=======
+extends Resource
+>>>>>>> parent of 2a0b700 (Saves)

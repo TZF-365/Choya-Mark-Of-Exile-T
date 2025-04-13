@@ -6,6 +6,7 @@ res://assets/pixelart/game_screen_di.tres
 res://assets/pixelart/pixelart.tres
 res://scenes/game_screen.tscn
 res://scenes/main_menu.tscn
+<<<<<<< HEAD
 res://logic/data/info/ContentContainer.gd
 res://logic/backend/load_button.gd
 res://logic/data/info/game_screen.gd
@@ -15,3 +16,10 @@ res://logic/data/info/ChoicesFunction.gd
 res://logic/data/ent/entity1.gd
 res://logic/data/info/ChoiceButtons.gd
 res://logic/backend/main_menu.gd
+=======
+res://scenes/Simple_Combat_Ui.tscn
+res://scenes/entities/BaseItem.tscn
+res://logic/data/info/storyvariables.gd
+res://scenes/Mainmenumusic.gd
+res://logic/backend/viewport_container.gd
+>>>>>>> parent of 2a0b700 (Saves)

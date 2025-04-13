@@ -1,9 +1,13 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=43 format=3 uid="uid://bgo6cn334xsl1"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cdnevgb57eqgl" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 [ext_resource type="Script" uid="uid://bqjolobwp7aan" path="res://scenes/backgroundmusiccombatscreen.gd" id="3_qmrhv"]
+=======
+[ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
+>>>>>>> parent of 2a0b700 (Saves)
 [ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
@@ -142,6 +146,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6yria")
+names = null
+max_val = null
+current_val = null
+stamina = null
+max_stamina = null
+mana = null
+max_mana = null
+action_points = null
+max_action_points = null
+is_alive = null
+max_part_val = null
+damage_percentage = null
+is_defending = null
+is_dodging = null
+status_effects = null
+combat_state = null
+stats = null
+skills = null
+equipment = null
+body_part_val = null
+story_var = null
 metadata/_edit_vertical_guides_ = [-10.0]
 
 [node name="buttonpress" type="Node" parent="."]
@@ -149,10 +174,8 @@ script = ExtResource("2_7jpoa")
 
 [node name="entity_var" type="Node" parent="."]
 
-[node name="Backgroundmusic" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("audio_player")]
+[node name="Backgroundmusic" type="AudioStreamPlayer" parent="."]
 pitch_scale = 1.09
-script = ExtResource("3_qmrhv")
-audio_player = NodePath(".")
 
 [node name="soundeffects" type="AudioStreamPlayer" parent="."]
 pitch_scale = 1.09
