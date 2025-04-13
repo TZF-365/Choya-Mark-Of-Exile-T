@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://uikvv2grxime"]
 
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="1_n5ige"]
-[ext_resource type="Script" path="res://logic/data/info/game_screen.gd" id="1_phe23"]
-[ext_resource type="Script" path="res://logic/data/info/ContentContainer.gd" id="1_vm8fd"]
-[ext_resource type="Script" path="res://logic/data/info/ChoiceButtons.gd" id="3_ujsj7"]
+[ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="1_phe23"]
+[ext_resource type="Script" uid="uid://cg4aurqgf8ev6" path="res://logic/data/info/ContentContainer.gd" id="1_vm8fd"]
+[ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="3_ujsj7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr7y1"]
 

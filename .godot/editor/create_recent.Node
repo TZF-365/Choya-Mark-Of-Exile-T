@@ -1,5 +1,7 @@
-BaseChar
+AudioStreamPlayer
+AudioStreamPlayer2D
 Node
+BaseChar
 Node2D
 HBoxContainer
 Panel
@@ -9,6 +11,4 @@ Button
 VBoxContainer
 MarginContainer
 Control
-AudioStreamPlayer
-AudioStreamPlayer2D
 Timer

@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bipm0b0u56y5u"]
+[gd_scene load_steps=4 format=3 uid="uid://bipm0b0u56y5u"]
 
-[ext_resource type="Script" path="res://logic/data/ent/gamelogic.gd" id="1_ajk7k"]
-[ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="1_fw337"]
-[ext_resource type="Script" path="res://logic/data/info/storyvariables.gd" id="3_ace8a"]
-[ext_resource type="Script" path="res://logic/data/ent/entity.gd" id="4_lopv4"]
-[ext_resource type="Script" path="res://logic/data/combatLogic/combatmanager.gd" id="5_wohjv"]
+[ext_resource type="Script" uid="uid://dni711p5dsmoy" path="res://logic/data/info/storyvariables.gd" id="3_ace8a"]
+[ext_resource type="Script" uid="uid://djuy3hctcoym8" path="res://logic/data/ent/entity1.gd" id="4_lopv4"]
+[ext_resource type="Script" uid="uid://de51nto0lgb2i" path="res://logic/data/combatLogic/combatmanager.gd" id="5_wohjv"]
 
 [node name="Gamelogic" type="Node2D"]
 position = Vector2(7, 8)
-script = ExtResource("1_ajk7k")
 
 [node name="entity_var" type="Node" parent="."]
-script = ExtResource("1_fw337")
 
 [node name="storyvariables" type="Node" parent="."]
 script = ExtResource("3_ace8a")

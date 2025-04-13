@@ -4,20 +4,18 @@ extends Node
 @onready var timer = $"../AudioStreamPlayer/Timer"
 
 # List of songs to play
-@onready var songs = [
-	preload("res://assets/Music/buttonpress.mp3")
-]
+@onready var songs = preload("res://assets/Music/buttonpress.mp3")
 
-var current_song_index = 0
-
-
-func play_song(index: int):
+#func play_song(index: int):
 	# Assign and play the song
 	
-	audio_player.stream = songs[index]
-	audio_player.play(0.22)
-	print("Playing song: ", songs[index].resource_path)
+	#audio_player.stream = songs
+	#audio_player.play(0.0)
+	#print("Playing song: ", songs.resource_path)
+	#print(songs)
 
 
 func _on_button_pressed() -> void:
-	play_song(current_song_index)
+	audio_player.play(0.2)
+	print("Playing song: ", songs.resource_path)
+	print(songs)

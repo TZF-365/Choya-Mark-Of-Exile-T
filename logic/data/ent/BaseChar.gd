@@ -13,7 +13,7 @@ class_name BaseChar
 @export var max_action_points: int = 4
 @export var is_alive: bool = true
 @export var max_part_val: int = 1
-@export var amount: int = 1
+@export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
 
 # Combat status
@@ -91,7 +91,7 @@ func take_damage(amount: int, body_part: String):
 
 func apply_status_effects(body_part: String):
 	if body_part in body_part_val:
-		max_part_val = body_part_val[body_part] + amount  # Calculate original max body part VAL
+		max_part_val = body_part_val[body_part] + body_part_amount  # Calculate original max body part VAL
 		damage_percentage = (max_part_val - body_part_val[body_part]) / max_part_val * 100
 
 		# Example effects based on damage percentage

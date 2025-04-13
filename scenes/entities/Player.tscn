@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bx32qsew5hl3x"]
 
-[ext_resource type="Script" path="res://logic/data/ent/player.gd" id="1_vgsr7"]
+[ext_resource type="Script" uid="uid://cbalwifbhpjdf" path="res://logic/data/ent/player.gd" id="1_vgsr7"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vgsr7")

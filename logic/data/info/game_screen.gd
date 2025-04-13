@@ -1,9 +1,9 @@
 extends PanelContainer
+class_name CSLogic
 
+@onready var entity_var
 
-@onready var entity_var: entity_var = $entity_var
-
-@onready var stat = $entity_var.stat
+@onready var stat = $entity_var.core_entity
 
 @onready var stats_label = $MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label
 @onready var bcg = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC
@@ -16,9 +16,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
-	for stats in stat:
-		if stat[stats] <=0:
-			stat[stats] = 0
+	
+	if "Val" in stat:  # Ensure "Val" exists in the dictionary
+		if int(stat["Val"]) <= 1:
+			stat["Val"] = 0
+
 
 
 func _on_button_pressed():

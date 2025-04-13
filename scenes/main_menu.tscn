@@ -1,16 +1,17 @@
-[gd_scene load_steps=35 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=36 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://assets/pixelart/pixelart.tres" id="1_0bcbq"]
-[ext_resource type="Script" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
+[ext_resource type="Script" uid="uid://cdovf2anj17a" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="1_i2dk5"]
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://assets/pixelart/button_normal_style.tres" id="2_40phc"]
-[ext_resource type="PackedScene" path="res://scenes/utilities/circle_transition.tscn" id="3_lqaap"]
+[ext_resource type="PackedScene" uid="uid://cbd6qlawp2u3l" path="res://scenes/utilities/circle_transition.tscn" id="3_lqaap"]
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://assets/pixelart/button_pressed_style.tres" id="3_u8ajb"]
 [ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://assets/sprites/ui/ui-tileset.png" id="4_05n6c"]
-[ext_resource type="Script" path="res://logic/backend/audio_menu.gd" id="4_mjs4o"]
-[ext_resource type="Script" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
+[ext_resource type="Script" uid="uid://da5yr06jbidxq" path="res://logic/backend/audio_menu.gd" id="4_mjs4o"]
+[ext_resource type="Script" uid="uid://crbktcitbaljs" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
-[ext_resource type="PackedScene" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="Script" uid="uid://f3nim7w4ggco" path="res://scenes/Mainmenumusic.gd" id="12_flqon"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -157,9 +158,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xq8ga"]
 _data = {
-"RESET": SubResource("Animation_ro8gj"),
-"main_menu": SubResource("Animation_u1ere"),
-"settings_menu": SubResource("Animation_ns3jf")
+&"RESET": SubResource("Animation_ro8gj"),
+&"main_menu": SubResource("Animation_u1ere"),
+&"settings_menu": SubResource("Animation_ns3jf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0fc5"]
@@ -292,9 +293,14 @@ text = "Exit"
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.06667
-anchor_right = 2.06667
-anchor_bottom = 1.0
+anchor_left = 1.0963
+anchor_top = 0.025
+anchor_right = 2.0963
+anchor_bottom = 1.025
+offset_left = -32.004
+offset_top = -48.0
+offset_right = -32.0039
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
@@ -395,14 +401,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Return"
 
+[node name="Node" type="Node" parent="Settings Menu" node_paths=PackedStringArray("audio_player")]
+script = ExtResource("12_flqon")
+audio_player = NodePath("../../AudioStreamPlayer")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xq8ga")
+&"": SubResource("AnimationLibrary_xq8ga")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_6w8s2")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Button" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]

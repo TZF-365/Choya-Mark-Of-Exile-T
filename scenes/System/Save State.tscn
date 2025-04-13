@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr150w8g4dwep"]
+
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="1_wf1c7"]
+[ext_resource type="PackedScene" uid="uid://cbd6qlawp2u3l" path="res://scenes/utilities/circle_transition.tscn" id="2_hrpvh"]
+
+[node name="SaveState" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wf1c7")
+SceneTransitionManager = null
+load_transition = ExtResource("2_hrpvh")

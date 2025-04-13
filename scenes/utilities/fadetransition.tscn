@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdfbim2nhuflx"]
 
-[ext_resource type="Script" path="res://logic/data/info/fadetransition.gd" id="1_n01id"]
+[ext_resource type="Script" uid="uid://c2pnl6n8y8ptc" path="res://logic/data/info/fadetransition.gd" id="1_n01id"]
 
 [sub_resource type="Animation" id="Animation_ypxfv"]
 resource_name = "Fadein"
@@ -51,9 +51,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rbyov"]
 _data = {
-"Fadein": SubResource("Animation_ypxfv"),
-"Fadeout": SubResource("Animation_4prqo"),
-"RESET": SubResource("Animation_7ul77")
+&"Fadein": SubResource("Animation_ypxfv"),
+&"Fadeout": SubResource("Animation_4prqo"),
+&"RESET": SubResource("Animation_7ul77")
 }
 
 [node name="Fadetransition" type="CanvasLayer"]
@@ -70,5 +70,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rbyov")
+&"": SubResource("AnimationLibrary_rbyov")
 }

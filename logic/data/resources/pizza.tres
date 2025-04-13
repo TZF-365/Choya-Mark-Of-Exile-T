@@ -1,19 +1,35 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dlthd2qbic8o1"]
+[gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://dlthd2qbic8o1"]
 
-[ext_resource type="Script" path="res://logic/data/ent/BaseItem.gd" id="1_5egts"]
+[ext_resource type="Script" uid="uid://c1sjfbl1sk0jc" path="res://logic/data/ent/BaseItem.gd" id="1_5egts"]
 
 [resource]
 script = ExtResource("1_5egts")
 name = "Pizza"
-Item = ""
-equip = "Weapon"
-pstatus = ""
-nameis = ""
-vitality_points = 0
-max_vitality = 100
-current_vitality = 100
-max_stamina = 100
-current_stamina = 100
-exhaustion = 0.0
-stability = 1.0
 description = "itz a pizza"
+item_type = "Generic"
+weight = 1.0
+value = 1
+rarity = "Common"
+owner = "Null"
+is_stolen = false
+acquisition_method = "Found"
+is_usable = false
+use_effects = {}
+is_quest_item = false
+quest_id = 0
+quest_progress = {}
+is_weapon = false
+damage_types = {
+"fire": 0,
+"magical": 0,
+"physical": 0
+}
+weapon_class = "None"
+attack_speed = 1.0
+durability = 100
+is_two_handed = false
+stackable = false
+max_stack = 1
+interactable_with_world = true
+is_dynamic = false
+generation_seed = 0

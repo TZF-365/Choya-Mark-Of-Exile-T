@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://buchndkuou2eu"]
 
-[ext_resource type="Script" path="res://logic/data/combatLogic/combatui.gd" id="1_hg87q"]
+[ext_resource type="Script" uid="uid://c85xerk0j4ha" path="res://logic/data/combatLogic/combatui.gd" id="1_hg87q"]
 [ext_resource type="Texture2D" uid="uid://bwnjhsw1h5uq6" path="res://assets/art/background3.jpg" id="1_phc17"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="2_1e0dr"]
 [ext_resource type="PackedScene" uid="uid://b7woe43g8ick" path="res://scenes/utilities/CombatScene/CombatScene.tscn" id="4_rin1x"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="5_q67yx"]
 [ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="6_psah1"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="7_tdk5w"]
-[ext_resource type="Script" path="res://logic/data/ent/BaseChar.gd" id="8_1fxls"]
+[ext_resource type="Script" uid="uid://drtvjpumoqsuw" path="res://logic/data/ent/BaseChar.gd" id="8_1fxls"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlfvo"]
 texture = ExtResource("1_phc17")
@@ -134,12 +134,24 @@ attack_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBo
 defend_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/defend")
 dodge_button = NodePath("../Panel/MarginContainer/Panel/VBoxContainer/Panel/HBoxContainer/dodge")
 
-[node name="EnemyAi" parent="." node_paths=PackedStringArray("enemy", "player") instance=ExtResource("7_tdk5w")]
-enemy = NodePath("Goblin")
-player = NodePath("Player")
+[node name="EnemyAi" parent="." instance=ExtResource("7_tdk5w")]
 
 [node name="Player" parent="EnemyAi" instance=ExtResource("5_q67yx")]
-names = "Lycarus"
+max_val = 99
+current_val = 99
+stamina = null
+max_stamina = null
+mana = null
+max_mana = null
+action_points = null
+max_action_points = null
+is_alive = null
+max_part_val = null
+damage_percentage = null
+is_defending = null
+is_dodging = null
+status_effects = null
+combat_state = null
 stats = {
 "agility": 5,
 "dextarity": 4,
@@ -148,11 +160,27 @@ stats = {
 "strength": 10,
 "toughness": 5
 }
+skills = null
+equipment = null
+body_part_val = null
+story_var = null
 
 [node name="Goblin" parent="EnemyAi" instance=ExtResource("6_psah1")]
-names = "Goblin"
 max_val = 80
 current_val = 80
+stamina = null
+max_stamina = null
+mana = null
+max_mana = null
+action_points = null
+max_action_points = null
+is_alive = null
+max_part_val = null
+damage_percentage = null
+is_defending = null
+is_dodging = null
+status_effects = null
+combat_state = null
 stats = {
 "agility": 5,
 "dextarity": 4,
@@ -161,6 +189,10 @@ stats = {
 "strength": 9,
 "toughness": 6
 }
+skills = null
+equipment = null
+body_part_val = null
+story_var = null
 
 [node name="BaseChar" type="Node2D" parent="."]
 script = ExtResource("8_1fxls")

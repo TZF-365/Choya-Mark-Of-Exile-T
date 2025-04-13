@@ -1,18 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://cuuoij23c56oa"]
+[gd_scene load_steps=16 format=3 uid="uid://cuuoij23c56oa"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_wigro"]
-[ext_resource type="Script" path="res://logic/data/info/game_screen.gd" id="2_oj5ha"]
+[ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_oj5ha"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="3_56o04"]
-[ext_resource type="Script" path="res://logic/data/info/ContentContainer.gd" id="4_7tcyd"]
+[ext_resource type="Script" uid="uid://cg4aurqgf8ev6" path="res://logic/data/info/ContentContainer.gd" id="4_7tcyd"]
 [ext_resource type="FontFile" uid="uid://d2j8aqtfjj0r5" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf" id="5_36em4"]
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="6_x8f7t"]
-[ext_resource type="Script" path="res://logic/data/info/ChoiceButtons.gd" id="7_uevkj"]
+[ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="7_uevkj"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="8_tnw10"]
 [ext_resource type="AudioStream" uid="uid://dyc1hcpap8y20" path="res://assets/Music/orchestra-fantasy.mp3" id="9_ilkbt"]
-[ext_resource type="Script" path="res://logic/backend/exitgame.gd" id="10_80mia"]
+[ext_resource type="Script" uid="uid://mmv48rtxyh64" path="res://logic/backend/exitgame.gd" id="10_80mia"]
 [ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="11_0jsct"]
-[ext_resource type="Script" path="res://logic/data/ent/entity.gd" id="11_adbq5"]
-[ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="13_dmfjc"]
+[ext_resource type="Script" uid="uid://djuy3hctcoym8" path="res://logic/data/ent/entity1.gd" id="11_adbq5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_wigro")
@@ -294,7 +293,6 @@ theme_override_font_sizes/font_size = 20
 text = "Exit"
 
 [node name="entity_var" type="Node" parent="."]
-script = ExtResource("13_dmfjc")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/ContentContainer/MarginContainer/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/ScrollContainer/ContentContainer/MarginContainer/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]

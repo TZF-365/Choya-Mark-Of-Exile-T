@@ -1,8 +1,8 @@
 extends VBoxContainer
 
 #Declared entity node and connected it to 
-@onready var entity_var: entity_var = $"../../../../../entity_var"
-@onready var player_stats = entity_var.stat
+@onready var entity_var = $"../../../../../entity_var"
+@onready var player_stats = entity_var.core_entity
 
 
 var used_hp = false
@@ -47,9 +47,9 @@ func _ready() -> void:
 	choice_4.connect("choice_btn_pressed", Callable(self, "process_choice"))
 
 
-func _process(delta):
-	player_stats = entity_var.stat
-	if player_stats["health"] <=0:
+func _process(_delta):
+	player_stats = entity_var.core_entity
+	if player_stats["Val"] <=0:
 		is_dead = true 
 		
 	if is_dead and shown_death == false:

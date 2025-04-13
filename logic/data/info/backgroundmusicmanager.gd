@@ -1,12 +1,38 @@
 extends Node
+class_name Music_Manager
 
-@onready var audio_player = $"../AudioStreamPlayer"
-@onready var timer = $"../AudioStreamPlayer/Timer"
+
+@export var audio_player: AudioStreamPlayer
+@export var audio_player2: AudioStreamPlayer
+@export var sound_effect_player: AudioStreamPlayer
+@onready var timer: Timer
+
+# Dictionary of audio streams (optional if loading via files or inspector)
+var scene_audio_streams = {
+	"main_menu": preload("res://assets/Music/Calmingmusic.mp3"),
+	"battlestart": preload("res://assets/Music/Battle1Start.ogg"),
+	"Battlemusic": preload("res://assets/Music/03_Melee.ogg"), 
+	"victory": preload("res://assets/Music/2000_Peace.ogg"),
+	"Village1": preload("res://assets/Music/Scene1.ogg"),
+}
+
+# Call this to change the background music
+func play_scene_audio(scene_key: String):
+	if scene_audio_streams.has(scene_key):
+		audio_player.stream = scene_audio_streams[scene_key]
+		audio_player.play()
+	else:
+		print("Audio for scene '%s' not found!" % scene_key)
+
+
+
 
 # List of songs to play
 @onready var songs = [
+	preload("res://assets/Music/Dandadan_OPMED.mp3"),
+	preload("res://assets/Music/Chainsaw-Man-OPMED.mp3"),
 	preload("res://assets/Music/battlemusic.mp3"),
-	preload("res://assets/Music/music.mp3"),
+	preload("res://assets/Music/Calmingmusic.mp3"),
 	preload("res://assets/Music/orchestra-fantasy.mp3")
 ]
 
@@ -14,11 +40,13 @@ var current_song_index = 0
 
 func _ready():
 	# Start playing the first song
-	play_song(current_song_index)
+	# play_song(current_song_index)
+	play_scene_audio("main_menu")
+	
 	
 	# Configure the timer
-	timer.start(12)
-	timer.wait_time = 8.0  # Time in seconds before switching songs
+	timer.start()
+	timer.wait_time = 90.0  # Time in seconds before switching songs
 	timer.autostart = true
 	timer.timeout.connect(_on_timer_timeout)  # Updated to use Callable
 

@@ -1,11 +1,35 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://th1llugc7wnt"]
+[gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://th1llugc7wnt"]
 
-[ext_resource type="Script" path="res://logic/data/ent/BaseItem.gd" id="1_t6jw8"]
+[ext_resource type="Script" uid="uid://c1sjfbl1sk0jc" path="res://logic/data/ent/BaseItem.gd" id="1_t6jw8"]
 
 [resource]
 script = ExtResource("1_t6jw8")
 name = "potion"
-disk = "lma"
-type = "Item"
-rarity = "Common"
 description = "itz a potion boi"
+item_type = "Generic"
+weight = 1.0
+value = 1
+rarity = "Common"
+owner = "Null"
+is_stolen = false
+acquisition_method = "Found"
+is_usable = false
+use_effects = {}
+is_quest_item = false
+quest_id = 0
+quest_progress = {}
+is_weapon = false
+damage_types = {
+"fire": 0,
+"magical": 0,
+"physical": 0
+}
+weapon_class = "None"
+attack_speed = 1.0
+durability = 100
+is_two_handed = false
+stackable = false
+max_stack = 1
+interactable_with_world = true
+is_dynamic = false
+generation_seed = 0

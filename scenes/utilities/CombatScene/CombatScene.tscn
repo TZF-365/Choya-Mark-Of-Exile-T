@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7woe43g8ick"]
 
-[ext_resource type="Script" path="res://logic/data/info/CombatManager.gd" id="1_go1c1"]
-[ext_resource type="Script" path="res://logic/data/combatLogic/damage_calculator.gd" id="2_viekl"]
+[ext_resource type="Script" uid="uid://cqo6lnx0jtsuc" path="res://logic/data/info/CombatManager.gd" id="1_go1c1"]
+[ext_resource type="Script" uid="uid://buecmcurl6ij2" path="res://logic/data/combatLogic/damage_calculator.gd" id="2_viekl"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_go1c1")

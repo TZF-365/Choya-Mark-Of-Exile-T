@@ -14,14 +14,16 @@ var content_dict: Dictionary = {}
 func _ready():
 	# Load the content dictionary from the dialog file
 	load_content_dict()
+	print(content_dict)
 	
 	
 # Function to load the content dictionary
 func load_content_dict():
-	# Open the file for reading
-	var f = FileAccess.open(dialogPath, FileAccess.READ)
 	# Check if the file exists
-	assert(f.file_exists(dialogPath),"File path does not exist")
+	assert(FileAccess.file_exists(dialogPath), "File path does not exist")
+		# Open the file for reading
+	var f = FileAccess.open(dialogPath, FileAccess.READ)
+	
 	
 	# Read the content of the file as text
 	var json = f.get_as_text()

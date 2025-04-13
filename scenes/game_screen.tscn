@@ -1,19 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
-[ext_resource type="Script" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
+[ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_psx4x"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="6_f2aae"]
 [ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="6_xb4sa"]
 [ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="7_e2y3v"]
-[ext_resource type="Script" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
+[ext_resource type="Script" uid="uid://cg4aurqgf8ev6" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
 [ext_resource type="FontFile" uid="uid://d2j8aqtfjj0r5" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf" id="9_v7c4i"]
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
-[ext_resource type="Script" path="res://logic/data/ent/entity_var.gd" id="11_c4od3"]
-[ext_resource type="Script" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
+[ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="12_q6fd1"]
-[ext_resource type="Script" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
-[ext_resource type="Script" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
+[ext_resource type="Script" uid="uid://djuy3hctcoym8" path="res://logic/data/ent/entity1.gd" id="12_vqtp5"]
+[ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
+[ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
+[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_crt81")
@@ -418,18 +419,22 @@ text = "BGC"
 metadata/_edit_use_anchors_ = true
 
 [node name="entity_var" type="Node" parent="."]
-script = ExtResource("11_c4od3")
+script = ExtResource("12_vqtp5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8tvxp")
 autoplay = true
 
 [node name="Timer" type="Timer" parent="AudioStreamPlayer"]
 one_shot = true
 
-[node name="Backgroundmusic" type="Node" parent="."]
+[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player", "sound_effect_player")]
 script = ExtResource("14_g78m6")
+audio_player = NodePath("../AudioStreamPlayer")
+sound_effect_player = NodePath("../soundeffectplayer")
 
 [node name="soundeffectplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8tvxp")
 volume_db = -12.48
 pitch_scale = 0.65
 
