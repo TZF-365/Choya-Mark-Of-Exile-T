@@ -22,4 +22,7 @@ res://scenes/entities/BaseItem.tscn
 res://logic/data/info/storyvariables.gd
 res://scenes/Mainmenumusic.gd
 res://logic/backend/viewport_container.gd
+<<<<<<< HEAD
+>>>>>>> parent of 2a0b700 (Saves)
+=======
 >>>>>>> parent of 2a0b700 (Saves)

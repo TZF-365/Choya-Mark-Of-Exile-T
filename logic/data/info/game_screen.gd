@@ -2,8 +2,14 @@ extends ChoiceM
 class_name CSLogic
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var save_manager = SaveManager.new()
 @onready var stat = $entity_var.core_entity 
+=======
+@onready var entity_var
+
+@onready var stat = $entity_var.core_entity
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 @onready var entity_var
 
@@ -16,6 +22,7 @@ var save_manager = SaveManager.new()
 
 func _ready():
 <<<<<<< HEAD
+<<<<<<< HEAD
 	stats_label.text = str("Val: " + str(stat["Val"]) + ", " + "Mana: " + str(stat["mana"]) + ", " + "Coins: " + str(stat["coins"]) + "\nStatus: " + str(stat["status"]))
 	# Create an instance of SaveManager when the scene is ready
 	# Save the game data at the start
@@ -24,16 +31,24 @@ func _ready():
 =======
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 >>>>>>> parent of 2a0b700 (Saves)
+=======
+	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
+>>>>>>> parent of 2a0b700 (Saves)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+<<<<<<< HEAD
 <<<<<<< HEAD
 	stats_label.text = str("Val: " + str(stat["Val"]) + ", " + "Mana: " + str(stat["mana"]) + ", " + "Coins: " + str(stat["coins"]) + "\nStatus: " + str(stat["status"]))
 
 	# Create an instance of SaveManager to save the game every frame
 	save_manager.save_game(current_page, stat)
 
+=======
+	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
+	
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 	
@@ -50,8 +65,11 @@ func _on_button_pressed():
 
 func _on_menu_pressed() -> void:
 <<<<<<< HEAD
+<<<<<<< HEAD
 	save_manager.save_game(current_page, stat)
 
+=======
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 >>>>>>> parent of 2a0b700 (Saves)
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

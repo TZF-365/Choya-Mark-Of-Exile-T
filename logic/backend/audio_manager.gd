@@ -7,6 +7,7 @@ var available = []  # The available players.
 var queue = []  # The queue of sounds to play.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @export var audio_player: AudioStreamPlayer
 @export var audio_player2: AudioStreamPlayer
 @export var sound_effects_player: AudioStreamPlayer
@@ -43,6 +44,8 @@ func play_scene_audio(scene_key: String):
 ]
 
 var current_song_index = 0
+=======
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 >>>>>>> parent of 2a0b700 (Saves)
 

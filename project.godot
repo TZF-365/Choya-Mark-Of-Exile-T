@@ -29,9 +29,12 @@ entitymanager="*res://logic/manager/EntityManager.gd"
 Fadetransition="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 <<<<<<< HEAD
+<<<<<<< HEAD
 Save="*res://logic/backend/save_manager.gd"
 LoadButton="*res://logic/backend/load_button.gd"
 SaveButton="*res://logic/backend/save_button.gd"
+=======
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 >>>>>>> parent of 2a0b700 (Saves)
 

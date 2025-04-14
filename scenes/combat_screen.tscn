@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cdnevgb57eqgl" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 [ext_resource type="Script" uid="uid://bqjolobwp7aan" path="res://scenes/backgroundmusiccombatscreen.gd" id="3_qmrhv"]
+=======
+[ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
+>>>>>>> parent of 2a0b700 (Saves)
 =======
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 >>>>>>> parent of 2a0b700 (Saves)
