@@ -42,11 +42,16 @@ func _ready():
 	# Start playing the first song
 	# play_song(current_song_index)
 <<<<<<< HEAD
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 	play_scene_audio("Silentforest")
 =======
 =======
 >>>>>>> parent of 2a0b700 (Saves)
+=======
+	play_scene_audio("Silentforest")
+=======
+>>>>>>> Stashed changes
 	play_scene_audio("main_menu")
 	
 	
@@ -73,7 +78,10 @@ func _on_timer_timeout():
 		play_song(current_song_index)
 		print("Music has Looped")
 		_ready()
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 >>>>>>> parent of 2a0b700 (Saves)
 =======
+=======
+>>>>>>> Stashed changes
 >>>>>>> parent of 2a0b700 (Saves)
