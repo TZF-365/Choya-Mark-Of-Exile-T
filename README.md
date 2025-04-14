@@ -1,90 +1,79 @@
-An interactive Story Project based on DnD Wizard's choice with branching paths and stat-based choices.
-# Interactive Story System
+Here's a new GitHub README tailored for your game **CHOYA – The Drakthyr Invasion**, acknowledging its foundation and describing its features, story, and inspiration:
 
-![image](https://github.com/user-attachments/assets/824ae954-1f49-4e34-9fb2-44c801d76dfe)
+---
 
-Welcome to the **Interactive Story System**! This project is a basic framework for creating interactive text-based stories using the Godot Engine. It allows players to make choices that influence the direction of the story, manage character stats, and engage with an immersive narrative.
+# CHOYA – The Drakthyr Invasion
 
-## Features
+![CHOYA Banner](https://github.com/user-attachments/assets/your_banner_placeholder.jpg)
 
-- **Dynamic Storytelling**: Branching narratives with player choices that determine the outcome of the story.
-- **Character Stats**: Track player stats like health and mana, which influence gameplay.
-- **Customizable UI**: Easy-to-customize interface for displaying narrative text, images, and choices.
-- **Death and Mana Systems**: Unique handling of player health and mana, including special events like death.
+**CHOYA** is an immersive, choice-driven, text-based RPG adventure developed in Godot 4, built on the foundation of the [Interactive Story System](https://github.com/user/interactive-story-system). This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate.
 
-![Screenshot 2024-08-07 201455](https://github.com/user-attachments/assets/40931e9d-d8f1-4709-8763-ad59885b4ae9)
+### 📘 Introduction
 
+The game begins with **Lyaris Alaric Talbot**, a man suffering from short-term memory loss, wandering a dense forest with no visible injuries—only exhaustion and a fading grasp on who he is. While trying to piece together his past, he's attacked by a wolf and saved at the last moment by a hunter named **Kaela**. Before he can thank her, he collapses.
 
-## How It Works
+When Lyaris awakens, he finds himself in different clothes, missing his dagger and map, and discovers he's been unconscious for three days. As Kaela guides him to a tavern to rest and talk, Lyaris grows suspicious—but Kaela reassures him with a sharp sense of honor. Their conversation is interrupted by a local villager reporting disturbances caused by wild boars, setting them on a new path together.
 
-The system uses a combination of GDScript and JSON to manage and display the story's content.
+As Lyaris explores the world, he will uncover not only the threads of his past but also face life-altering choices: join a secretive death cult, rise as a noble knight, chase economic power, or live as a wandering hero. Every choice matters, and every path has consequences.
 
-- **GDScript**: Handles the game logic, including processing player choices, updating stats, and managing the story flow.
-- **JSON**: Stores the narrative content, including titles, text, images, and choices.
+---
 
-### Core Script (`ContentContainer.gd`)
+## 🎮 Features
 
-The main script is responsible for the following:
+- **📜 Branching Narrative**: A rich, multi-path storyline with high replayability. Every decision influences the world, NPCs, and future quests.
+- **⚔️ Unique Combat System**: Stat-based combat mechanics that blend timing, strategy, and roleplay.
+- **🎨 Dynamic Visuals**: Atmospheric images, environmental focus tools, and ambient animations enhance immersion.
+- **🎶 Sound & Music**: Original soundtrack and handcrafted sound effects to match each scene’s mood.
+- **📊 Stat & Status Management**: Track and modify values like Val, Mana, Coins, and Status to access unique outcomes.
+- **🎭 Multiple Factions & Paths**: Align with guilds, death cults, knights, or rogue organizations—each with unique story arcs.
+- **🌍 Economic & Adventure Systems**: Engage in quests, manage resources, explore trade, and rise through the social strata.
+- **🛠 Modular Architecture**: Built with clean Godot 4 architecture and JSON-driven data for easy modding and campaign creation.
+- **🌟 Campaign Support**: Designed to support future standalone or linked campaigns across the Drakthyr world.
 
-- Initializing the story and loading the content from a JSON file.
-- Processing player choices and updating the story based on player decisions.
-- Managing character stats, such as health and mana, and determining the consequences of those stats on gameplay.
-- Handling special events, such as the player's death, and transitioning to relevant story segments.
+---
 
-### JSON Structure
+## ✨ Inspiration
 
-The narrative content is stored in a structured JSON format. Each story segment contains:
+This project was created by **Glenville Dixon Jr** in honor of one of his favorite mobile RPGs—**Magium**.
 
-- `title`: The title of the current page.
-- `picture`: (Optional) The path to an image displayed with the text.
-- `narr_text`: The narrative text shown to the player.
-- `choices`: A list of choices the player can make, each leading to a different story segment.
+> *“Magium is a text adventure game where you play as an ordinary guy trying to win a mage tournament against the most powerful mages in the world... As you progress, you uncover the mystery of ancient utopias, speak the language of monsters, and fight to save a dying world.”*
 
-Example:
-```json
-{
-	 "002_proceed_cautiously": {
-		"title": "Chapter 2: Darkwood Grove",
-		"picture": "res://assets/art/Forest_Path.jpg",
-		"narr_text": "You proceed cautiously through the grove...",
-		"choices": {
-			"1": {
-				"text": "Turn around quickly",
-				"output": "002_turn_around"
-			},
-			"2": {
-				"text": "Draw your weapon",
-				"output": "002_draw_weapon"
-			},
-			"3": {
-				"text": "Start conjuring a fireball spell \n(-20 mana)",
-				"requirement": {"mana": 20},
-				"buffs":{"mana": -20, "health": 1},
-				"output": "002_draw_weapon",
-				"failed_output": "002_ignore_creature"
-			}
-		}
-	}
-}
-```
+Much like **Magium**, **CHOYA** combines character-driven storytelling with deep systems and world-building to deliver a personal and epic journey for each player.
 
+---
 
-Getting Started
+## 🚀 Getting Started
 
-To run the project, you'll need to have Godot Engine installed.
+### Prerequisites
+- [Godot Engine 4.x](https://godotengine.org/download)
 
-    Clone this repository
-    Open the project in Godot Engine 4.
-    Explore the ContentContainer.gd script and Sample_Story.json to customize the narrative.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/CHOYA-Drakthyr-Invasion.git
+   ```
+2. Open the project in Godot 4.
+3. Run the main scene and begin your journey.
 
-How to Customize
+---
 
-    Adding New Story Segments: Edit the JSON file to add new pages, titles, text, images, and choices.
-    Customizing Stats: Modify the game_screen.gd to include additional stats.
-    Extending Functionality: Implement more complex game mechanics such as inventory systems, battle mechanics, or time-based events.
+## 🧰 Built On
 
-Contributing
+This project is built on top of the [Interactive Story System](https://github.com/user/interactive-story-system), which provided:
 
-Feel free to fork the repository and submit pull requests if you'd like to contribute. Whether it's bug fixes, new features, or improvements, all contributions are welcome!
+- JSON-based narrative loading
+- Player stat tracking
+- Event and story management logic
+- Custom UI elements for interactive stories
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+---
+
+## 💡 Contribute
+
+Want to expand the story, create your own campaigns, or add new systems? Fork the repo and send a pull request! We welcome writers, developers, artists, and audio creators.
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
