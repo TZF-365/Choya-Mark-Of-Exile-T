@@ -334,7 +334,7 @@
 	},
 	"004_waking_in_inn": {
 		"title": "A Strange Awakening",
-		"picture": "res://assets/art/Inn_Room.jpg",
+		"picture": "res://assets/art/Inn1.jpg",
 		"narr_text": "You wake to the gentle creak of wooden beams and the faint smell of stew wafting through the air. A soft bed cradles your aching body, a stark contrast to the harsh forest floor. The woman from before is seated across the room, idly polishing her bow.\n\nShe notices you stirring and offers a smile. 'Glad to see you're alive,' she says. 'You’ve got some explaining to do, though.'\n\nHer words are light, but her eyes are sharp, assessing you. You realize your mark is still hidden, for now. The question is, how much do you tell her?",
 		"choices": {
 			"1": {
@@ -349,7 +349,7 @@
 	},
 	"004_conversation": {
 		"title": "A Tense Exchange",
-		"picture": "res://assets/art/Archer_Woman_Talking.jpg",
+		"picture": "res://assets/art/Inn1.jpg",
 		"narr_text": "The archer leans forward, resting her elbows on her knees as she studies you. 'So, you’re not just some lost traveler, are you?' she says, her tone light but her eyes sharp. 'That mark of yours... it’s not something you see every day.'\n\nYour hand instinctively brushes over the faint glow on your wrist, now barely visible under your sleeve. She caught a glimpse, then. You’ll need to tread carefully.\n\n'What’s your name?' she asks, tilting her head. 'And why were you wandering alone in a place crawling with wolves?'\n\nYou can feel the weight of her curiosity, but also the undercurrent of caution. She doesn’t fully trust you yet, but she’s willing to listen.",
 		"choices": {
 			"1": {
