@@ -157,7 +157,7 @@ func update_health_labels():
 	Updates the UI to reflect current health of player and enemy.
 	"""
 	player_health_label.text = "Player Health: %d" % player.current_val
-	enemy_health_label.text = "Enemy Health: %d" % enemy.current_val
+	enemy_health_label.text = "Enemy HP: %d" % enemy.current_val
 
 ### END OF BATTLE ###
 func check_battle_end():

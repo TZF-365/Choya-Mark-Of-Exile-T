@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
 
-[ext_resource type="Texture2D" uid="uid://xkyj4dqy8k3p" path="res://assets/art/background9.jpg" id="1_crt81"]
+[ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
-[ext_resource type="Script" uid="uid://d12kwlf5ietlk" path="res://logic/data/info/ChoicesFunction.gd" id="3_3a7ej"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_psx4x"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="6_f2aae"]
 [ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="6_xb4sa"]
 [ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="7_e2y3v"]
+[ext_resource type="Script" uid="uid://cg4aurqgf8ev6" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
 [ext_resource type="FontFile" uid="uid://d2j8aqtfjj0r5" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf" id="9_v7c4i"]
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
 [ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
 [ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
-[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_3a7ej"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_crt81")
@@ -33,38 +32,32 @@ msdf_size = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr7y1"]
 
-[node name="Scene" type="PanelContainer"]
+[node name="GameScreen" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7u0x5")
-
-[node name="Game_screen" type="Node" parent="."]
 script = ExtResource("2_iyaa6")
 
-[node name="entity_var" type="Node" parent="Game_screen"]
-script = ExtResource("12_vqtp5")
-
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen"]
-offset_right = 1080.0
-offset_bottom = 1920.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
 theme = SubResource("Theme_pludh")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Game_screen/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Panel" type="Panel" parent="Game_screen/MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
 custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 anchor_left = 0.00288462
@@ -75,11 +68,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.316651
@@ -96,7 +89,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Menu" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -111,7 +104,7 @@ theme_override_font_sizes/font_size = 28
 text = "MENU"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0317613
@@ -125,7 +118,7 @@ theme_override_fonts/font = ExtResource("6_xb4sa")
 text = "Stats"
 metadata/_edit_use_anchors_ = true
 
-[node name="HSeparator" type="HSeparator" parent="Game_screen/MarginContainer/VBoxContainer/Panel"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 2
 offset_top = 170.0
 offset_right = 1040.0
@@ -133,7 +126,7 @@ offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.0928191
@@ -144,35 +137,30 @@ grow_vertical = 2
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="ContentContainer" type="VBoxContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer"]
+[node name="ContentContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
+script = ExtResource("8_q3ncb")
 
-[node name="ChoicesFunction" type="Node" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
-script = ExtResource("3_3a7ej")
-
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/ChoicesFunction"]
-offset_left = 20.0
-offset_top = 194.5
-offset_right = 1052.0
-offset_bottom = 299.5
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/ChoicesFunction/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_v7c4i")
 theme_override_font_sizes/font_size = 47
 text = " TITLE"
 
-[node name="MarginContainerstats" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
+[node name="MarginContainerstats" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 
-[node name="StatIndicator" type="RichTextLabel" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerstats"]
+[node name="StatIndicator" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerstats"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/normal_font = SubResource("SystemFont_2y5ls")
@@ -182,7 +170,7 @@ text = "hp incresed
 hp decresed"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
@@ -190,11 +178,11 @@ texture = ExtResource("10_wg0ga")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="MarginContainertext" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
+[node name="MarginContainertext" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainertext"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainertext"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -208,31 +196,31 @@ bbcode_enabled = true
 text = "As you move through the forest, your senses prickle with unease. The hair on the back of your neck stands on end as a rustling sound cuts through the otherwise quiet night. Then it happens—a shadow bursts from your right flank, teeth bared and eyes glowing with feral intensity. A wolf. It lunges for your side, jaws snapping.\\n\\nYou barely manage to twist out of the way, the beast's claws grazing your cloak. Your mind races. You can feel the mark on your wrist pulsing faintly. You know you have the power to summon fire, but at a cost. Alternatively, you could rely on your agility and the dagger you feel strapped to your thigh.\\n\\nThe wolf snarls and prepares for another strike, circling"
 fit_content = true
 
-[node name="MarginContainerchoices" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
+[node name="MarginContainerchoices" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="PanelContainer" type="PanelContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
+[node name="ChoiceContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mr7y1")
 script = ExtResource("11_hfp0j")
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("7_e2y3v")
 
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 2
@@ -241,7 +229,7 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 9
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -250,7 +238,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
+[node name="ChoiceContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
@@ -258,12 +246,12 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mr7y1")
 script = ExtResource("11_hfp0j")
 choice_index = 2
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("7_e2y3v")
 
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 2
@@ -272,7 +260,7 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 9
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -281,7 +269,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ChoiceContainer3" type="PanelContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
+[node name="ChoiceContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
@@ -289,12 +277,12 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mr7y1")
 script = ExtResource("11_hfp0j")
 choice_index = 3
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("7_e2y3v")
 
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 2
@@ -303,7 +291,7 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 9
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -311,7 +299,7 @@ text = "Choice Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ChoiceContainer4" type="PanelContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
+[node name="ChoiceContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
@@ -319,12 +307,12 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mr7y1")
 script = ExtResource("11_hfp0j")
 choice_index = 4
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("7_e2y3v")
 
-[node name="MarginContainer" type="MarginContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 2
@@ -333,7 +321,7 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 9
 
-[node name="Label" type="Label" parent="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -341,7 +329,7 @@ text = "Choice Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HSeparator2" type="HSeparator" parent="Game_screen/MarginContainer/VBoxContainer/Panel"]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -355,7 +343,7 @@ offset_bottom = 824.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Game_screen/MarginContainer/VBoxContainer/Panel"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -367,11 +355,11 @@ grow_vertical = 0
 theme_override_constants/separation = 190
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="followcreator" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+[node name="followcreator" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0192308
@@ -384,7 +372,7 @@ theme_override_font_sizes/font_size = 30
 text = "Follow GDJ Studios"
 metadata/_edit_use_anchors_ = true
 
-[node name="Exitbutton" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+[node name="Exitbutton" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_direction = 3
 layout_mode = 1
 anchors_preset = -1
@@ -402,7 +390,7 @@ theme_override_font_sizes/font_size = 30
 text = "Exit"
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.390385
@@ -417,7 +405,7 @@ theme_override_font_sizes/font_size = 30
 text = "Combat Screen"
 metadata/_edit_use_anchors_ = true
 
-[node name="BGC" type="Button" parent="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+[node name="BGC" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.673077
@@ -430,6 +418,9 @@ theme_override_font_sizes/font_size = 30
 text = "BGC"
 metadata/_edit_use_anchors_ = true
 
+[node name="entity_var" type="Node" parent="."]
+script = ExtResource("12_vqtp5")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_8tvxp")
 autoplay = true
@@ -437,10 +428,9 @@ autoplay = true
 [node name="Timer" type="Timer" parent="AudioStreamPlayer"]
 one_shot = true
 
-[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player", "sound_effect_player")]
+[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
 script = ExtResource("14_g78m6")
 audio_player = NodePath("../AudioStreamPlayer")
-sound_effect_player = NodePath("../soundeffectplayer")
 
 [node name="soundeffectplayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_8tvxp")
@@ -450,20 +440,16 @@ pitch_scale = 0.65
 [node name="Buttonpress" type="Node" parent="."]
 script = ExtResource("14_pee72")
 
-[node name="SaveManager" type="Node" parent="."]
-script = ExtResource("16_3a7ej")
-metadata/_custom_type_script = "uid://dbio2vtk3488t"
-
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer/Button" to="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer/Button" to="Buttonpress" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2/Button" to="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/PanelContainer2/Button" to="Buttonpress" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/Button" to="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/Button" to="Buttonpress" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/Button" to="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/Button" to="Buttonpress" method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/followcreator" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Exitbutton" to="." method="_on_exitbutton_pressed"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Button" to="." method="_on_button_pressed_combat"]
-[connection signal="pressed" from="Game_screen/MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC" to="." method="_on_bgc_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="Buttonpress" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer2/Button" to="Buttonpress" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer3/Button" to="Buttonpress" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer4/Button" to="Buttonpress" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/followcreator" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Exitbutton" to="." method="_on_exitbutton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Button" to="." method="_on_button_pressed_combat"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC" to="." method="_on_bgc_pressed"]

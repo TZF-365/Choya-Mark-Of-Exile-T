@@ -1,13 +1,8 @@
 extends Node
+class_name music_manager
 
-var num_players = 8
-var bus = "SFX"
 
-var available = []  # The available players.
-var queue = []  # The queue of sounds to play.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 @export var audio_player: AudioStreamPlayer
 @export var audio_player2: AudioStreamPlayer
 @export var sound_effects_player: AudioStreamPlayer
@@ -20,7 +15,6 @@ var scene_audio_streams = {
 	"Battlemusic": preload("res://assets/Music/03_Melee.ogg"), 
 	"victory": preload("res://assets/Music/2000_Peace.ogg"),
 	"Village1": preload("res://assets/Music/Scene1.ogg"),
-	"Silentforest": preload("res://assets/Music/i_just_want_to_go_home.mp3")
 }
 
 # Call this to change the background music
@@ -44,33 +38,33 @@ func play_scene_audio(scene_key: String):
 ]
 
 var current_song_index = 0
-=======
->>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> parent of 2a0b700 (Saves)
 
 func _ready():
-	# Create the pool of AudioStreamPlayer nodes.
-	for i in num_players:
-		var p = AudioStreamPlayer.new()
-		add_child(p)
-		available.append(p)
-		p.finished.connect(_on_stream_finished.bind(p))
-		p.bus = bus
+	# Start playing the first song
+	# play_song(current_song_index)
+	play_scene_audio("main_menu")
+	
+	
+	# Configure the timer
+	timer.start(92)
+	timer.wait_time = 90.0  # Time in seconds before switching songs
+	timer.autostart = true
+	timer.timeout.connect(_on_timer_timeout)  # Updated to use Callable
 
+func play_song(index: int):
+	# Assign and play the song
+	audio_player.stream = songs[index]
+	audio_player.play()
+	print("Playing song: ", songs[index].resource_path)
 
-func _on_stream_finished(stream):
-	# When finished playing a stream, make the player available again.
-	available.append(stream)
-
-
-func play(sound_path):
-	queue.append(sound_path)
-
-
-func _process(_delta):
-	# Play a queued sound if any players are available.
-	if not queue.is_empty() and not available.is_empty():
-		available[0].stream = load(queue.pop_front())
-		available[0].play()
-		available.pop_front()
+func _on_timer_timeout():
+	# Move to the next song
+	if current_song_index <= 1:
+		current_song_index += 1
+		_ready()
+		print("Next song Playing")
+	else:
+		current_song_index = 0  # Loop back to the first song
+		play_song(current_song_index)
+		print("Music has Looped")
+		_ready()

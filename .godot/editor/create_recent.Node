@@ -1,7 +1,6 @@
-Node
-SaveManager
 AudioStreamPlayer
 AudioStreamPlayer2D
+Node
 BaseChar
 Node2D
 HBoxContainer
@@ -12,3 +11,4 @@ Button
 VBoxContainer
 MarginContainer
 Control
+Timer

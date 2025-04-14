@@ -1,7 +1,7 @@
 extends Control
 
 enum Menu { MAIN_MENU, SETTINGS_MENU }
-
+var save_manager = SaveManager.new()
 @export var start_button : Button
 @export var settings_button : Button
 @export var exit_button : Button
@@ -25,14 +25,7 @@ func _on_start_button_pressed():
 	Fadetransition.transition()
 	await Fadetransition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-=======
->>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> parent of 2a0b700 (Saves)
+	
 
 
 func _on_exit_pressed():

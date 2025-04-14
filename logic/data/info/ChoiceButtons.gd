@@ -7,11 +7,9 @@ signal choice_btn_pressed(choice_index)
 # Export variable that will only accept integers 1, 2, 3, 4
 @export var choice_index: int = 1 # (int, 1, 4)
 
-@onready var choice_text: Label = $"../ChoiceContainer2/MarginContainer/Label"
+@onready var choice_text: Label = $MarginContainer/Label
 
 
-func _ready():
-	print_tree_pretty()
 
 func _on_button_pressed():
 	emit_signal("choice_btn_pressed", choice_index)

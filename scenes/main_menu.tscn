@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://assets/sprites/ui/ui-tileset.png" id="4_05n6c"]
 [ext_resource type="Script" uid="uid://da5yr06jbidxq" path="res://logic/backend/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" uid="uid://crbktcitbaljs" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
-[ext_resource type="Texture2D" uid="uid://bkiith40dlmox" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
+[ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
 [ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="Script" uid="uid://f3nim7w4ggco" path="res://scenes/Mainmenumusic.gd" id="12_flqon"]
 

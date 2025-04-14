@@ -50,7 +50,7 @@
 	"000_prologue_3": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "The forest looms around me, ancient and unyielding. Towering trees stretch into the heavens, their branches clawing at the sky and dense green mana surrounds me, almost confusing my perception of day and night.",
+		"narr_text": "The forest looms around me, ancient and unyielding. Towering trees stretch into the heavens, their branches clawing at the sky.",
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
@@ -61,7 +61,7 @@
 	"000_prologue_3_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "The air is thick with the scent of earth and mana. Somewhere in the distance, a howl shatters the silence, sending a chill down my spine.",
+		"narr_text": "The air is thick with the scent of earth and decay. Somewhere in the distance, a howl shatters the silence, sending a chill down my spine.",
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
@@ -165,7 +165,7 @@
 	"001_intro": {
 		"title": "",
 		"picture": "res://assets/art/Forest_Path.jpg",
-		"narr_text": "The forest darkens as the mana subsides. and you realize the forest is alive with sounds—howls that pierce the night, rustling leaves that hint at unseen predators. I stagger to my feet, my body screaming in protest. I have nothing but my will and this cursed mark. Somewhere in the distance, I see the faint glow of torches. A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
+		"narr_text": "The forest is alive with sounds—howls that pierce the night, rustling leaves that hint at unseen predators. I stagger to my feet, my body screaming in protest. I have nothing but my will and this cursed mark. Somewhere in the distance, I see the faint glow of torches. A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
 		"choices": {
 			"1": {
 				"text": "Head toward the lights, hoping for sanctuary.",
@@ -289,7 +289,7 @@
 	},
 	"002_draw_power": {
 		"title": "Fire and Fury",
-		"picture": "res://assets/art/Fireball.jpg",
+		"picture": "res://assets/art/Flash.jpg",
 		"narr_text": "You raise your hand instinctively, the mark flaring to life as heat rushes through your veins. The sensation is overwhelming, like molten iron coursing through your body. A fireball forms in your palm, its light illuminating the wolf's hungry eyes. Without hesitation, you hurl it forward.\n\nThe spell hits the wolf square in the chest, igniting its fur in a burst of flame. The creature lets out a pained howl before collapsing in a smoking heap. The forest grows quiet once more, the acrid scent of burnt fur lingering in the air. You feel drained but alive.\n\nYour victory is short-lived, as the exhaustion from channeling the mark’s power starts to creep in.",
 		"choices": {
 			"1": {
@@ -300,7 +300,7 @@
 	},
 	"002_physical_confrontation": {
 		"title": "The Harder Way",
-		"picture": "res://assets/art/Wolf_Combat.jpg",
+		"picture": "res://assets/art/Flash.jpg",
 		"narr_text": "Your fingers twitch toward the dagger at your side as the wolf lunges again. You sidestep just in time, the beast’s jaws snapping shut on empty air. With a practiced motion, you draw the blade and pivot, aiming for the wolf’s exposed flank.\n\nYour first strike grazes the creature, drawing blood but not enough to deter it. The wolf spins with frightening speed, teeth flashing dangerously close to your leg. You need to end this quickly.",
 		"choices": {
 			"1": {
@@ -368,7 +368,7 @@
 	},
 	"005_partial_truth": {
 		"title": "A Fragile Alliance",
-		"picture": "res://assets/art/iiXNCDUe.jpg",
+		"picture": "res://assets/art/Inn_Dialogue.jpg",
 		"narr_text": "'My name is Lyaris,' you begin cautiously. 'I’ve been... searching for answers. That mark you saw—it’s tied to something I don’t fully understand yet.'\n\nHer gaze softens slightly. 'Answers, huh? Sounds like a dangerous kind of journey. You’re lucky I found you when I did.'\n\nShe leans back, crossing her arms. 'Name’s Kaela, by the way. And you’re not the only one with secrets. Let’s just say helping you wasn’t entirely selfless.'\n\nHer cryptic comment leaves you with more questions than answers. Before you can press her, she stands. 'We should talk more, but first, you need to eat. Rest up. We’ll need to move soon.'",
 		"choices": {
 			"1": {
