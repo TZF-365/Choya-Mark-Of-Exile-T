@@ -10,9 +10,18 @@ config_version=5
 
 [application]
 
-config/name="InteractiveNovel"
-config/description="Combat rpg story game made by Glenville Dixon Jr"
-config/version="0.4"
+config/name="CHOYA – The Drakthyr Invasion"
+config/description="Game Description:
+
+CHOYA – The Drakthyr Invasion
+A text-based interactive RPG where your choices echo through a world forever changed by chaos.
+
+Awakening in a forest with no memory, no weapons, and no map, Lyaris Alaric Talbot struggles to recall who he is—and why his instincts scream danger. Rescued by a mysterious hunter named Kaela, Lyaris is thrust into a world twisted by ancient magical surges and on the brink of a new catastrophe: the Drakthyr Invasion.
+
+What begins as a quiet mystery grows into a sprawling journey across a fractured world where every city has its own laws, dangers, and ideologies. Build your party, track your inventory and decisions, and influence lives even when you’re not present—because in this world, time moves on without you.
+
+Utilize the Focus System to examine your surroundings, uncover hidden truths, and recover your fragmented past. From tavern whispers to corrupted forests, every choice reshapes your path—and the world around you."
+config/version="0.6"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)

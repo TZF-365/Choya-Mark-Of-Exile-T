@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=21 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
 [ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_3a7ej"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_crt81")
@@ -415,7 +416,7 @@ anchor_bottom = 0.799998
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "BGC"
+text = "Save"
 metadata/_edit_use_anchors_ = true
 
 [node name="entity_var" type="Node" parent="."]
@@ -439,6 +440,9 @@ pitch_scale = 0.65
 
 [node name="Buttonpress" type="Node" parent="."]
 script = ExtResource("14_pee72")
+
+[node name="Save" type="Node" parent="."]
+script = ExtResource("16_3a7ej")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]

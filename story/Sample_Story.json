@@ -251,7 +251,7 @@
 	},
 	"001_remembers_map": {
 		"title": "Wandering: The Map",
-		"picture": "res://assets/art/Tattered_Map.jpg",
+		"picture": "res://assets/art/Crumpled_Map.jpg",
 		"narr_text": "My fingers fumble in my pockets until they close around something smooth and folded. A map. Relief washes over me as I pull it out, though the paper is crumpled and smudged with dirt. The markings are faint, but they show landmarks—the forest, a river, and a settlement not too far from here. My heart quickens. This map might just be my lifeline.",
 		"choices": {
 			"1": {
@@ -272,11 +272,11 @@
 			"1": {
 				"text": "Draw power from the mark to summon a fireball and incinerate the wolf.",
 				"requirement": {
-					"mana": 10
+					"mana": 15
 				},
 				"buffs": {
 					"mana": -10,
-					"Val": -2,
+					"Val": -7,
 				},
 				"output": "002_draw_power",
 				"failed_output": "002_physical_confrontation"
@@ -323,7 +323,7 @@
 	},
 	"003_archer_appearance": {
 		"title": "An Unexpected Ally",
-		"picture": "res://assets/art/Archer_Woman.jpg",
+		"picture": "res://assets/art/Elf_Ranger.jpg",
 		"narr_text": "Before you can react, the wolf crouches low, readying itself for another lunge. Time slows as you prepare for the inevitable. Then, the sharp twang of a bowstring cuts through the tension. An arrow flies through the air and buries itself into the wolf’s skull with perfect precision. The beast collapses instantly, lifeless.\n\nYou turn your head and see her. A woman steps out of the shadows, bow in hand and a small, amused smile on her face. Her features are sharp yet friendly, her confident stride betraying her skill. 'You looked like you could use a hand,' she says casually, lowering her bow.\n\nRelief floods through you, the adrenaline finally fading. You open your mouth to speak, but exhaustion catches up to you. The last thing you see is her rushing toward you as your vision fades to black.",
 		"choices": {
 			"1": {
@@ -368,7 +368,7 @@
 	},
 	"005_partial_truth": {
 		"title": "A Fragile Alliance",
-		"picture": "res://assets/art/Inn_Dialogue.jpg",
+		"picture": "res://assets/art/Inn1.jpg",
 		"narr_text": "'My name is Lyaris,' you begin cautiously. 'I’ve been... searching for answers. That mark you saw—it’s tied to something I don’t fully understand yet.'\n\nHer gaze softens slightly. 'Answers, huh? Sounds like a dangerous kind of journey. You’re lucky I found you when I did.'\n\nShe leans back, crossing her arms. 'Name’s Kaela, by the way. And you’re not the only one with secrets. Let’s just say helping you wasn’t entirely selfless.'\n\nHer cryptic comment leaves you with more questions than answers. Before you can press her, she stands. 'We should talk more, but first, you need to eat. Rest up. We’ll need to move soon.'",
 		"choices": {
 			"1": {
@@ -383,7 +383,7 @@
 	},
 	"005_deflect": {
 		"title": "Turning the Tables",
-		"picture": "res://assets/art/Kaela_Smile.jpg",
+		"picture": "res://assets/art/inn1.jpg",
 		"narr_text": "'Who I am isn’t the important question right now,' you say, your tone even. 'The real question is: who are you? And why were you in the forest with a bow at the ready?'\n\nKaela raises an eyebrow, a faint smile playing on her lips. 'Fair enough. My name’s Kaela, and let’s just say the forest is my home turf. As for why I was there... let’s just say I had business nearby. Lucky for you, I have good aim.'\n\nShe stands, stretching her arms over her head. 'Now, if you’re done interrogating me, maybe we can talk about how to get you out of this mess alive.'",
 		"choices": {
 			"1": {
@@ -398,7 +398,7 @@
 	},
 	"005_silence": {
 		"title": "Measured Silence",
-		"picture": "res://assets/art/Kaela_Watchful.jpg",
+		"picture": "res://assets/art/inn1.jpg",
 		"narr_text": "You say nothing, your gaze steady as you study her. The silence stretches, but Kaela doesn’t seem perturbed. Instead, she smirks and sits back, crossing one leg over the other.\n\n'Not much of a talker, huh?' she says, her tone teasing. 'That’s fine. Actions speak louder, anyway.'\n\nShe stands, her movements fluid and deliberate. 'You’ve got secrets. I’ve got mine. Maybe we’ll get along after all.' Her words carry a hint of amusement, but her eyes stay watchful. This woman is clearly used to danger.",
 		"choices": {
 			"1": {
@@ -428,7 +428,7 @@
 	},
 	"006_selfless_motives": {
 		"title": "Hidden Motives",
-		"picture": "res://assets/art/Kaela_Dagger.jpg",
+		"picture": "res://assets/art/inn_Outside.jpg",
 		"narr_text": "'Not entirely selfless?' you ask, narrowing your eyes.\n\nKaela pauses, her gaze sharpening. 'Let’s just say I’m not the kind of person to help out of the goodness of my heart. You’ve got something that might interest me. That mark of yours—it’s rare. Dangerous, too. And it’s drawn attention you’re probably not ready for.'\n\nHer words send a chill down your spine. She knows more than she’s letting on, but for now, she seems willing to keep you alive. The question is, at what cost?",
 		"choices": {
 			"1": {

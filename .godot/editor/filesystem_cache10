@@ -1,13 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1744635784
+::res://::1744655713
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::4192308140542725340::1744506008::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1744506008::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::8033541193226466038::1744506008::1744506008::1::::<><><>0<>0<>df20ad3b091b377cd2725ec857e8d9c9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile/TextFile::-1::1744506008::0::1::::<><><>0<>0<><>::
 ::res://assets/::1744506008
 Red.jpg::CompressedTexture2D/CompressedTexture2D::5710634642933541082::1744506008::1744506008::1::::<><><>0<>0<>53898c30506b103a8bbad4ef999d66ab<>res://.godot/imported/Red.jpg-f0b72ed10a25a5eb2c628ff9f1afd769.ctex::
-::res://assets/art/::1744637335
-Ancient_Forest_Eldoria.jpg::CompressedTexture2D::1679962740850237888::1744569880::1744636689::1::::<><><>0<>0<>badf3f90ea8a2c63442afb4bb5befaf7<>res://.godot/imported/Ancient_Forest_Eldoria.jpg-9a73d0123bf9f745816d62eeba81cc45.ctex::
+::res://assets/art/::1744646136
+Ancient_Forest_Eldoria.jpg::CompressedTexture2D/CompressedTexture2D::1679962740850237888::1744569880::1744636689::1::::<><><>0<>0<>badf3f90ea8a2c63442afb4bb5befaf7<>res://.godot/imported/Ancient_Forest_Eldoria.jpg-9a73d0123bf9f745816d62eeba81cc45.ctex::
 background1.jpg::CompressedTexture2D/CompressedTexture2D::6715328449979872788::1744506008::1744506008::1::::<><><>0<>0<>307430715bc0e545aabbcacb3262229f<>res://.godot/imported/background1.jpg-af70f796c72262c754f5e2a3f5ad862d.ctex::
 background3.jpg::CompressedTexture2D/CompressedTexture2D::3957972088622700975::1744506008::1744506008::1::::<><><>0<>0<>c61eaeb32f4d2820ccd957b3fda568bf<>res://.godot/imported/background3.jpg-80d907c411e9517ad807dfa6026fdf82.ctex::
 background5.jpg::CompressedTexture2D/CompressedTexture2D::8614221579075633425::1744506008::1744506008::1::::<><><>0<>0<>cf8005afb7f3efd166bcb7d8e953196e<>res://.godot/imported/background5.jpg-42affc201dfdd4f30f0225a2465f127d.ctex::
@@ -18,23 +18,27 @@ backgroundcombat1.jpg::CompressedTexture2D/CompressedTexture2D::8842787064237121
 backgroundcombat2.jpg::CompressedTexture2D/CompressedTexture2D::8742969865164994214::1744506008::1744506008::1::::<><><>0<>0<>42c06cc7477ddd059b70792515e7f19f<>res://.godot/imported/backgroundcombat2.jpg-eda0bec9324654b980286583a08f56ff.ctex::
 Choya new ui⁄ux concept.png::CompressedTexture2D/CompressedTexture2D::699899761447359083::1744506008::1744506008::1::::<><><>0<>0<>e5bc364f31c0f1c857c975935c2352bc<>res://.godot/imported/Choya new ui⁄ux concept.png-63615bdc5b85a355380e7cd4c4e85d1b.ctex::
 combatbackground.jpg::CompressedTexture2D/CompressedTexture2D::2105752437555677782::1744506008::1744506008::1::::<><><>0<>0<>b32c4fd6fa4951d9e5e0027012faa00f<>res://.godot/imported/combatbackground.jpg-36147b289439d1777289f3c613d1ee40.ctex::
-Dark_Forest.jpg::CompressedTexture2D::7409988393006919433::1744553663::1744636690::1::::<><><>0<>0<>f7305c6c7305635442d9a8fe23c1be6e<>res://.godot/imported/Dark_Forest.jpg-95be2828e2223b0f962ec6a2dc59d6ab.ctex::
-Enchanted Forest.jpg::CompressedTexture2D::6990901508308316500::1744569528::1744636689::1::::<><><>0<>0<>f1d1b7bd3de8313f822fea0aefc99ac0<>res://.godot/imported/Enchanted Forest.jpg-91e09e5f95fca0eb0762d96b2e18b539.ctex::
-eRhFvP.png::CompressedTexture2D::5298339365237684986::1630887048::1744637340::1::::<><><>0<>0<>a3d13b29cd01cf44a30f5b966362b3ca<>res://.godot/imported/eRhFvP.png-005c45b9313574cb793b241b87926f13.ctex::
-Flash.jpg::CompressedTexture2D::5852213814268276626::1739789510::1744635810::1::::<><><>0<>0<>85fe5625a2cd7b3f94284ba3e0440c49<>res://.godot/imported/Flash.jpg-e47ab5020f7d7878ee68a27d6c981e06.ctex::
-Forest_Path8.jpg::CompressedTexture2D::2532395596397448298::1744506008::1744636732::1::::<><><>0<>0<>94ccea5a6122d34b8242dcd2db5f196c<>res://.godot/imported/Forest_Path8.jpg-93866ef0109c672a04f1ea5cc396e3b2.ctex::
-Forest_Path.jpg::CompressedTexture2D::2131808803096595255::1744553663::1744636733::1::::<><><>0<>0<>91c83342d236602934b0171af883cf57<>res://.godot/imported/Forest_Path.jpg-0676e4584a5369482023700ec70b64ff.ctex::
-iiXNCDUe.jpg::CompressedTexture2D::7171209761871559936::1744506008::1744636691::1::::<><><>0<>0<>4d5327947e5cd78adf35e62a566eaefb<>res://.godot/imported/iiXNCDUe.jpg-58a40f50bb7c0bbcc96fd9d8291e8c50.ctex::
-Night_Forest.jpg::CompressedTexture2D::8033942306523322251::1744553663::1744636690::1::::<><><>0<>0<>67685747398e3fb390ce7a615f906105<>res://.godot/imported/Night_Forest.jpg-75f30bc5c35077ae53ddf3b20854ce6a.ctex::
+Crumpled_Map.jpg::CompressedTexture2D/CompressedTexture2D::3555987758137474268::1744667476::1744646136::1::::<><><>0<>0<>8cbf4de03f5f2ee214e551b0761a15c8<>res://.godot/imported/Crumpled_Map.jpg-7e5533e8d30d212f8bb3928c1e499b52.ctex::
+Dark_Forest.jpg::CompressedTexture2D/CompressedTexture2D::7409988393006919433::1744553663::1744636690::1::::<><><>0<>0<>f7305c6c7305635442d9a8fe23c1be6e<>res://.godot/imported/Dark_Forest.jpg-95be2828e2223b0f962ec6a2dc59d6ab.ctex::
+Elf_Ranger.jpg::CompressedTexture2D/CompressedTexture2D::4589563833924143350::1744645702::1744645740::1::::<><><>0<>0<>a8f60ac1c25b674d2b9bb18c75c3031a<>res://.godot/imported/Elf_Ranger.jpg-ed9f49902a78fc7344bd8edc307c18d4.ctex::
+Enchanted Forest.jpg::CompressedTexture2D/CompressedTexture2D::6990901508308316500::1744569528::1744636689::1::::<><><>0<>0<>f1d1b7bd3de8313f822fea0aefc99ac0<>res://.godot/imported/Enchanted Forest.jpg-91e09e5f95fca0eb0762d96b2e18b539.ctex::
+eRhFvP.png::CompressedTexture2D/CompressedTexture2D::5298339365237684986::1630887048::1744637340::1::::<><><>0<>0<>a3d13b29cd01cf44a30f5b966362b3ca<>res://.godot/imported/eRhFvP.png-005c45b9313574cb793b241b87926f13.ctex::
+Flash.jpg::CompressedTexture2D/CompressedTexture2D::5852213814268276626::1739789510::1744635810::1::::<><><>0<>0<>85fe5625a2cd7b3f94284ba3e0440c49<>res://.godot/imported/Flash.jpg-e47ab5020f7d7878ee68a27d6c981e06.ctex::
+Forest_Path8.jpg::CompressedTexture2D/CompressedTexture2D::2532395596397448298::1744506008::1744636732::1::::<><><>0<>0<>94ccea5a6122d34b8242dcd2db5f196c<>res://.godot/imported/Forest_Path8.jpg-93866ef0109c672a04f1ea5cc396e3b2.ctex::
+Forest_Path.jpg::CompressedTexture2D/CompressedTexture2D::2131808803096595255::1744553663::1744636733::1::::<><><>0<>0<>91c83342d236602934b0171af883cf57<>res://.godot/imported/Forest_Path.jpg-0676e4584a5369482023700ec70b64ff.ctex::
+Forest_Wolf.jpg::CompressedTexture2D/CompressedTexture2D::2635713860902438153::1744667470::1744646136::1::::<><><>0<>0<>bee8ed5d4da3224f928c714bd31bb468<>res://.godot/imported/Forest_Wolf.jpg-ce891409b37c5571fd0f48c0fabe7d14.ctex::
+iiXNCDUe.jpg::CompressedTexture2D/CompressedTexture2D::7171209761871559936::1744506008::1744636691::1::::<><><>0<>0<>4d5327947e5cd78adf35e62a566eaefb<>res://.godot/imported/iiXNCDUe.jpg-58a40f50bb7c0bbcc96fd9d8291e8c50.ctex::
+Inn1.jpg::CompressedTexture2D/CompressedTexture2D::5546571845538060264::1744667474::1744646136::1::::<><><>0<>0<>5397f19e07630ea35f3a4d883f1c3aa8<>res://.godot/imported/Inn1.jpg-ea0ee99f05c2d03108e2d46297d7c94b.ctex::
+Night_Forest.jpg::CompressedTexture2D/CompressedTexture2D::8033942306523322251::1744553663::1744636690::1::::<><><>0<>0<>67685747398e3fb390ce7a615f906105<>res://.godot/imported/Night_Forest.jpg-75f30bc5c35077ae53ddf3b20854ce6a.ctex::
 titlescreenbackground.webp::CompressedTexture2D/CompressedTexture2D::7977297220202318155::1744506008::1744506008::1::::<><><>0<>0<>81dd52c6676fad00b7a38935bd18e574<>res://.godot/imported/titlescreenbackground.webp-2deefb0e37e98e65fcf9e98079c5d757.ctex::
 ::res://assets/art/scriptpictures/::1744636667
-Dark_Forest.jpg::CompressedTexture2D::2051586339723942042::1744553663::1744635787::1::::<><><>0<>0<>ad4f121f3ce40c6ea7523f326b7978a0<>res://.godot/imported/Dark_Forest.jpg-99d31dc81cfc4770b53718bb8c3d2bb0.ctex::
-Enchanted Forest.jpg::CompressedTexture2D::3892533099295225960::1744569528::1744635787::1::::<><><>0<>0<>bb99bf1e71eae23647e492221094de49<>res://.godot/imported/Enchanted Forest.jpg-049ee8c99ab3f9832b7b076381e03c57.ctex::
-Forest_Path9.jpg::CompressedTexture2D::5534153436873392421::1744553663::1744635787::1::::<><><>0<>0<>ec2646731985648414bafe519ea55556<>res://.godot/imported/Forest_Path9.jpg-3053753d1c6ab39847681562d93b6ac6.ctex::
+Dark_Forest.jpg::CompressedTexture2D/CompressedTexture2D::2051586339723942042::1744553663::1744635787::1::::<><><>0<>0<>ad4f121f3ce40c6ea7523f326b7978a0<>res://.godot/imported/Dark_Forest.jpg-99d31dc81cfc4770b53718bb8c3d2bb0.ctex::
+Enchanted Forest.jpg::CompressedTexture2D/CompressedTexture2D::3892533099295225960::1744569528::1744635787::1::::<><><>0<>0<>bb99bf1e71eae23647e492221094de49<>res://.godot/imported/Enchanted Forest.jpg-049ee8c99ab3f9832b7b076381e03c57.ctex::
+Forest_Path9.jpg::CompressedTexture2D/CompressedTexture2D::5534153436873392421::1744553663::1744635787::1::::<><><>0<>0<>ec2646731985648414bafe519ea55556<>res://.godot/imported/Forest_Path9.jpg-3053753d1c6ab39847681562d93b6ac6.ctex::
 Forest_Path.jpg::CompressedTexture2D/CompressedTexture2D::5619692353193445768::1744506008::1744506008::1::::<><><>0<>0<>63196cf54a5531c89d49b282d7671d00<>res://.godot/imported/Forest_Path.jpg-27c0042b16790370f441c70065bd990f.ctex::
 iiXNCDUe.jpg::CompressedTexture2D/CompressedTexture2D::3569214580275706320::1744506008::1744506008::1::::<><><>0<>0<>1153395769af11b7003b32efd46dabb5<>res://.godot/imported/iiXNCDUe.jpg-1714b3c56e719596e9ca334c608fc1dd.ctex::
-Magical Forest_simple.jpg::CompressedTexture2D::1775124375477981517::1744569880::1744635788::1::::<><><>0<>0<>52f00a29b3445758b6859f3cbe97ed81<>res://.godot/imported/Magical Forest_simple.jpg-55e2de8a9ebfaf2e7cef50cc024915e2.ctex::
-Night_Forest.jpg::CompressedTexture2D::6230919206246187553::1744553663::1744635788::1::::<><><>0<>0<>484b6b70081885b6acd0ea90daa014dd<>res://.godot/imported/Night_Forest.jpg-07b2ddf2dd26ea4aed6b9fd30cefc5f5.ctex::
+Magical Forest_simple.jpg::CompressedTexture2D/CompressedTexture2D::1775124375477981517::1744569880::1744635788::1::::<><><>0<>0<>52f00a29b3445758b6859f3cbe97ed81<>res://.godot/imported/Magical Forest_simple.jpg-55e2de8a9ebfaf2e7cef50cc024915e2.ctex::
+Night_Forest.jpg::CompressedTexture2D/CompressedTexture2D::6230919206246187553::1744553663::1744635788::1::::<><><>0<>0<>484b6b70081885b6acd0ea90daa014dd<>res://.godot/imported/Night_Forest.jpg-07b2ddf2dd26ea4aed6b9fd30cefc5f5.ctex::
 ::res://assets/fonts/::1744506008
 new_font_file.tres::FontFile/FontFile::4067508749735719138::1744506008::0::1::::<><><>0<>0<><>::
 ::res://assets/fonts/OpenDyslexic/::1744506008
@@ -159,7 +163,7 @@ Field3.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::1182602943288324113::1744
 Field4.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::2502180619868760942::1744615622::1744615622::1::::<><><>0<>0<>add361eab88f45b04435082be08fa6ad<>res://.godot/imported/Field4.ogg-a8f713c50f62226bdc98ef837272dac3.oggvorbisstr::
 Frieren_opmed.mp3::AudioStreamMP3/AudioStreamMP3::216015023606524299::1744615622::1744615622::1::::<><><>0<>0<>96cb200ae9e11074add60632b5f59b03<>res://.godot/imported/Frieren_opmed.mp3-d887cd29abe7af4ade6c142eef4f84a7.mp3str::
 Item.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6912917207890660147::1744615622::1744615622::1::::<><><>0<>0<>3bf42d261667db1af7cd310cfe42ad20<>res://.godot/imported/Item.ogg-155f11c1617ddaa85f76d86edb7aa874.oggvorbisstr::
-i_just_want_to_go_home.mp3::AudioStreamMP3::539905346148443527::1744615622::1744635786::1::::<><><>0<>0<>f55cc257aecbc3177dc2ff20d17e6dc3<>res://.godot/imported/i_just_want_to_go_home.mp3-26e4457ac75c8102b7b0e120343e820b.mp3str::
+i_just_want_to_go_home.mp3::AudioStreamMP3/AudioStreamMP3::539905346148443527::1744615622::1744635786::1::::<><><>0<>0<>f55cc257aecbc3177dc2ff20d17e6dc3<>res://.godot/imported/i_just_want_to_go_home.mp3-26e4457ac75c8102b7b0e120343e820b.mp3str::
 Kaiju No._8_OPME.mp3::AudioStreamMP3/AudioStreamMP3::7737471421749664982::1744615622::1744615622::1::::<><><>0<>0<>4f6fa96e8e3394b3458532d96a09fda2<>res://.godot/imported/Kaiju No._8_OPME.mp3-76acc15d1f969df70716c981d02654a0.mp3str::
 orchestra-fantasy.mp3::AudioStreamMP3/AudioStreamMP3::8849514324509599559::1744615622::1744615622::1::::<><><>0<>0<>ed55fc7e6eaabdeb55c10487d379bd5d<>res://.godot/imported/orchestra-fantasy.mp3-8205c7ca957b242dc9866cb508721ffe.mp3str::
 People1.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::5100761686220622242::1744615622::1744615622::1::::<><><>0<>0<>356c81426887f0de8db4dc8ac99ce8c2<>res://.godot/imported/People1.ogg-0f7d1a18eb8f1628a5226a5877de0586.oggvorbisstr::
@@ -202,7 +206,7 @@ ui-grabber.png::CompressedTexture2D/CompressedTexture2D::6532570645507513839::17
 ui-tileset.png::CompressedTexture2D/CompressedTexture2D::7138952713467101349::1744506008::1744506008::1::::<><><>0<>0<>38181c032ee9d7741815cb68f86bec7f<>res://.godot/imported/ui-tileset.png-e57982247ff3a22f4c26fb5ccb132675.ctex::
 ::res://logic/::1744506008
 ContentContainercopy.gd::GDScript/GDScript::6452811473620547340::1744506008::0::1::::<>VBoxContainer<><>0<>0<><>::
-::res://logic/backend/::1744506008
+::res://logic/backend/::1744655422
 audio_manager.gd::GDScript/GDScript::3659370224529810799::1744506008::0::1::::music_manager<>Node<><>0<>0<><>::
 audio_menu.gd::GDScript/GDScript::7222682311407139162::1744506008::0::1::::<>Control<><>0<>0<><>::
 dialog_box.gd::GDScript/GDScript::1689028783068966269::1744506008::0::1::::DialogBox<>Control<><>0<>0<><>::
@@ -213,7 +217,7 @@ main_menu.gd::GDScript/GDScript::147458664453204608::1744506008::0::1::::<>Contr
 mute_button.gd::GDScript/GDScript::4615791358763181404::1744506008::0::1::::<>Button<><>0<>0<><>::
 pause_menu.gd::GDScript/GDScript::6324858006360328645::1744506008::0::1::::PauseMenu<>Control<><>0<>0<><>::
 save_button.gd::GDScript/GDScript::8205592024284206291::1744506008::0::1::::<>Button<><>0<>0<><>::
-save_manager.gd::GDScript/GDScript::7246865303918564129::1744506008::0::1::::SaveManager<>Node<><>0<>0<><>::
+save_manager.gd::GDScript::7246865303918564129::1744655422::0::1::::SaveManager<>Node<><>0<>0<><>::
 scene_transition_manager.gd::GDScript/GDScript::3479819107012866685::1744506008::0::1::::<>Node<><>0<>0<><>::
 script_utilities.gd::GDScript/GDScript::3339317370595773017::1744506008::0::1::::ScriptUtilities<>Object<><>0<>0<><>::
 transition.gd::GDScript/GDScript::626819195089418340::1744506008::0::1::::Transition<>CanvasLayer<><>0<>0<><>::
@@ -234,7 +238,7 @@ entity1.gd::GDScript/GDScript::7833756780578106377::1744506008::0::1::::entity1<
 goblin.gd::GDScript/GDScript::2593281492044221849::1744506008::0::1::::<>BaseChar<><>0<>0<><>::
 item_message.gd::GDScript/GDScript::270799113566094608::1744506008::0::1::::<>CanvasLayer<><>0<>0<><>::
 player.gd::GDScript/GDScript::4843737813376786391::1744506008::0::1::::<>BaseChar<><>0<>0<><>::
-::res://logic/data/info/::1744636033
+::res://logic/data/info/::1744649348
 audio_stream_player.gd::GDScript/GDScript::6381109022362203797::1744506008::0::1::::<>RefCounted<><>0<>0<><>::
 backgroundmusicmanager.gd::GDScript/GDScript::4040620038761843782::1744506008::0::1::::<>music_manager<><>0<>0<><>::
 backgroundmusic_1.gd::GDScript/GDScript::1106846216218085199::1744506008::0::1::::<>AudioStreamPlayer2D<><>0<>0<><>::
@@ -242,11 +246,11 @@ buttonpress.gd::GDScript/GDScript::8511814314610192595::1744506008::0::1::::<>No
 ChoiceButtons.gd::GDScript/GDScript::6542881432654847380::1744506008::0::1::::<>PanelContainer<><>0<>0<><>::
 CombatManager.gd::GDScript::5926666744143005690::1744636033::0::1::::CombatManager<>Node<><>0<>0<><>::
 ContentContainer copy copy.gd::GDScript/GDScript::720795823545939840::1744506008::0::1::::<>VBoxContainer<><>0<>0<><>::
-ContentContainer.gd::GDScript/GDScript::5253878017854647569::1744506008::0::1::::<>VBoxContainer<><>0<>0<><>::
+ContentContainer.gd::GDScript::5253878017854647569::1744649348::0::1::::Gamesc<>VBoxContainer<><>0<>0<><>::
 ContentContainercopy.gd::GDScript/GDScript::2510719290592054198::1744506008::0::1::::<>Control<><>0<>0<><>::
-content_data.gd::GDScript::2691141631334054505::1744506008::0::1::::<>Node<><>0<>0<><>::
+content_data.gd::GDScript/GDScript::2691141631334054505::1744506008::0::1::::<>Node<><>0<>0<><>::
 fadetransition.gd::GDScript/GDScript::6699716426401958956::1744506008::0::1::::<>CanvasLayer<><>0<>0<><>::
-game_screen.gd::GDScript::7917384071743953418::1744506008::0::1::::CSLogic<>PanelContainer<><>0<>0<><>::
+game_screen.gd::GDScript::7917384071743953418::1744649348::0::1::::CSLogic<>PanelContainer<><>0<>0<><>::
 music.gd::GDScript/GDScript::20346815347858739::1744506008::0::1::::<>Node<><>0<>0<><>::
 storyvariables.gd::GDScript/GDScript::8090222804963220068::1744506008::0::1::::<>Node<><>0<>0<><>::
 ::res://logic/data/resources/::1744506008
@@ -256,12 +260,13 @@ test_goblin.tres::Resource/BaseChar::7117616680594626860::1744506008::0::1::::<>
 test_player.tres::Resource/BaseChar::8479218403248957952::1744506008::0::1::::<><><>0<>0<><>::uid://drtvjpumoqsuw::::res://logic/data/ent/BaseChar.gd
 ::res://logic/manager/::1744506008
 EntityManager.gd::GDScript/GDScript::5744644918972098252::1744506008::0::1::::EntityManager<>Node<><>0<>0<><>::
-::res://scenes/::1744636118
+::res://scenes/::1744655691
 backgroundmusiccombatscreen.gd::GDScript/GDScript::3528892001212430077::1744506008::0::1::::<>music_manager<><>0<>0<><>::
-combat_screen.tscn::PackedScene::2838341559811648736::1744636118::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://bqjolobwp7aan::::res://scenes/backgroundmusiccombatscreen.gd<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>uid://cqo6lnx0jtsuc::::res://logic/data/info/CombatManager.gd<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://etan25408vrg::::res://scenes/utilities/CombatScene/BaseCharacter.tscn
-game_screen.tscn::PackedScene::708872871568742017::1744636118::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://dk2ifnyc7omuc::::res://logic/data/info/game_screen.gd<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://cg4aurqgf8ev6::::res://logic/data/info/ContentContainer.gd<>uid://d2j8aqtfjj0r5::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>uid://c0hokijcprldk::::res://logic/data/info/ChoiceButtons.gd<>uid://gw131jxas0sc::::res://assets/fonts/Peaberry/PeaberryBase.ttf<>uid://djuy3hctcoym8::::res://logic/data/ent/entity1.gd<>uid://2d8lrtnrairc::::res://assets/Music/buttonpress.mp3<>uid://bxtkolqmegan3::::res://logic/data/info/backgroundmusicmanager.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd
+combat_screen.tscn::PackedScene::2838341559811648736::1744655549::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://bqjolobwp7aan::::res://scenes/backgroundmusiccombatscreen.gd<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>uid://cqo6lnx0jtsuc::::res://logic/data/info/CombatManager.gd<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://etan25408vrg::::res://scenes/utilities/CombatScene/BaseCharacter.tscn
+game_screen.tscn::PackedScene::708872871568742017::1744655549::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://dk2ifnyc7omuc::::res://logic/data/info/game_screen.gd<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://cg4aurqgf8ev6::::res://logic/data/info/ContentContainer.gd<>uid://d2j8aqtfjj0r5::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>uid://c0hokijcprldk::::res://logic/data/info/ChoiceButtons.gd<>uid://gw131jxas0sc::::res://assets/fonts/Peaberry/PeaberryBase.ttf<>uid://djuy3hctcoym8::::res://logic/data/ent/entity1.gd<>uid://2d8lrtnrairc::::res://assets/Music/buttonpress.mp3<>uid://bxtkolqmegan3::::res://logic/data/info/backgroundmusicmanager.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
 Mainmenumusic.gd::GDScript/GDScript::409551083313557802::1744506008::0::1::::<>music_manager<><>0<>0<><>::
-main_menu.tscn::PackedScene::5272711763444437011::1744636118::0::1::::<><><>0<>0<><>::uid://byds11vsd6ber::::res://assets/pixelart/pixelart.tres<>uid://cdovf2anj17a::::res://logic/backend/main_menu.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://cbd6qlawp2u3l::::res://scenes/utilities/circle_transition.tscn<>uid://dj0ib6qvmygdj::::res://assets/pixelart/button_pressed_style.tres<>uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png<>uid://da5yr06jbidxq::::res://logic/backend/audio_menu.gd<>uid://crbktcitbaljs::::res://logic/backend/viewport_container.gd<>uid://dlwi6jgvvy220::::res://assets/art/titlescreenbackground.webp<>uid://peloieugygrl::::res://scenes/utilities/load_button.tscn<>uid://f3nim7w4ggco::::res://scenes/Mainmenumusic.gd
+main_menu.tscn::PackedScene::5272711763444437011::1744655549::0::1::::<><><>0<>0<><>::uid://byds11vsd6ber::::res://assets/pixelart/pixelart.tres<>uid://cdovf2anj17a::::res://logic/backend/main_menu.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://cbd6qlawp2u3l::::res://scenes/utilities/circle_transition.tscn<>uid://dj0ib6qvmygdj::::res://assets/pixelart/button_pressed_style.tres<>uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png<>uid://da5yr06jbidxq::::res://logic/backend/audio_menu.gd<>uid://crbktcitbaljs::::res://logic/backend/viewport_container.gd<>uid://dlwi6jgvvy220::::res://assets/art/titlescreenbackground.webp<>uid://peloieugygrl::::res://scenes/utilities/load_button.tscn<>uid://f3nim7w4ggco::::res://scenes/Mainmenumusic.gd
+Save test.tscn::PackedScene::395479993867085159::1744655691::0::1::::<><><>0<>0<><>::uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
 Simple_Combat_Ui.tscn::PackedScene/PackedScene::3794774720178326408::1744506008::0::1::::<><><>0<>0<><>::uid://c85xerk0j4ha::::res://logic/data/combatLogic/combatui.gd<>uid://bwnjhsw1h5uq6::::res://assets/art/background3.jpg<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://b7woe43g8ick::::res://scenes/utilities/CombatScene/CombatScene.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://drtvjpumoqsuw::::res://logic/data/ent/BaseChar.gd
 ::res://scenes/entities/::1744506008
 BaseItem.tscn::PackedScene/PackedScene::7864812837489242138::1744506008::0::1::::<><><>0<>0<><>::uid://c1sjfbl1sk0jc::::res://logic/data/ent/BaseItem.gd
@@ -285,5 +290,5 @@ scene_transition_manager.tscn::PackedScene/PackedScene::4164508382535983478::174
 ::res://scenes/utilities/CombatScene/::1744506008
 BaseCharacter.tscn::PackedScene/PackedScene::320003233026972884::1744506008::0::1::::<><><>0<>0<><>::uid://drtvjpumoqsuw::::res://logic/data/ent/BaseChar.gd
 CombatScene.tscn::PackedScene/PackedScene::137609962897720854::1744506008::0::1::::<><><>0<>0<><>::uid://cqo6lnx0jtsuc::::res://logic/data/info/CombatManager.gd<>uid://buecmcurl6ij2::::res://logic/data/combatLogic/damage_calculator.gd
-::res://story/::1744506008
-Sample_Story.json::JSON/JSON::-1::1744506008::0::1::::<><><>0<>0<><>::
+::res://story/::1744646121
+Sample_Story.json::JSON::-1::1744646121::0::1::::<><><>0<>0<><>::

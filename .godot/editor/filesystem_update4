@@ -1,10 +1,10 @@
-res://scenes/combat_screen.tscn
+res://scenes/Save test.tscn
 res://assets/pixelart/combat_buttons.tres
 res://assets/pixelart/combatactionbuttons.tres
 res://assets/pixelart/troochi.tres
 res://assets/pixelart/game_screen_di.tres
 res://assets/pixelart/pixelart.tres
+res://scenes/combat_screen.tscn
 res://scenes/game_screen.tscn
 res://scenes/main_menu.tscn
-res://logic/data/info/CombatManager.gd
-res://story/Sample_Story.json
+res://logic/backend/save_manager.gd

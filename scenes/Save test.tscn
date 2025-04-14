@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://fvtq6mllqa7x"]
+
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="1_dycra"]
+
+[node name="SaveTest" type="Control" node_paths=PackedStringArray("line_text", "player_color")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dycra")
+line_text = NodePath("LineEdit")
+player_color = NodePath("ColorPickerButton")
+
+[node name="Plus1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 552.0
+offset_right = 416.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 60
+text = "Plus 1"
+
+[node name="Minus1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 552.0
+offset_right = 732.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 60
+text = "Minus 1"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 184.0
+offset_right = 752.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 60
+text = "Amount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 760.0
+offset_right = 416.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 60
+text = "Load"
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 784.0
+offset_right = 744.0
+offset_bottom = 920.0
+theme_override_font_sizes/font_size = 60
+text = "Save
+"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 80.0
+offset_right = 632.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 40
+text = "pizza"
+alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 560.0
+offset_right = 1000.0
+offset_bottom = 704.0
+
+[connection signal="pressed" from="Plus1" to="." method="_on_plus_1_pressed"]
+[connection signal="pressed" from="Minus1" to="." method="_on_minus_1_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

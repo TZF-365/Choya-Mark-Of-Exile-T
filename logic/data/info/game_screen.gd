@@ -3,7 +3,7 @@ class_name CSLogic
 var current_chapter: String
 var stat: Dictionary
 var start_page: String
-
+@export var gamesc : LineEdit
 
 
 @onready var entity_var
@@ -19,19 +19,18 @@ var save_manager_script = preload("res://logic/backend/save_manager.gd")
 
 func _ready():
 	stats_label.text = str("Val: " + str(stats["Val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
-	
+
 	# Create an instance of SaveManager when the scene is ready
 
 
 	# Save the game data at the start
-	save_manager.save_game(current_chapter, stat)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	stats_label.text = str("Val: " + str(stats["Val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 
-	# Create an instance of SaveManager to save the game every frame
-	save_manager.save_game(current_chapter, stat)
+
 
 	if "Val" in stat:  # Ensure "Val" exists in the dictionary
 		if int(stat["Val"]) <= 1:
@@ -57,5 +56,4 @@ func _on_button_pressed_combat() -> void:
 
 
 func _on_bgc_pressed() -> void: # How to change the background image for the background
-	style.bg_color = Color.GREEN
-	add_theme_stylebox_override("panel", style)
+	pass

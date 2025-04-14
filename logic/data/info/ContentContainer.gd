@@ -1,4 +1,5 @@
 extends VBoxContainer
+class_name Gamesc
 
 #Declared entity node and connected it to 
 @onready var entity_var = $"../../../../../entity_var"
@@ -26,8 +27,13 @@ var shown_death = false
 @onready var choice_4: PanelContainer = %ChoiceContainer4
 
 # Variables to store the content data and the current page identifier
-var content_dict: Dictionary
-var current_page: String
+@onready var content_dict: Dictionary
+@onready var current_page: String
+
+signal current_pages(data)
+
+func do_thing():
+	emit_signal(current_page)
 
 # Called when the node is added to the scene
 func _ready() -> void:
