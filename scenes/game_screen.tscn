@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
 [ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
-[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_3a7ej"]
+[ext_resource type="Script" uid="uid://d1qjlvfqw1mjd" path="res://logic/backend/save_manager_Main.gd" id="16_3a7ej"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_crt81")
@@ -144,6 +144,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 script = ExtResource("8_q3ncb")
+start_page = null
+death_page = null
+mana_low_page = null
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
@@ -406,7 +409,7 @@ theme_override_font_sizes/font_size = 30
 text = "Combat Screen"
 metadata/_edit_use_anchors_ = true
 
-[node name="BGC" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.673077
@@ -417,6 +420,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = -13.4957
+anchor_right = 0.980769
+anchor_bottom = -12.9044
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Load"
 metadata/_edit_use_anchors_ = true
 
 [node name="entity_var" type="Node" parent="."]
@@ -441,8 +457,9 @@ pitch_scale = 0.65
 [node name="Buttonpress" type="Node" parent="."]
 script = ExtResource("14_pee72")
 
-[node name="Save" type="Node" parent="."]
+[node name="Save" type="Node" parent="." node_paths=PackedStringArray("player_stats")]
 script = ExtResource("16_3a7ej")
+player_stats = NodePath("../MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]
@@ -456,4 +473,6 @@ script = ExtResource("16_3a7ej")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/followcreator" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Exitbutton" to="." method="_on_exitbutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Button" to="." method="_on_button_pressed_combat"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC" to="." method="_on_bgc_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save" to="." method="_on_bgc_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save" to="Save" method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Load" to="Save" method="_on_load_pressed"]

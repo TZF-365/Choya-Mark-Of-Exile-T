@@ -105,9 +105,10 @@ func process_choice(choice_index: int) -> void:
 		current_page = output_value
 		set_content(content_dict[output_value])
 
-		# Save current progress (save_game is now a method on an instance)
-		var save_manager = SaveManager.new()
-		save_manager.save_game(current_page, player_stats)
+		
+		# Save after making a choice
+		SaveManager.save_game(player_stats, current_page)
+
 
 
 

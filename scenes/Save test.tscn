@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="1_dycra"]
 
-[node name="SaveTest" type="Control" node_paths=PackedStringArray("line_text", "player_color")]
+[node name="SaveTest" type="Control" node_paths=PackedStringArray("line_text", "player_color", "player_stats")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_dycra")
 line_text = NodePath("LineEdit")
 player_color = NodePath("ColorPickerButton")
+player_stats = NodePath("Label")
 
 [node name="Plus1" type="Button" parent="."]
 layout_mode = 0
@@ -38,7 +39,6 @@ offset_top = 184.0
 offset_right = 752.0
 offset_bottom = 520.0
 theme_override_font_sizes/font_size = 60
-text = "Amount"
 horizontal_alignment = 1
 vertical_alignment = 1
 

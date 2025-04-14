@@ -8,3 +8,6 @@ res://scenes/combat_screen.tscn
 res://scenes/game_screen.tscn
 res://scenes/main_menu.tscn
 res://logic/backend/save_manager.gd
+res://logic/backend/SceneData.gd
+res://logic/data/info/ContentContainer.gd
+res://logic/backend/save_manager_Main.gd
