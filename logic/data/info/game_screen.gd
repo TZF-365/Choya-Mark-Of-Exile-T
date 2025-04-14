@@ -2,10 +2,7 @@ extends ChoiceM
 class_name CSLogic
 
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 var save_manager = SaveManager.new()
 @onready var stat = $entity_var.core_entity 
 =======
@@ -13,14 +10,11 @@ var save_manager = SaveManager.new()
 
 @onready var stat = $entity_var.core_entity
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 @onready var entity_var
 
 @onready var stat = $entity_var.core_entity
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 
 @onready var stats_label = $MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label
 @onready var bcg = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC
@@ -28,10 +22,7 @@ var save_manager = SaveManager.new()
 
 func _ready():
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 	stats_label.text = str("Val: " + str(stat["Val"]) + ", " + "Mana: " + str(stat["mana"]) + ", " + "Coins: " + str(stat["coins"]) + "\nStatus: " + str(stat["status"]))
 	# Create an instance of SaveManager when the scene is ready
 	# Save the game data at the start
@@ -40,21 +31,15 @@ func _ready():
 =======
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 	stats_label.text = str("Val: " + str(stat["Val"]) + ", " + "Mana: " + str(stat["mana"]) + ", " + "Coins: " + str(stat["coins"]) + "\nStatus: " + str(stat["status"]))
 
 	# Create an instance of SaveManager to save the game every frame
@@ -64,13 +49,10 @@ func _process(_delta):
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 	
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 	stats_label.text = str("Val: "+str(stat["Val"])+", "+"Mana: "+str(stat["mana"])+ ", "+"Coins: "+str(stat["coins"])+"\nStatus: "+str(stat["status"]))
 	
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 	if "Val" in stat:  # Ensure "Val" exists in the dictionary
 		if int(stat["Val"]) <= 1:
 			stat["Val"] = 0
@@ -83,19 +65,13 @@ func _on_button_pressed():
 
 func _on_menu_pressed() -> void:
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 	save_manager.save_game(current_page, stat)
 
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 

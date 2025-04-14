@@ -26,19 +26,13 @@ func _on_start_button_pressed():
 	await Fadetransition.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 
 
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 
 
 func _on_exit_pressed():

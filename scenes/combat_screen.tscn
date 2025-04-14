@@ -3,21 +3,15 @@
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cdnevgb57eqgl" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 [ext_resource type="Script" uid="uid://bqjolobwp7aan" path="res://scenes/backgroundmusiccombatscreen.gd" id="3_qmrhv"]
 =======
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 [ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]

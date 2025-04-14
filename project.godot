@@ -29,20 +29,14 @@ entitymanager="*res://logic/manager/EntityManager.gd"
 Fadetransition="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 Save="*res://logic/backend/save_manager.gd"
 LoadButton="*res://logic/backend/load_button.gd"
 SaveButton="*res://logic/backend/save_button.gd"
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
 
 [display]
 

@@ -1,8 +1,5 @@
 <<<<<<< HEAD
-<<<<<<< Updated upstream
 <<<<<<< HEAD
-=======
->>>>>>> Stashed changes
 extends Node
 
 class_name SaveManager
@@ -29,9 +26,6 @@ func load_game() -> Dictionary:
 =======
 extends Resource
 >>>>>>> parent of 2a0b700 (Saves)
-<<<<<<< Updated upstream
 =======
 extends Resource
 >>>>>>> parent of 2a0b700 (Saves)
-=======
->>>>>>> Stashed changes
