@@ -12,7 +12,7 @@ Here's a new GitHub README tailored for your game **CHOYA – The Drakthyr Invas
 
 The game begins with **Lyaris Alaric Talbot**, a man suffering from short-term memory loss, wandering a dense forest with no visible injuries—only exhaustion and a fading grasp on who he is. While trying to piece together his past, he's attacked by a wolf and saved at the last moment by a hunter named **Kaela**. Before he can thank her, he collapses.
 
-When Lyaris awakens, he finds himself in different clothes, missing his dagger and map, and discovers he's been unconscious for three days. As Kaela guides him to a tavern to rest and talk, Lyaris grows suspicious—but Kaela reassures him with a sharp sense of honor. Their conversation is interrupted by a local villager reporting disturbances caused by wild boars, setting them on a new path together.
+When Lyaris awakens, he finds himself in new clothes, missing his dagger and map, and discovers he's been unconscious for three days. As Kaela guides him to a tavern to rest and talk, Lyaris grows suspicious—but Kaela reassures him with a sharp sense of humor. Their conversation is interrupted by a local villager reporting disturbances caused by wild boars, setting them on a new path together.
 
 As Lyaris explores the world, he will uncover not only the threads of his past but also face life-altering choices: join a secretive death cult, rise as a noble knight, chase economic power, or live as a wandering hero. Every choice matters, and every path has consequences.
 
