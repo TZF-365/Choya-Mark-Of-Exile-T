@@ -50,3 +50,4 @@ res://logic/backend/save_manager.gd
 res://logic/backend/scene_transition_manager.gd
 res://logic/data/info/storyvariables.gd
 res://logic/backend/viewport_container.gd
+res://scenes/utilities/fadetransition.tscn

@@ -23,10 +23,14 @@ func _exit_tree():
 	exit_button.pressed.disconnect(_on_exit_pressed)
 
 func _on_start_button_pressed():
-	Fadetransition.transition()
-	await Fadetransition.on_transition_finished
+	# Start the transition (wait for it to finish before continuing)
+	TransitionManager.transition(0.5)
+	# Wait for the transition to finish using the "on_transition_finished" signal
+	await TransitionManager.on_transition_finished
+
+	# After transition, change the scene
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
-	
+
 
 
 func _on_exit_pressed():
@@ -42,8 +46,10 @@ func _on_return_main_menu_button_pressed():
 
 
 func _on_load_button_pressed() -> void:
-	Fadetransition.transition()
-	await Fadetransition.on_transition_finished
+	# Start the transition (wait for it to finish before continuing)
+	TransitionManager.transition(0.5)
+	# Wait for the transition to finish using the "on_transition_finished" signal
+	await TransitionManager.on_transition_finished
 	$"../../SaveManager".load_current_game()
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 	

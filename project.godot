@@ -26,7 +26,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 exit="*res://logic/backend/exitgame.gd"
-Fadetransition="*res://scenes/utilities/fadetransition.tscn"
+TransitionManager="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 ContentData="*res://logic/data/info/content_data.gd"
 Player_AL="*res://logic/data/ent/player.gd"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=42 format=3 uid="uid://bgo6cn334xsl1"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="12_08v13"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_irmyc"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="14_qmrhv"]
+[ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="15_irmyc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_jxhud")
@@ -96,43 +97,6 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvywa"]
 bg_color = Color(0, 0, 0, 0.551)
-
-[sub_resource type="Animation" id="Animation_ess8w"]
-resource_name = "Fade_in"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("vbox:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.222837, 3.93678, 4.30818),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1322, 4), Vector2(1322, 4), Vector2(1322, 4)]
-}
-
-[sub_resource type="Animation" id="Animation_dp40x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("vbox:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1322, 4)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnw03"]
-_data = {
-&"Fade_in": SubResource("Animation_ess8w"),
-&"RESET": SubResource("Animation_dp40x")
-}
 
 [node name="Combat_Screen_Logic" type="Control" node_paths=PackedStringArray("entity_var")]
 layout_mode = 3
@@ -822,11 +786,6 @@ text = "Lycus"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_dnw03")
-}
-
 [node name="vbox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -892,6 +851,8 @@ metadata/_custom_type_script = "uid://dbio2vtk3488t"
 [node name="AudioManager" parent="." instance=ExtResource("14_irmyc")]
 visible = false
 layout_mode = 1
+
+[node name="Fadetransition" parent="." instance=ExtResource("15_irmyc")]
 
 [connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="Combatmanager" method="_on_action_pressed"]

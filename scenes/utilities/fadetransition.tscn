@@ -72,3 +72,7 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_rbyov")
 }
+
+[node name="CircleWipe" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
