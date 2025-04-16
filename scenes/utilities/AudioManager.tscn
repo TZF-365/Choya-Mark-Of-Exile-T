@@ -16,6 +16,8 @@ script = ExtResource("1_wgeoa")
 [node name="MusicPlayerB" type="AudioStreamPlayer" parent="."]
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -19.809
+pitch_scale = 0.81
 
 [node name="ALSoundManager" type="Node" parent="."]
 

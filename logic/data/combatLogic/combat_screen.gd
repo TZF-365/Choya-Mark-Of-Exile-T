@@ -13,7 +13,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	await AudioManager.fade_out_music()
+	AudioManager.play_music(preload("res://assets/Music/03_Melee.ogg"))
 
 
 

@@ -12,7 +12,7 @@ var loop_end_time := 0.0
 
 # Toggle between A and B for crossfade
 var current_player_is_a := true
-var current_player = 0
+var current_player = 1
 var fade_duration := 2.0
 
 
@@ -39,32 +39,28 @@ var scene_audio_streams = {
 var current_song_index := 0
 
 func _ready():
-	music_timer.wait_time = 50.0
-	music_timer.one_shot = false
-	music_timer.timeout.connect(_on_music_timer_timeout)
-	music_timer.start()
 	print("AudioManager ready.")
 
 func play_music(stream: AudioStream):
-	if current_player == 0:
+	if current_player == 1:
 		music_player_a.stream = stream
 		music_player_a.play()
 		current_player = 1
-	else:
-		music_player_b.stream = stream
-		music_player_b.play()
-		current_player = 0
+	#else:
+		#music_player_b.stream = stream
+		#music_player_b.play()
+		#current_player = 0
 		
 		
 func fade_in_music():
-	if current_player == 0:
+	if current_player == 1:
 		music_player_a.volume_db = -80
 		music_player_a.play()
 		music_player_a.volume_db = 0
-	else:
-		music_player_b.volume_db = -80
-		music_player_b.play()
-		music_player_b.volume_db = 0
+	#else:
+		#music_player_b.volume_db = -80
+		#music_player_b.play()
+		#music_player_b.volume_db = 0
 
 func stop_music():
 	music_player_a.stop()
@@ -151,14 +147,15 @@ func play_music_with_custom_loop(stream: AudioStream, start_time: float, end_tim
 	music_timer.start()
 
 
-func fade_out_music():
-	var active_player = music_player_a if current_player_is_a else music_player_b
+func fade_out_music() -> void:
+	var active_player = music_player_a
 	if active_player.playing:
 		var fade_out_tween = create_tween()
 		fade_out_tween.tween_property(active_player, "volume_db", -80, fade_duration)
 		fade_out_tween.tween_callback(Callable(active_player, "stop"))
 		fade_out_tween.tween_callback(Callable(self, "_reset_volume").bind(active_player))
-		
+		await fade_out_tween.finished
+
 		
 func _reset_volume(player: AudioStreamPlayer):
 	player.volume_db = 0

@@ -18,9 +18,8 @@ var start_page: String
 
 
 func _ready():
-	
-
-	
+	await AudioManager.fade_out_music()
+	AudioManager.play_music(preload("res://assets/Music/Scene1.ogg"))
 	stats_label.text = str("val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 	print(stats_label.text)
 

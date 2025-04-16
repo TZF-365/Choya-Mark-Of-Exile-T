@@ -35,13 +35,10 @@ var content_dict: Dictionary
 
 # Called when the node is added to the scene
 func _ready() -> void:
-
 	statindicator.text = ""
 	content_dict = ContentData.content_dict
 	Ccid.connect("page_changed", Callable(self, "_on_ccid_page_changed"))
-	AudioManager.play_music(load("battlemusic"))
 
-	
 	# Only set start page if Ccid doesn't already have a value
 	if Ccid.current_chapter_id == "":
 		Ccid.set_page(start_page)
