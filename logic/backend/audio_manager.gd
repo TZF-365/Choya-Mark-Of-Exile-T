@@ -25,9 +25,6 @@ func play_scene_audio(scene_key: String):
 	else:
 		print("Audio for scene '%s' not found!" % scene_key)
 
-
-
-
 # List of songs to play
 @onready var songs = [
 	preload("res://assets/Music/Dandadan_OPMED.mp3"),
@@ -42,9 +39,8 @@ var current_song_index = 0
 func _ready():
 	# Start playing the first song
 	# play_song(current_song_index)
-	play_scene_audio("main_menu")
-	
-	
+
+
 	# Configure the timer
 	timer.start(92)
 	timer.wait_time = 90.0  # Time in seconds before switching songs

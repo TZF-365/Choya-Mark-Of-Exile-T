@@ -1,6 +1,8 @@
 extends VBoxContainer
 class_name Gamesc
 
+
+
 #Declared entity node and connected it to 
 @export var entity_var: Player_AL
 @onready var player_stats = entity_var
@@ -37,6 +39,7 @@ func _ready() -> void:
 	statindicator.text = ""
 	content_dict = ContentData.content_dict
 	Ccid.connect("page_changed", Callable(self, "_on_ccid_page_changed"))
+	AudioManager.play_music(load("battlemusic"))
 
 	
 	# Only set start page if Ccid doesn't already have a value
@@ -139,6 +142,20 @@ func set_picture(output_value) -> void:
 # Function to set the narrative text
 func set_narr_text(output_value) -> void:
 	narr_text.text = str(output_value["narr_text"])
+
+func run_actions(action_list: Array) -> void:
+	for action in action_list:
+		if action.begins_with("play_track:"):
+			var path = action.split(":")[1]
+			AudioManager.play_music(load(path))
+		elif action == "fade_in_music":
+			AudioManager.fade_in_music()
+		elif action == "fade_out_music":
+			AudioManager.fade_out_music()
+		elif action == "stop_music":
+			AudioManager.stop_music()
+		# Add more actions as needed
+
 
 
 # Function to set the choice buttons

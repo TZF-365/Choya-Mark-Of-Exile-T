@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
-[ext_resource type="Script" uid="uid://bqjolobwp7aan" path="res://scenes/backgroundmusiccombatscreen.gd" id="3_qmrhv"]
 [ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="10_dixns"]
 [ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="12_08v13"]
+[ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_irmyc"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="14_qmrhv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
@@ -147,14 +147,6 @@ metadata/_edit_vertical_guides_ = [-10.0]
 
 [node name="buttonpress" type="Node" parent="."]
 script = ExtResource("2_7jpoa")
-
-[node name="Backgroundmusic" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("audio_player")]
-pitch_scale = 1.09
-script = ExtResource("3_qmrhv")
-audio_player = NodePath(".")
-
-[node name="soundeffects" type="AudioStreamPlayer" parent="."]
-pitch_scale = 1.09
 
 [node name="Main_Screen" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -896,6 +888,10 @@ stats = {
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("14_qmrhv")
 metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+[node name="AudioManager" parent="." instance=ExtResource("14_irmyc")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="Combatmanager" method="_on_action_pressed"]

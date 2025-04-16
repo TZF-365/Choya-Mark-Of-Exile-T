@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="InteractiveNovel"
-config/description="Combat rpg story game made by Glenville Dixon Jr"
-config/version="0.4"
+config/name="Choya: Mark Of The Exile"
+config/description="CHOYA – The Drakthyr Invasion
+
+CHOYA Banner
+
+CHOYA is an immersive, choice-driven, text-based RPG adventure developed in Godot 4, built on the foundation of the Interactive Story System. This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate."
+config/version="0.6.8"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
@@ -27,6 +31,7 @@ Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 ContentData="*res://logic/data/info/content_data.gd"
 Player_AL="*res://logic/data/ent/player.gd"
 Ccid="*res://logic/backend/CCID.gd"
+AudioManager="*res://scenes/utilities/AudioManager.tscn"
 
 [display]
 
@@ -43,3 +48,4 @@ project/assembly_name="InteractiveNovel"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true

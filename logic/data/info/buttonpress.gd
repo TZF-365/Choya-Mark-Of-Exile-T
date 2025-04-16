@@ -16,6 +16,6 @@ extends Node
 
 
 func _on_button_pressed() -> void:
-	audio_player.play(0.2)
+	AudioManager.play_sfx(load("res://assets/Music/buttonpress.mp3"), 1.5)
 	print("Playing song: ", songs.resource_path)
 	print(songs)

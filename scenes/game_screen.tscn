@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=19 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
@@ -11,9 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
 [ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="12_q6fd1"]
-[ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
-[ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
+[ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_vqtp5"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_bd51b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
@@ -434,28 +433,16 @@ text = "load
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_8tvxp")
-autoplay = true
-
-[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
-one_shot = true
-
-[node name="Backgroundmusic" type="Node" parent="." node_paths=PackedStringArray("audio_player")]
-script = ExtResource("14_g78m6")
-audio_player = NodePath("../AudioStreamPlayer")
-
-[node name="soundeffectplayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_8tvxp")
-volume_db = -12.48
-pitch_scale = 0.65
-
 [node name="Buttonpress" type="Node" parent="."]
 script = ExtResource("14_pee72")
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("16_bd51b")
 metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+[node name="AudioManager" parent="." instance=ExtResource("14_vqtp5")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]

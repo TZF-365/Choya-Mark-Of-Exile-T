@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://crbktcitbaljs" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
 [ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
-[ext_resource type="Script" uid="uid://f3nim7w4ggco" path="res://scenes/Mainmenumusic.gd" id="12_flqon"]
+[ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_1ajci"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="15_5pajh"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="15_7b55j"]
 
@@ -403,10 +403,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Return"
 
-[node name="Music_Player" type="Node" parent="Settings Menu" node_paths=PackedStringArray("audio_player")]
-script = ExtResource("12_flqon")
-audio_player = NodePath("../../AudioStreamPlayer")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_xq8ga")
@@ -417,14 +413,16 @@ tree_root = SubResource("AnimationNodeStateMachine_6w8s2")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("15_5pajh")]
 names = "Lycarus"
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("15_7b55j")
 metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+[node name="AudioManager" parent="." instance=ExtResource("14_1ajci")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/start_button" to="Main Menu/Menu Control" method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/load_button" to="Main Menu/Menu Control" method="_on_load_button_pressed"]

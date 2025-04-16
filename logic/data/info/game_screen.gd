@@ -18,7 +18,7 @@ var start_page: String
 
 
 func _ready():
-
+	
 
 	
 	stats_label.text = str("val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
