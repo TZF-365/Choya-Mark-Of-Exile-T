@@ -1,7 +1,7 @@
-extends BaseChar
+extends Node
 
-@onready var entity_var = $entity_var
-@onready var stat = $CombatScenes/BaseChar.stats
+@export var entity_var : BaseChar
+@onready var stat = entity_var
 @onready var action: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action"
 @onready var inspect: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect"
 @onready var items: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items"
@@ -9,9 +9,12 @@ extends BaseChar
 @onready var label: Label = $Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox/Label3
 @onready var playerstat: Label = $"Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Player Stats"
 
+@onready var SaveManager = $SaveManager
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+
 
 
 
@@ -19,6 +22,7 @@ func _on_move_pressed() -> void:
 	label.set_text(str("you moved"))
 
 func _on_Menu_button_pressed() -> void:
+	SaveManager.save_current_game()
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 
 

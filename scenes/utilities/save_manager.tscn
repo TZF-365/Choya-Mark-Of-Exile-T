@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://idntm7c5shs2"]
+
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="1_gysgk"]
+
+[node name="SaveManager" type="Node"]
+script = ExtResource("1_gysgk")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"

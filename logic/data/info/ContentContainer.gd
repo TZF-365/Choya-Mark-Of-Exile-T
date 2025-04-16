@@ -2,8 +2,9 @@ extends VBoxContainer
 class_name Gamesc
 
 #Declared entity node and connected it to 
-@onready var entity_var = $"../../../../../entity_var"
-@onready var player_stats = entity_var.core_entity
+@export var entity_var: Player_AL
+@onready var player_stats = entity_var
+
 
 
 var used_hp = false
@@ -27,24 +28,29 @@ var shown_death = false
 @onready var choice_4: PanelContainer = %ChoiceContainer4
 
 # Variables to store the content data and the current page identifier
-@onready var content_dict: Dictionary
-@onready var current_page: String
-
-signal current_pages(data)
-
-func do_thing():
-	emit_signal(current_page)
+var content_dict: Dictionary
+@onready var current_page
 
 # Called when the node is added to the scene
 func _ready() -> void:
+
 	statindicator.text = ""
-	# Initialize the content dictionary from an external source
 	content_dict = ContentData.content_dict
+	Ccid.connect("page_changed", Callable(self, "_on_ccid_page_changed"))
+
 	
-	# Set the current page to the prologue
-	current_page = start_page
-	# Set the content for the current page
+	# Only set start page if Ccid doesn't already have a value
+	if Ccid.current_chapter_id == "":
+		Ccid.set_page(start_page)
+		
+	current_page = Ccid.current_chapter_id
 	set_content(content_dict[current_page])
+	
+	
+	if content_dict.has(current_page):
+		set_content(content_dict[current_page])
+	else:
+		print("Missing data reference for page:", current_page)
 
 	# Connect choice button signals to the process_choice function
 	choice_1.connect("choice_btn_pressed", Callable(self, "process_choice"))
@@ -54,8 +60,9 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	player_stats = entity_var.core_entity
-	if player_stats["Val"] <=0:
+	
+	player_stats = Player_AL
+	if player_stats["current_val"] <=0:
 		is_dead = true 
 		
 	if is_dead and shown_death == false:
@@ -66,6 +73,9 @@ func _process(_delta):
 		print(output)
 		set_choice_btn(content_dict[death_page])
 		shown_death=true	
+
+		Ccid.set_page(current_page)  # Ensure global page is updated here
+		set_content(content_dict[current_page])		
 
 
 # Function to process a choice made by the user
@@ -85,7 +95,7 @@ func process_choice(choice_index: int) -> void:
 				if player_stats[requirement] < requirements[requirement] and content_dict[current_page]["choices"][str(choice_index)].has("failed_output"):
 					if requirement == "mana":
 						var health_deduction = player_stats[requirement] - requirements[requirement]
-						player_stats["health"] += round(health_deduction * 1.5)
+						player_stats["current_val"] += round(health_deduction * 1.5)
 						statindicator.text += "\n[color=red]" + str("health") + " has decreased by " + str(round(-health_deduction * 1.5)) + "[/color]"
 						used_hp = true
 						output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
@@ -102,14 +112,9 @@ func process_choice(choice_index: int) -> void:
 				player_stats[key] += buff_value[key]
 
 		# Update current page and load content
-		current_page = output_value
+		Ccid.set_page(output_value)
+		current_page = output_value  # Optional, just for local convenience
 		set_content(content_dict[output_value])
-
-		
-		# Save after making a choice
-		SaveManager.save_game(player_stats, current_page)
-
-
 
 
 # Function to set the content of the current page
@@ -176,3 +181,14 @@ func set_choice_btn(output_value) -> void:
 				"4":
 					choice_4.set_text(str(content_dict[death_page]["choices"][str(choice_4.choice_index)]["text"]))
 					choice_4.visible = true
+
+
+
+func _on_page_changed(new_page: String) -> void:
+	if content_dict.has(new_page):
+		set_content(content_dict[new_page])
+
+
+func _on_ccid_page_changed(new_page: String) -> void:
+	if content_dict.has(new_page):
+		set_content(content_dict[new_page])

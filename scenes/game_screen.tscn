@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
@@ -11,11 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
 [ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="12_q6fd1"]
-[ext_resource type="Script" uid="uid://djuy3hctcoym8" path="res://logic/data/ent/entity1.gd" id="12_vqtp5"]
 [ext_resource type="AudioStream" uid="uid://2d8lrtnrairc" path="res://assets/Music/buttonpress.mp3" id="14_8tvxp"]
 [ext_resource type="Script" uid="uid://bxtkolqmegan3" path="res://logic/data/info/backgroundmusicmanager.gd" id="14_g78m6"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
-[ext_resource type="Script" uid="uid://d1qjlvfqw1mjd" path="res://logic/backend/save_manager_Main.gd" id="16_3a7ej"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_bd51b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
 texture = ExtResource("1_crt81")
@@ -27,6 +26,7 @@ PanelContainer/styles/panel = null
 [sub_resource type="SystemFont" id="SystemFont_2y5ls"]
 font_names = PackedStringArray("Serif")
 font_italic = true
+subpixel_positioning = 0
 multichannel_signed_distance_field = true
 msdf_pixel_range = 32
 msdf_size = 60
@@ -144,9 +144,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 script = ExtResource("8_q3ncb")
-start_page = null
-death_page = null
-mana_low_page = null
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
@@ -419,24 +416,23 @@ anchor_bottom = 0.799998
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Save"
+text = "Save
+"
 metadata/_edit_use_anchors_ = true
 
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.85
-anchor_top = -13.4957
-anchor_right = 0.980769
-anchor_bottom = -12.9044
+anchor_left = 0.834615
+anchor_top = -13.4261
+anchor_right = 0.965385
+anchor_bottom = -12.6957
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Load"
+text = "load
+"
 metadata/_edit_use_anchors_ = true
-
-[node name="entity_var" type="Node" parent="."]
-script = ExtResource("12_vqtp5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_8tvxp")
@@ -457,9 +453,9 @@ pitch_scale = 0.65
 [node name="Buttonpress" type="Node" parent="."]
 script = ExtResource("14_pee72")
 
-[node name="Save" type="Node" parent="." node_paths=PackedStringArray("player_stats")]
-script = ExtResource("16_3a7ej")
-player_stats = NodePath("../MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label")
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("16_bd51b")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]
@@ -473,6 +469,5 @@ player_stats = NodePath("../MarginContainer/VBoxContainer/Panel/HBoxContainer/Pa
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/followcreator" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Exitbutton" to="." method="_on_exitbutton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Button" to="." method="_on_button_pressed_combat"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save" to="." method="_on_bgc_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save" to="Save" method="_on_save_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Load" to="Save" method="_on_load_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Load" to="." method="_on_load_pressed"]

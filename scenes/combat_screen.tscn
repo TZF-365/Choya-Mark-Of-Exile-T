@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="10_dixns"]
 [ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="12_08v13"]
-[ext_resource type="PackedScene" uid="uid://etan25408vrg" path="res://scenes/utilities/CombatScene/BaseCharacter.tscn" id="13_jrkkn"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="14_qmrhv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_jxhud")
@@ -134,7 +134,7 @@ _data = {
 &"RESET": SubResource("Animation_dp40x")
 }
 
-[node name="Combat_Screen_Logic" type="Control"]
+[node name="Combat_Screen_Logic" type="Control" node_paths=PackedStringArray("entity_var")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,12 +142,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6yria")
+entity_var = NodePath("CombatScenes/Player")
 metadata/_edit_vertical_guides_ = [-10.0]
 
 [node name="buttonpress" type="Node" parent="."]
 script = ExtResource("2_7jpoa")
-
-[node name="entity_var" type="Node" parent="."]
 
 [node name="Backgroundmusic" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("audio_player")]
 pitch_scale = 1.09
@@ -852,10 +851,9 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("player", "enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button")]
+[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button")]
 script = ExtResource("10_8u2d7")
-player = NodePath("../CombatScenes/Player")
-enemy = NodePath("../CombatScenes/Goblin")
+enemy = NodePath("../CombatScenes/Goblin2")
 enemy_ai = NodePath("../CombatScenes/EnemyAi")
 combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/RichTextLabel")
 player_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Player Stats")
@@ -869,19 +867,8 @@ dodge_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action butto
 [node name="EnemyAi" parent="CombatScenes" instance=ExtResource("10_dixns")]
 
 [node name="Goblin" parent="CombatScenes" instance=ExtResource("11_msaj8")]
-names = "Gobby the Fearfull"
-max_val = 300
-current_val = 300
-stamina = 30
-max_stamina = 30
-action_points = 5
-max_action_points = 5
-max_part_val = null
-damage_percentage = null
-is_defending = null
-is_dodging = null
-status_effects = null
-combat_state = null
+max_val = 1000
+current_val = 1000
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -890,52 +877,25 @@ stats = {
 "strength": 6,
 "toughness": 4
 }
-skills = null
-equipment = null
-body_part_val = null
-story_var = null
 
 [node name="Player" parent="CombatScenes" instance=ExtResource("12_08v13")]
-names = "Lexus "
-max_val = 250
-current_val = 250
-mana = 50
-max_mana = 50
-action_points = 5
-max_action_points = 5
-max_part_val = null
-damage_percentage = null
-is_defending = null
-is_dodging = null
-status_effects = null
-combat_state = null
-stats = {
-"agility": 5,
-"dexterity": 4,
-"endurance": 5,
-"perception": 2,
-"strength": 5,
-"toughness": 4
-}
-skills = null
-equipment = null
-body_part_val = null
-story_var = null
-
-[node name="BaseChar" parent="CombatScenes" instance=ExtResource("13_jrkkn")]
 
 [node name="Goblin2" parent="CombatScenes" instance=ExtResource("11_msaj8")]
 names = "Gobby the ugly"
-max_val = 320
-current_val = 125
+max_val = 300
+current_val = 227
 stats = {
 "agility": 5,
 "dexterity": 4,
 "endurance": 5,
 "perception": 2,
-"strength": 2,
+"strength": 6,
 "toughness": 3
 }
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("14_qmrhv")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"
 
 [connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action" to="Combatmanager" method="_on_action_pressed"]

@@ -1,13 +1,14 @@
 extends Control
 
 enum Menu { MAIN_MENU, SETTINGS_MENU }
-var save_manager = SaveManager.new()
 @export var start_button : Button
 @export var settings_button : Button
 @export var exit_button : Button
 @export var SceneTransitionManager = "res://scenes/utilities/scene_transition_manager.tscn"
 @export var start_scene_path : PackedScene
 @export var transition_path : PackedScene
+
+@onready var SaveManager = $"../../SaveManager"
 
 var current_menu : Menu = Menu.MAIN_MENU
 
@@ -38,3 +39,11 @@ func _on_settings_pressed():
 
 func _on_return_main_menu_button_pressed():
 	current_menu = Menu.MAIN_MENU
+
+
+func _on_load_button_pressed() -> void:
+	Fadetransition.transition()
+	await Fadetransition.on_transition_finished
+	$"../../SaveManager".load_current_game()
+	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
+	

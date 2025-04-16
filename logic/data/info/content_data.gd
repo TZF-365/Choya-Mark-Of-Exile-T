@@ -14,7 +14,7 @@ var content_dict: Dictionary = {}
 func _ready():
 	# Load the content dictionary from the dialog file
 	load_content_dict()
-	print(content_dict)
+	print("Game Scripts Loaded")
 	
 	
 # Function to load the content dictionary

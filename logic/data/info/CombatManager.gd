@@ -2,11 +2,12 @@ extends Node
 class_name CombatManager
 
 # Player and enemy character references
-@export var player: BaseChar
+var player: BaseChar = Player_AL
 @export var enemy: BaseChar
 
 # Enemy AI controller
 @export var enemy_ai: EnemyAI
+var player_stats = Player_AL
 
 # UI elements for displaying combat information
 @export var combat_log: RichTextLabel
@@ -156,8 +157,8 @@ func update_health_labels():
 	"""
 	Updates the UI to reflect current health of player and enemy.
 	"""
-	player_health_label.text = "Player Health: %d" % player.current_val
-	enemy_health_label.text = "Enemy HP: %d" % enemy.current_val
+	player_health_label.text = "Player Val: %d" % player.current_val
+	enemy_health_label.text = "Enemy Val: %d" % enemy.current_val
 
 ### END OF BATTLE ###
 func check_battle_end():

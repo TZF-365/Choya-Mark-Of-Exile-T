@@ -3,33 +3,40 @@ class_name CSLogic
 var current_chapter: String
 var stat: Dictionary
 var start_page: String
-@export var gamesc : LineEdit
+@onready var stats : BaseChar = Player_AL
+@onready var SaveManager = $SaveManager
 
-
-@onready var entity_var
-var save_manager = SaveManager.new()
-@onready var stats = $entity_var.core_entity
+@onready var entity_var = Player_AL
 
 @onready var stats_label = $MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label
-@onready var bcg = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/BGC
+@onready var save = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save
+@onready var load = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Load
+
 @onready var style: StyleBoxFlat = StyleBoxFlat.new() # variable for setting the background
 
-# Preload the SaveManager script so you can instance it
-var save_manager_script = preload("res://logic/backend/save_manager.gd")
+
+
 
 func _ready():
-	stats_label.text = str("Val: " + str(stats["Val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
-
-	# Create an instance of SaveManager when the scene is ready
 
 
-	# Save the game data at the start
-
+	
+	stats_label.text = str("val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
+	print(stats_label.text)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	stats_label.text = str("Val: " + str(stats["Val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
+	stats_label.text = str("Val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 
+
+func set_custom_defaults(new_defaults: Dictionary) -> void:
+	for key in new_defaults.keys():
+		if key in stats:
+			stats[key] = new_defaults[key]
+		else:
+			push_warning("Key '%s' not found in base stats, adding it anyway." % key)
+			stats[key] = new_defaults[key]
+			
 
 
 	if "Val" in stat:  # Ensure "Val" exists in the dictionary
@@ -42,7 +49,6 @@ func _on_button_pressed():
 
 
 func _on_menu_pressed() -> void:
-	save_manager.save_game(current_chapter, stat)
 
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
@@ -56,4 +62,13 @@ func _on_button_pressed_combat() -> void:
 
 
 func _on_bgc_pressed() -> void: # How to change the background image for the background
-	pass
+	style.bg_color = Color.GREEN
+	add_theme_stylebox_override("panel", style)
+
+
+func _on_save_pressed() -> void:
+	SaveManager.save_current_game()
+
+
+func _on_load_pressed() -> void:
+	SaveManager.load_current_game()

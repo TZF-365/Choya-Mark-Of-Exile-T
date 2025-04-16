@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx32qsew5hl3x"]
+[gd_scene load_steps=3 format=3 uid="uid://bx32qsew5hl3x"]
 
 [ext_resource type="Script" uid="uid://cbalwifbhpjdf" path="res://logic/data/ent/player.gd" id="1_vgsr7"]
+[ext_resource type="Script" uid="uid://drtvjpumoqsuw" path="res://logic/data/ent/BaseChar.gd" id="2_o7et6"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vgsr7")
-names = "ssss"
+names = "Lycarus2"
+max_val = 233
+current_val = 233
+stats = {
+"agility": 5,
+"dexterity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 8,
+"toughness": 3
+}
+
+[node name="BaseChar" type="Node" parent="."]
+script = ExtResource("2_o7et6")
+metadata/_custom_type_script = "uid://drtvjpumoqsuw"

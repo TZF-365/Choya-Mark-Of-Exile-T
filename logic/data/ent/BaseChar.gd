@@ -2,9 +2,9 @@ extends Node
 class_name BaseChar
 
 # General properties
-@export var names: String = "Unnamed"
-@export var max_val: int = 100
-@export var current_val: int = 100
+@export var names: String = "Lycarus"
+@export var max_val: int = 250
+@export var current_val: int = 250
 @export var stamina: int = 50
 @export var max_stamina: int = 50
 @export var mana: int = 30
@@ -15,6 +15,7 @@ class_name BaseChar
 @export var max_part_val: int = 1
 @export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
+@export var coins: int = 100
 
 # Combat status
 @export var is_defending: bool = false

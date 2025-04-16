@@ -1,7 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=38 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://assets/pixelart/pixelart.tres" id="1_0bcbq"]
-[ext_resource type="Script" uid="uid://cdovf2anj17a" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
+[ext_resource type="Script" uid="uid://dxb5u2kgn15ey" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="1_i2dk5"]
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://assets/pixelart/button_normal_style.tres" id="2_40phc"]
 [ext_resource type="PackedScene" uid="uid://cbd6qlawp2u3l" path="res://scenes/utilities/circle_transition.tscn" id="3_lqaap"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
 [ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="Script" uid="uid://f3nim7w4ggco" path="res://scenes/Mainmenumusic.gd" id="12_flqon"]
+[ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="15_5pajh"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="15_7b55j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -401,7 +403,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "Return"
 
-[node name="Node" type="Node" parent="Settings Menu" node_paths=PackedStringArray("audio_player")]
+[node name="Music_Player" type="Node" parent="Settings Menu" node_paths=PackedStringArray("audio_player")]
 script = ExtResource("12_flqon")
 audio_player = NodePath("../../AudioStreamPlayer")
 
@@ -417,4 +419,13 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="Player" parent="." instance=ExtResource("15_5pajh")]
+names = "Lycarus"
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("15_7b55j")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/start_button" to="Main Menu/Menu Control" method="_on_start_button_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/load_button" to="Main Menu/Menu Control" method="_on_load_button_pressed"]
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Button" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]

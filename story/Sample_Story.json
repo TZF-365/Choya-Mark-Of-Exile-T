@@ -276,7 +276,7 @@
 				},
 				"buffs": {
 					"mana": -10,
-					"Val": -7,
+					"current_val": -7,
 				},
 				"output": "002_draw_power",
 				"failed_output": "002_physical_confrontation"
@@ -533,7 +533,7 @@
 			}
 		}
 	},
-	"008_silence": {
+	"health_is_zero": {
 		"title": "Unspoken Bonds",
 		"picture": "res://assets/art/Kaela_Gazing.jpg",
 		"narr_text": "The conversation dwindles into silence, but it’s not uncomfortable. Kaela seems content to walk side by side with you, occasionally glancing at you as if studying your expression.\n\nThe forest around you remains quiet, save for the occasional rustle of branches or distant animal calls. The trees here are older, their trunks thick with age, and the moss that carpets the ground gives off a damp, earthy scent.\n\nKaela doesn’t speak at first, but you can feel her curiosity lingering. Her eyes, dark as night with a subtle gleam of green, flick back to you occasionally.\n\nFinally, she speaks softly. 'You know, Terrans don’t venture this far into others’ lands. It’s dangerous.' She smiles lightly. 'But you don’t seem like the kind to back down easily, do you?'",

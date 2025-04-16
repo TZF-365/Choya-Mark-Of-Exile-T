@@ -1,13 +1,10 @@
-res://scenes/Save test.tscn
+res://scenes/combat_screen.tscn
 res://assets/pixelart/combat_buttons.tres
 res://assets/pixelart/combatactionbuttons.tres
+res://assets/pixelart/pixelart.tres
 res://assets/pixelart/troochi.tres
 res://assets/pixelart/game_screen_di.tres
-res://assets/pixelart/pixelart.tres
-res://scenes/combat_screen.tscn
-res://scenes/game_screen.tscn
 res://scenes/main_menu.tscn
-res://logic/backend/save_manager.gd
-res://logic/backend/SceneData.gd
-res://logic/data/info/ContentContainer.gd
-res://logic/backend/save_manager_Main.gd
+res://scenes/game_screen.tscn
+res://scenes/entities/Player.tscn
+res://scenes/utilities/save_manager.tscn
