@@ -24,7 +24,7 @@ func _exit_tree():
 
 func _on_start_button_pressed():
 	# Start the transition (wait for it to finish before continuing)
-	TransitionManager.transition(0.5)
+	TransitionManager.transition(0.3)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
 
@@ -47,7 +47,7 @@ func _on_return_main_menu_button_pressed():
 
 func _on_load_button_pressed() -> void:
 	# Start the transition (wait for it to finish before continuing)
-	TransitionManager.transition(0.5)
+	TransitionManager.transition(0.3)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
 	$"../../SaveManager".load_current_game()

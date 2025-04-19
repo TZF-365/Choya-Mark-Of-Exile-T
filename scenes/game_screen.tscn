@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=21 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
@@ -6,8 +6,9 @@
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="6_f2aae"]
 [ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="6_xb4sa"]
 [ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="7_e2y3v"]
-[ext_resource type="Script" uid="uid://cg4aurqgf8ev6" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
+[ext_resource type="Script" uid="uid://dtr10uh0vnskh" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
 [ext_resource type="FontFile" uid="uid://d2j8aqtfjj0r5" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf" id="9_v7c4i"]
+[ext_resource type="Script" uid="uid://cr377v1guy56t" path="res://scenes/rich_text_label.gd" id="10_3a7ej"]
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
 [ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="12_q6fd1"]
@@ -121,18 +122,24 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 2
-offset_top = 170.0
-offset_right = 1040.0
-offset_bottom = 174.0
+anchor_left = 0.00328571
+anchor_top = 0.087
+anchor_right = 0.996714
+anchor_bottom = 0.088
+offset_left = -0.6
+offset_top = -1.0
+offset_right = 0.599976
+offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.0928191
+anchor_top = 0.0786667
 anchor_right = 1.0
-anchor_bottom = 0.907181
+anchor_bottom = 0.937333
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -155,7 +162,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_v7c4i")
 theme_override_font_sizes/font_size = 47
-text = " TITLE"
+text = "TITLE"
 
 [node name="MarginContainerstats" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
@@ -165,7 +172,7 @@ theme_override_constants/margin_left = 15
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/normal_font = SubResource("SystemFont_2y5ls")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "hp incresed
 hp decresed"
@@ -191,11 +198,12 @@ mouse_filter = 1
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "As you move through the forest, your senses prickle with unease. The hair on the back of your neck stands on end as a rustling sound cuts through the otherwise quiet night. Then it happens—a shadow bursts from your right flank, teeth bared and eyes glowing with feral intensity. A wolf. It lunges for your side, jaws snapping.\\n\\nYou barely manage to twist out of the way, the beast's claws grazing your cloak. Your mind races. You can feel the mark on your wrist pulsing faintly. You know you have the power to summon fire, but at a cost. Alternatively, you could rely on your agility and the dagger you feel strapped to your thigh.\\n\\nThe wolf snarls and prepares for another strike, circling"
 fit_content = true
+script = ExtResource("10_3a7ej")
 
 [node name="MarginContainerchoices" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
@@ -423,10 +431,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Load" type="Button" parent="MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.834615
-anchor_top = -13.4261
-anchor_right = 0.965385
-anchor_bottom = -12.6957
+anchor_left = 0.808571
+anchor_top = -13.7243
+anchor_right = 0.991429
+anchor_bottom = -13.1622
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -443,9 +451,12 @@ metadata/_custom_type_script = "uid://dbio2vtk3488t"
 
 [node name="AudioManager" parent="." instance=ExtResource("14_vqtp5")]
 visible = false
+z_index = -1
 layout_mode = 2
 
 [node name="Fadetransition" parent="." instance=ExtResource("15_8tvxp")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]

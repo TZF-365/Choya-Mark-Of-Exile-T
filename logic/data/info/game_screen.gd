@@ -18,7 +18,7 @@ var start_page: String
 
 
 func _ready():
-	await AudioManager.fade_out_music()
+	AudioManager.fade_out_music()
 	AudioManager.play_music(preload("res://assets/Music/Scene1.ogg"))
 	stats_label.text = str("val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 	print(stats_label.text)
@@ -48,9 +48,7 @@ func _on_button_pressed():
 
 
 func _on_menu_pressed() -> void:
-	# Start the transition (wait for it to finish before continuing)
 	TransitionManager.transition(0.5)
-	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
@@ -60,9 +58,7 @@ func _on_exitbutton_pressed() -> void:
 
 
 func _on_button_pressed_combat() -> void:
-	# Start the transition (wait for it to finish before continuing)
 	TransitionManager.transition(0.5)
-	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
 	get_tree().change_scene_to_file("res://scenes/combat_screen.tscn")
 

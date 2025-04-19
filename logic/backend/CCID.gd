@@ -1,8 +1,8 @@
 extends Node
 class_name CCID_
 
-@onready var current_chapter_id: String = ""
-@onready var current_page := ""
+var current_chapter_id: String = ""
+var current_page := ""
 
 var time_accumulator := 0.0
 

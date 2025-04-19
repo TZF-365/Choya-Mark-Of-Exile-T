@@ -17,7 +17,7 @@
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
-				"output": "000_prologue_2"
+				"output": "000_prologue_2",
 			},
 			"2": {
 				"text": "Take in the surroundings.",
@@ -53,7 +53,7 @@
 		"narr_text": "The forest looms around me, ancient and unyielding. Towering trees stretch into the heavens, their branches clawing at the sky.",
 		"choices": {
 			"1": {
-				"text": "Focus on my name.",
+				"text": "Continue.",
 				"output": "000_prologue_3_c1"
 			},
 		}
@@ -64,7 +64,7 @@
 		"narr_text": "The air is thick with the scent of earth and decay. Somewhere in the distance, a howl shatters the silence, sending a chill down my spine.",
 		"choices": {
 			"1": {
-				"text": "Focus on my name.",
+				"text": "Continue.",
 				"output": "000_prologue_2"
 			},
 			"2": {
@@ -193,7 +193,7 @@
 		}
 	},
 	"001_wandering_2": {
-		"title": "W",
+		"title": "",
 		"picture": "res://assets/art/Dark_Forest.jpg",
 		"narr_text": "The trees feel closer now, their ancient bark like gnarled faces frozen in silent judgment. My name echoes in my mind—Lyaris Alaric Talbot.",
 		"choices": {
@@ -470,8 +470,8 @@
 		"narr_text": "You take a deep breath, choosing your words carefully. 'I’m searching for something—something that might help me understand... who I really am.'\n\nKaela glances back, her green eyes narrowing slightly, but there’s no judgment in her gaze. She seems to understand more than she lets on. 'You don’t have to tell me everything,' she says softly, 'But I’ve been around long enough to know that people rarely travel this far for nothing.'\n\nHer pace slows slightly as you both continue walking. The soft rustle of leaves underfoot and the distant calls of birds create an oddly peaceful atmosphere despite the forest’s danger.\n\n'What is it like back home for you?' she asks suddenly. 'Is it so different from here?' Her voice has a gentle curiosity, and her expression softens as she listens for your response.",
 		"choices": {
 			"1": {
-				"text": "Tell her more about your homeland, what makes it unique.",
-				"output": "009_homeland"
+				"text": " TAVERN Tell her more about your homeland, what makes it unique.",
+				"output": "010_tavern_intro"
 			},
 			"2": {
 				"text": "Vaguely describe your homeland, staying cryptic.",
@@ -539,8 +539,8 @@
 		"narr_text": "The conversation dwindles into silence, but it’s not uncomfortable. Kaela seems content to walk side by side with you, occasionally glancing at you as if studying your expression.\n\nThe forest around you remains quiet, save for the occasional rustle of branches or distant animal calls. The trees here are older, their trunks thick with age, and the moss that carpets the ground gives off a damp, earthy scent.\n\nKaela doesn’t speak at first, but you can feel her curiosity lingering. Her eyes, dark as night with a subtle gleam of green, flick back to you occasionally.\n\nFinally, she speaks softly. 'You know, Terrans don’t venture this far into others’ lands. It’s dangerous.' She smiles lightly. 'But you don’t seem like the kind to back down easily, do you?'",
 		"choices": {
 			"1": {
-				"text": "Confess that you're a little out of your depth, but you can handle it.",
-				"output": "009_vulnerable"
+				"text": "TAVERN Confess that you're a little out of your depth, but you can handle it.",
+				"output": "010_tavern_intro"
 			},
 			"2": {
 				"text": "Ask her to tell you more about the forest and its dangers.",
@@ -555,5 +555,5 @@
 				"output": "009_silence"
 			}
 		}
-	}
+	},
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=43 format=3 uid="uid://bgo6cn334xsl1"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
 [ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
 [ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
+[ext_resource type="FontFile" uid="uid://b8sgg1yjclern" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf" id="8_ynhfh"]
 [ext_resource type="Script" uid="uid://cqo6lnx0jtsuc" path="res://logic/data/info/CombatManager.gd" id="10_8u2d7"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="10_dixns"]
 [ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
@@ -137,6 +138,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main_Screen/Control/InfoCombatScreens"]
 layout_mode = 2
@@ -175,24 +177,46 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ylnvj")
 custom_minimum_size = Vector2(240, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0903846
-anchor_top = 0.29249
-anchor_right = 0.321154
-anchor_bottom = 0.687747
+anchor_left = 0.0992857
+anchor_top = 0.29703
+anchor_right = 0.383571
+anchor_bottom = 0.700495
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qk0hy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Status Bar" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel"]
+[node name="Status Bar2" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.277571
+anchor_top = 0.575
+anchor_right = 0.722429
+anchor_bottom = 1.575
+offset_left = 0.138527
+offset_top = 0.015831
+offset_right = 0.138504
+offset_bottom = 0.0158081
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_hqbrn")
 theme_override_font_sizes/font_size = 35
 text = "Status Bar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Status Bar" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.283333
+anchor_top = -0.552128
+anchor_right = 0.716667
+anchor_bottom = 0.447872
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_hqbrn")
+theme_override_font_sizes/font_size = 35
+text = "Passive Skills"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -223,10 +247,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.8625
-anchor_top = 0.0592885
-anchor_right = 0.977885
-anchor_bottom = 0.533597
+anchor_left = 0.849286
+anchor_top = 0.019802
+anchor_right = 0.964671
+anchor_bottom = 0.49411
 grow_horizontal = 0
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xyk2d")
@@ -238,10 +262,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel2" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.674038
-anchor_top = 0.0790514
-anchor_right = 0.974038
-anchor_bottom = 0.920949
+anchor_left = 0.692143
+anchor_top = 0.210396
+anchor_right = 1.025
+anchor_bottom = 0.935644
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
@@ -249,17 +273,24 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_i5pvs")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.249
+anchor_right = 0.412
+anchor_bottom = 0.396
 offset_left = -1.0
-offset_right = 192.0
-offset_bottom = 116.0
+offset_top = -0.0429993
+offset_right = 0.00798035
+offset_bottom = -0.0280075
 theme_override_styles/panel = ExtResource("7_r5kdy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2/Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.042328
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.359788
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
@@ -269,16 +300,20 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.396
+anchor_right = 0.891
+anchor_bottom = 0.73
 offset_left = -1.0
-offset_top = 116.0
-offset_right = 317.0
-offset_bottom = 214.0
+offset_top = -0.0280075
+offset_right = -0.206024
+offset_bottom = 0.110001
 theme_override_styles/panel = SubResource("StyleBoxFlat_keukx")
 
 [node name="Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel2/Panel2"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -378,16 +413,16 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
-text = "Posiion: [3 spaces apart - Preparing to attack]"
+text = "Position: [3 spaces apart - Preparing to attack]"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
 text = "Status: Weakened"
 horizontal_alignment = 1
@@ -410,13 +445,14 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_sayef")
 [node name="Hbox" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.105
-anchor_top = 0.200855
-anchor_right = 0.895
-anchor_bottom = 0.799145
+anchor_left = 0.0897059
+anchor_top = -0.142716
+anchor_right = 0.927206
+anchor_bottom = 0.503117
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 80
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
@@ -430,7 +466,7 @@ text = "Behavior Notes"
 [node name="Button2" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
 text = "Physical Condition"
@@ -438,6 +474,7 @@ text = "Physical Condition"
 [node name="Button3" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_ynhfh")
 theme_override_font_sizes/font_size = 26
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
@@ -770,33 +807,73 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hbsuu")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
+[node name="Label3" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
 custom_minimum_size = Vector2(120, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.444444
-anchor_top = 0.34375
-anchor_right = 0.555556
-anchor_bottom = 1.38542
+anchor_left = 0.612056
+anchor_top = 0.626028
+anchor_right = 0.824611
+anchor_bottom = 1.46186
+offset_left = -0.360107
+offset_top = -0.055336
+offset_right = 0.559937
+offset_bottom = 0.0324402
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
-text = "Lycus"
+text = "Orders"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.169694
+anchor_top = 0.5662
+anchor_right = 0.385694
+anchor_bottom = 1.46231
+offset_left = 0.639999
+offset_top = 0.0288925
+offset_right = -0.400024
+offset_bottom = -0.0351868
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
+text = "Character"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.406944
+anchor_top = 0.493945
+anchor_right = 0.589583
+anchor_bottom = 1.45549
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
+text = "Inventory"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="vbox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.23888
-anchor_top = -0.0432292
-anchor_right = 2.05092
-anchor_bottom = 0.689062
-offset_left = -15.9905
-offset_top = 87.0001
-offset_right = -15.9905
-offset_bottom = 87.0
+anchor_left = 0.00066664
+anchor_top = 1.05697
+anchor_right = 1.0
+anchor_bottom = 1.789
+offset_left = 0.0400391
+offset_top = -0.200001
+offset_right = -10.0
+offset_bottom = 0.439941
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1

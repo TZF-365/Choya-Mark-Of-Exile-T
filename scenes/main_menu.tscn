@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=28 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://assets/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" uid="uid://dxb5u2kgn15ey" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://crbktcitbaljs" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
 [ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="10_7b55j"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_1ajci"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="15_5pajh"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="15_7b55j"]
@@ -102,9 +103,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_top = 0.0120974
+anchor_right = 1.006
+anchor_bottom = 0.997
+offset_top = -47.776
+offset_right = -0.640015
+offset_bottom = 9.11938
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
@@ -121,12 +126,12 @@ transition_path = ExtResource("3_lqaap")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 layout_mode = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_right = 90
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
@@ -135,21 +140,41 @@ theme_override_constants/line_spacing = 10
 theme_override_font_sizes/font_size = 45
 text = "
 Choya
-
+Mark Of The Exile
 "
 label_settings = SubResource("LabelSettings_utnyj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer/title"]
+custom_minimum_size = Vector2(44, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.465
+anchor_top = 4.334
+anchor_right = 1.039
+anchor_bottom = 4.666
+offset_left = 0.379944
+offset_top = -0.105835
+offset_right = 2.54797
+offset_bottom = 1.10608
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("10_7b55j")
+theme_override_font_sizes/font_size = 43
+text = "Version 0.6.8"
+label_settings = SubResource("LabelSettings_utnyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="start_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l16ti")
 text = "Start"
 
 [node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("9_ijoqn")]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 45
@@ -157,14 +182,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0afgv")
 text = "Continue"
 
 [node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jlscf")
 text = "Settings"
 
 [node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6xawr")
@@ -173,18 +198,17 @@ text = "Exit"
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0963
-anchor_top = 0.025
-anchor_right = 2.0963
-anchor_bottom = 1.025
-offset_left = -32.004
-offset_top = -48.0
-offset_right = -32.0039
-offset_bottom = -48.0
+anchor_left = 1.094
+anchor_top = 0.011
+anchor_right = 2.067
+anchor_bottom = 1.1
+offset_left = -15.36
+offset_top = -5.44
+offset_right = 10.5198
+offset_bottom = 0.000244141
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
-metadata/_edit_use_anchors_ = true
 
 [node name="Audio Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
 layout_mode = 2
@@ -226,41 +250,48 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
 text = "Master"
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Music
-"
+theme_override_font_sizes/font_size = 25
+text = "Music"
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "SFX
-"
+theme_override_font_sizes/font_size = 25
+text = "SFX"
 vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 alignment = 1
 
 [node name="HSlider" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(40, 50)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
 [node name="HSlider2" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -269,6 +300,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="HSlider3" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1

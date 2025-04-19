@@ -28,16 +28,16 @@ config/icon="res://icon.svg"
 exit="*res://logic/backend/exitgame.gd"
 TransitionManager="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
-ContentData="*res://logic/data/info/content_data.gd"
 Player_AL="*res://logic/data/ent/player.gd"
 Ccid="*res://logic/backend/CCID.gd"
 AudioManager="*res://scenes/utilities/AudioManager.tscn"
+Storyflags="*res://logic/data/info/storyflags.gd"
+ContentData="*res://logic/data/info/content_data.gd"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1920
-window/size/mode=2
+window/size/viewport_width=1440
+window/size/viewport_height=3040
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 

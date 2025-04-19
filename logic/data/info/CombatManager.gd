@@ -1,6 +1,6 @@
 extends Node
-class_name CombatManager
-#m
+class_name CombatManagerk
+
 # Player and enemy character references
 var player: BaseChar = Player_AL
 @export var enemy: BaseChar

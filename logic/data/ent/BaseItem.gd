@@ -1,7 +1,7 @@
-extends Resource
+extends Node
 class_name BaseItem
 
-@export var name: String = "Unnamed Item" # Item's name
+@export var item_name: String = "Unnamed Item" # Item's name
 @export var description: String = "No description" # Detailed item description
 @export var item_type: String = "Generic" # Type of item (e.g., "Usable", "Weapon", "Quest", etc.)
 @export var weight: float = 1.0 # Item weight, used for inventory systems with weight limits
@@ -9,7 +9,7 @@ class_name BaseItem
 @export var rarity: String = "Common" # Rarity tier (e.g., "Common", "Rare", "Legendary")
 
 ### **Ownership and Acquisition**
-@export var owner: String = "Null" # Current owner of the item (e.g., player, NPC)
+@export var item_owner: String = "Null" # Current owner of the item (e.g., player, NPC)
 @export var is_stolen: bool = false # Indicates if the item is marked as stolen
 @export var acquisition_method: String = "Found" # How the item was acquired (e.g., "Bought", "Looted", "Gifted")
 

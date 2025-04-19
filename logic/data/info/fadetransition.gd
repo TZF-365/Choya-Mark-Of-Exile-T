@@ -5,6 +5,18 @@ signal on_transition_finished
 @onready var color_rect = $ColorRect
 @onready var animation_player = $AnimationPlayer
 
+enum TransitionType {
+	FADE_BLACK,
+	FADE_WHITE,
+	IRIS,
+	SHATTER,
+	SYMBOL_WIPE,
+	ASH_DISSOLVE,
+	FOG_FADE,
+	GLITCH
+}
+
+
 var transition_duration: float = 1.0  # Default duration of 1 second
 
 func _ready():

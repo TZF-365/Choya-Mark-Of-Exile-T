@@ -1,7 +1,8 @@
+AnimationPlayer
+Node
 TextureRect
 Timer
 music_manager
-Node
 AudioStreamPlayer
 Player
 SaveManager
