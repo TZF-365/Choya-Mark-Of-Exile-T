@@ -18,3 +18,4 @@ res://story/Sample_Story.json
 res://story/SS.json
 res://scenes/combat_screen.sync-conflict-20250417-095919-5NOABZA.tscn
 res://scenes/rich_text_label.gd
+res://logic/data/ent/BaseChar.gd

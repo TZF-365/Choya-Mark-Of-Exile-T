@@ -875,12 +875,6 @@ stamina = 30
 max_stamina = 30
 action_points = 5
 max_action_points = 5
-max_part_val = null
-damage_percentage = null
-is_defending = null
-is_dodging = null
-status_effects = null
-combat_state = null
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -889,10 +883,6 @@ stats = {
 "strength": 6,
 "toughness": 4
 }
-skills = null
-equipment = null
-body_part_val = null
-story_var = null
 
 [node name="Player" parent="CombatScenes" instance=ExtResource("12_08v13")]
 names = "Lexus "
@@ -902,12 +892,6 @@ mana = 50
 max_mana = 50
 action_points = 5
 max_action_points = 5
-max_part_val = null
-damage_percentage = null
-is_defending = null
-is_dodging = null
-status_effects = null
-combat_state = null
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -916,10 +900,6 @@ stats = {
 "strength": 5,
 "toughness": 4
 }
-skills = null
-equipment = null
-body_part_val = null
-story_var = null
 
 [node name="BaseChar" parent="CombatScenes" instance=ExtResource("13_jrkkn")]
 

@@ -340,17 +340,17 @@ autowrap_mode = 3
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -516.0
-offset_top = 768.0
-offset_right = 524.0
-offset_bottom = 824.0
+anchors_preset = -1
+anchor_top = 0.071
+anchor_right = 1.003
+anchor_bottom = 0.089
+offset_left = -4.0
+offset_top = -1.0
+offset_right = -0.200073
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel"]
 layout_direction = 2
@@ -455,8 +455,6 @@ z_index = -1
 layout_mode = 2
 
 [node name="Fadetransition" parent="." instance=ExtResource("15_8tvxp")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer/Button" to="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerchoices/VBoxContainer/ChoiceContainer" method="_on_button_pressed"]

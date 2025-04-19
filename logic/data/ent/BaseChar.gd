@@ -25,11 +25,11 @@ class_name BaseChar
 
 # Attributes and stats
 @export var stats: Dictionary = {
-	"strength": 2,
+	"strength": 6,
 	"dexterity": 4,
 	"endurance": 5,
-	"toughness": 10,
-	"perception": 2,
+	"toughness": 8,
+	"perception": 5,
 	"agility": 5
 }
 
