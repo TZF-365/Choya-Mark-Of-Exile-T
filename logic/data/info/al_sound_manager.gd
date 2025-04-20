@@ -23,6 +23,7 @@ var scene_audio_streams = {
 	"Battlemusic": preload("res://assets/Music/03_Melee.ogg"),
 	"victory": preload("res://assets/Music/2000_Peace.ogg"),
 	"Village1": preload("res://assets/Music/Scene1.ogg"),
+	"AAAA": preload("res://assets/Music/I_Will_Not_Let_You.mp3"),
 }
 
 
@@ -159,3 +160,62 @@ func fade_out_music() -> void:
 		
 func _reset_volume(player: AudioStreamPlayer):
 	player.volume_db = 0
+	
+	
+func play_sound_effect_with_dynamic_fade(sound_file: AudioStream, fade_duration: float = 2.0):
+	if sound_file:
+		# Fade down the volume of music_player_a
+		var fade_down_tween = create_tween()
+		fade_down_tween.tween_property(music_player_a, "volume_db", -80, fade_duration)  # Fade down to -80 dB (mute)
+
+		# Play the sound effect on music_player_b
+		music_player_b.stream = sound_file
+		music_player_b.volume_db = 0  # Ensure sound effect starts at normal volume
+		music_player_b.play()
+		print("Playing sound effect: ", sound_file.resource_path)
+
+		# Calculate when to start fading out the sound effect
+		var sound_duration = sound_file.get_length()  # Get the length of the sound effect
+		var start_fade_back_time = max(0, sound_duration - fade_duration)  # Start fading back `fade_duration` seconds before it ends
+
+		# Wait for the calculated time to start the fade
+		await get_tree().create_timer(start_fade_back_time).timeout
+
+		# Create a tween for fading out music_player_b and fading in music_player_a
+		var fade_up_tween = create_tween()
+		fade_up_tween.tween_property(music_player_a, "volume_db", 0, fade_duration)  # Restore volume of music_player_a to 0 dB
+		fade_up_tween.parallel().tween_property(music_player_b, "volume_db", -80, fade_duration)  # Fade out music_player_b to -80 dB (mute)
+
+		# Wait for the fade to complete and stop music_player_b
+		await fade_up_tween.finished
+		music_player_b.stop()
+	else:
+		print("Invalid sound effect file!")
+
+
+func play_sound_effect_with_fade(sound_file: AudioStream, fade_duration: float = 2.0):
+	if sound_file:
+		# Fade down the volume of music_player_a
+		var fade_down_tween = create_tween()
+		fade_down_tween.tween_property(music_player_a, "volume_db", -80, fade_duration)  # Fade down to -80 dB (mute)
+
+		# Play the sound effect on music_player_b
+		music_player_b.stream = sound_file
+		music_player_b.volume_db = 0  # Ensure sound effect starts at normal volume
+		music_player_b.play()
+		print("Playing sound effect: ", sound_file.resource_path)
+
+		# Wait for the sound effect to finish
+		var sound_duration = sound_file.get_length()  # Get the length of the sound effect
+		await get_tree().create_timer(sound_duration).timeout  # Wait for the sound effect to finish
+
+		# Create a new tween for fading out music_player_b and fading in music_player_a
+		var fade_up_tween = create_tween()
+		fade_up_tween.tween_property(music_player_a, "volume_db", 0, fade_duration)  # Restore volume of music_player_a to 0 dB
+		fade_up_tween.parallel().tween_property(music_player_b, "volume_db", -80, fade_duration)  # Fade out music_player_b to -80 dB (mute)
+
+		# Stop music_player_b after the fade-out completes
+		await fade_up_tween.finished
+		music_player_b.stop()
+	else:
+		print("Invalid sound effect file!")

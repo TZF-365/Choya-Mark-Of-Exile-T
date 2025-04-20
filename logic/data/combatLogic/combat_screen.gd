@@ -1,7 +1,5 @@
 extends Node
 
-@export var entity_var : BaseChar
-@onready var stat = entity_var
 @onready var action: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action"
 @onready var inspect: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect"
 @onready var items: Button = $"Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items"
@@ -41,6 +39,7 @@ func _on_inspect_pressed() -> void:
 
 func _on_items_pressed() -> void:
 	label.set_text(str("You Got an Item"))
+	
 
 
 func _on_turn_pressed() -> void:

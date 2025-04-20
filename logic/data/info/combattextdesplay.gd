@@ -1,0 +1,2 @@
+# CombatUI.gd
+extends Control

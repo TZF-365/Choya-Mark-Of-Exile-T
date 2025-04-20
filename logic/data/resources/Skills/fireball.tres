@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=2 format=3 uid="uid://dg74h8t4dvken"]
+
+[ext_resource type="Script" uid="uid://cgfhaakdh10ni" path="res://logic/data/resources/SkillResource.gd" id="1_xrngn"]
+
+[resource]
+script = ExtResource("1_xrngn")
+name = " Fireball"
+description = "BIG FIREBALL"
+cost = 10
+cooldown = 0
+level = 1
+max_level = 5
+is_active = true
+xp = 0
+xp_required_for_next_level = 0
+effect_type = "damage"
+effect_value = 20
+metadata/_custom_type_script = "uid://cgfhaakdh10ni"

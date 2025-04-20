@@ -20,12 +20,12 @@ var start_page: String
 func _ready():
 	AudioManager.fade_out_music()
 	AudioManager.play_music(preload("res://assets/Music/Scene1.ogg"))
-	stats_label.text = str("val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
+	stats_label.text = str("val: " + str(stats["val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 	print(stats_label.text)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	stats_label.text = str("Val: " + str(stats["current_val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
+	stats_label.text = str("Val: " + str(stats["val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 
 
 func set_custom_defaults(new_defaults: Dictionary) -> void:

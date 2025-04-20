@@ -30,7 +30,7 @@ func load_game() -> Dictionary:
 
 	var loaded_data := {
 		"player_stats": {
-			"val": config.get_value("player_stats", "val"),
+			"health": config.get_value("player_stats", "health"),
 			"mana": config.get_value("player_stats", "mana"),
 			"coins": config.get_value("player_stats", "coins"),
 		},
@@ -51,7 +51,7 @@ func save_current_game() -> void:
 
 	var game_data = {
 		"player_stats": {
-			"val": player_stats.current_val,
+			"health": player_stats.current_hp,
 			"mana": player_stats.mana,
 			"coins": player_stats.coins,
 		},
@@ -73,7 +73,7 @@ func load_current_game() -> void:
 
 	# Update in-game values
 	var stats = loaded["player_stats"]
-	player_stats.current_val = stats["val"]
+	player_stats.current_hp = stats["health"]
 	player_stats.mana = stats["mana"]
 	player_stats.coins = stats["coins"]
 

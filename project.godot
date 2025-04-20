@@ -13,15 +13,16 @@ config_version=5
 config/name="Choya: Mark Of The Exile"
 config/description="CHOYA – The Drakthyr Invasion
 
-CHOYA Banner
-
 CHOYA is an immersive, choice-driven, text-based RPG adventure developed in Godot 4, built on the foundation of the Interactive Story System. This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate."
-config/version="0.6.8"
+config/version="0.6.9"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=30
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
-boot_splash/image="res://assets/sprites/ui/ui-grabber.png"
+boot_splash/fullsize=false
+boot_splash/image="uid://bw74o0y6d2eyn"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=100
 
 [autoload]
 
@@ -33,6 +34,10 @@ Ccid="*res://logic/backend/CCID.gd"
 AudioManager="*res://scenes/utilities/AudioManager.tscn"
 Storyflags="*res://logic/data/info/storyflags.gd"
 ContentData="*res://logic/data/info/content_data.gd"
+DamageCalc="*res://logic/data/combatLogic/damage_calculator.gd"
+SkillSystem="*res://logic/data/combatLogic/SkillSystem.gd"
+BaseChar="*res://logic/data/ent/BaseChar.gd"
+SkillManager="*res://logic/data/combatLogic/SkillManager.gd"
 
 [display]
 
@@ -45,7 +50,16 @@ window/handheld/orientation=1
 
 project/assembly_name="InteractiveNovel"
 
+[gui]
+
+theme/default_font_antialiasing=2
+theme/default_font_generate_mipmaps=true
+
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=2
 textures/vram_compression/import_etc2_astc=true
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=3
+viewport/hdr_2d=true
+viewport/transparent_background=true

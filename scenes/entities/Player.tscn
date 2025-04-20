@@ -5,9 +5,6 @@
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vgsr7")
-names = "Lycarus2"
-max_val = 233
-current_val = 233
 stats = {
 "agility": 5,
 "dexterity": 4,

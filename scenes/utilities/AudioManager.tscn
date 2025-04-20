@@ -12,12 +12,13 @@ grow_vertical = 2
 script = ExtResource("1_wgeoa")
 
 [node name="MusicPlayerA" type="AudioStreamPlayer" parent="."]
+volume_db = -17.332
 
 [node name="MusicPlayerB" type="AudioStreamPlayer" parent="."]
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -19.809
-pitch_scale = 0.81
+volume_db = -12.381
+pitch_scale = 0.76
 
 [node name="ALSoundManager" type="Node" parent="."]
 

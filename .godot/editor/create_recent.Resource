@@ -1,3 +1,3 @@
-BaseItem
-BaseChar
+SkillResource
 Resource
+ItemResource

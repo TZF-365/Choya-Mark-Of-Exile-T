@@ -314,7 +314,6 @@ theme_override_font_sizes/font_size = 45
 text = "Return"
 
 [node name="Player" parent="." instance=ExtResource("15_5pajh")]
-names = "Lycarus"
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("15_7b55j")

@@ -1,5 +1,5 @@
-AnimationPlayer
 Node
+AnimationPlayer
 TextureRect
 Timer
 music_manager
@@ -12,4 +12,3 @@ AudioStreamPlayer2D
 Node2D
 HBoxContainer
 Panel
-Label

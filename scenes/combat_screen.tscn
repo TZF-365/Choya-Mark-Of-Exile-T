@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=46 format=3 uid="uid://bgo6cn334xsl1"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
@@ -9,8 +9,13 @@
 [ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
 [ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
 [ext_resource type="FontFile" uid="uid://b8sgg1yjclern" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf" id="8_ynhfh"]
-[ext_resource type="Script" uid="uid://cqo6lnx0jtsuc" path="res://logic/data/info/CombatManager.gd" id="10_8u2d7"]
+[ext_resource type="Script" uid="uid://bklxyb4y7iyq4" path="res://logic/data/info/combattextdesplay.gd" id="9_4tvcf"]
+[ext_resource type="FontFile" uid="uid://bkm3c0gnlhuc3" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf" id="9_jd408"]
+[ext_resource type="FontFile" uid="uid://pqia5c152xko" path="res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf" id="9_lh3el"]
+[ext_resource type="FontFile" uid="uid://ccjiphyilnveq" path="res://assets/fonts/ChoyaFont1.tres" id="9_y14dk"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="10_dixns"]
+[ext_resource type="Script" uid="uid://i3wsn4hn0sym" path="res://logic/data/combatLogic/Battlemanager.gd" id="10_vy0o1"]
+[ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="11_4tvcf"]
 [ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="12_08v13"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_irmyc"]
@@ -30,10 +35,12 @@ texture = ExtResource("3_jxhud")
 font_names = PackedStringArray("Hack")
 font_italic = true
 font_weight = 650
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_4dvq6"]
 font_names = PackedStringArray("Hack Nerd Font")
 font_weight = 575
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_l7dy3"]
 line_spacing = 15.0
@@ -71,16 +78,6 @@ bg_color = Color(0, 0, 0, 0.675)
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="SystemFont" id="SystemFont_ims5v"]
-multichannel_signed_distance_field = true
-
-[sub_resource type="SystemFont" id="SystemFont_rqwof"]
-generate_mipmaps = true
-disable_embedded_bitmaps = false
-multichannel_signed_distance_field = true
-msdf_pixel_range = 50
-msdf_size = 100
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16hm7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbsuu"]
@@ -99,7 +96,7 @@ corner_radius_bottom_left = 30
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvywa"]
 bg_color = Color(0, 0, 0, 0.551)
 
-[node name="Combat_Screen_Logic" type="Control" node_paths=PackedStringArray("entity_var")]
+[node name="Combat_Screen_Logic" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +104,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6yria")
-entity_var = NodePath("CombatScenes/Player")
 metadata/_edit_vertical_guides_ = [-10.0]
 
 [node name="buttonpress" type="Node" parent="."]
@@ -506,14 +502,14 @@ anchor_left = 0.355769
 anchor_right = 0.644231
 anchor_bottom = 0.106667
 grow_horizontal = 2
-theme_override_fonts/font = SubResource("SystemFont_ims5v")
-theme_override_font_sizes/font_size = 45
+theme_override_fonts/font = ExtResource("9_lh3el")
+theme_override_font_sizes/font_size = 60
 text = "Combat Log"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel"]
+[node name="CombatTexts" type="RichTextLabel" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel"]
 custom_minimum_size = Vector2(500, 600)
 layout_mode = 1
 anchors_preset = -1
@@ -521,10 +517,14 @@ anchor_left = 0.0336538
 anchor_top = 0.113333
 anchor_right = 0.973077
 anchor_bottom = 0.968
-theme_override_fonts/normal_font = SubResource("SystemFont_rqwof")
-theme_override_font_sizes/normal_font_size = 29
-text = "L"
+theme_override_fonts/normal_font = ExtResource("9_y14dk")
+theme_override_fonts/bold_font = ExtResource("9_jd408")
+theme_override_font_sizes/normal_font_size = 58
+theme_override_font_sizes/bold_font_size = 44
+bbcode_enabled = true
+text = "Whereas disregard and contempt for human rights have resulted"
 scroll_following = true
+script = ExtResource("9_4tvcf")
 metadata/_edit_use_anchors_ = true
 
 [node name="Input Screens" type="MarginContainer" parent="Main_Screen/Control"]
@@ -708,16 +708,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inspect" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
 custom_minimum_size = Vector2(260, 120)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.25
-anchor_top = 0.583874
-anchor_right = 0.490741
+anchor_top = 0.584
+anchor_right = 0.463
 anchor_bottom = 0.966742
-offset_right = -40.0
+offset_top = -0.0626221
+offset_right = -0.0529785
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 theme_override_styles/normal = ExtResource("8_cn3pl")
-text = "Defend
+text = "
+Defend
 
 "
 metadata/_edit_use_anchors_ = true
@@ -879,24 +882,27 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "attack_button", "defend_button", "dodge_button")]
-script = ExtResource("10_8u2d7")
-enemy = NodePath("../CombatScenes/Goblin2")
+[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label")]
+script = ExtResource("10_vy0o1")
+enemy = NodePath("../CombatScenes/Goblin")
 enemy_ai = NodePath("../CombatScenes/EnemyAi")
-combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/RichTextLabel")
+combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/CombatTexts")
 player_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Player Stats")
-enemy_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar")
-attack_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Action")
-defend_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect")
-dodge_button = NodePath("../Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move")
+enemy_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar2")
+
+[node name="CombatInstantiator" type="Node" parent="Combatmanager"]
+script = ExtResource("11_4tvcf")
+
+[node name="Node2" type="Node" parent="Combatmanager"]
 
 [node name="CombatScenes" type="Node" parent="."]
 
 [node name="EnemyAi" parent="CombatScenes" instance=ExtResource("10_dixns")]
 
 [node name="Goblin" parent="CombatScenes" instance=ExtResource("11_msaj8")]
-max_val = 1000
-current_val = 1000
+display_name = "Gobby the Ugly"
+max_hp = 170
+current_hp = 170
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -909,9 +915,7 @@ stats = {
 [node name="Player" parent="CombatScenes" instance=ExtResource("12_08v13")]
 
 [node name="Goblin2" parent="CombatScenes" instance=ExtResource("11_msaj8")]
-names = "Gobby the ugly"
-max_val = 300
-current_val = 227
+display_name = "mmm"
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -936,7 +940,9 @@ layout_mode = 1
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Inspect" to="Combatmanager" method="_on_inspect_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Move" to="Combatmanager" method="_on_move_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Items" to="Combatmanager" method="_on_items_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/turn" to="." method="_on_turn_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/TacticalOverview" to="." method="_on_tactical_overview_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/TacticalOverview" to="Combatmanager" method="_on_tactical_overview_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Panel" to="." method="_on_panel_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Help" to="." method="_on_help_pressed"]

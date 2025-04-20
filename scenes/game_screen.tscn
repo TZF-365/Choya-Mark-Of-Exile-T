@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://kdnbdym11s3r"]
+[gd_scene load_steps=22 format=3 uid="uid://kdnbdym11s3r"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_crt81"]
 [ext_resource type="Script" uid="uid://dk2ifnyc7omuc" path="res://logic/data/info/game_screen.gd" id="2_iyaa6"]
@@ -6,12 +6,13 @@
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://assets/fonts/Peaberry/PeaberryMono.ttf" id="6_f2aae"]
 [ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="6_xb4sa"]
 [ext_resource type="Theme" uid="uid://cv4vja08i8uma" path="res://assets/pixelart/game_screen_di.tres" id="7_e2y3v"]
+[ext_resource type="FontFile" uid="uid://cdkwhyrr2mt2g" path="res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf" id="8_bd51b"]
 [ext_resource type="Script" uid="uid://dtr10uh0vnskh" path="res://logic/data/info/ContentContainer.gd" id="8_q3ncb"]
-[ext_resource type="FontFile" uid="uid://d2j8aqtfjj0r5" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf" id="9_v7c4i"]
-[ext_resource type="Script" uid="uid://cr377v1guy56t" path="res://scenes/rich_text_label.gd" id="10_3a7ej"]
+[ext_resource type="FontFile" uid="uid://bvsgo1i0uqcrd" path="res://assets/fonts/Lore_Item_Font/IMFellEnglish-Regular.ttf" id="9_oknyi"]
+[ext_resource type="FontFile" uid="uid://cifveys2aswe5" path="res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf" id="10_3a7ej"]
 [ext_resource type="Texture2D" uid="uid://cnmjk245281us" path="res://assets/Red.jpg" id="10_wg0ga"]
+[ext_resource type="FontFile" uid="uid://pqia5c152xko" path="res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf" id="11_7em7s"]
 [ext_resource type="Script" uid="uid://c0hokijcprldk" path="res://logic/data/info/ChoiceButtons.gd" id="11_hfp0j"]
-[ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://assets/fonts/Peaberry/PeaberryBase.ttf" id="12_q6fd1"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="14_pee72"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_vqtp5"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="15_8tvxp"]
@@ -24,13 +25,19 @@ modulate_color = Color(0.214379, 0.000496228, 0.505604, 1)
 [sub_resource type="Theme" id="Theme_pludh"]
 PanelContainer/styles/panel = null
 
-[sub_resource type="SystemFont" id="SystemFont_2y5ls"]
-font_names = PackedStringArray("Serif")
-font_italic = true
-subpixel_positioning = 0
-multichannel_signed_distance_field = true
-msdf_pixel_range = 32
-msdf_size = 60
+[sub_resource type="GDScript" id="GDScript_8tvxp"]
+script/source = "extends RichTextLabel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mr7y1"]
 
@@ -160,8 +167,8 @@ theme_override_constants/margin_top = 10
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("9_v7c4i")
-theme_override_font_sizes/font_size = 47
+theme_override_fonts/font = ExtResource("8_bd51b")
+theme_override_font_sizes/font_size = 60
 text = "TITLE"
 
 [node name="MarginContainerstats" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
@@ -171,8 +178,8 @@ theme_override_constants/margin_left = 15
 [node name="StatIndicator" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer/MarginContainerstats"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/normal_font = SubResource("SystemFont_2y5ls")
-theme_override_font_sizes/normal_font_size = 35
+theme_override_fonts/normal_font = ExtResource("9_oknyi")
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "hp incresed
 hp decresed"
@@ -195,15 +202,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_font_sizes/bold_italics_font_size = 20
-theme_override_font_sizes/italics_font_size = 20
-theme_override_font_sizes/mono_font_size = 20
-theme_override_font_sizes/normal_font_size = 60
-theme_override_font_sizes/bold_font_size = 20
+theme_override_fonts/normal_font = ExtResource("11_7em7s")
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/mono_font_size = 70
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
 text = "As you move through the forest, your senses prickle with unease. The hair on the back of your neck stands on end as a rustling sound cuts through the otherwise quiet night. Then it happens—a shadow bursts from your right flank, teeth bared and eyes glowing with feral intensity. A wolf. It lunges for your side, jaws snapping.\\n\\nYou barely manage to twist out of the way, the beast's claws grazing your cloak. Your mind races. You can feel the mark on your wrist pulsing faintly. You know you have the power to summon fire, but at a cost. Alternatively, you could rely on your agility and the dagger you feel strapped to your thigh.\\n\\nThe wolf snarls and prepares for another strike, circling"
 fit_content = true
-script = ExtResource("10_3a7ej")
+script = SubResource("GDScript_8tvxp")
 
 [node name="MarginContainerchoices" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel/ScrollContainer/ContentContainer"]
 layout_mode = 2
@@ -377,6 +385,7 @@ anchor_right = 0.286538
 anchor_bottom = 0.896552
 offset_right = -108.0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_3a7ej")
 theme_override_font_sizes/font_size = 30
 text = "Follow GDJ Studios"
 metadata/_edit_use_anchors_ = true
@@ -394,8 +403,8 @@ offset_right = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
-theme_override_fonts/font = ExtResource("12_q6fd1")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("10_3a7ej")
+theme_override_font_sizes/font_size = 40
 text = "Exit"
 metadata/_edit_use_anchors_ = true
 
@@ -410,6 +419,7 @@ offset_left = 50.9999
 offset_right = -50.9999
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_3a7ej")
 theme_override_font_sizes/font_size = 30
 text = "Combat Screen"
 metadata/_edit_use_anchors_ = true
@@ -423,7 +433,8 @@ anchor_right = 0.803846
 anchor_bottom = 0.799998
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("10_3a7ej")
+theme_override_font_sizes/font_size = 40
 text = "Save
 "
 metadata/_edit_use_anchors_ = true

@@ -1,19 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bipm0b0u56y5u"]
-
-[ext_resource type="Script" uid="uid://dni711p5dsmoy" path="res://logic/data/info/storyflags.gd" id="3_ace8a"]
-[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/CombatTextManager.gd" id="3_vumoe"]
-[ext_resource type="Script" uid="uid://de51nto0lgb2i" path="res://logic/data/combatLogic/combatmanager.gd" id="5_wohjv"]
+[gd_scene format=3 uid="uid://bdtpt6k78n5tn"]
 
 [node name="Combat_Logic" type="Node"]
-
-[node name="storyvariables" type="Node" parent="."]
-script = ExtResource("3_ace8a")
-
-[node name="combatmanager" type="Node" parent="."]
-script = ExtResource("5_wohjv")
-
-[node name="Combat_Text" type="Node" parent="."]
-script = ExtResource("3_vumoe")
 
 [node name="Content_data" type="Node" parent="."]
 

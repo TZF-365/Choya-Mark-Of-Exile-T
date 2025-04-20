@@ -71,7 +71,7 @@ func _ready() -> void:
 func _process(_delta):
 	
 	player_stats = Player_AL
-	if player_stats["current_val"] <=0:
+	if player_stats["val"] <=0:
 		is_dead = true 
 		
 	if is_dead and shown_death == false:
@@ -123,7 +123,7 @@ func process_choice(choice_index: int) -> void:
 				if player_stats[requirement] < requirements[requirement] and content_dict[current_page]["choices"][str(choice_index)].has("failed_output"):
 					if requirement == "mana":
 						var health_deduction = player_stats[requirement] - requirements[requirement]
-						player_stats["current_val"] += round(health_deduction * 1.5)
+						player_stats["current_hp"] += round(health_deduction * 1.5)
 						statindicator.text += "\n[color=red]" + str("health") + " has decreased by " + str(round(-health_deduction * 1.5)) + "[/color]"
 						used_hp = true
 						output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]

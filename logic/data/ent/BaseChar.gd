@@ -1,21 +1,75 @@
 extends Node
-class_name BaseChar
+class_name Base_Charm
 
 # General properties
-@export var names: String = "Lycarus"
-@export var max_val: int = 250
-@export var current_val: int = 250
+@export var display_name: String = "Lycarus"
+@export var val: int = 10
+@export var max_hp: int = 100
+@export var current_hp: int = 100
+var current_val = current_hp
 @export var stamina: int = 50
 @export var max_stamina: int = 50
 @export var mana: int = 30
 @export var max_mana: int = 30
 @export var action_points: int = 4
 @export var max_action_points: int = 4
-@export var is_alive: bool = true
 @export var max_part_val: int = 1
 @export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
 @export var coins: int = 100
+
+var team_id: int = -1
+var turn_order: Array[BaseChar]
+
+@export var skills: Dictionary = {}  # Initialize as an empty Dictionary
+
+func equip_skill_from_file(path: String):
+	var loaded = load(path)
+	if loaded is SkillResource:
+		var skill = loaded as SkillResource
+		print("Loaded skill name: %s" % skill.name)
+
+		skills[skill.name] = skill
+	else:
+		print("Failed to load skill or invalid type at: ", path)
+
+		
+# Function to add skill to the character's skills dictionary
+func add_skill(skill: SkillResource):
+	if skill.name not in skills:
+		skills[skill.name] = skill
+		print(display_name + " has learned " + skill.name)
+
+
+func take_damage(amount: int, source: BaseChar = null):
+	# Apply the damage
+	current_hp -= amount
+	current_hp = clamp(current_hp, 0, max_hp)
+	print("%s takes %d damage from %s" % [self.name, amount, source.name])
+	update_val()
+	
+	# Optional: Print or log who caused the damage
+	if source:
+		print("%s took %d damage from %s!" % [self.name, amount, source.name])
+	else:
+		print("%s took %d damage!" % [self.name, amount])
+		
+
+func use_skill(skill_name: String, target: BaseChar):
+	if skills.has(skill_name):
+		var skill = skills[skill_name]
+		if skill.effect_type == "damage":
+			target.take_damage(skill.effect_value, self)
+			print("%s uses %s on %s for %d damage!" % [self.name, skill.name, target.name, skill.effect_value])
+	else:
+		print("Skill not found!")
+
+
+
+# ✅ Correct
+func is_alive() -> bool:
+	return current_hp > 0
+
 
 # Combat status
 @export var is_defending: bool = false
@@ -31,13 +85,6 @@ class_name BaseChar
 	"toughness": 8,
 	"perception": 5,
 	"agility": 5
-}
-
-# Skills
-@export var skills: Dictionary = {
-	"swordsmanship": 0,
-	"dodging": 0,
-	"bare_knuckle": 0
 }
 
 # Equipment
@@ -69,26 +116,29 @@ class_name BaseChar
 }
 
 # Combat actions
-func take_damage(amount: int, body_part: String):
-	if body_part in body_part_val:
-		# Reduce body part VAL
-		body_part_val[body_part] -= amount
-		if body_part_val[body_part] < 0:
-			body_part_val[body_part] = 0
-		
-		# Reduce overall VAL
-		current_val -= amount
-		if current_val < 0:
-			current_val = 0
-			is_alive = false
-		
-		# Apply status effects based on percentage of body part damage
-		apply_status_effects(body_part)
+
+
+
+# Function to update `val` based on current health
+func update_val():
+	if max_hp == 0:  # Avoid division by zero in case max_hp is set to 0
+		val = 0
 	else:
-		current_val -= amount
-		if current_val < 0:
-			current_val = 0
-			is_alive = false
+		# Calculate the percentage of health and scale to 0-10
+		val = int((current_hp / float(max_hp)) * 10)
+		# Clamp the value to ensure it stays within the 0-10 range
+		val = clamp(val, 0, 10)
+		
+# Custom setter for `current_hp` to auto-update `val`
+func set_current_hp(new_hp: int):
+	current_hp = clamp(new_hp, 0, max_hp)  # Ensure HP stays within bounds
+	update_val()  # Update `val` whenever HP changes
+
+# Custom setter for `max_hp` to auto-update `val`
+func set_max_hp(new_max_hp: int):
+	max_hp = max(new_max_hp, 1)  # Ensure max_hp is not zero
+	update_val()  # Recalculate `val` when max_hp changes
+
 
 func apply_status_effects(body_part: String):
 	if body_part in body_part_val:
@@ -111,7 +161,12 @@ func apply_status_effects(body_part: String):
 			add_status_effect("Bruised " + body_part)
 
 func heal(amount: int):
-	current_val = min(current_val + amount, max_val)
+	current_hp += amount
+	current_hp = min(current_hp, max_hp)  # Prevent exceeding max_hp
+	update_val()
+	
+func show_val():
+	print("Current health (scaled to 0-10): %d" % val)
 
 func use_stamina(amount: int) -> bool:
 	if stamina >= amount:
@@ -144,3 +199,10 @@ func remove_status_effect(effect: String):
 func end_turn():
 	is_defending = false
 	is_dodging = false
+	
+	
+func get_stat(stat_name: String) -> int:
+	return stats.get(stat_name, 0)
+
+func apply_damage(amount: int):
+	current_hp = max(current_hp - amount, 0)
