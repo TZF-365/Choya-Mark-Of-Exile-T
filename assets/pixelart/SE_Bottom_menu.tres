@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cfkbi6ifn8rdy"]
+
+[ext_resource type="FontFile" uid="uid://cifveys2aswe5" path="res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf" id="1_bw34u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvmnb"]
+bg_color = Color(0.691284, 0.422584, 0.0892032, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 7
+border_color = Color(0.457798, 0.272844, 0.0425021, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.602)
+shadow_size = 4
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grl02"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.566352, 0.340864, 0.0609625, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 10
+border_color = Color(0.350539, 0.200694, 0.0326769, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+shadow_offset = Vector2(8, 8)
+anti_aliasing_size = 3.54
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw34u"]
+bg_color = Color(0.564706, 0.341176, 0.0627451, 1)
+border_width_top = 4
+border_color = Color(0, 0, 0, 0)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_bw34u")
+Button/styles/hover = SubResource("StyleBoxFlat_rvmnb")
+Button/styles/normal = SubResource("StyleBoxFlat_grl02")
+Button/styles/pressed = SubResource("StyleBoxFlat_bw34u")

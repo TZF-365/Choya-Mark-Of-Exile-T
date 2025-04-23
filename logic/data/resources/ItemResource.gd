@@ -10,10 +10,21 @@ class_name ItemResource
 @export var uses: int
 @export var weight: float
 @export var cost: int
+@export var max_durability: int
 @export var durability: int
 @export var throwable: bool
 @export var fragility: String
+var slot_type: String
+var condition: Condition = Condition.NORMAL
+
 @export var material: String
+
+enum Condition {
+	NORMAL,
+	BROKEN,
+	DESTROYED
+}
+
 @export var comfort: int
 
 # Tags
@@ -47,6 +58,8 @@ class_name ItemResource
 	"is_equipped": false
 }
 
+@export var price: int
+
 # Conditions
 @export var conditions: Dictionary = {
 	"destruction": {"min_durability": 0},
@@ -78,7 +91,7 @@ class_name ItemResource
 @export var quest_id: int = 0 # Links the item to a specific quest
 @export var quest_progress: Dictionary = {} # Tracks progress-related variables for the quest
 
-### **Weapon Variables**
+### **Weapon/armor Variables**
 @export var is_weapon: bool = false # Marks if the item is a weapon
 @export var damage_types: Dictionary = { "physical": 0, "magical": 0, "fire": 0 } # Types and values of damage dealt
 @export var weapon_class: String = "None" # Type of weapon (e.g., "Sword", "Bow", "Staff")
@@ -94,12 +107,19 @@ class_name ItemResource
 @export var generation_seed: int = 0 # Seed for procedural generation
 
 
+func is_broken() -> bool:
+	return condition == Condition.BROKEN
+
+func is_destroyed() -> bool:
+	return condition == Condition.DESTROYED
+
+
+
 func calculate_weapon_durability(weapon: ItemResource) -> int:
 	var material_durability = get_material_durability(weapon.material)
 	var weight_factor = weapon.weight / 10
 	var durability = material_durability * weight_factor
 	return durability
-
 
 func get_material_durability(material: String) -> int:
 	match material:

@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx32qsew5hl3x"]
+[gd_scene load_steps=6 format=3 uid="uid://bx32qsew5hl3x"]
 
 [ext_resource type="Script" uid="uid://cbalwifbhpjdf" path="res://logic/data/ent/player.gd" id="1_vgsr7"]
-[ext_resource type="Script" uid="uid://drtvjpumoqsuw" path="res://logic/data/ent/BaseChar.gd" id="2_o7et6"]
+[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="2_7jddb"]
+[ext_resource type="Resource" uid="uid://1nkvl7t7cn01" path="res://logic/data/resources/Techniques/quick_jab.tres" id="3_lfoco"]
+[ext_resource type="Resource" uid="uid://btikpymqav4bo" path="res://logic/data/resources/Techniques/cleave.tres" id="4_h683u"]
+[ext_resource type="Resource" uid="uid://dtmue34gqf3a0" path="res://logic/data/resources/Techniques/riposte.tres" id="5_xq0cc"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vgsr7")
+display_name = "Lycarusmm"
+max_hp = 140
+current_hp = 140
+coins = 1
+momentum = 0
+techniques = Array[ExtResource("2_7jddb")]([ExtResource("3_lfoco"), ExtResource("4_h683u"), ExtResource("5_xq0cc")])
 stats = {
 "agility": 5,
 "dexterity": 4,
 "endurance": 5,
 "perception": 2,
-"strength": 8,
-"toughness": 3
+"strength": 6,
+"toughness": 4
 }
-
-[node name="BaseChar" type="Node" parent="."]
-script = ExtResource("2_o7et6")
-metadata/_custom_type_script = "uid://drtvjpumoqsuw"

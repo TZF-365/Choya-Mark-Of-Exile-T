@@ -1,13 +1,15 @@
-res://scenes/combat_screen.tscn
-res://assets/pixelart/combat_buttons.tres
-res://assets/pixelart/combatactionbuttons.tres
-res://assets/fonts/ChoyaFont1.tres
+res://scenes/main_menu.tscn
+res://logic/data/resources/Techniques/cleave.tres
 res://assets/pixelart/pixelart.tres
 res://assets/pixelart/troochi.tres
+res://assets/pixelart/combat_buttons.tres
 res://assets/pixelart/game_screen_di.tres
-res://scenes/main_menu.tscn
+res://assets/pixelart/combatactionbuttons.tres
+res://assets/fonts/ChoyaFont1.tres
+res://logic/data/resources/Items/weapons/bronze_dagger.tres
+res://assets/pixelart/SE_Bottom_menu.tres
+res://assets/pixelart/Combat_screen_Bottom Buttons.tres
 res://scenes/game_screen.tscn
-res://scenes/utilities/gamelogic.tscn
-res://scenes/utilities/AudioManager.tscn
-res://logic/data/combatLogic/Battlemanager.gd
-res://export_presets.cfg
+res://scenes/combat_screen_new.tscn
+res://scenes/System/Tools.tscn
+res://scenes/entities/Player.tscn

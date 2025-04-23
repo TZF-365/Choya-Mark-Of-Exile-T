@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://dh51mad3ik1sl"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_blvim"]
+
+[resource]
+script = ExtResource("1_blvim")
+armor_class = 0
+slot_name = ""
+encumbrance = 0.0
+movement_penalty = 0.0
+armor_type = ""
+damage_reduction = 0.24
+critical_hit_prevention = true
+armor_traits = ["scaly", "versatile"]
+is_armor = true
+broken = false
+id = "scale_mail"
+name = "Bronze Scale Mail"
+description = "A bronze scale mail made of bronze. Offers 24% damage reduction and weighs 4.2 kg."
+type = ""
+uses = 0
+weight = 4.2
+cost = 0
+max_durability = 128
+durability = 128
+throwable = false
+fragility = ""
+material = "bronze"
+comfort = 0
+tags = []
+combat_data = {
+"attack_flavor_text": "",
+"attack_power": 0,
+"custom_use_text": "",
+"skills_linked": []
+}
+resistances = {
+"blunt": 0,
+"force": 0,
+"magic": 0,
+"pierce": 0,
+"slash": 0
+}
+damage_type = "slash"
+ownership = {
+"is_equipped": false,
+"is_stolen": false,
+"made_by": "",
+"owned_by": ""
+}
+price = 307
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}
+materials_made_from = []
+stackable = false
+item_effects = []
+value = 1
+rarity = "Common"
+item_owner = "Null"
+is_stolen = false
+acquisition_method = "Found"
+is_usable = false
+use_effects = {}
+is_quest_item = false
+quest_id = 0
+quest_progress = {}
+is_weapon = false
+damage_types = {
+"fire": 0,
+"magical": 0,
+"physical": 0
+}
+weapon_class = "None"
+attack_speed = 1.0
+is_two_handed = false
+max_stack = 1
+interactable_with_world = true
+is_dynamic = false
+generation_seed = 0

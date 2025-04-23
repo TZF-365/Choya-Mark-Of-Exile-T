@@ -29,7 +29,6 @@ boot_splash/minimum_display_time=100
 exit="*res://logic/backend/exitgame.gd"
 TransitionManager="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
-Player_AL="*res://logic/data/ent/player.gd"
 Ccid="*res://logic/backend/CCID.gd"
 AudioManager="*res://scenes/utilities/AudioManager.tscn"
 Storyflags="*res://logic/data/info/storyflags.gd"
@@ -38,6 +37,9 @@ DamageCalc="*res://logic/data/combatLogic/damage_calculator.gd"
 SkillSystem="*res://logic/data/combatLogic/SkillSystem.gd"
 BaseChar="*res://logic/data/ent/BaseChar.gd"
 SkillManager="*res://logic/data/combatLogic/SkillManager.gd"
+Technique="*res://logic/data/combatLogic/Technique.gd"
+TechniqueManager="*res://logic/data/combatLogic/TechniqueManager.gd"
+Player_AL="*res://scenes/entities/Player.tscn"
 
 [display]
 

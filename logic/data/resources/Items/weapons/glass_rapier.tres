@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=2 format=3 uid="uid://dds1efpt4wokq"]
+
+[ext_resource type="Script" uid="uid://dj6dkvp7iuk5w" path="res://logic/data/resources/WeaponResource.gd" id="1_3mmt3"]
+
+[resource]
+script = ExtResource("1_3mmt3")
+critical_chance = 0.3
+reach = 1.2
+parry_bonus = 0.15
+weapon_traits = ["fragile", "precise"]
+id = "glass_rapier"
+name = "Shimmering Glass Rapier"
+description = ""
+type = ""
+uses = 0
+weight = 1.05
+cost = 0
+max_durability = 50
+durability = 50
+throwable = false
+fragility = ""
+material = "glass"
+comfort = 0
+tags = []
+combat_data = {
+"attack_flavor_text": "",
+"attack_power": 0,
+"custom_use_text": "",
+"skills_linked": []
+}
+resistances = {
+"blunt": 0,
+"force": 0,
+"magic": 0,
+"pierce": 0,
+"slash": 0
+}
+damage_type = "slash"
+ownership = {
+"is_equipped": false,
+"is_stolen": false,
+"made_by": "",
+"owned_by": ""
+}
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}
+materials_made_from = []
+stackable = false
+item_effects = []
+value = 1
+rarity = "Common"
+item_owner = "Null"
+is_stolen = false
+acquisition_method = "Found"
+is_usable = false
+use_effects = {}
+is_quest_item = false
+quest_id = 0
+quest_progress = {}
+is_weapon = true
+damage_types = {
+"fire": 0,
+"magical": 0,
+"physical": 0
+}
+weapon_class = "Rapier"
+attack_speed = 1.0
+is_two_handed = false
+max_stack = 1
+interactable_with_world = true
+is_dynamic = false
+generation_seed = 0

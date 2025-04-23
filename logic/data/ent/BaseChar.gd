@@ -3,7 +3,7 @@ class_name Base_Charm
 
 # General properties
 @export var display_name: String = "Lycarus"
-@export var val: int = 10
+@export var val: float = 10.00
 @export var max_hp: int = 100
 @export var current_hp: int = 100
 var current_val = current_hp
@@ -17,58 +17,19 @@ var current_val = current_hp
 @export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
 @export var coins: int = 100
+@export var momentum: int = 50
+@export var current_stance: String = "neutral"
+
+
+
 
 var team_id: int = -1
 var turn_order: Array[BaseChar]
 
 @export var skills: Dictionary = {}  # Initialize as an empty Dictionary
+@export var techniques: Array[Technique_] = []
+@export var known_techniques: Array[Resource] = []
 
-func equip_skill_from_file(path: String):
-	var loaded = load(path)
-	if loaded is SkillResource:
-		var skill = loaded as SkillResource
-		print("Loaded skill name: %s" % skill.name)
-
-		skills[skill.name] = skill
-	else:
-		print("Failed to load skill or invalid type at: ", path)
-
-		
-# Function to add skill to the character's skills dictionary
-func add_skill(skill: SkillResource):
-	if skill.name not in skills:
-		skills[skill.name] = skill
-		print(display_name + " has learned " + skill.name)
-
-
-func take_damage(amount: int, source: BaseChar = null):
-	# Apply the damage
-	current_hp -= amount
-	current_hp = clamp(current_hp, 0, max_hp)
-	print("%s takes %d damage from %s" % [self.name, amount, source.name])
-	update_val()
-	
-	# Optional: Print or log who caused the damage
-	if source:
-		print("%s took %d damage from %s!" % [self.name, amount, source.name])
-	else:
-		print("%s took %d damage!" % [self.name, amount])
-		
-
-func use_skill(skill_name: String, target: BaseChar):
-	if skills.has(skill_name):
-		var skill = skills[skill_name]
-		if skill.effect_type == "damage":
-			target.take_damage(skill.effect_value, self)
-			print("%s uses %s on %s for %d damage!" % [self.name, skill.name, target.name, skill.effect_value])
-	else:
-		print("Skill not found!")
-
-
-
-# ✅ Correct
-func is_alive() -> bool:
-	return current_hp > 0
 
 
 # Combat status
@@ -89,11 +50,19 @@ func is_alive() -> bool:
 
 # Equipment
 @export var equipment: Dictionary = {
-	"left_hand": null,
-	"right_hand": null,
-	"armor": null,
-	"helmet": null
+	"main_hand": null,
+	"off_hand": null,
+	"accessory": []
 }
+
+var armor_slots := {
+	"head": null,
+	"chest": null,
+	"legs": null,
+	"arms": null,
+	"shield": null
+}
+
 
 # Body part VAL (for location-based damage)
 @export var body_part_val: Dictionary = {
@@ -115,9 +84,203 @@ func is_alive() -> bool:
 	"player_badly_injured": false
 }
 
-# Combat actions
 
 
+
+func equip_skill_from_file(path: String):
+	var loaded = load(path)
+	if loaded is SkillResource:
+		var skill = loaded as SkillResource
+		print("Loaded skill name: %s" % skill.name)
+
+		skills[skill.name] = skill
+	else:
+		print("Failed to load skill or invalid type at: ", path)
+
+		
+# Function to add skill to the character's skills dictionary
+func add_skill(skill: SkillResource):
+	if skill.name not in skills:
+		skills[skill.name] = skill
+		print(display_name + " has learned " + skill.name)
+
+
+func get_weapon_power() -> float:
+	var weapon = get_equipped_weapon("main_hand")
+	if weapon and weapon is WeaponResource:
+		return weapon.weapon_power(self)
+	return 2.0
+
+
+
+func take_damage(amount: int, source: BaseChar = null):
+	var total_damage = amount
+
+	# Check if the character has armor equipped
+	var reduction := get_damage_reduction_from_hit()
+	total_damage -= total_damage * reduction
+
+	# Check if momentum allows bypassing armor
+	if momentum >= 100:  # Example: if momentum exceeds a threshold, armor is bypassed
+		print("%s's momentum bypasses armor!" % display_name)
+		total_damage = amount * 1.5  # Double the damage as an example
+
+	# Apply the final damage
+	current_hp -= total_damage
+	current_hp = clamp(current_hp, 0, max_hp)
+
+	print("%s takes %d damage after armor reduction!" % [self.name, total_damage])
+	update_val()
+	
+	# Optional: Print or log who caused the damage
+	if source:
+		print("%s took %d damage from %s!" % [self.name, amount, source.name])
+	else:
+		print("%s took %d damage!" % [self.name, amount])
+
+
+
+
+
+
+
+		
+
+func use_skill(skill_name: String, target: BaseChar):
+	if skills.has(skill_name):
+		var skill = skills[skill_name]
+		if skill.effect_type == "damage":
+			target.take_damage(skill.effect_value, self)
+			print("%s uses %s on %s for %d damage!" % [self.name, skill.name, target.name, skill.effect_value])
+	else:
+		print("Skill not found!")
+		
+func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique_:
+	for technique in actor.techniques:
+		if technique.attack_type == attack_type:
+			if technique.stance_required == "" or technique.stance_required == actor.current_stance:
+				if technique.requires_momentum <= actor.momentum:
+					if technique.trigger_condition == null or technique.trigger_condition.call(actor, target):
+						return technique
+	return null
+	
+	
+func equip_weapon(weapon: ItemResource, slot: String = "main_hand") -> bool:
+	if weapon == null or not weapon.is_weapon:
+		print("Cannot equip: Not a valid weapon.")
+		return false
+
+	if not equipment.has(slot):
+		print("Invalid equipment slot: ", slot)
+		return false
+
+	# Check two-handed logic
+	if weapon.is_two_handed:
+		equipment["main_hand"] = weapon
+		equipment["off_hand"] = weapon
+		print("%s equipped %s in both hands." % [display_name, weapon.name])
+	else:
+		equipment[slot] = weapon
+		print("%s equipped %s in %s." % [display_name, weapon.name, slot])
+
+	return true
+
+func unequip_weapon(slot: String) -> bool:
+	if not equipment.has(slot) or equipment[slot] == null:
+		print("No weapon to unequip in %s." % slot)
+		return false
+
+	var removed_weapon = equipment[slot]
+	equipment[slot] = null
+
+	# Handle two-handed cleanup
+	if removed_weapon.is_two_handed:
+		if slot == "main_hand":
+			equipment["off_hand"] = null
+		elif slot == "off_hand":
+			equipment["main_hand"] = null
+
+	print("%s unequipped %s from %s." % [display_name, removed_weapon.name, slot])
+	return true
+
+
+
+func get_equipped_weapon(slot: String = "main_hand") -> ItemResource:
+	if equipment.has(slot):
+		return equipment[slot]
+	return null
+
+#ARMOR 
+func equip_armor(slot: String, armor: ArmorResource) -> void:
+	if not armor:
+		push_error("Tried to equip null armor.")
+		return
+	if not armor.is_armor:
+		push_error("This item is not valid armor.")
+		return
+
+	armor_slots[slot] = armor
+	print("✅ Equipped '%s' to %s slot." % [armor.name, slot])
+
+func get_armor_for_hit() -> ArmorResource:
+	# Simplified: Assume "chest" is always hit. You can randomize or base this on technique later.
+	return armor_slots.get("chest", null)
+
+
+func resolve_hit_location() -> String:
+	var roll = randf()
+	if roll < 0.4:
+		return "chest"
+	elif roll < 0.65:
+		return "arms"
+	elif roll < 0.8:
+		return "legs"
+	elif roll < 0.9:
+		return "head"
+	else:
+		return "shield"
+
+func get_damage_reduction_from_hit() -> float:
+	var hit_location = resolve_hit_location()
+	var armor_piece = armor_slots[hit_location]
+
+	if armor_piece == null:
+		print("No armor at hit location.")
+		return 0.0
+
+	# Check for durability
+	var durability_factor = armor_piece.durability / armor_piece.max_durability
+	var reduction = armor_piece.damagec_reduction * durability_factor
+	print("Armor durability factor:", durability_factor, "Raw reduction:", armor_piece.damage_reduction, "Final reduction:", reduction)
+
+	# Bypass & Break Logic
+	if durability_factor < 0.3:
+		var break_chance = 0.0
+		if durability_factor <= 0.2:
+			break_chance = 0.10
+		elif durability_factor <= 0.25:
+			break_chance = 0.05
+		elif durability_factor <= 0.3:
+			break_chance = 0.02
+
+		if randf() < break_chance:
+			print("%s's %s armor broke!" % [display_name, hit_location])
+			armor_slots[hit_location] = null
+			return 0.0
+
+		# Bypass chance could be implemented similarly
+		var bypass_chance = break_chance * 1.5
+		if randf() < bypass_chance:
+			print("The attack bypassed %s's %s armor!" % [display_name, hit_location])
+			return 0.0
+	print("Reduction is", reduction)
+	return reduction
+
+
+# ✅ Correct
+func is_alive() -> bool:
+	return current_hp > 0
+	
 
 # Function to update `val` based on current health
 func update_val():
@@ -150,7 +313,7 @@ func apply_status_effects(body_part: String):
 			match body_part:
 				"head":
 					add_status_effect("Concussion")
-				"left_hand", "right_hand":
+				"left_hand", "main_hand":
 					add_status_effect("Hand Crippled")
 				"left_leg", "right_leg":
 					add_status_effect("Limp")

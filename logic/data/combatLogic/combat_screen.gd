@@ -15,10 +15,9 @@ func _ready() -> void:
 	AudioManager.play_music(preload("res://assets/Music/03_Melee.ogg"))
 
 
-
-
 func _on_move_pressed() -> void:
 	label.set_text(str("you moved"))
+
 
 func _on_Menu_button_pressed() -> void:
 	# Start the transition (wait for it to finish before continuing)
@@ -40,7 +39,6 @@ func _on_inspect_pressed() -> void:
 func _on_items_pressed() -> void:
 	label.set_text(str("You Got an Item"))
 	
-
 
 func _on_turn_pressed() -> void:
 	pass # Replace with function body.

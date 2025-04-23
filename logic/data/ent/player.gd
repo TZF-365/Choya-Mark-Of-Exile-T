@@ -9,4 +9,4 @@ var is_player: bool = true
 var Val
 
 func _ready():
-	name = "Player1"
+	name = "Player12"

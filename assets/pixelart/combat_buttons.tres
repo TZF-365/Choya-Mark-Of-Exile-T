@@ -1,12 +1,14 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c3lkke57ygwlm"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c3lkke57ygwlm"]
+
+[ext_resource type="FontFile" uid="uid://dfxm34xy6d7ym" path="res://assets/fonts/Skill_Spell_Font/BerkshireSwash-Regular.ttf" id="1_48kui"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7mkw"]
-bg_color = Color(0.330933, 0.000458349, 0.437679, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0.18823, 0.000151455, 0.255506, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.0787039, 3.6086e-05, 0.115723, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -15,26 +17,26 @@ corner_radius_bottom_left = 8
 shadow_color = Color(0, 0, 0, 0.733333)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tpaw"]
-bg_color = Color(0.245838, 3.28372e-05, 0.238101, 0.823529)
+bg_color = Color(0.113725, 0, 0.184314, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
-border_width_bottom = 4
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_882p7"]
-bg_color = Color(0.383892, 0.000530642, 0.491018, 1)
+bg_color = Color(0.270588, 0, 0.360784, 1)
 border_color = Color(0, 0, 0, 1)
 border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdrwa"]
 bg_color = Color(0, 0, 0, 0.665)
@@ -50,6 +52,8 @@ corner_radius_top_right = 40
 
 [resource]
 default_font_size = 70
+Button/font_sizes/font_size = 38
+Button/fonts/font = ExtResource("1_48kui")
 Button/styles/disabled = null
 Button/styles/hover = SubResource("StyleBoxFlat_q7mkw")
 Button/styles/normal = SubResource("StyleBoxFlat_2tpaw")

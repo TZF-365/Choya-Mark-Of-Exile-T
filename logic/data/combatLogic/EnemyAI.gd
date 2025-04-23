@@ -15,7 +15,7 @@ func choose_action() -> String:
 		print("No enemy or player connected to enemy AI")
 		return "idle"  # Safe fallback in case enemy or player is not assigned
 	else:
-		var actions = ["attack", "defend", "dodge"]
+		var actions = ["attack", "defend", "dodge", "light", "heavy"]
 		return actions[randi() % actions.size()]
 
 # Can be expanded for more complex decision making (e.g., based on health, player behavior, etc.)

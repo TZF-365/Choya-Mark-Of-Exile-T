@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://diuhqbl1lmusl"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_rrqvh"]
+
+[resource]
+script = ExtResource("1_rrqvh")
+armor_class = 0
+slot_name = ""
+encumbrance = 0.0
+movement_penalty = 0.0
+armor_type = ""
+damage_reduction = 0.2
+critical_hit_prevention = true
+armor_traits = ["cold_resistant", "soft"]
+is_armor = true
+broken = false
+id = "blubber_coat"
+name = "Thick Blubber Coat"
+description = "A thick blubber coat made of blubber. Offers 20% damage reduction and weighs 3.5 kg."
+type = ""
+uses = 0
+weight = 3.5
+cost = 0
+max_durability = 80
+durability = 80
+throwable = false
+fragility = ""
+material = "blubber"
+comfort = 0
+tags = []
+combat_data = {
+"attack_flavor_text": "",
+"attack_power": 0,
+"custom_use_text": "",
+"skills_linked": []
+}
+resistances = {
+"blunt": 0,
+"force": 0,
+"magic": 0,
+"pierce": 0,
+"slash": 0
+}
+damage_type = "slash"
+ownership = {
+"is_equipped": false,
+"is_stolen": false,
+"made_by": "",
+"owned_by": ""
+}
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}
+materials_made_from = []
+stackable = false
+item_effects = []
+value = 1
+rarity = "Common"
+item_owner = "Null"
+is_stolen = false
+acquisition_method = "Found"
+is_usable = false
+use_effects = {}
+is_quest_item = false
+quest_id = 0
+quest_progress = {}
+is_weapon = false
+damage_types = {
+"fire": 0,
+"magical": 0,
+"physical": 0
+}
+weapon_class = "None"
+attack_speed = 1.0
+is_two_handed = false
+max_stack = 1
+interactable_with_world = true
+is_dynamic = false
+generation_seed = 0

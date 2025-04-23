@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Technique_" load_steps=2 format=3 uid="uid://bait7sjsvkds8"]
+
+[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="1_hq2bd"]
+
+[resource]
+script = ExtResource("1_hq2bd")
+name = "Overhead Strike"
+description = "A crushing blow powered by momentum."
+attack_type = "heavy"
+stance_required = ""
+armor_bonus_table = {
+"composite": 0.0,
+"iron": 0.0,
+"iron_brigandine": 0.0,
+"iron_mail": 0.0,
+"iron_plate": 0.0,
+"iron_scale": 0.0,
+"leather": 0.0,
+"none": 0.0,
+"silver": 0.0,
+"steel": 0.0,
+"steel_Brigandine": 0.0,
+"steel_mail": 0.0,
+"steel_plate": 0.0,
+"steel_scale": 0.0
+}
+base_multiplier = 1.2
+bonus_when_low_hp = 0.0
+requires_momentum = 0
+extra_momentum_bonus = 0.5
+metadata/_custom_type_script = "uid://cgm5c14qfbqs7"
