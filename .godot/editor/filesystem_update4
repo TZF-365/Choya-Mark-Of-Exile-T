@@ -15,3 +15,4 @@ res://scenes/game_screen.tscn
 res://scenes/combat_screen_new.tscn
 res://scenes/System/Tools.tscn
 res://scenes/entities/Player.tscn
+res://story/Sample_Story.json

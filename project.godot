@@ -22,7 +22,7 @@ boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://bw74o0y6d2eyn"
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=100
+boot_splash/minimum_display_time=500
 
 [autoload]
 
