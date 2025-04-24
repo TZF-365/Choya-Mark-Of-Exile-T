@@ -3,7 +3,7 @@ class_name Technique_
 
 @export var name: String
 @export var description: String
-@export var attack_type: String = "light" # "light", "heavy", etc.
+@export var attack_type: String = "light" # "light", "heavy", "special", "finisher", etc.
 @export var stance_required: String = ""
 
 @export var scaling_stat: String = "strength"

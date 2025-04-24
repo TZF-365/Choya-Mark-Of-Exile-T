@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://di54avq37qk17"]
 
 [ext_resource type="Script" uid="uid://2j0i8ify85xx" path="res://scenes/System/tools.gd" id="1_v8d04"]
-[ext_resource type="Script" uid="uid://drtvjpumoqsuw" path="res://logic/data/ent/BaseChar.gd" id="2_tkvf3"]
+[ext_resource type="Script" uid="uid://buuk55av11nym" path="res://logic/data/ent/BaseChar.gd" id="2_tkvf3"]
 [ext_resource type="Script" uid="uid://i8gtipjvsf35" path="res://scenes/System/armorgen.gd" id="3_tkvf3"]
 
 [node name="weapon generator" type="Node2D"]
@@ -9,7 +9,6 @@ script = ExtResource("1_v8d04")
 
 [node name="Base_Charm" type="Node" parent="."]
 script = ExtResource("2_tkvf3")
-metadata/_custom_type_script = "uid://drtvjpumoqsuw"
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_tkvf3")

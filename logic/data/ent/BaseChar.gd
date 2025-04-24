@@ -7,8 +7,11 @@ class_name Base_Charm
 @export var max_hp: int = 100
 @export var current_hp: int = 100
 var current_val = current_hp
-@export var stamina: int = 50
+@export var stamina = current_stamina
+@export var current_stamina: int = 50
 @export var max_stamina: int = 50
+@export var endurance: float = 25
+@export var max_endurance: float = 25
 @export var mana: int = 30
 @export var max_mana: int = 30
 @export var action_points: int = 4
@@ -17,10 +20,19 @@ var current_val = current_hp
 @export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
 @export var coins: int = 100
-@export var momentum: int = 50
+@export var momentum: int = 15
+@export var max_momentum: int = 100
 @export var current_stance: String = "neutral"
 
+#momentum stats
+@export var opportunity_available: int = 30
+@export var finisher_available: int = 55
 
+@export var opportunity_active: bool = false
+@export var finisher_active: bool = false
+
+var opportunity_used_this_turn: bool = false
+var finisher_used_this_turn: bool = false
 
 
 var team_id: int = -1
@@ -29,6 +41,9 @@ var turn_order: Array[BaseChar]
 @export var skills: Dictionary = {}  # Initialize as an empty Dictionary
 @export var techniques: Array[Technique_] = []
 @export var known_techniques: Array[Resource] = []
+
+var current_action: String = ""
+
 
 
 

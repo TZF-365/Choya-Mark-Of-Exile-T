@@ -1,5 +1,7 @@
 res://scenes/main_menu.tscn
 res://logic/data/resources/Techniques/cleave.tres
+res://logic/data/resources/Techniques/special_cleave.tres
+res://logic/data/resources/Techniques/finishing_cleave.tres
 res://assets/pixelart/pixelart.tres
 res://assets/pixelart/troochi.tres
 res://assets/pixelart/combat_buttons.tres

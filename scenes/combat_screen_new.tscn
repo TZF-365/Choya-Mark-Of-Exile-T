@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cvgqa6jliu8md"]
+[gd_scene load_steps=51 format=3 uid="uid://cvgqa6jliu8md"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_ksr3s"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_div0j"]
@@ -13,9 +13,8 @@
 [ext_resource type="FontFile" uid="uid://d060foo1dnrdt" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf" id="11_wnd0d"]
 [ext_resource type="FontFile" uid="uid://bkm3c0gnlhuc3" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf" id="12_v4n40"]
 [ext_resource type="Script" uid="uid://bklxyb4y7iyq4" path="res://logic/data/info/combattextdesplay.gd" id="13_uqc1r"]
-[ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="14_n7jki"]
 [ext_resource type="Script" uid="uid://js823kcvfn1e" path="res://logic/backend/inventory_menu.gd" id="15_div0j"]
-[ext_resource type="Script" uid="uid://i3wsn4hn0sym" path="res://logic/data/combatLogic/Battlemanager.gd" id="15_j5ott"]
+[ext_resource type="Script" uid="uid://jhwovwx4gsvw" path="res://logic/data/combatLogic/Battlemanager.gd" id="15_j5ott"]
 [ext_resource type="Theme" uid="uid://bwo120nqahh6q" path="res://assets/pixelart/Combat_screen_Bottom Buttons.tres" id="16_nbkxo"]
 [ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="16_x5n72"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="17_vb8tf"]
@@ -25,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="21_wlfj2"]
 [ext_resource type="Resource" uid="uid://1nkvl7t7cn01" path="res://logic/data/resources/Techniques/quick_jab.tres" id="21_wwhih"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="22_rxw5e"]
+[ext_resource type="Resource" uid="uid://cmwyew0retq7m" path="res://logic/data/resources/Techniques/special_cleave.tres" id="22_wwhih"]
+[ext_resource type="Resource" uid="uid://bait7sjsvkds8" path="res://logic/data/resources/Techniques/overhead_strike.tres" id="23_fda8a"]
+[ext_resource type="Resource" uid="uid://dtmue34gqf3a0" path="res://logic/data/resources/Techniques/riposte.tres" id="24_fda8a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_ykh0y")
@@ -716,8 +718,6 @@ anchor_bottom = 0.325629
 offset_top = 0.213654
 offset_right = -0.159546
 theme = ExtResource("5_wwhih")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("14_n7jki")
 text = "Light Attack"
 metadata/_edit_use_anchors_ = true
 
@@ -731,9 +731,7 @@ anchor_right = 0.600037
 anchor_bottom = 0.321602
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Heavy Attack
 "
 metadata/_edit_use_anchors_ = true
@@ -748,9 +746,7 @@ anchor_right = 0.838926
 anchor_bottom = 0.321602
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Magic"
 metadata/_edit_use_anchors_ = true
 
@@ -764,9 +760,7 @@ anchor_right = 0.361148
 anchor_bottom = 0.675984
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Use Item"
 metadata/_edit_use_anchors_ = true
 
@@ -780,9 +774,7 @@ anchor_right = 0.600037
 anchor_bottom = 0.675984
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Observe"
 metadata/_edit_use_anchors_ = true
 
@@ -796,9 +788,7 @@ anchor_right = 0.838926
 anchor_bottom = 0.675984
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Interact
 "
 metadata/_edit_use_anchors_ = true
@@ -808,14 +798,13 @@ custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.627778
-anchor_top = 0.723819
+anchor_top = 0.739927
 anchor_right = 0.838556
-anchor_bottom = 1.0147
+anchor_bottom = 1.03081
 offset_top = 0.243668
 offset_right = 0.47998
 offset_bottom = -0.22023
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Use Skill"
 metadata/_edit_use_anchors_ = true
 
@@ -824,14 +813,12 @@ custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15
-anchor_top = 0.756093
+anchor_top = 0.739984
 anchor_right = 0.360694
-anchor_bottom = 1.04647
+anchor_bottom = 1.03036
 offset_top = 0.21512
 offset_right = 0.599915
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Defend
 "
 metadata/_edit_use_anchors_ = true
@@ -846,9 +833,7 @@ anchor_right = 0.599815
 anchor_bottom = 1.03037
 offset_top = -0.0901489
 offset_right = 0.266907
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("14_n7jki")
-theme_override_styles/normal = ExtResource("14_n7jki")
+theme = ExtResource("5_wwhih")
 text = "Dodge
 "
 metadata/_edit_use_anchors_ = true
@@ -1007,7 +992,7 @@ script = ExtResource("16_x5n72")
 display_name = "Gobby the Ugly"
 max_hp = 160
 current_hp = 160
-techniques = Array[ExtResource("20_nbkxo")]([ExtResource("21_wwhih")])
+techniques = Array[ExtResource("20_nbkxo")]([ExtResource("21_wwhih"), ExtResource("22_wwhih"), ExtResource("23_fda8a"), ExtResource("24_fda8a")])
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -1018,7 +1003,9 @@ stats = {
 }
 
 [node name="Goblin2" parent="CombatScenes" instance=ExtResource("18_5o7rp")]
-display_name = "mmm"
+display_name = "Gobbers"
+stamina = 45
+max_momentum = 20
 stats = {
 "agility": 5,
 "dexterity": 4,
