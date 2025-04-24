@@ -16,3 +16,4 @@ res://scenes/combat_screen_new.tscn
 res://scenes/System/Tools.tscn
 res://scenes/entities/Player.tscn
 res://story/Sample_Story.json
+res://export_presets.cfg
