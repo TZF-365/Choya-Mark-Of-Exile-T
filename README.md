@@ -1,4 +1,3 @@
-Here's a new GitHub README tailored for your game **CHOYA – The Drakthyr Invasion**, acknowledging its foundation and describing its features, story, and inspiration:
 
 ---
 
