@@ -41,7 +41,7 @@ func _on_settings_pressed():
 	current_menu = Menu.SETTINGS_MENU
 
 
-func _on_return_main_menu_button_pressed():
+func _on_return_main_menu_buthealth_is_zeroton_pressed():
 	current_menu = Menu.MAIN_MENU
 
 

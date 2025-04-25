@@ -1,13 +1,12 @@
 extends Node
 class_name SaveManager
 
-
 var config = ConfigFile.new()
 
-var data:= Ccid     # Should have a "current_page" variable
-var player_stats: BaseChar = Player_AL # Must have Val, mana, health, etc.
-var save_key = "Antigua@Barbuda"
 
+var data := Ccid             # Should have current_page, current_chapter_id, content_dict
+var player_stats: BaseChar = Player_AL  # Must have val, mana, health, etc.
+var save_key = "Antigua@Barbuda"
 
 # --- Save the game ---
 func save_game(data_dict: Dictionary) -> void:
@@ -17,6 +16,14 @@ func save_game(data_dict: Dictionary) -> void:
 
 	if data_dict.has("current_page"):
 		config.set_value("story", "current_page", data_dict["current_page"])
+		config.set_value("story", "current_chapter_id", data_dict["current_chapter_id"])
+
+	if data_dict.has("content_dict"):
+		config.set_value("story", "content_dict", data_dict["content_dict"])
+	
+	if data_dict.has("phrase_num"):
+		config.set_value("story", "phrase_num", data_dict["phrase_num"])
+
 
 	config.save_encrypted_pass("user://settings.cfg", save_key)
 	print("✅ Game Saved:", data_dict)
@@ -34,19 +41,22 @@ func load_game() -> Dictionary:
 			"mana": config.get_value("player_stats", "mana"),
 			"coins": config.get_value("player_stats", "coins"),
 		},
-		"current_page": config.get_value("story", "current_page", "000_prologue")
+		"current_page": config.get_value("story", "current_page", "000_prologue"),
+		"current_chapter_id": config.get_value("story", "current_chapter_id", "000_prologue"),
+		"content_dict": config.get_value("story", "content_dict", {}),
+		"phrase_num": config.get_value("story", "phrase_num", 0)
+
 	}
 
 	print("✅ Game Loaded:", loaded_data)
 	return loaded_data
 
-
 # --- Save using live data from the game ---
 func save_current_game() -> void:
 	if player_stats == null:
-		printerr("Missing player_statsreference!")
+		printerr("❌ Missing player_stats reference!")
 	if data == null:
-		printerr("Missing data reference!")
+		printerr("❌ Missing data reference!")
 		return
 
 	var game_data = {
@@ -55,63 +65,75 @@ func save_current_game() -> void:
 			"mana": player_stats.mana,
 			"coins": player_stats.coins,
 		},
-		"current_page": data.get("current_page")
+		"current_page": data.current_page,
+		"current_chapter_id": data.current_chapter_id,
+		"content_dict": data.content_dict,
+		"phrase_num": data.phraseNum 
 	}
 
 	save_game(game_data)
 
-
 # --- Load and apply to live game ---
 func load_current_game() -> void:
 	if player_stats == null or data == null:
-		printerr("Missing player_stats or data reference!")
+		printerr("❌ Missing references to player_stats or data!")
 		return
 
 	var loaded = load_game()
 	if loaded.is_empty():
 		return
 
-	# Update in-game values
+	# Update player stats
 	var stats = loaded["player_stats"]
 	player_stats.current_hp = stats["health"]
 	player_stats.mana = stats["mana"]
 	player_stats.coins = stats["coins"]
+	data.phraseNum = loaded.get("phrase_num", 0)
 
-	# Set the current page from the loaded data
+
+	# Set content dictionary
+	if data.has_method("set_content_dict"):
+		data.set_content_dict(loaded.get("content_dict", {}))
+
+	# Set the current page
 	if data.has_method("set_page"):
-		data.call("set_page", loaded["current_page"])
+		data.set_page(loaded["current_page"])
 
-	# Retrieve the JSON content of the loaded page
+	# Set and display content
+	if data.has_method("set_content_from_current_page"):
+		data.set_content_from_current_page()
+
 	print("🎮 Game state applied to player and story")
 
-
-
+# --- Start a brand new game ---
 func start_new_game() -> void:
 	if player_stats == null or data == null:
 		printerr("❌ Missing player_stats or data reference!")
 		return
 
-	# Reset player stats to default values
+	# Reset player stats
 	player_stats.val = 0
 	player_stats.mana = 100
-	player_stats.coins = 0  # Optional if you use coins
+	player_stats.coins = 0
 
 	# Set the starting page
 	var starting_page = "000_prologue"
-	data.set("current_page", starting_page)
+	data.set_page(starting_page)
 
-	# Update the UI/game to show that page
-	if data.has_method("set_content") and data.content_dict.has(starting_page):
-		data.set_content(data.content_dict[starting_page])
+	# Set initial content (make sure content_dict is already populated at this point)
+	if data.has_method("set_content_from_current_page"):
+		data.set_content_from_current_page()
 
-	# Save the new initial state
+	# Save the starting state
 	save_game({
 		"player_stats": {
-			"val": player_stats.current_val,
+			"health": player_stats.current_hp,
 			"mana": player_stats.mana,
 			"coins": player_stats.coins,
 		},
-		"current_page": starting_page
+		"current_page": starting_page,
+		"current_chapter_id": starting_page,
+		"content_dict": data.content_dict
 	})
 
 	print("🆕 New game started and default state saved")

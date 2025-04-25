@@ -1,0 +1,5 @@
+{
+	"enemy_name": "gobby",
+	"enemy_scene": "res://scenes/entities/Gobby_The_Ugly.tscn",
+	"enemy_ai": "res://scenes/entities/EnemyAI.tscn"
+}

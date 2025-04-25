@@ -1,0 +1,105 @@
+{
+	"health_is_zero": {
+		"title": "Silence",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Your heart slows... blood pooling beneath you. No one comes...",
+		"choices": {
+			"1": {
+				"text": "Scream for help.",
+				"output": "911_screaming"
+			},
+			"2": {
+				"text": "Accept your fate.",
+				"output": "912_acceptance"
+			}
+		}
+	},
+	"911_screaming": {
+		"title": "A Quiet Conversation",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "You scream for help, but only the sylphs answer—soft voices swirling through the air, murmuring in ancient tongues. They do not mock you. They mourn. Their whispers drift like wind through dying leaves, lamenting the loss of another flickering light swallowed by the dark. One more soul gone to the silence.",
+		"choices": {
+			"1": {
+				"text": "Continue.",
+				"output": "913_Loss"
+			},
+		}
+	},
+	"912_acceptance": {
+		"title": "Funny",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Well, that went well. Another flawless victory… if by ‘flawless’ you mean 'completely disastrous.' I should probably make a note to self: dodge next time. Oh wait... that would have been useful, wouldn't it? Too bad I was too busy trying to be a hero. Guess I’ll try again... after, you know, the respawn.",
+		"choices": {
+			"1": {
+				"text": "Walk towards the gate.",
+				"output": "death_page"
+			},
+		}
+	},
+	"913_Loss": {
+		"title": "",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Lycarus' vision fades, the edges of his world growing hazy as the whispers of the sylphs fill his mind. He feels the weight of their mourning, a sharp contrast to the cold emptiness that begins to encircle him.",
+		"choices": {
+			"1": {
+				"text": "Ask about the dead not staying buried.",
+				"output": "914_thisis"
+			},
+		}
+	},
+	"914_thisis": {
+		"title": "",
+		"picture": "res://assets/art/Wyrmwood_Path.jpg",
+		"narr_text": "",
+		"choices": {
+			"1": {
+				"text": "'So, this is it. Another chapter closed, another warrior lost to the storm.' Lycarus thinks bitterly, his breath shallow. The sylphs' voices, soft and sorrowful, seem almost too gentle for the harsh reality of the world he fights to protect. He wonders for a moment if their sorrow is truly for him—or for the fate of humanity as a whole. Their eternal grief seems so... infinite.",
+				"output": "615_flicker"
+			},
+		}
+	},
+	"615_flicker": {
+		"title": "",
+		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
+		"narr_text": "A flicker of defiance rises within him. Maybe he can't dodge the inevitable, but he won't go out quietly. If his last breath is to be a call to arms, then so be it.",
+		"choices": {
+			"1": {
+				"text": "Ask where the priest can be found.",
+				"output": "death_page"
+			},
+		}
+	},
+	"016_prepare_departure": {
+		"title": "A Lead in the Wyrmwood",
+		"picture": "res://assets/art/Tavern_Exterior.jpg",
+		"narr_text": "You nod and toss a coin onto the counter. The keeper catches it midair. \"May the old gods watch your steps, stranger.\"\n\nYou step out into the night, the path ahead uncertain, but the trail warm.",
+		"choices": {
+			"1": {
+				"text": "Continue",
+				"output": "020_begin_wyrmwood_travel"
+			}
+		}
+	},
+	"017_find_priest": {
+		"title": "",
+		"picture": "res://assets/art/Church_Shrine.jpg",
+		"narr_text": "The keeper jerks a thumb toward the chapel. \"You’ll find him at the old shrine, past the well. Doesn’t talk much, but he knows things... things better left buried.\"",
+		"choices": {
+			"1": {
+				"text": "Go speak with the priest.",
+				"output": "019_talk_priest"
+			}
+		}
+	},
+	"death_page": {
+		"title": "",
+		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
+		"narr_text": "Fog clings to the graves like a living thing. The gate creaks open at your touch. Somewhere in the mist, something shifts.\n\nYou are not alone.",
+		"choices": {
+			"1": {
+				"text": "Walk in With Weapon Drawn.",
+				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
+			}
+		}
+	}
+}

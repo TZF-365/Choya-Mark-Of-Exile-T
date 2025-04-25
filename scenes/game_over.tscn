@@ -1,0 +1,203 @@
+[gd_scene load_steps=21 format=3 uid="uid://dv7ic2xynwjqq"]
+
+[ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_oye1b"]
+[ext_resource type="Script" uid="uid://c764m7hnj3nct" path="res://logic/data/info/Game_Over.gd" id="2_wawo4"]
+[ext_resource type="Texture2D" uid="uid://cslgmvvxq5gr7" path="res://assets/art/pexels-marek-piwnicki-3907296-11513053.jpg" id="3_o57t2"]
+[ext_resource type="FontFile" uid="uid://b5a8ujpl2jgww" path="res://assets/fonts/Lore_Item_Font/IMFellEnglish-Italic.ttf" id="4_56v3a"]
+[ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="4_n0gna"]
+[ext_resource type="FontFile" uid="uid://cdkwhyrr2mt2g" path="res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf" id="7_tdjww"]
+[ext_resource type="FontFile" uid="uid://cifveys2aswe5" path="res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf" id="14_pkxfd"]
+[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="15_tei00"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_p65md"]
+[ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="17_sjqrh"]
+[ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="18_dua4v"]
+[ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="19_xfsf1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u0x5"]
+texture = ExtResource("1_oye1b")
+modulate_color = Color(0.214379, 0.000496228, 0.505604, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uq3qu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oknyi"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[sub_resource type="Theme" id="Theme_pludh"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_oknyi")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0p6qk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4bmq"]
+texture = ExtResource("3_o57t2")
+texture_margin_left = 535.0
+texture_margin_top = 549.0
+texture_margin_bottom = 540.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o57t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oknyi"]
+content_margin_top = 10.0
+
+[node name="GameScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u0x5")
+script = ExtResource("2_wawo4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+material = SubResource("ShaderMaterial_uq3qu")
+layout_mode = 2
+theme = SubResource("Theme_pludh")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_0p6qk")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_s4bmq")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 190
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o57t2")
+
+[node name="Flavor" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
+layout_mode = 2
+anchor_left = -0.00285714
+anchor_top = 0.252
+anchor_right = 0.996857
+anchor_bottom = 0.282333
+offset_right = 0.399902
+offset_bottom = 1.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("7_tdjww")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oknyi")
+text = "What will your path be next?"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Exitbutton" type="Button" parent="MarginContainer/HBoxContainer2/Panel"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.236912
+anchor_top = -11.2656
+anchor_right = 0.785626
+anchor_bottom = -11.2229
+offset_left = 0.32309
+offset_top = 34912.8
+offset_right = 0.123169
+offset_bottom = 34912.8
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme = ExtResource("4_n0gna")
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Game Over" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.00285714
+anchor_top = -0.264333
+anchor_right = 0.00285714
+anchor_bottom = -0.264333
+offset_top = 1413.0
+offset_right = 1400.0
+offset_bottom = 1586.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("7_tdjww")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oknyi")
+text = "Game Over"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Flavorinfo" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
+layout_mode = 2
+anchor_left = 0.00285714
+anchor_top = 0.438667
+anchor_right = 0.991714
+anchor_bottom = 0.682667
+offset_right = -0.400024
+offset_bottom = 1.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_fonts/font = ExtResource("4_56v3a")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oknyi")
+text = "What will your path be next?nmsrsfrwfesfsdsvsvrsgrfdgrsfsfvdsvsdss"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" type="Button" parent="MarginContainer/HBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.214286
+anchor_top = -12.343
+anchor_right = 0.762857
+anchor_bottom = -12.299
+offset_top = 37953.0
+offset_bottom = 37953.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_n0gna")
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="followcreator" type="Button" parent="MarginContainer/HBoxContainer2/Panel"]
+layout_mode = 2
+anchor_left = 0.331571
+anchor_top = 0.00566667
+anchor_right = 0.800571
+anchor_bottom = -0.009
+offset_left = -188.2
+offset_top = 2835.0
+offset_right = 0.199951
+offset_bottom = 3000.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_pkxfd")
+theme_override_font_sizes/font_size = 55
+text = "Follow GDJ Studios"
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttonpress" type="Node" parent="."]
+script = ExtResource("15_tei00")
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("16_p65md")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+[node name="AudioManager" parent="." instance=ExtResource("17_sjqrh")]
+visible = false
+z_index = -1
+layout_mode = 2
+
+[node name="Fadetransition" parent="." instance=ExtResource("18_dua4v")]
+
+[node name="Combat_starter" type="Node" parent="."]
+script = ExtResource("19_xfsf1")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/Panel/Exitbutton" to="." method="_on_exitbutton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/Panel/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/Panel/followcreator" to="." method="_on_button_pressed"]

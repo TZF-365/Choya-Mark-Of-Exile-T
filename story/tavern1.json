@@ -1,0 +1,131 @@
+{
+	"010_tavern_intro": {
+		"title": "Whispers at the Tavern",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "The tavern is dimly lit, the scent of roasted meat and spilled ale clinging to the air. Behind the counter, a broad-shouldered man polishes a mug, eyeing you with cautious curiosity.",
+		"choices": {
+			"1": {
+				"text": "Approach the tavern keeper.",
+				"output": "011_tavern_greeting"
+			},
+			"2": {
+				"text": "Stay in the corner and listen to the room.",
+				"output": "020_eavesdrop_choice"
+			}
+		}
+	},
+	"011_tavern_greeting": {
+		"title": "A Quiet Conversation",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Lyaris: \"Evening. I’m looking for answers—maybe you’re the kind of man who hears things?\"\n\nThe keeper shrugs, eyes flicking over you. \"Depends on what you’re buying—and what you’re asking.\"",
+		"choices": {
+			"1": {
+				"text": "Ask about strange travelers.",
+				"output": "012_ask_travelers"
+			},
+			"2": {
+				"text": "Ask about local rumors.",
+				"output": "013_ask_rumors"
+			},
+			"3": {
+				"text": "Leave the conversation.",
+				"output": "010_tavern_intro"
+			}
+		}
+	},
+	"012_ask_travelers": {
+		"title": "",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Lyaris: \"Anyone new pass through recently? Someone...out of place.\"\n\nThe keeper grunts. \"Aye. A cloaked fellow, asked for wine and silence. Paid in foreign coin. Didn’t touch his drink.\"\n\nHe leans in. \"Left at dawn. Headed toward the Wyrmwood. Dangerous trail, that.\"",
+		"choices": {
+			"1": {
+				"text": "Ask about the Wyrmwood.",
+				"output": "014_ask_wyrmwood"
+			},
+			"2": {
+				"text": "Thank him and leave.",
+				"output": "010_tavern_intro"
+			}
+		}
+	},
+	"013_ask_rumors": {
+		"title": "",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Lyaris: \"What’s the word around here? Anything...unusual?\"\n\nThe tavern keeper sighs. \"Depends on what scares you. Cattle gone missing. Screams in the night. Some say the dead don’t stay buried anymore. I say it’s wolves. Or worse.\"\n\nHe looks toward the hearth. \"Either way, folk are packing up. Even the brave ones.\"",
+		"choices": {
+			"1": {
+				"text": "Ask about the dead not staying buried.",
+				"output": "015_ask_undead"
+			},
+			"2": {
+				"text": "Nod and return to your table.",
+				"output": "010_tavern_intro"
+			}
+		}
+	},
+	"014_ask_wyrmwood": {
+		"title": "",
+		"picture": "res://assets/art/Wyrmwood_Path.jpg",
+		"narr_text": "The keeper spits to the side. \"They say the Wyrmwood was cursed during the old wars. Trees whisper. Roads twist. Hunters vanish. If you follow that man, keep steel ready and eyes open.\"\n\nHe hesitates. \"...Or don’t follow him at all.\"",
+		"choices": {
+			"1": {
+				"text": "Thank him and prepare to leave.",
+				"requirement": {
+					"mana": 1
+				},
+				"buffs": {
+					"coins": -1,
+				},
+				"output": "016_prepare_departure"
+			}
+		}
+	},
+	"015_ask_undead": {
+		"title": "",
+		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
+		"narr_text": "He frowns deeply. \"The priest’s been burning bodies. Quietly. No rites. Just fire and salt. Town council says it’s sickness. I say it’s fear.\"\n\nHe lowers his voice. \"Two nights ago, someone saw a child walking who’d died a week before. No heartbeat. Just hunger.\"",
+		"choices": {
+			"1": {
+				"text": "Ask where the priest can be found.",
+				"output": "017_find_priest"
+			},
+			"2": {
+				"text": "Leave and head to the graveyard.",
+				"output": "018_go_graveyard"
+			}
+		}
+	},
+	"016_prepare_departure": {
+		"title": "A Lead in the Wyrmwood",
+		"picture": "res://assets/art/Tavern_Exterior.jpg",
+		"narr_text": "You nod and toss a coin onto the counter. The keeper catches it midair. \"May the old gods watch your steps, stranger.\"\n\nYou step out into the night, the path ahead uncertain, but the trail warm.",
+		"choices": {
+			"1": {
+				"text": "Continue",
+				"output": "020_begin_wyrmwood_travel"
+			}
+		}
+	},
+	"017_find_priest": {
+		"title": "",
+		"picture": "res://assets/art/Church_Shrine.jpg",
+		"narr_text": "The keeper jerks a thumb toward the chapel. \"You’ll find him at the old shrine, past the well. Doesn’t talk much, but he knows things... things better left buried.\"",
+		"choices": {
+			"1": {
+				"text": "Go speak with the priest.",
+				"output": "019_talk_priest"
+			}
+		}
+	},
+	"018_go_graveyard": {
+		"title": "",
+		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
+		"narr_text": "Fog clings to the graves like a living thing. The gate creaks open at your touch. Somewhere in the mist, something shifts.\n\nYou are not alone.",
+		"choices": {
+			"1": {
+				"text": "Ready your weapon.",
+				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
+			}
+		}
+	}
+}

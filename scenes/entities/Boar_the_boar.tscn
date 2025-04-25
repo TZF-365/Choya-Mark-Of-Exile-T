@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d03n73vvq8t0x"]
+[gd_scene load_steps=2 format=3 uid="uid://bfvp0s8vbfojl"]
 
 [ext_resource type="Script" uid="uid://bc7g75gnrwmeb" path="res://logic/data/ent/goblin.gd" id="1_jxhvx"]
 
-[node name="Goblin" type="Node2D"]
+[node name="Boar" type="Node2D"]
 script = ExtResource("1_jxhvx")
+display_name = "Boar"

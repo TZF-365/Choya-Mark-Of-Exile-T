@@ -6,7 +6,7 @@
 		"choices": {
 			"1": {
 				"text": "Continue.",
-				"output": "000_prologue_c1"
+				"output": "000_prologue_c1",
 			}
 		}
 	},
@@ -77,7 +77,7 @@
 	"000_prologue_4": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "Just then, images struck like lightning behind my eyes—fleeting, cruel, and unwelcome. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue now, but it fit once. I remember the flutter of excitement, dulled by a shadow of doubt I never voiced. \n\nGold was promised—whispered like a secret, bartered not in open sun, but in the corners where light dares not linger. The journey blurs—long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. Then came the dark. And monsters. Real or imagined, I cannot say. Laughter followed me there too—sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then—pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
+		"narr_text": "Just then, images struck like lightning behind my eyes—fleeting, cruel, and unwelcome. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue now, but it fit once. I remember the flutter of excitement, dulled by a shadow of doubt I never voiced. \n\nGold was promised—whispered like a secret, bartered not in open sun, but in the corners where light dares not linger. The journey blurs—long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. \n\nThen came the dark. And monsters. Real or imagined, I cannot say. Laughter followed me there too—sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then—pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
 		"choices": {
 			"1": {
 				"text": "Continue",
@@ -275,8 +275,8 @@
 					"mana": 15
 				},
 				"buffs": {
-					"mana": -10,
-					"current_val": -7,
+					"mana": -4,
+					"current_hp": -7,
 				},
 				"output": "002_draw_power",
 				"failed_output": "002_physical_confrontation"
@@ -310,7 +310,7 @@
 				},
 				"buffs": {
 					"mana": -10,
-					"health": 1
+					"current_hp": 1
 				},
 				"output": "002_draw_power",
 				"failed_output": "003_archer_appearance"
@@ -478,7 +478,7 @@
 			}
 		}
 	},
-	"death_page": {
+	"ddd": {
 		"title": "The Hunter's Path",
 		"picture": "res://assets/art/Kaela_Hunt_Gear.jpg",
 		"narr_text": "'Monster hunting isn’t as glamorous as it sounds,' Kaela says with a soft chuckle. 'It’s not all glory and bounty. Most of the time, it’s just tracking down creatures that would rather eat you than look at you.'\n\nShe pauses for a moment, clearly remembering some past hunts. 'I’ve fought beasts that could tear a man in half with one swipe. And I’ve learned to respect the forest. There’s more here than just trees.'\n\nShe takes a deep breath, then glances over at you. 'But you probably want to know what kind of monsters are lurking around here, don’t you?'",
@@ -501,7 +501,7 @@
 			}
 		}
 	},
-	"health_is_zero": {
+	"ddwdw": {
 		"title": "Unspoken Bonds",
 		"picture": "res://assets/art/Kaela_Gazing.jpg",
 		"narr_text": "The conversation dwindles into silence, but it’s not uncomfortable. Kaela seems content to walk side by side with you, occasionally glancing at you as if studying your expression.\n\nThe forest around you remains quiet, save for the occasional rustle of branches or distant animal calls. The trees here are older, their trunks thick with age, and the moss that carpets the ground gives off a damp, earthy scent.\n\nKaela doesn’t speak at first, but you can feel her curiosity lingering. Her eyes, dark as night with a subtle gleam of green, flick back to you occasionally.\n\nFinally, she speaks softly. 'You know, Terrans don’t venture this far into others’ lands. It’s dangerous.' She smiles lightly. 'But you don’t seem like the kind to back down easily, do you?'",

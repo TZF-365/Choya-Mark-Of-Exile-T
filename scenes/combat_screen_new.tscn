@@ -18,7 +18,7 @@
 [ext_resource type="Theme" uid="uid://bwo120nqahh6q" path="res://assets/pixelart/Combat_screen_Bottom Buttons.tres" id="16_nbkxo"]
 [ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="16_x5n72"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="17_vb8tf"]
-[ext_resource type="PackedScene" uid="uid://6baokbvb8jex" path="res://scenes/entities/Goblin.tscn" id="18_5o7rp"]
+[ext_resource type="PackedScene" uid="uid://d03n73vvq8t0x" path="res://scenes/entities/Goblin.tscn" id="18_5o7rp"]
 [ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="20_nbkxo"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="20_yigel"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="21_wlfj2"]

@@ -5,16 +5,11 @@ var stat: Dictionary
 var start_page: String
 @onready var stats : BaseChar = Player_AL
 @onready var SaveManager = $SaveManager
-
 @onready var entity_var = Player_AL
-
 @onready var stats_label = $MarginContainer/VBoxContainer/Panel/HBoxContainer/Panel/Label
 @onready var save = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Save
 @onready var load = $MarginContainer/VBoxContainer/Panel/HBoxContainer2/Panel/Load
-
 @onready var style: StyleBoxFlat = StyleBoxFlat.new() # variable for setting the background
-
-
 
 
 func _ready():
@@ -35,9 +30,6 @@ func set_custom_defaults(new_defaults: Dictionary) -> void:
 		else:
 			push_warning("Key '%s' not found in base stats, adding it anyway." % key)
 			stats[key] = new_defaults[key]
-			
-
-
 	if "Val" in stat:  # Ensure "Val" exists in the dictionary
 		if int(stat["Val"]) <= 1:
 			stat["Val"] = 0

@@ -578,11 +578,23 @@ func check_battle_end():
 	Checks if either the player or the enemy has been defeated.
 	"""
 	if player.current_hp <= 0:
-		add_to_turn_log("\n \n%s has been defeated! Game Over." % player.display_name)
+		add_to_turn_log("\n\n%s has been defeated! Game Over." % player.display_name)
 		current_state = State.BATTLE_OVER
+		TransitionManager.transition(2.2)
+		await TransitionManager.on_transition_finished
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	elif enemy.current_hp <= 0:
-		add_to_turn_log("\n \n %s has been defeated! You Win!" % enemy.display_name)
+		add_to_turn_log("\n\n%s has been defeated! You Win!" % enemy.display_name)
 		current_state = State.BATTLE_OVER
+		var timer = get_tree().create_timer(2.0)
+		TransitionManager.transition(3.5)
+		await TransitionManager.on_transition_finished
+		get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
+		
+		
+
+
+
 
 ### TURN PROCESSING ###
 func process_turn(action: String):
