@@ -1,7 +1,7 @@
-extends Resource
-class_name Technique_
+extends Node
+class_name Techniques
 
-@export var name: String
+@export var Name: String
 @export var description: String
 @export var attack_type: String = "light" # "light", "heavy", "special", "finisher", etc.
 @export var stance_required: String = ""

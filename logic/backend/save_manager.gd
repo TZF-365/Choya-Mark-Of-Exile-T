@@ -3,9 +3,9 @@ class_name SaveManager
 
 var config = ConfigFile.new()
 
-
-var data := Ccid             # Should have current_page, current_chapter_id, content_dict
-var player_stats: BaseChar = Player_AL  # Must have val, mana, health, etc.
+var data := Ccid               # Has current_page, current_chapter_id
+var player_stats: BaseChar = Player_AL  # Has val, mana, health, etc.
+var content_data := ContentData         # Global singleton with phraseNum
 var save_key = "Antigua@Barbuda"
 
 # --- Save the game ---
@@ -18,12 +18,8 @@ func save_game(data_dict: Dictionary) -> void:
 		config.set_value("story", "current_page", data_dict["current_page"])
 		config.set_value("story", "current_chapter_id", data_dict["current_chapter_id"])
 
-	if data_dict.has("content_dict"):
-		config.set_value("story", "content_dict", data_dict["content_dict"])
-	
 	if data_dict.has("phrase_num"):
 		config.set_value("story", "phrase_num", data_dict["phrase_num"])
-
 
 	config.save_encrypted_pass("user://settings.cfg", save_key)
 	print("✅ Game Saved:", data_dict)
@@ -43,9 +39,7 @@ func load_game() -> Dictionary:
 		},
 		"current_page": config.get_value("story", "current_page", "000_prologue"),
 		"current_chapter_id": config.get_value("story", "current_chapter_id", "000_prologue"),
-		"content_dict": config.get_value("story", "content_dict", {}),
 		"phrase_num": config.get_value("story", "phrase_num", 0)
-
 	}
 
 	print("✅ Game Loaded:", loaded_data)
@@ -55,8 +49,8 @@ func load_game() -> Dictionary:
 func save_current_game() -> void:
 	if player_stats == null:
 		printerr("❌ Missing player_stats reference!")
-	if data == null:
-		printerr("❌ Missing data reference!")
+	if data == null or content_data == null:
+		printerr("❌ Missing data or content_data reference!")
 		return
 
 	var game_data = {
@@ -67,48 +61,50 @@ func save_current_game() -> void:
 		},
 		"current_page": data.current_page,
 		"current_chapter_id": data.current_chapter_id,
-		"content_dict": data.content_dict,
-		"phrase_num": data.phraseNum 
+		"phrase_num": content_data.phraseNum
 	}
 
 	save_game(game_data)
 
 # --- Load and apply to live game ---
 func load_current_game() -> void:
-	if player_stats == null or data == null:
-		printerr("❌ Missing references to player_stats or data!")
+	if player_stats == null or data == null or content_data == null:
+		printerr("❌ Missing references to player_stats, data, or content_data!")
 		return
 
 	var loaded = load_game()
 	if loaded.is_empty():
 		return
+	ContentData.load_all()
 
 	# Update player stats
 	var stats = loaded["player_stats"]
 	player_stats.current_hp = stats["health"]
 	player_stats.mana = stats["mana"]
 	player_stats.coins = stats["coins"]
-	data.phraseNum = loaded.get("phrase_num", 0)
 
-
-	# Set content dictionary
-	if data.has_method("set_content_dict"):
-		data.set_content_dict(loaded.get("content_dict", {}))
+	# Apply phrase number
+	content_data.phraseNum = loaded.get("phrase_num", 0)
 
 	# Set the current page
 	if data.has_method("set_page"):
 		data.set_page(loaded["current_page"])
+	elif "current_page" in data:
+		data.current_page = loaded["current_page"]
 
-	# Set and display content
+	# Display story content
 	if data.has_method("set_content_from_current_page"):
 		data.set_content_from_current_page()
 
 	print("🎮 Game state applied to player and story")
 
+
+
+
 # --- Start a brand new game ---
 func start_new_game() -> void:
-	if player_stats == null or data == null:
-		printerr("❌ Missing player_stats or data reference!")
+	if player_stats == null or data == null or content_data == null:
+		printerr("❌ Missing player_stats, data, or content_data reference!")
 		return
 
 	# Reset player stats
@@ -120,11 +116,14 @@ func start_new_game() -> void:
 	var starting_page = "000_prologue"
 	data.set_page(starting_page)
 
-	# Set initial content (make sure content_dict is already populated at this point)
+	# Initialize phrase
+	content_data.phraseNum = 0
+
+	# Set initial content
 	if data.has_method("set_content_from_current_page"):
 		data.set_content_from_current_page()
 
-	# Save the starting state
+	# Save the initial state
 	save_game({
 		"player_stats": {
 			"health": player_stats.current_hp,
@@ -133,7 +132,7 @@ func start_new_game() -> void:
 		},
 		"current_page": starting_page,
 		"current_chapter_id": starting_page,
-		"content_dict": data.content_dict
+		"phrase_num": 0
 	})
 
 	print("🆕 New game started and default state saved")

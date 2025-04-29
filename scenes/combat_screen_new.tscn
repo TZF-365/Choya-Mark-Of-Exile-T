@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cvgqa6jliu8md"]
+[gd_scene load_steps=52 format=3 uid="uid://cvgqa6jliu8md"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_ksr3s"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_div0j"]
@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://cmwyew0retq7m" path="res://logic/data/resources/Techniques/special_cleave.tres" id="22_wwhih"]
 [ext_resource type="Resource" uid="uid://bait7sjsvkds8" path="res://logic/data/resources/Techniques/overhead_strike.tres" id="23_fda8a"]
 [ext_resource type="Resource" uid="uid://dtmue34gqf3a0" path="res://logic/data/resources/Techniques/riposte.tres" id="24_fda8a"]
+[ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="25_csfl4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_ykh0y")
@@ -1014,6 +1015,9 @@ stats = {
 "strength": 6,
 "toughness": 3
 }
+
+[node name="Player" parent="CombatScenes" instance=ExtResource("25_csfl4")]
+stamina = 50
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("20_yigel")

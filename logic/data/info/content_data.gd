@@ -9,11 +9,11 @@ var dialogPath: Array = [
 ]
 
 # Current phrase number
-var phraseNum : int = 0
+static var phraseNum : int = 0
 # Flag to indicate if the dialog is finished
 var finished :bool = false
 # Dictionary that contains all the text content of the game
-var content_dict: Dictionary = {}
+static var content_dict: Dictionary = {}
 
 
 # Called when the node is added to the scene
@@ -66,3 +66,28 @@ func nextPhrase():
 		return
 	# Set finished flag to false
 	finished = false
+
+
+
+# Call this method when you want to load all story content
+static func load_all():
+	content_dict.clear()  # Clean out old data first
+
+	var dir := DirAccess.open("res://Content/Chapters")  # Adjust path as needed
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".json"):
+				var file_path = "res://Content/Chapters/" + file_name
+				var file = FileAccess.open(file_path, FileAccess.READ)
+				if file:
+					var json = JSON.parse_string(file.get_as_text())
+					if json is Dictionary:
+						content_dict.merge(json, true)
+					else:
+						printerr("⚠️ Invalid JSON in file:", file_name)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	else:
+		printerr("⚠️ Could not open chapters folder!")

@@ -1,4 +1,4 @@
-res://scenes/main_menu.tscn
+res://scenes/game_screen.tscn
 res://logic/data/resources/Techniques/cleave.tres
 res://logic/data/resources/Techniques/special_cleave.tres
 res://logic/data/resources/Techniques/finishing_cleave.tres
@@ -8,13 +8,14 @@ res://assets/pixelart/combat_buttons.tres
 res://assets/pixelart/game_screen_di.tres
 res://assets/pixelart/combatactionbuttons.tres
 res://assets/fonts/ChoyaFont1.tres
-res://logic/data/resources/Items/weapons/bronze_dagger.tres
 res://assets/pixelart/SE_Bottom_menu.tres
 res://assets/pixelart/Combat_screen_Bottom Buttons.tres
-res://scenes/game_screen.tscn
+res://logic/data/combatLogic/Technique_.gd
+res://logic/data/combatLogic/Technique.gd
+res://scenes/main_menu.tscn
 res://scenes/combat_screen_new.tscn
 res://scenes/System/Tools.tscn
-res://logic/data/info/content_data.gd
-res://logic/backend/main_menu.gd
-res://logic/backend/save_manager.gd
-res://logic/backend/CCID.gd
+res://scenes/combat_screen.tscn
+res://logic/data/combatLogic/Battlemanager.gd
+res://logic/data/resources/Items/weapons/bronze_dagger.tres
+res://logic/data/ent/BaseChar.gd

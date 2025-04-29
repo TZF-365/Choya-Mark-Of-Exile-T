@@ -7,7 +7,7 @@ class_name Base_Charm
 @export var max_hp: int = 100
 @export var current_hp: int = 100
 var current_val = current_hp
-@export var stamina = current_stamina
+@export var stamina: int = current_stamina 
 @export var current_stamina: int = 50
 @export var max_stamina: int = 50
 @export var endurance: float = 25

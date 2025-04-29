@@ -188,7 +188,7 @@ func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, atta
 		if technique.technique_type == attack_type and not technique.on_cooldown:
 			print("%s uses %s (%s) on %s!" % [attacker.display_name, technique.name, attack_type, vulnerable_target.display_name])
 
-			var damage = damage_calc(attacker, vulnerable_target, attack_type, technique)
+			var damage = damage_calc(attacker, vulnerable_target, attack_type, Technique)
 			vulnerable_target.current_hp -= damage
 			vulnerable_target.current_hp = clamp(vulnerable_target.current_hp, 0, vulnerable_target.max_hp)
 
@@ -208,7 +208,7 @@ func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, atta
 
 
 
-func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique_:
+func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique:
 	for technique in actor.techniques:
 		if technique.attack_type != attack_type:
 			continue
@@ -219,7 +219,7 @@ func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) ->
 		if technique.trigger_condition != null and technique.trigger_condition.is_valid():
 			if not technique.trigger_condition.call(actor, target):
 				continue
-		return technique
+		return 
 	print("No valid technique found for %s (attack type: %s). Techniques checked: %d" % [actor.display_name, attack_type, actor.techniques.size()])
 	return null
 
@@ -257,7 +257,7 @@ func process_stamina_endurance(actor: BaseChar, action: String) -> void:
 	if is_attacking:
 		var weapon_power = actor.get_weapon_power()
 		var strength = actor.stats.get("strength", 0)
-		var stamina_cost = int(0.2 * weapon_power + 0.2 * strength)
+		var stamina_cost = int(1.2 * weapon_power + 0.2 + strength )
 		actor.current_stamina -= stamina_cost
 		print("🗡️", actor.name, "performed", action, "- Stamina cost:", stamina_cost)
 	else:

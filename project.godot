@@ -34,12 +34,11 @@ AudioManager="*res://scenes/utilities/AudioManager.tscn"
 Storyflags="*res://logic/data/info/storyflags.gd"
 ContentData="*res://logic/data/info/content_data.gd"
 DamageCalc="*res://logic/data/combatLogic/damage_calculator.gd"
-SkillSystem="*res://logic/data/combatLogic/SkillSystem.gd"
 BaseChar="*res://logic/data/ent/BaseChar.gd"
 SkillManager="*res://logic/data/combatLogic/SkillManager.gd"
-Technique="*res://logic/data/combatLogic/Technique.gd"
 TechniqueManager="*res://logic/data/combatLogic/TechniqueManager.gd"
 Player_AL="*res://scenes/entities/Player.tscn"
+Technique="*res://logic/data/combatLogic/Technique_.gd"
 
 [display]
 
