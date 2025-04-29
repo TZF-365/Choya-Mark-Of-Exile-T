@@ -1,4 +1,3 @@
-Here's a new GitHub README tailored for your game **CHOYA – The Drakthyr Invasion**, acknowledging its foundation and describing its features, story, and inspiration:
 
 ---
 
@@ -6,7 +5,7 @@ Here's a new GitHub README tailored for your game **CHOYA – The Drakthyr Invas
 
 ![CHOYA Banner](https://github.com/user-attachments/assets/your_banner_placeholder.jpg)
 
-**CHOYA** is an immersive, choice-driven, text-based RPG adventure developed in Godot 4, built on the foundation of the [Interactive Story System](https://github.com/user/interactive-story-system). This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate.
+**CHOYA** is an immersive, choice-driven, text-based Interactive Novel developed in Godot 4, built on the foundation of the [Interactive Story System](https://github.com/user/interactive-story-system). This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate.
 
 ### 📘 Introduction
 
