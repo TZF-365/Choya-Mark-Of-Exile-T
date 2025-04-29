@@ -3,7 +3,7 @@ class_name CCID_
 
 var current_chapter_id: String = ""
 var current_page := ""
-var content_dict: Dictionary = {}  # <-- 🔥 This fixes the error
+var content_dict: Dictionary = {} 
 
 var time_accumulator := 0.0
 

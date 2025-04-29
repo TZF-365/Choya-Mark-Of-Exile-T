@@ -75,7 +75,7 @@ func load_current_game() -> void:
 	var loaded = load_game()
 	if loaded.is_empty():
 		return
-	ContentData.load_all()
+	ContentData.load_content_dict()
 
 	# Update player stats
 	var stats = loaded["player_stats"]
@@ -84,7 +84,7 @@ func load_current_game() -> void:
 	player_stats.coins = stats["coins"]
 
 	# Apply phrase number
-	content_data.phraseNum = loaded.get("phrase_num", 0)
+	content_data.phraseNum = loaded.get("phrase_num")
 
 	# Set the current page
 	if data.has_method("set_page"):
@@ -101,7 +101,7 @@ func load_current_game() -> void:
 
 
 
-# --- Start a brand new game ---
+#################### --- Start a brand new game ---
 func start_new_game() -> void:
 	if player_stats == null or data == null or content_data == null:
 		printerr("❌ Missing player_stats, data, or content_data reference!")

@@ -73,13 +73,13 @@ func nextPhrase():
 static func load_all():
 	content_dict.clear()  # Clean out old data first
 
-	var dir := DirAccess.open("res://Content/Chapters")  # Adjust path as needed
+	var dir := DirAccess.open("res://story/")  # Adjust path as needed
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if file_name.ends_with(".json"):
-				var file_path = "res://Content/Chapters/" + file_name
+				var file_path = "res://story/" + file_name
 				var file = FileAccess.open(file_path, FileAccess.READ)
 				if file:
 					var json = JSON.parse_string(file.get_as_text())

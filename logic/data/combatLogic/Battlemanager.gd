@@ -243,7 +243,7 @@ func decay_momentum(actor: BaseChar):
 	print("Health:", actor.current_hp, "/", actor.max_hp, "(", round(health_ratio * 100.0), "% )")
 	print("Stamina:", actor.current_stamina, "/", actor.max_stamina, "(", round(stamina_ratio * 100.0), "% )")
 	print("Weighted Condition Score:", round(condition * 100.0), "%")
-	print("Calculated Decay Range: 2 to", int(max_decay))
+	print("Calculated Decay Range: 2 to ", int(max_decay))
 	print("Final Momentum Lost:", decay_amount)
 	print("Reason: Condition-based momentum decay (stamina-weighted)")
 	print("-----------------------------\n")
