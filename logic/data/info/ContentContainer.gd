@@ -85,6 +85,10 @@ func _process(_delta):
 
 		Ccid.set_page(current_page)  # Ensure global page is updated here
 		set_content(content_dict[current_page])	
+		
+	# Set current chapter_id if present in output page
+
+
 
 	# ✅ FADE IN LOGIC
 	if fading_in:
@@ -99,14 +103,19 @@ func _process(_delta):
 
 # Function to process a choice made by the user
 func process_choice(choice_index: int) -> void:
+	
 	statindicator.text = ""
+	#choice_index is just specifically which button is pressed to make a choice
+	#print("PIZZA ", choice_index)
+	#print("PIZZA ", content_dict)
+	
 
 	if is_dead:
 		current_page = death_page
 			
 		
 	var choice_data = content_dict[current_page]["choices"][str(choice_index)]
-	
+	#print("PIZZA ", choice_data)
 	# Check if the choice includes a combat encounter
 	if choice_data.has("load_combat_encounter"):
 		var combat_data_path = choice_data["load_combat_encounter"]
@@ -116,7 +125,7 @@ func process_choice(choice_index: int) -> void:
 	if content_dict[current_page]["choices"][str(choice_index)].has("output"):
 		get_parent().scroll_vertical = 0
 		var output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
-
+		print("PIZZA ", output_value)
 		if content_dict[current_page]["choices"][str(choice_index)].has("requirement"):
 			var requirements = content_dict[current_page]["choices"][str(choice_index)]["requirement"]
 			for requirement in requirements.keys():
@@ -143,7 +152,7 @@ func process_choice(choice_index: int) -> void:
 		Ccid.set_page(output_value)
 		current_page = output_value  # Optional, just for local convenience
 		set_content(content_dict[output_value])
-
+		
 
 # Function to set the content of the current page
 func set_content(output_value) -> void:

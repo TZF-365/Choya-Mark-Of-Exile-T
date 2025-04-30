@@ -10,12 +10,8 @@ res://assets/pixelart/combatactionbuttons.tres
 res://assets/fonts/ChoyaFont1.tres
 res://logic/data/resources/Items/weapons/bronze_dagger.tres
 res://assets/pixelart/SE_Bottom_menu.tres
-res://assets/pixelart/Combat_screen_Bottom Buttons.tres
-res://logic/data/combatLogic/Battlemanager.gd
-res://scenes/combat_screen.tscn
-res://logic/backend/CCID.gd
-res://logic/backend/save_manager.gd
+res://story/Sample_Story.json
 res://scenes/game_screen.tscn
-res://scenes/combat_screen_new.tscn
-res://scenes/System/Tools.tscn
-res://logic/data/info/content_data.gd
+res://logic/data/info/ContentContainer.gd
+res://logic/backend/save_manager.gd
+res://scenes/utilities/save_manager.tscn

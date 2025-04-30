@@ -1,0 +1,5 @@
+{
+	"enemy_name": "Death",
+	"enemy_scene": "res://scenes/entities/Death.tscn",
+	"enemy_ai": "res://scenes/entities/EnemyAI.tscn"
+}

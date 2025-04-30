@@ -73,7 +73,6 @@
 			}
 		}
 	},
-
 	"000_prologue_4": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
@@ -310,7 +309,7 @@
 				},
 				"buffs": {
 					"mana": -10,
-					"current_hp": 1
+					"current_hp": -1
 				},
 				"output": "002_draw_power",
 				"failed_output": "003_archer_appearance"
@@ -402,7 +401,7 @@
 		"narr_text": "You say nothing, your gaze steady as you study her. The silence stretches, but Kaela doesn’t seem perturbed. Instead, she smirks and sits back, crossing one leg over the other.\n\n'Not much of a talker, huh?' she says, her tone teasing. 'That’s fine. Actions speak louder, anyway.'\n\nShe stands, her movements fluid and deliberate. 'You’ve got secrets. I’ve got mine... kind of, Maybe we’ll get along.' Her words carry a hint of amusement, but her eyes stay watchful. This woman is clearly used to danger.",
 		"choices": {
 			"1": {
-				"text": "Nod and let her take the lead.",
+				"text": "Watch her as she walks away.",
 				"output": "006_preparing_to_leave"
 			},
 			"2": {
@@ -455,10 +454,10 @@
 	"008_partial_explanation": {
 		"title": "A Shared Journey",
 		"picture": "res://assets/art/Forest_Walk.jpg",
-		"narr_text": "You take a deep breath, choosing your words carefully. 'I’m searching for something—something that might help me understand... who I really am.'\n\nKaela glances back, her green eyes narrowing slightly, but there’s no judgment in her gaze. She seems to understand more than she lets on. 'You don’t have to tell me everything,' she says softly, 'But I’ve been around long enough to know that people rarely travel this far for nothing.'\n\nHer pace slows slightly as you both continue walking. The soft rustle of leaves underfoot and the distant calls of birds create an oddly peaceful atmosphere despite the forest’s danger.\n\n'What is it like back home for you?' she asks suddenly. 'Is it so different from here?' Her voice has a gentle curiosity, and her expression softens as she listens for your response.",
+		"narr_text": "You take a deep breath while looking down at your feet as each step aches slightly, thinking about what to say and choosing your words carefully. 'I’m searching for something—something that might help me understand... who I am.'\n\nKaela glances back, her green eyes narrowing slightly, but there’s no judgment in her gaze. She seems to be confused. \n\n 'You don’t have to tell me everything,' she says softly, 'But I’ve been around long enough to know that people rarely travel this far for nothing.'\n\nHer pace slows slightly as you both continue walking. The soft rustle of leaves underfoot and the distant calls of birds create an oddly peaceful atmosphere despite the forest’s danger.\n\n'What is it like back home for you?' she asks suddenly. 'Is it so different from here?' Her voice has a gentle curiosity, and her expression softens as she listens for your response.",
 		"choices": {
 			"1": {
-				"text": " TAVERN Tell her more about your homeland, what makes it unique.",
+				"text": "...Stay Silent.",
 				"output": "008_kaela_interest"
 			}
 		}
@@ -466,62 +465,59 @@
 	"008_kaela_interest": {
 		"title": "A Curious Bond",
 		"picture": "res://assets/art/Kaela_Staring.jpg",
-		"narr_text": "'Terrans don’t come this far. Not many make it past the port,' Kaela says with a thoughtful frown. 'And you don’t seem like the type to just wander without reason.'\n\nShe looks at you for a long moment, her gaze intense yet not unkind. 'I’ve met a few of your kind in the past. Adventurers, explorers... they don’t usually last long. But you seem different. I can’t quite place it.'\n\nShe pauses, letting her words sink in before adding, 'Maybe it’s that look in your eyes. The same one I had when I first ventured out of my country, seeking... something.'\n\nShe smirks lightly, glancing away. 'But you can’t expect me to believe you’re just wandering around aimlessly, can you?'",
+		"narr_text": "You both walk in silence as the dried grass crunch under your feet for a moment until she decides to speak again 'Terrans don’t come this far. Not many make it past the port,' Kaela says with a thoughtful frown. 'And you don’t seem like the.....'\n\nShe looks at you for a long moment, her gaze intense yet not unkind. 'I’ve met a few of your kind in the past. Adventurers, explorers... they.... you seem different. I can’t quite place it.'\n\nShe pauses, letting her words sink in before adding, 'Maybe it’s that look in your eyes. The same one I had when I first ventured out of my country, seeking... something.'\n\nShe smirks lightly, glancing away. 'But you can’t expect me to believe you’re just wandering around aimlessly, can you?'",
 		"choices": {
 			"1": {
-				"text": "Tell her that you’re searching for answers, just like her.",
-				"output": "009_shared_journey"
+				"text": "Stay Silent.",
+				"output": "009_guild_arrival"
 			},
-			"2": {
-				"text": "Admit that you’re lost, trying to find your way.",
-				"output": "009_vulnerable"
-			}
-		}
+		},
 	},
-	"ddd": {
-		"title": "The Hunter's Path",
-		"picture": "res://assets/art/Kaela_Hunt_Gear.jpg",
-		"narr_text": "'Monster hunting isn’t as glamorous as it sounds,' Kaela says with a soft chuckle. 'It’s not all glory and bounty. Most of the time, it’s just tracking down creatures that would rather eat you than look at you.'\n\nShe pauses for a moment, clearly remembering some past hunts. 'I’ve fought beasts that could tear a man in half with one swipe. And I’ve learned to respect the forest. There’s more here than just trees.'\n\nShe takes a deep breath, then glances over at you. 'But you probably want to know what kind of monsters are lurking around here, don’t you?'",
+	"009_guild_arrival": {
+		"title": "The Adventurer's Guild",
+		"picture": "res://assets/art/Tavern_Interior.jpg",
+		"narr_text": "Kaela leads you through winding forest paths until the trees give way to a modest settlement nestled in the foothills. The scent of roasted meat and damp earth fills the air as you approach a stone-and-wood building marked with a faded crest above the door—a sword crossed with a hunter's horn.\n\nInside, the guild tavern buzzes with adventurers drinking, exchanging stories, and bartering over bounties. Kaela guides you to a corner table away from the noise, and you gratefully sit, wincing at the lingering soreness in your muscles.\n\nShe notices. 'Still hurting?' she asks, pulling her chair out. You nod. 'Feels like I got trampled by a Duralith stampede.'\n\nKaela smirks, 'You’ve probably been out for a while. Muscle atrophy hits harder than you’d think.'\n\nYou glance at her. 'How long was I out? Why can’t I remember much of anything?' \n\nShe watches you quietly for a moment, eyes narrowing. 'Wait... You don’t remember anything?' Her tone sharpens, concern flickering in her gaze. 'That mark on your wrist—are you saying you don’t even know how you got it?'",
 		"choices": {
 			"1": {
-				"text": "Ask about the most dangerous creatures she’s encountered.",
-				"output": "009_dangerous_creatures"
+				"text": "Admit you don’t remember anything before waking up in the forest.",
+				"output": "009_mark_conversation"
 			},
-			"2": {
-				"text": "Inquire about how she hunts monsters, the tools she uses.",
-				"output": "009_hunting_techniques"
-			},
-			"3": {
-				"text": "Change the topic and ask her what brought her to this forest.",
-				"output": "009_why_here"
-			},
-			"4": {
-				"text": "Stay quiet and listen to her recount her experiences.",
-				"output": "009_silence"
-			}
-		}
+		},
 	},
-	"ddwdw": {
-		"title": "Unspoken Bonds",
-		"picture": "res://assets/art/Kaela_Gazing.jpg",
-		"narr_text": "The conversation dwindles into silence, but it’s not uncomfortable. Kaela seems content to walk side by side with you, occasionally glancing at you as if studying your expression.\n\nThe forest around you remains quiet, save for the occasional rustle of branches or distant animal calls. The trees here are older, their trunks thick with age, and the moss that carpets the ground gives off a damp, earthy scent.\n\nKaela doesn’t speak at first, but you can feel her curiosity lingering. Her eyes, dark as night with a subtle gleam of green, flick back to you occasionally.\n\nFinally, she speaks softly. 'You know, Terrans don’t venture this far into others’ lands. It’s dangerous.' She smiles lightly. 'But you don’t seem like the kind to back down easily, do you?'",
+	"009_mark_conversation": {
+		"title": "Fragments and Marks",
+		"picture": "res://assets/art/Wrist_Mark.jpg",
+		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing. Like its clouded.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark—it’s tied to some heavy stuff. I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern. You turn just in time to see a rugged man charging straight toward you, sword raised high.\n\nTime slows. Your body moves before your mind can catch up. You twist to the side as the blade crashes down, splitting the wooden chair in two.\n\nGasps echo through the tavern. Conversations cease. Kaela is already moving, eyes locked on the attacker.\n\nThe bandit snarls and slashes again—you dodge, barely. Kaela lunges toward you but veers away, shouting, 'MOVE!' before grabbing your hand and dragging you after her.\n\nThe two of you burst out the front door, feet pounding the muddy road as shouting erupts behind you.",
 		"choices": {
 			"1": {
-				"text": "TAVERN Confess that you're a little out of your depth, but you can handle it.",
-				"output": "010_tavern_intro"
+				"text": "Run with her into the alley!",
+				"output": "010_alley_escape"
 			},
-			"2": {
-				"text": "Ask her to tell you more about the forest and its dangers.",
-				"output": "009_forest_dangers"
+		},
+	},
+	"010_alley_escape": {
+		"title": "Escape in the Rain",
+		"picture": "res://assets/art/Alley_Run.jpg",
+		"narr_text": "Rain starts to fall as Kaela pulls you into a narrow alley between old stone buildings. You slip over cobblestones slick with moss but manage to keep pace. The sound of boots pounding behind you is getting closer.\n\n'Left!' she shouts, vaulting over a crate. You follow, heart thundering. The two of you scale a broken stairwell, leap across gaps between rooftops, and knock barrels down to slow your pursuers.\n\nOne bandit missteps and crashes through a wooden awning. Another tumbles off a ledge with a scream.\n\nOnly two remain.\n\nKaela skids to a stop in a rain-slick courtyard, her breath visible in the cool air. She draws a short blade from beneath her coat. 'No more running.'\n\nYou spot a broken 2x4 near a stack of crates and pick it up, gripping it tight. One of the remaining bandits lunges at you, while the other circles Kaela.\n\nShe meets your eyes and you glare back with a stern expression. 'Let’s end this.'",
+		"choices": {
+		  "1": {
+				"text": "Fight the bandit with the 2x4!",
+				"output": "011_inn_ransacked",
+				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
 			},
-			"3": {
-				"text": "Admit you're still figuring things out and ask for her guidance.",
-				"output": "009_guidance"
+		},
+	},
+	"011_inn_ransacked": {
+		"title": "",
+		"picture": "res://assets/art/Alley_Run.jpg",
+		"narr_text": " after the fight You and Kaela dart through narrow alleys, vaulting crates and fences. Her grip on your arm is iron. “We’ll circle back to the inn,” she pants. “Left supplies there.” “Who were they?” you ask. “Bounty hunters. I think.” Your pulse pounds. “For me?” “Looks like it.” She doesn’t say more, but her jaw tightens.",
+		"choices": {
+		  "1": {
+				"text": "Fight the bandit with the 2x4!",
+				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json",
+				"output": "011_fight_sequence"	
+				
 			},
-			"4": {
-				"text": "Stay silent and focus on the path ahead.",
-				"output": "009_silence"
-			}
-		}
-	}
+		},
+	},
 }

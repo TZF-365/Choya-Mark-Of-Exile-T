@@ -2,6 +2,11 @@ extends Node
 class_name SaveManager
 
 var config = ConfigFile.new()
+var cont = "res://logic/data/info/ContentContainer.gd"
+var choice_history: Array = []
+var gamesc = Gamesc.new()
+
+
 
 var data := Ccid               # Has current_page, current_chapter_id
 var player_stats: BaseChar = Player_AL  # Has val, mana, health, etc.
@@ -20,6 +25,10 @@ func save_game(data_dict: Dictionary) -> void:
 
 	if data_dict.has("phrase_num"):
 		config.set_value("story", "phrase_num", data_dict["phrase_num"])
+		
+	if data_dict.has("choice_history"):
+		config.set_value("story", "choice_history", data_dict["choice_history"])
+
 
 	config.save_encrypted_pass("user://settings.cfg", save_key)
 	print("✅ Game Saved:", data_dict)
@@ -39,8 +48,10 @@ func load_game() -> Dictionary:
 		},
 		"current_page": config.get_value("story", "current_page", "000_prologue"),
 		"current_chapter_id": config.get_value("story", "current_chapter_id", "000_prologue"),
-		"phrase_num": config.get_value("story", "phrase_num", 0)
+		"phrase_num": config.get_value("story", "phrase_num", 0),
+		"choice_history": config.get_value("story", "choice_history", [])
 	}
+	
 
 	print("✅ Game Loaded:", loaded_data)
 	return loaded_data
@@ -61,12 +72,11 @@ func save_current_game() -> void:
 		},
 		"current_page": data.current_page,
 		"current_chapter_id": data.current_chapter_id,
-		"phrase_num": content_data.phraseNum
+		
 	}
-
 	save_game(game_data)
 
-# --- Load and apply to live game ---
+################# --- Load and apply to live game ---
 func load_current_game() -> void:
 	if player_stats == null or data == null or content_data == null:
 		printerr("❌ Missing references to player_stats, data, or content_data!")
@@ -75,7 +85,6 @@ func load_current_game() -> void:
 	var loaded = load_game()
 	if loaded.is_empty():
 		return
-	ContentData.load_content_dict()
 
 	# Update player stats
 	var stats = loaded["player_stats"]
@@ -84,7 +93,7 @@ func load_current_game() -> void:
 	player_stats.coins = stats["coins"]
 
 	# Apply phrase number
-	content_data.phraseNum = loaded.get("phrase_num")
+	choice_history = loaded.get("choice_history", [])
 
 	# Set the current page
 	if data.has_method("set_page"):
@@ -92,12 +101,11 @@ func load_current_game() -> void:
 	elif "current_page" in data:
 		data.current_page = loaded["current_page"]
 
-	# Display story content
-	if data.has_method("set_content_from_current_page"):
-		data.set_content_from_current_page()
-
+	# Update internal state
+	Ccid.set_page(loaded["current_page"])
+	#cont.process_choice(loaded["current_page"])
+	get_tree().reload_current_scene()
 	print("🎮 Game state applied to player and story")
-
 
 
 
@@ -108,9 +116,9 @@ func start_new_game() -> void:
 		return
 
 	# Reset player stats
-	player_stats.val = 0
-	player_stats.mana = 100
-	player_stats.coins = 0
+	player_stats.val = 100
+	player_stats.mana = 25
+	player_stats.coins = 1
 
 	# Set the starting page
 	var starting_page = "000_prologue"

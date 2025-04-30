@@ -1,9 +1,9 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1745932675
+::res://::1746015063
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::4192308140542725340::1745403376::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1745515653::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::8033541193226466038::1745403376::1745403376::1::::<><><>0<>0<>df20ad3b091b377cd2725ec857e8d9c9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile::-1::1745932653::0::1::::<><><>0<>0<><>::
+README.md::TextFile/TextFile::-1::1745932653::0::1::::<><><>0<>0<><>::
 ::res://assets/::1745403376
 Red.jpg::CompressedTexture2D/CompressedTexture2D::5710634642933541082::1745403376::1745403376::1::::<><><>0<>0<>53898c30506b103a8bbad4ef999d66ab<>res://.godot/imported/Red.jpg-f0b72ed10a25a5eb2c628ff9f1afd769.ctex::
 ::res://assets/art/::1745593012
@@ -43,8 +43,8 @@ Forest_Path.jpg::CompressedTexture2D/CompressedTexture2D::5619692353193445768::1
 iiXNCDUe.jpg::CompressedTexture2D/CompressedTexture2D::3569214580275706320::1745403376::1745403376::1::::<><><>0<>0<>1153395769af11b7003b32efd46dabb5<>res://.godot/imported/iiXNCDUe.jpg-1714b3c56e719596e9ca334c608fc1dd.ctex::
 Magical Forest_simple.jpg::CompressedTexture2D/CompressedTexture2D::1775124375477981517::1745403376::1745403376::1::::<><><>0<>0<>52f00a29b3445758b6859f3cbe97ed81<>res://.godot/imported/Magical Forest_simple.jpg-55e2de8a9ebfaf2e7cef50cc024915e2.ctex::
 Night_Forest.jpg::CompressedTexture2D/CompressedTexture2D::6230919206246187553::1745403376::1745403376::1::::<><><>0<>0<>484b6b70081885b6acd0ea90daa014dd<>res://.godot/imported/Night_Forest.jpg-07b2ddf2dd26ea4aed6b9fd30cefc5f5.ctex::
-::res://assets/fonts/::1745930202
-ChoyaFont1.tres::FontFile::4932311382416985476::1745930202::0::1::::<><><>0<>0<><>::
+::res://assets/fonts/::1745954611
+ChoyaFont1.tres::FontFile::4932311382416985476::1745954611::0::1::::<><><>0<>0<><>::
 ChoyaFont.tres::FontFile/FontFile::202230752442806548::1745403376::0::1::::<><><>0<>0<><>::
 new_font_file.tres::FontFile/FontFile::4067508749735719138::1745403376::0::1::::<><><>0<>0<><>::
 ::res://assets/fonts/Dialog_Font/::1745403376
@@ -250,20 +250,20 @@ Scene6.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::8623213726129373085::1745
 Ship1.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6742487702984602215::1745403376::1745403376::1::::<><><>0<>0<>e3d3bf3ab6abfabd11797dc021deac4a<>res://.godot/imported/Ship1.ogg-86f727c0742bc2a1bd5394dee6218769.oggvorbisstr::
 ::res://assets/palette/::1745403376
 dreamscape8-1x.png::CompressedTexture2D/CompressedTexture2D::504639097105344966::1745403376::1745403376::1::::<><><>0<>0<>a8e3cf9e270b748ded23c5f9869161ea<>res://.godot/imported/dreamscape8-1x.png-010277a8b83be7c7d3390b885ac9feec.ctex::
-::res://assets/pixelart/::1745930202
+::res://assets/pixelart/::1745954611
 button_normal_style.tres::StyleBoxTexture/StyleBoxTexture::4578519280328601274::1745403376::0::1::::<><><>0<>0<><>::uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png
 button_pressed_style.tres::StyleBoxTexture/StyleBoxTexture::7843060263320981031::1745403376::0::1::::<><><>0<>0<><>::uid://c8yfrjpm5qqjt::::res://sprites/ui/ui-tileset.png
-combatactionbuttons.tres::StyleBoxFlat::6599977088116559630::1745930201::0::1::::<><><>0<>0<><>::
-combat_buttons.tres::Theme::6761462430336280330::1745930201::0::1::::<><><>0<>0<><>::uid://dfxm34xy6d7ym::::res://assets/fonts/Skill_Spell_Font/BerkshireSwash-Regular.ttf
+combatactionbuttons.tres::StyleBoxFlat::6599977088116559630::1745954611::0::1::::<><><>0<>0<><>::
+combat_buttons.tres::Theme::6761462430336280330::1745954611::0::1::::<><><>0<>0<><>::uid://dfxm34xy6d7ym::::res://assets/fonts/Skill_Spell_Font/BerkshireSwash-Regular.ttf
 Combat_Screen Menu_flat.tres::StyleBoxFlat/StyleBoxFlat::1385216134319868067::1745403376::0::1::::<><><>0<>0<><>::
-Combat_screen_Bottom Buttons.tres::Theme::3961104724427472706::1745930202::0::1::::<><><>0<>0<><>::
-game_screen_di.tres::Theme::6307965207777346128::1745930201::0::1::::<><><>0<>0<><>::
-pixelart.tres::Theme::4078286799650444101::1745930201::0::1::::<><><>0<>0<><>::uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://cg0tootlnej3o::::res://assets/pixelart/slider_grabber_area_texture.tres<>uid://c0coqpvq7hu6j::::res://assets/sprites/ui/ui-grabber.png<>uid://cd5suo51ch1ph::::res://assets/pixelart/slider_area_texture.tres<>uid://vcoxg8ao2cpn::::res://assets/sprites/ui/ui-grabber-disabled.png
-SE_Bottom_menu.tres::Theme::5144506007289123514::1745930202::0::1::::<><><>0<>0<><>::uid://cifveys2aswe5::::res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf
+Combat_screen_Bottom Buttons.tres::Theme::3961104724427472706::1745954611::0::1::::<><><>0<>0<><>::
+game_screen_di.tres::Theme::6307965207777346128::1745954611::0::1::::<><><>0<>0<><>::
+pixelart.tres::Theme::4078286799650444101::1745954611::0::1::::<><><>0<>0<><>::uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://cg0tootlnej3o::::res://assets/pixelart/slider_grabber_area_texture.tres<>uid://c0coqpvq7hu6j::::res://assets/sprites/ui/ui-grabber.png<>uid://cd5suo51ch1ph::::res://assets/pixelart/slider_area_texture.tres<>uid://vcoxg8ao2cpn::::res://assets/sprites/ui/ui-grabber-disabled.png
+SE_Bottom_menu.tres::Theme::5144506007289123514::1745954611::0::1::::<><><>0<>0<><>::uid://cifveys2aswe5::::res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf
 slider_area_texture.tres::StyleBoxTexture/StyleBoxTexture::5046468635525320709::1745403376::0::1::::<><><>0<>0<><>::uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png
 slider_grabber_area_texture.tres::StyleBoxTexture/StyleBoxTexture::5246763262238638714::1745403376::0::1::::<><><>0<>0<><>::uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png
 Transparentinfopanelscombatscreen.tres::StyleBoxFlat/StyleBoxFlat::8770272656966565559::1745403376::0::1::::<><><>0<>0<><>::
-troochi.tres::SystemFont::53346035254112823::1745930201::0::1::::<><><>0<>0<><>::
+troochi.tres::SystemFont::53346035254112823::1745954611::0::1::::<><><>0<>0<><>::
 ::res://assets/sprites/::1745403376
 ::res://assets/sprites/common/::1745403376
 gun.png::CompressedTexture2D/CompressedTexture2D::8310439065745592731::1745403376::1745403376::1::::<><><>0<>0<>4ffa145f2dde36e6b7c0cf3a0cea8e07<>res://.godot/imported/gun.png-6404e0d9763794f0645f15b153dc250e.ctex::
@@ -281,9 +281,9 @@ ui-grabber-disabled.png::CompressedTexture2D/CompressedTexture2D::14789859492037
 ui-grabber.png::CompressedTexture2D/CompressedTexture2D::6532570645507513839::1745403376::1745403376::1::::<><><>0<>0<>ec9524c3a773ff387cb2f188b68824ac<>res://.godot/imported/ui-grabber.png-3d8370d8935b5c510fafb5cd6165ffac.ctex::
 ui-tileset.png::CompressedTexture2D/CompressedTexture2D::7138952713467101349::1745403376::1745403376::1::::<><><>0<>0<>38181c032ee9d7741815cb68f86bec7f<>res://.godot/imported/ui-tileset.png-e57982247ff3a22f4c26fb5ccb132675.ctex::
 ::res://logic/::1745403376
-::res://logic/backend/::1745930123
+::res://logic/backend/::1745949797
 audio_menu.gd::GDScript/GDScript::7222682311407139162::1745403376::0::1::::<>Control<><>0<>0<><>::
-CCID.gd::GDScript/GDScript::823219140096911267::1745600329::0::1::::CCID_<>Node<><>0<>0<><>::
+CCID.gd::GDScript/GDScript::823219140096911267::1745935921::0::1::::CCID_<>Node<><>0<>0<><>::
 dialog_box.gd::GDScript/GDScript::1689028783068966269::1745403376::0::1::::DialogBox<>Control<><>0<>0<><>::
 exitgame.gd::GDScript/GDScript::868367262003634727::1745403376::0::1::::<>Node<><>0<>0<><>::
 inventory_menu.gd::GDScript/GDScript::670911755733087460::1745403376::0::1::::InventoryMenu<>Control<><>0<>0<><>::
@@ -291,15 +291,15 @@ load_button.gd::GDScript/GDScript::2203392260444372550::1745403376::0::1::::<>Bu
 main_menu.gd::GDScript/GDScript::8777528492038739320::1745597589::0::1::::<>Control<><>0<>0<><>::
 mute_button.gd::GDScript/GDScript::4615791358763181404::1745403376::0::1::::<>Button<><>0<>0<><>::
 save_button.gd::GDScript/GDScript::8205592024284206291::1745403376::0::1::::<>Button<><>0<>0<><>::
-save_manager.gd::GDScript/GDScript::7246865303918564129::1745620486::0::1::::SaveManager<>Node<><>0<>0<><>::
+save_manager.gd::GDScript/GDScript::7246865303918564129::1745949797::0::1::::SaveManager<>Node<><>0<>0<><>::
 scene_transition_manager.gd::GDScript/GDScript::3479819107012866685::1745403376::0::1::::<>Node<><>0<>0<><>::
 script_utilities.gd::GDScript/GDScript::3339317370595773017::1745403376::0::1::::ScriptUtilities<>Object<><>0<>0<><>::
 transition.gd::GDScript/GDScript::626819195089418340::1745403376::0::1::::Transition<>CanvasLayer<><>0<>0<><>::
 viewport_container.gd::GDScript/GDScript::5968757305268428128::1745930123::0::1::::<>AspectRatioContainer<><>0<>1<><>::
 viewport_texture_rect.gd::GDScript/GDScript::5680166328053472878::1745403376::0::1::::ViewportTextureRect<>TextureRect<><>0<>0<><>::
 ::res://logic/data/::1745403376
-::res://logic/data/combatLogic/::1745932373
-Battlemanager.gd::GDScript::647512150036316680::1745932373::0::1::::CombatManager_<>Node<><>0<>0<><>::
+::res://logic/data/combatLogic/::1745932843
+Battlemanager.gd::GDScript/GDScript::647512150036316680::1745932843::0::1::::CombatManager_<>Node<><>0<>0<><>::
 CombatInstantiator.gd::GDScript/GDScript::4127031433094049228::1745588757::0::1::::CombatInstantiator<>Node<><>0<>0<><>::
 combatui.gd::GDScript/GDScript::210364973046069690::1745403376::0::1::::<>Control<><>0<>0<><>::
 combat_actions.gd::GDScript/GDScript::3389856690705635179::1745403376::0::1::::CombatAction<>Resource<><>0<>0<><>::
@@ -307,23 +307,23 @@ combat_screen.gd::GDScript/GDScript::5909656030727901798::1745403376::0::1::::<>
 damage_calculator.gd::GDScript/GDScript::3798598067713498037::1745403376::0::1::::Damage_Calculator<>Node<><>0<>0<><>::
 EnemyAI.gd::GDScript/GDScript::8647346840562251151::1745505542::0::1::::EnemyAI<>Node<><>0<>0<><>::
 SkillManager.gd::GDScript/GDScript::4608965770520521452::1745403376::0::1::::<>Node<><>0<>0<><>::
-Technique.gd::GDScript::5220573454774056156::1745930422::0::1::::Technique_<>Resource<><>0<>0<><>::
+Technique.gd::GDScript/GDScript::5220573454774056156::1745930422::0::1::::Technique_<>Resource<><>0<>0<><>::
 TechniqueManager.gd::GDScript/GDScript::207587273672953640::1745403376::0::1::::<>Node<><>0<>0<><>::
-Technique_.gd::GDScript::9177855107497156779::1745930423::0::1::::Techniques<>Node<><>0<>0<><>::
+Technique_.gd::GDScript/GDScript::9177855107497156779::1745930423::0::1::::Techniques<>Node<><>0<>0<><>::
 ::res://logic/data/ent/::1745931852
-BaseChar.gd::GDScript::3832147431970186496::1745931852::0::1::::Base_Charm<>Node<><>0<>0<><>::
+BaseChar.gd::GDScript/GDScript::3832147431970186496::1745931852::0::1::::Base_Charm<>Node<><>0<>0<><>::
 BaseItem.gd::GDScript/GDScript::6635465554174538760::1745403376::0::1::::<>RefCounted<><>0<>0<><>::
 EntityManager.gd::GDScript/GDScript::5744644918972098252::1745403376::0::1::::EntityManager<>Node<><>0<>0<><>::
 goblin.gd::GDScript/GDScript::2593281492044221849::1745403376::0::1::::<>BaseChar<><>0<>0<><>::
 item_message.gd::GDScript/GDScript::270799113566094608::1745929986::0::1::::<>CanvasLayer<><>0<>0<><>::
 player.gd::GDScript/GDScript::4843737813376786391::1745403376::0::1::::Player<>BaseChar<><>0<>0<><>::
-::res://logic/data/info/::1745929909
+::res://logic/data/info/::1745949796
 al_sound_manager.gd::GDScript/GDScript::4308544015809918384::1745403376::0::1::::Audio_Manager<>Node<><>0<>0<><>::
 buttonpress.gd::GDScript/GDScript::8511814314610192595::1745403376::0::1::::<>Node<><>0<>0<><>::
 ChoiceButtons.gd::GDScript/GDScript::6542881432654847380::1745403376::0::1::::<>PanelContainer<><>0<>0<><>::
 combattextdesplay.gd::GDScript/GDScript::3112456723711662493::1745403376::0::1::::<>Control<><>0<>0<><>::
-ContentContainer.gd::GDScript/GDScript::8529568851125599675::1745403376::0::1::::Gamesc<>VBoxContainer<><>0<>0<><>::
-content_data.gd::GDScript/GDScript::1909770741032494067::1745620460::0::1::::<>Node<><>0<>0<><>::
+ContentContainer.gd::GDScript/GDScript::8529568851125599675::1745949796::0::1::::Gamesc<>VBoxContainer<><>0<>0<><>::
+content_data.gd::GDScript/GDScript::1909770741032494067::1745936882::0::1::::<>Node<><>0<>0<><>::
 fadetransition.gd::GDScript/GDScript::6699716426401958956::1745403376::0::1::::<>CanvasLayer<><>0<>0<><>::
 Game_Over.gd::GDScript/GDScript::7084663988660816347::1745595475::0::1::::GameOver<>PanelContainer<><>0<>0<><>::
 game_screen.gd::GDScript/GDScript::7917384071743953418::1745592204::0::1::::CSLogic<>PanelContainer<><>0<>0<><>::
@@ -346,8 +346,8 @@ Leather_Curass.tres::Resource/ArmorResource::7544601549463268586::1745403376::0:
 leather_vest.tres::Resource/ArmorResource::9153538174859066571::1745403376::0::1::::<><><>0<>0<><>::uid://h427wuf36vxu::::res://logic/data/resources/ArmorResource.gd
 scale_mail.tres::Resource/ArmorResource::7714115366423829479::1745403376::0::1::::<><><>0<>0<><>::uid://h427wuf36vxu::::res://logic/data/resources/ArmorResource.gd
 tower_shield.tres::Resource/ArmorResource::7005958237396299164::1745403376::0::1::::<><><>0<>0<><>::uid://h427wuf36vxu::::res://logic/data/resources/ArmorResource.gd
-::res://logic/data/resources/Items/weapons/::1745930595
-bronze_dagger.tres::Resource/WeaponResource::5959387402357530089::1745930595::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
+::res://logic/data/resources/Items/weapons/::1745954611
+bronze_dagger.tres::Resource/WeaponResource::5959387402357530089::1745954611::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
 bronze_spear.tres::Resource/WeaponResource::8573982927353326321::1745403376::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
 glass_rapier.tres::Resource/WeaponResource::7408573453245748924::1745403376::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
 iron_guard_sword.tres::Resource/WeaponResource::1891858827944882233::1745403376::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
@@ -359,28 +359,29 @@ steel_warhammer.tres::Resource/WeaponResource::7491747549439125885::1745403376::
 wooden_staff.tres::Resource/WeaponResource::5412858650212639729::1745403376::0::1::::<><><>0<>0<><>::uid://dj6dkvp7iuk5w::::res://logic/data/resources/WeaponResource.gd
 ::res://logic/data/resources/Skills/::1745403376
 fireball.tres::Resource/SkillResource::7648230258329284085::1745403376::0::1::::<><><>0<>0<><>::uid://cgfhaakdh10ni::::res://logic/data/resources/SkillResource.gd
-::res://logic/data/resources/Techniques/::1745930201
+::res://logic/data/resources/Techniques/::1745954611
 charge.tres::Resource/Technique_::3454596156501570747::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
-cleave.tres::Resource/Technique_::3737158971510314828::1745930201::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
-finishing_cleave.tres::Resource/Technique_::439935984848087535::1745930201::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
+cleave.tres::Resource/Technique_::3737158971510314828::1745954611::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
+finishing_cleave.tres::Resource/Technique_::439935984848087535::1745954611::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 hack.tres::Resource/Technique_::4923894283399536767::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 overhead_strike.tres::Resource/Technique_::2404147434162938929::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 quick_jab.tres::Resource/Technique_::1852392145088009744::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 reckless_swing.tres::Resource/Technique_::8197713578168865109::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 riposte.tres::Resource/Technique_::8518845612028939569::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
-special_cleave.tres::Resource/Technique_::5661989347546248004::1745930201::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
+special_cleave.tres::Resource/Technique_::5661989347546248004::1745954611::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 thrust.tres::Resource/Technique_::7969360861467174694::1745403376::0::1::::<><><>0<>0<><>::uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd
 ::res://logic/data/tres/::1745403376
 Wood_sword.tres::Resource/Resource::624910696566541520::1745403376::0::1::::<><><>0<>0<><>::uid://7deyoebi2a0i::::res://logic/data/resources/ItemResource.gd
-::res://scenes/::1745932474
-combat_screen.tscn::PackedScene::2838341559811648736::1745932376::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>uid://b8sgg1yjclern::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf<>uid://bklxyb4y7iyq4::::res://logic/data/info/combattextdesplay.gd<>uid://bkm3c0gnlhuc3::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://ccjiphyilnveq::::res://assets/fonts/ChoyaFont1.tres<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://jhwovwx4gsvw::::res://logic/data/combatLogic/Battlemanager.gd<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd<>uid://d060foo1dnrdt::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf<>uid://d03n73vvq8t0x::::res://scenes/entities/Goblin.tscn<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn
-combat_screen_new.tscn::PackedScene::6260166464831903455::1745932474::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://b8sgg1yjclern::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://ccjiphyilnveq::::res://assets/fonts/ChoyaFont1.tres<>uid://d060foo1dnrdt::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf<>uid://bkm3c0gnlhuc3::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf<>uid://bklxyb4y7iyq4::::res://logic/data/info/combattextdesplay.gd<>uid://js823kcvfn1e::::res://logic/backend/inventory_menu.gd<>uid://jhwovwx4gsvw::::res://logic/data/combatLogic/Battlemanager.gd<>uid://bwo120nqahh6q::::res://assets/pixelart/Combat_screen_Bottom Buttons.tres<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://d03n73vvq8t0x::::res://scenes/entities/Goblin.tscn<>uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://1nkvl7t7cn01::::res://logic/data/resources/Techniques/quick_jab.tres<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn<>uid://cmwyew0retq7m::::res://logic/data/resources/Techniques/special_cleave.tres<>uid://bait7sjsvkds8::::res://logic/data/resources/Techniques/overhead_strike.tres<>uid://dtmue34gqf3a0::::res://logic/data/resources/Techniques/riposte.tres<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn
+::res://scenes/::1745955262
+combat_screen.tscn::PackedScene::2838341559811648736::1745955262::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://c1bcwncw7nbgw::::res://assets/pixelart/combatactionbuttons.tres<>uid://b8sgg1yjclern::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf<>uid://bklxyb4y7iyq4::::res://logic/data/info/combattextdesplay.gd<>uid://bkm3c0gnlhuc3::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://ccjiphyilnveq::::res://assets/fonts/ChoyaFont1.tres<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://jhwovwx4gsvw::::res://logic/data/combatLogic/Battlemanager.gd<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd<>uid://d060foo1dnrdt::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf<>uid://d03n73vvq8t0x::::res://scenes/entities/Goblin.tscn<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn
+combat_screen_new.tscn::PackedScene::6260166464831903455::1745955262::0::1::::<><><>0<>0<><>::uid://cqgxf3fjofq67::::res://logic/data/combatLogic/combat_screen.gd<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dx8rn8d76y6q8::::res://assets/art/backgroundcombat1.jpg<>uid://t0akpkcnek7l::::res://assets/pixelart/Combat_Screen Menu_flat.tres<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://u72jl83s8ala::::res://assets/icons/lorc/cog.svg<>uid://dw7ndymhmu2tf::::res://assets/pixelart/Transparentinfopanelscombatscreen.tres<>uid://b8sgg1yjclern::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://ccjiphyilnveq::::res://assets/fonts/ChoyaFont1.tres<>uid://d060foo1dnrdt::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf<>uid://bkm3c0gnlhuc3::::res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf<>uid://bklxyb4y7iyq4::::res://logic/data/info/combattextdesplay.gd<>uid://js823kcvfn1e::::res://logic/backend/inventory_menu.gd<>uid://jhwovwx4gsvw::::res://logic/data/combatLogic/Battlemanager.gd<>uid://bwo120nqahh6q::::res://assets/pixelart/Combat_screen_Bottom Buttons.tres<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://d03n73vvq8t0x::::res://scenes/entities/Goblin.tscn<>uid://cgm5c14qfbqs7::::res://logic/data/combatLogic/Technique.gd<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://1nkvl7t7cn01::::res://logic/data/resources/Techniques/quick_jab.tres<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn<>uid://cmwyew0retq7m::::res://logic/data/resources/Techniques/special_cleave.tres<>uid://bait7sjsvkds8::::res://logic/data/resources/Techniques/overhead_strike.tres<>uid://dtmue34gqf3a0::::res://logic/data/resources/Techniques/riposte.tres<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn
 game_over.tscn::PackedScene/PackedScene::8699778617907491220::1745595477::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://c764m7hnj3nct::::res://logic/data/info/Game_Over.gd<>uid://cslgmvvxq5gr7::::res://assets/art/pexels-marek-piwnicki-3907296-11513053.jpg<>uid://b5a8ujpl2jgww::::res://assets/fonts/Lore_Item_Font/IMFellEnglish-Italic.ttf<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://cdkwhyrr2mt2g::::res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf<>uid://cifveys2aswe5::::res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd
-game_screen.tscn::PackedScene::708872871568742017::1745932375::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://dk2ifnyc7omuc::::res://logic/data/info/game_screen.gd<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://cdkwhyrr2mt2g::::res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf<>uid://dtr10uh0vnskh::::res://logic/data/info/ContentContainer.gd<>uid://bvsgo1i0uqcrd::::res://assets/fonts/Lore_Item_Font/IMFellEnglish-Regular.ttf<>uid://cifveys2aswe5::::res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://c0hokijcprldk::::res://logic/data/info/ChoiceButtons.gd<>uid://cfkbi6ifn8rdy::::res://assets/pixelart/SE_Bottom_menu.tres<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd
-main_menu.tscn::PackedScene::5272711763444437011::1745932375::0::1::::<><><>0<>0<><>::uid://byds11vsd6ber::::res://assets/pixelart/pixelart.tres<>uid://dxb5u2kgn15ey::::res://logic/backend/main_menu.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://cbd6qlawp2u3l::::res://scenes/utilities/circle_transition.tscn<>uid://dj0ib6qvmygdj::::res://assets/pixelart/button_pressed_style.tres<>uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png<>uid://da5yr06jbidxq::::res://logic/backend/audio_menu.gd<>uid://crbktcitbaljs::::res://logic/backend/viewport_container.gd<>uid://dlwi6jgvvy220::::res://assets/art/titlescreenbackground.webp<>uid://peloieugygrl::::res://scenes/utilities/load_button.tscn<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
-::res://scenes/entities/::1745589000
+game_screen.tscn::PackedScene::708872871568742017::1745955262::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://dk2ifnyc7omuc::::res://logic/data/info/game_screen.gd<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://cdkwhyrr2mt2g::::res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf<>uid://dtr10uh0vnskh::::res://logic/data/info/ContentContainer.gd<>uid://bvsgo1i0uqcrd::::res://assets/fonts/Lore_Item_Font/IMFellEnglish-Regular.ttf<>uid://cifveys2aswe5::::res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>uid://pqia5c152xko::::res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf<>uid://c0hokijcprldk::::res://logic/data/info/ChoiceButtons.gd<>uid://cfkbi6ifn8rdy::::res://assets/pixelart/SE_Bottom_menu.tres<>uid://dtjglq6o0dtc2::::res://logic/data/info/buttonpress.gd<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://cdfbim2nhuflx::::res://scenes/utilities/fadetransition.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://by2futcs1t6gm::::res://logic/data/combatLogic/CombatInstantiator.gd
+main_menu.tscn::PackedScene::5272711763444437011::1745955262::0::1::::<><><>0<>0<><>::uid://byds11vsd6ber::::res://assets/pixelart/pixelart.tres<>uid://dxb5u2kgn15ey::::res://logic/backend/main_menu.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://b6h4sqok6xlxy::::res://assets/pixelart/button_normal_style.tres<>uid://cbd6qlawp2u3l::::res://scenes/utilities/circle_transition.tscn<>uid://dj0ib6qvmygdj::::res://assets/pixelart/button_pressed_style.tres<>uid://c8yfrjpm5qqjt::::res://assets/sprites/ui/ui-tileset.png<>uid://da5yr06jbidxq::::res://logic/backend/audio_menu.gd<>uid://crbktcitbaljs::::res://logic/backend/viewport_container.gd<>uid://dlwi6jgvvy220::::res://assets/art/titlescreenbackground.webp<>uid://peloieugygrl::::res://scenes/utilities/load_button.tscn<>uid://03uphxnuc2j::::res://assets/pixelart/troochi.tres<>uid://ccvn8owweybsr::::res://scenes/utilities/AudioManager.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
+::res://scenes/entities/::1745955325
 BaseItem.tscn::PackedScene/PackedScene::7864812837489242138::1745403376::0::1::::<><><>0<>0<><>::uid://c1sjfbl1sk0jc::::res://logic/data/ent/BaseItem.gd
 Boar_the_boar.tscn::PackedScene/PackedScene::2781673231812179213::1745588997::0::1::::<><><>0<>0<><>::uid://bc7g75gnrwmeb::::res://logic/data/ent/goblin.gd
+Death.tscn::PackedScene::6531419833886534605::1745955325::0::1::::<><><>0<>0<><>::uid://bc7g75gnrwmeb::::res://logic/data/ent/goblin.gd
 EnemyAI.tscn::PackedScene/PackedScene::6073388567228241236::1745403376::0::1::::<><><>0<>0<><>::uid://dvg3slfv22aix::::res://logic/data/combatLogic/EnemyAI.gd
 Gobby_The_Ugly.tscn::PackedScene/PackedScene::9099458112593024519::1745588994::0::1::::<><><>0<>0<><>::uid://bc7g75gnrwmeb::::res://logic/data/ent/goblin.gd
 Goblin.tscn::PackedScene/PackedScene::8972633689526249117::1745588989::0::1::::<><><>0<>0<><>::uid://bc7g75gnrwmeb::::res://logic/data/ent/goblin.gd
@@ -392,29 +393,30 @@ game_screenimproved.tscn::PackedScene/PackedScene::1420937711389109508::17454033
 game_screen_di.tscn::PackedScene/PackedScene::6218770635173965480::1745403376::0::1::::<><><>0<>0<><>::uid://cb48ykm5cosku::::res://assets/art/background9.jpg<>uid://dk2ifnyc7omuc::::res://logic/data/info/game_screen.gd<>uid://07yvi11ui7vg::::res://assets/fonts/Peaberry/PeaberryMono.ttf<>uid://cg4aurqgf8ev6::::res://logic/data/info/ContentContainer.gd<>uid://d2j8aqtfjj0r5::::res://assets/fonts/OpenDyslexic/OpenDyslexic3-Bold.ttf<>uid://cnmjk245281us::::res://assets/Red.jpg<>uid://c0hokijcprldk::::res://logic/data/info/ChoiceButtons.gd<>uid://gw131jxas0sc::::res://assets/fonts/Peaberry/PeaberryBase.ttf<>uid://dyc1hcpap8y20::::res://assets/Music/orchestra-fantasy.mp3<>uid://mmv48rtxyh64::::res://logic/backend/exitgame.gd<>uid://cv4vja08i8uma::::res://assets/pixelart/game_screen_di.tres<>uid://djuy3hctcoym8::::res://logic/data/ent/entity1.gd
 ItemMessage.tscn::PackedScene/PackedScene::6086893528049690664::1745403376::0::1::::<><><>0<>0<><>::uid://d4ga0iiqps7q::::res://logic/data/ent/item_message.gd<>uid://th1llugc7wnt::::res://logic/data/resources/Items/potion.tres
 Simple_Combat_Ui.tscn::PackedScene/PackedScene::3794774720178326408::1745403376::0::1::::<><><>0<>0<><>::uid://c85xerk0j4ha::::res://logic/data/combatLogic/combatui.gd<>uid://bwnjhsw1h5uq6::::res://assets/art/background3.jpg<>uid://c3lkke57ygwlm::::res://assets/pixelart/combat_buttons.tres<>uid://b7woe43g8ick::::res://scenes/utilities/CombatScene/CombatScene.tscn<>uid://bx32qsew5hl3x::::res://scenes/entities/Player.tscn<>uid://6baokbvb8jex::::res://scenes/entities/Goblin.tscn<>uid://csr827wnnt3vs::::res://scenes/entities/EnemyAI.tscn<>uid://drtvjpumoqsuw::::res://logic/data/ent/BaseChar.gd
-::res://scenes/System/::1745932376
+::res://scenes/System/::1745955262
 armorgen.gd::GDScript/GDScript::630033890825586986::1745403376::0::1::::<>EditorScript<><>0<>1<><>::
 Save State.tscn::PackedScene/PackedScene::6021592892272681815::1745403376::0::1::::<><><>0<>0<><>::uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd<>uid://cbd6qlawp2u3l::::res://scenes/utilities/circle_transition.tscn
 tools.gd::GDScript/GDScript::1915212135073384901::1745403376::0::1::::<>EditorScript<><>0<>1<><>::
-Tools.tscn::PackedScene::7784466054618402620::1745932376::0::1::::<><><>0<>0<><>::uid://2j0i8ify85xx::::res://scenes/System/tools.gd<>uid://buuk55av11nym::::res://logic/data/ent/BaseChar.gd<>uid://i8gtipjvsf35::::res://scenes/System/armorgen.gd
-::res://scenes/utilities/::1745403376
+Tools.tscn::PackedScene::7784466054618402620::1745955262::0::1::::<><><>0<>0<><>::uid://2j0i8ify85xx::::res://scenes/System/tools.gd<>uid://buuk55av11nym::::res://logic/data/ent/BaseChar.gd<>uid://i8gtipjvsf35::::res://scenes/System/armorgen.gd
+::res://scenes/utilities/::1745955262
 AudioManager.tscn::PackedScene/PackedScene::4957420009920816697::1745403376::0::1::::<><><>0<>0<><>::uid://b2nddcthik6ca::::res://logic/data/info/al_sound_manager.gd
 circle_transition.tscn::PackedScene/PackedScene::4851134722542213787::1745403376::0::1::::<><><>0<>0<><>::
 fadetransition.tscn::PackedScene/PackedScene::4993805463005331857::1745403376::0::1::::<><><>0<>0<><>::uid://c2pnl6n8y8ptc::::res://logic/data/info/fadetransition.gd
 gamelogic.tscn::PackedScene/PackedScene::2637156722080501507::1745403376::0::1::::<><><>0<>0<><>::
 load_button.tscn::PackedScene/PackedScene::1061783480905520645::1745403376::0::1::::<><><>0<>0<><>::
 save_button.tscn::PackedScene/PackedScene::5391569085554230215::1745403376::0::1::::<><><>0<>0<><>::
-save_manager.tscn::PackedScene/PackedScene::568527813202215627::1745403376::0::1::::<><><>0<>0<><>::uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
+save_manager.tscn::PackedScene::568527813202215627::1745955262::0::1::::<><><>0<>0<><>::uid://dbio2vtk3488t::::res://logic/backend/save_manager.gd
 scene_transition_manager.tscn::PackedScene/PackedScene::4164508382535983478::1745403376::0::1::::<><><>0<>0<><>::uid://bptwd22h567s8::::res://logic/backend/scene_transition_manager.gd
 ::res://scenes/utilities/CombatScene/::1745403376
 BaseCharacter.tscn::PackedScene/PackedScene::320003233026972884::1745403376::0::1::::<><><>0<>0<><>::uid://drtvjpumoqsuw::::res://logic/data/ent/BaseChar.gd
 CombatScene.tscn::PackedScene/PackedScene::137609962897720854::1745403376::0::1::::<><><>0<>0<><>::uid://cqo6lnx0jtsuc::::res://logic/data/info/CombatManager.gd<>uid://buecmcurl6ij2::::res://logic/data/combatLogic/damage_calculator.gd
-::res://story/::1745597578
+::res://story/::1745955252
 combat_text.json::JSON/JSON::-1::1745403376::0::1::::<><><>0<>0<><>::
 game_over.json::JSON/JSON::-1::1745597227::0::1::::<><><>0<>0<><>::
-Sample_Story.json::JSON/JSON::-1::1745597245::0::1::::<><><>0<>0<><>::
+Sample_Story.json::JSON::-1::1745955252::0::1::::<><><>0<>0<><>::
 SS copy (1).json::JSON/JSON::-1::1745403376::0::1::::<><><>0<>0<><>::
 SS copy.json::JSON/JSON::-1::1745403376::0::1::::<><><>0<>0<><>::
 tavern1.json::JSON/JSON::-1::1745403376::0::1::::<><><>0<>0<><>::
-::res://story/storyenemies/::1745589283
+::res://story/storyenemies/::1745949982
 gobby_the_ugly_encounter.json::JSON/JSON::-1::1745589093::0::1::::<><><>0<>0<><>::
+gravewalker_encounter_data.json.json::JSON/JSON::-1::1745949982::0::1::::<><><>0<>0<><>::

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0b4sbfkj5m58"]
+
+[ext_resource type="Script" uid="uid://bc7g75gnrwmeb" path="res://logic/data/ent/goblin.gd" id="1_fcsoh"]
+
+[node name="Goblin" type="Node2D"]
+script = ExtResource("1_fcsoh")
+display_name = "Death - King Of Hell"
+max_hp = 500
+current_hp = 500
+stamina = 300
+current_stamina = 300
+max_stamina = 300
+mana = 800
+max_mana = 800
+stats = {
+"agility": 20,
+"dexterity": 5,
+"endurance": 8,
+"perception": 5,
+"strength": 12,
+"toughness": 10
+}
