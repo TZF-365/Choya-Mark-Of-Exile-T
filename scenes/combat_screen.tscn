@@ -954,8 +954,8 @@ stats = {
 }
 
 [node name="SaveManager" type="Node" parent="."]
-script = ExtResource("14_qmrhv")
-metadata/_custom_type_script = "uid://dbio2vtk3488t"
+
+
 
 [node name="AudioManager" parent="." instance=ExtResource("14_irmyc")]
 visible = false

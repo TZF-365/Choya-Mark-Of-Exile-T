@@ -27,7 +27,6 @@ func _on_start_button_pressed():
 	TransitionManager.transition(0.3)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
-
 	# After transition, change the scene
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 
@@ -50,6 +49,5 @@ func _on_load_button_pressed() -> void:
 	TransitionManager.transition(0.3)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
-	$"../../SaveManager".load_current_game()
+	#SaveManager.load_current_game()
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
-	

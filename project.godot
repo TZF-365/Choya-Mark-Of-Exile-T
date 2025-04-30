@@ -14,7 +14,7 @@ config/name="Choya: Mark Of The Exile"
 config/description="CHOYA – The Drakthyr Invasion
 
 CHOYA is an immersive, choice-driven, text-based RPG adventure developed in Godot 4, built on the foundation of the Interactive Story System. This narrative-rich experience combines branching storytelling, RPG stat systems, and environmental focus mechanics to bring you into the world of Lyaris Alaric Talbot, a man with no memory, surrounded by mystery, conflict, and fate."
-config/version="0.6.9"
+config/version="0.7.9"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=30
