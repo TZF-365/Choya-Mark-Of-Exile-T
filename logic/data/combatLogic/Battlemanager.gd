@@ -61,10 +61,11 @@ func _ready():
 	
 	player.equip_weapon(sword, "main_hand")
 	var iron_chest = load("res://logic/data/resources/Items/armors/Leather_Curass.tres") as ArmorResource
+	var hide = load("res://logic/data/resources/Items/armors/hide_armor.tres") as ArmorResource
 	player.equip_armor("chest", iron_chest)
 
 	enemy.techniques.append(stab_technique)
-	enemy.equip_armor("chest", iron_chest)
+	enemy.equip_armor("chest", hide)
 	enemy.equip_weapon(dagger, "main_hand")
 	
 	# Initialize enemy AI
@@ -582,7 +583,7 @@ func check_battle_end():
 		current_state = State.BATTLE_OVER
 		TransitionManager.transition(2.2)
 		await TransitionManager.on_transition_finished
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 	elif enemy.current_hp <= 0:
 		add_to_turn_log("\n\n%s has been defeated! You Win!" % enemy.display_name)
 		current_state = State.BATTLE_OVER

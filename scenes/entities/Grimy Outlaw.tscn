@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://hy7kgr6ksexl"]
+
+[ext_resource type="Script" uid="uid://bc7g75gnrwmeb" path="res://logic/data/ent/goblin.gd" id="1_uscyq"]
+
+[node name="Outlaw" type="Node2D"]
+script = ExtResource("1_uscyq")
+display_name = "Grimy Outlaw"
+max_hp = 70
+current_hp = 70

@@ -476,47 +476,303 @@
 	"009_guild_arrival": {
 		"title": "The Adventurer's Guild",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
-		"narr_text": "Kaela leads you through winding forest paths until the trees give way to a modest settlement nestled in the foothills. The scent of roasted meat and damp earth fills the air as you approach a stone-and-wood building marked with a faded crest above the door—a sword crossed with a hunter's horn.\n\nInside, the guild tavern buzzes with adventurers drinking, exchanging stories, and bartering over bounties. Kaela guides you to a corner table away from the noise, and you gratefully sit, wincing at the lingering soreness in your muscles.\n\nShe notices. 'Still hurting?' she asks, pulling her chair out. You nod. 'Feels like I got trampled by a Duralith stampede.'\n\nKaela smirks, 'You’ve probably been out for a while. Muscle atrophy hits harder than you’d think.'\n\nYou glance at her. 'How long was I out? Why can’t I remember much of anything?' \n\nShe watches you quietly for a moment, eyes narrowing. 'Wait... You don’t remember anything?' Her tone sharpens, concern flickering in her gaze. 'That mark on your wrist—are you saying you don’t even know how you got it?'",
+		"narr_text": "Kaela leads you through winding forest paths until the trees give way to a modest settlement nestled in the foothills. The scent of roasted meat and damp earth fills the air as you approach a stone-and-wood building marked with a faded crest above the door—a sword crossed with a hunter's horn.",
 		"choices": {
 			"1": {
-				"text": "Admit you don’t remember anything before waking up in the forest.",
-				"output": "009_mark_conversation"
+				"text": "Continue",
+				"output": "009_kindly_help"
+			},
+		},
+	},
+	"009_kindly_help": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Inside, the guild tavern buzzes with adventurers drinking, exchanging stories, and bartering over bounties. Kaela guides you to a corner table away from the noise, and before you could sit, a panicked woman that looks to be in her mid 50s approaches with a piece of yellow parchment bearing the Guild’s sigil in cracked red wax",
+		"choices": {
+		  "1": {
+				"text": "Listen to what she has to say.",
+				"output": "09_a_bold-lady"	
+			},
+		},
+	},
+	"09_a_bold-lady": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The woman halts before your table and takes a moment to calm herself of her apparant panic and approches with purpose in her stride and steel in her eyes. Her travel-worn cloak is fastened by a brooch shaped like a griffin clutching a spear—an old symbol of the Guild’s founding order. She smells faintly of pine and parchment. \n\n'You two—new blood, are you not? You’ve the look. I’ve a matter that calls for quiet hands and sharp instincts, not braggarts with flapping tongues.' \n\nShe slaps the parchment down onto the table. The wax seal of the guild breaks with a soft crack, revealing a hastily inked missive.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "09_a_boar_problem"	
+			},
+		},
+	},
+	"09_a_boar_problem": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'We’re listening. But know we don’t take work blindly.', Kayla says. 'Boar activity along the outskirts of Hollowmere... crops ravaged, livestock killed, no casualties—yet.’ She glances up and looks at you with a hint of sadness in her voice.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "09_boars"	
+			},
+		},
+	},
+	"09_boars": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'Sounds like a standard extermination job.', Kayla says with a hint of concern and skepticism. 'It was. Until the beasts began acting aggressively towards us-them. They have become clever—too clever. They won’t go near armed men. Quickly vanish, only to strike elsewhere. We’ve had men stationed for weeks who haven’t seen a single tusk.'",
+		"choices": {
+		  "1": {
+				"text": "is that a weird behavior for boars?",
+				"output": "09_boars2"	
+			},
+		},
+	},
+	"09_boars2": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'That’s the thing about boars. They tend to have a sense for what they’re up against. If they think they can’t win, they’ll move on and avoid the area. No brute instinct there—just survival. Using Gurrilla tactics is not like them however, if this is true and it's not just a villager stealing crops, this could go on for months without a proper fight.', Kayla says.",
+		"choices": {
+		  "1": {
+				"text": "Ah, I see",
+				"output": "09_boar3"	
+			},
+		},
+	},
+	"09_boar3": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'You speak true. And yet... this pack is different. They linger. Circle. Watch. One of our boys swears he saw eyes in the wheatfields, just standing. Not scared. Just... waiting.'",
+		"choices": {
+		  "1": {
+				"text": "So let me guess—most adventurers won’t take the job",
+				"output": "09_boar4"	
+			},
+		},
+	},
+	"09_boar4": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'So let me guess—most adventurers won’t take the job. Too much waiting around. Too much effort for too little glory.' Lycarus's deduction captures the attention of Kaela, who looks like she just put two and two together. \n\n'Yes. Exactly that. Most seek coin or quick renown. But Hollowmere is a quiet village. Simple folk. We don’t have much to offer but meals, shelter, and thanks. And I mean they don’t—' She catches herself. '—They don’t.' \n\nHer composure stiffens again, though the desperation in her eyes betrays her calm.",
+		"choices": {
+		  "1": {
+				"text": "Continue",
+				"output": "09_boar5"	
+			},
+		},
+	},
+	"09_boar5": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'Still... would you please help us? You look capable, and... and I fear they’ll return bolder next time.'",
+		"choices": {
+		  "1": {
+				"text": "We’ll take the job if it means protecting good farming folk.",
+				"output": "09_boar_hope"	
+			},
+		  "2": {
+				"text": "Shelter will do. No beast should roam human fields unchallenged.",
+				"output": "09_boar_hope"	
+			},
+		},
+	},
+	"09_boar_hope": {
+		"title": "",
+		"picture": "",
+		"narr_text": "A spark of relief dances behind the woman’s tired eyes. \n\n'Thank you. You’ve no idea the weight you’ve just lifted.'\n\nShe bows again, this time more deeply, then retreats into the throng, parchment forgotten on your table.",
+		"choices": {
+		  "1": {
+				"text": "Wave goodbye.",
+				"output": "09_boar_hope_1"	
+			},
+		},
+	},
+	"09_boar_hope_1": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Kaela shakes her head with a half-smile and settles into her seat. 'Boars. Fields. Stalking the stalkers. Sounds like a quiet retirement plan.' \n\n'Until the wheat becomes just dirt. Then it’s anything but quiet.'\n\nYou both lean over the parchment, the chatter of the tavern fading into a dull hum as the firelight glows over ink and intent. ",
+		"choices": {
+		  "1": {
+				"text": "Take a seat.",
+				"output": "010_hurting"	
+			},
+		},
+	},
+	"010_hurting": {
+		"title": "",
+		"picture": "",
+		"narr_text": "as you move to take a seat you start wincing at the lingering soreness in your muscles.\n\nShe notices. 'Still hurting?' she asks, settling in her chair nicely. You nod. 'Feels like I got trampled by a stampede.'\n\nKaela smirks, 'You’ve been out for a while. Muscle atrophy hits harder than you’d think.'\n\nYou glance at her.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "010_answers"	
+			},
+		},
+	},
+	"010_answers": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'How long was I out? Why can’t I remember much of anything?' \n\nShe watches you quietly for a moment, eyes narrowing. 'Wait... You don’t remember anything?' Her tone sharpens, concern flickering in her gaze. 'That mark on your wrist—are you saying you don’t even know how you got it?'",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "009_mark_conversation"	
 			},
 		},
 	},
 	"009_mark_conversation": {
 		"title": "Fragments and Marks",
 		"picture": "res://assets/art/Wrist_Mark.jpg",
-		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing. Like its clouded.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark—it’s tied to some heavy stuff. I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern. You turn just in time to see a rugged man charging straight toward you, sword raised high.\n\nTime slows. Your body moves before your mind can catch up. You twist to the side as the blade crashes down, splitting the wooden chair in two.\n\nGasps echo through the tavern. Conversations cease. Kaela is already moving, eyes locked on the attacker.\n\nThe bandit snarls and slashes again—you dodge, barely. Kaela lunges toward you but veers away, shouting, 'MOVE!' before grabbing your hand and dragging you after her.\n\nThe two of you burst out the front door, feet pounding the muddy road as shouting erupts behind you.",
+		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing. Like its clouded.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark—it’s tied to some heavy stuff. I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern.",
 		"choices": {
 			"1": {
-				"text": "Run with her into the alley!",
-				"output": "010_alley_escape"
+				"text": "Continue!",
+				"output": "009_axe"
+			},
+		},
+	},
+	"009_axe": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You turn just in time to see a rugged man charging straight toward you, sword raised high.\n\nTime slows. Your body moves before your mind can catch up. You twist to the side as the blade crashes down, splitting the wooden chair in two.\n\nGasps echo through the tavern. Conversations cease. Kaela is already moving, eyes locked on the attacker",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "009_axe2"	
+			},
+		},
+	},
+	"009_axe2": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The bandit snarls and slashes again—you dodge, barely. Kaela lunges toward you but veers away, shouting, 'MOVE!' before grabbing your hand and dragging you after her.\n\nThe two of you burst out the front door, feet pounding the muddy road as shouting erupts behind you.",
+		"choices": {
+		  "1": {
+				"text": "Follow behind Kaela.",
+				"output": "010_alley_run"	
+			},
+		},
+	},
+	"010_alley_run": {
+		"title": "Escape in the Rain",
+		"picture": "res://assets/art/Alley_Run.jpg",
+		"narr_text": "Rain starts to fall as Kaela pulls you into a narrow alley between old stone buildings. You slip over cobblestones slick with moss but manage to keep pace. The sound of boots pounding behind you is getting closer.\n\n'Left!' she shouts, vaulting over a crate. You follow, heart thundering. The two of you scale a broken stairwell, leap across gaps between rooftops, and knock barrels down to slow your pursuers.\n\nOne bandit missteps and crashes through a wooden awning. Another tumbles off a ledge with a scream.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "010_alley_escape",
 			},
 		},
 	},
 	"010_alley_escape": {
-		"title": "Escape in the Rain",
+		"title": "",
 		"picture": "res://assets/art/Alley_Run.jpg",
-		"narr_text": "Rain starts to fall as Kaela pulls you into a narrow alley between old stone buildings. You slip over cobblestones slick with moss but manage to keep pace. The sound of boots pounding behind you is getting closer.\n\n'Left!' she shouts, vaulting over a crate. You follow, heart thundering. The two of you scale a broken stairwell, leap across gaps between rooftops, and knock barrels down to slow your pursuers.\n\nOne bandit missteps and crashes through a wooden awning. Another tumbles off a ledge with a scream.\n\nOnly two remain.\n\nKaela skids to a stop in a rain-slick courtyard, her breath visible in the cool air. She draws a short blade from beneath her coat. 'No more running.'\n\nYou spot a broken 2x4 near a stack of crates and pick it up, gripping it tight. One of the remaining bandits lunges at you, while the other circles Kaela.\n\nShe meets your eyes and you glare back with a stern expression. 'Let’s end this.'",
+		"narr_text": "Only two remain.\n\nKaela skids to a stop in a rain-slick courtyard, her breath visible in the cool air. She draws a short blade from beneath her coat. 'No more running.'\n\nYou spot a broken 2x4 near a stack of crates and pick it up, gripping it tight. One of the remaining bandits lunges at you, while the other circles Kaela.\n\nShe meets your eyes and you glare back with a stern expression. 'Let’s end this.'",
 		"choices": {
 		  "1": {
 				"text": "Fight the bandit with the 2x4!",
-				"output": "011_inn_ransacked",
+				"output": "011_after_combat",
 				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
+			},
+		},
+	},
+	"011_after_combat": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Panting, bruised, you stagger beside Kaela. Blood drips from a wound near your ribs. She curses softly, rummages in her coat, and tosses you a vial. 'Drink. Now.' The potion stings going down, but warmth floods your veins. She offers a bronze dagger, nodding. 'Got this off the corpse. Yours now.'",
+		"choices": {
+		  "1": {
+				"text": "Take the dagger and look around.",
+				"output": "011_memory_burn"	
+			},
+		},
+	},
+	"011_memory_burn": {
+		"title": "",
+		"picture": "",
+		"narr_text": "As you grip the dagger, a shimmer of danger flickers. A bandit perches above, crossbow drawn. \n\nInstinct takes over—your palm ignites with light. A flash, then silence. \nThe man slumps. \nPain blooms in your chest. \nYou clutch it—and suddenly remember standing alone in the woods. The same burning feeling...",
+		"choices": {
+		  "1": {
+				"text": "Ask about your armor.",
+				"output": "011_missing_armor"	
+			},
+		},
+	},
+	"011_missing_armor": {
+		"title": "",
+		"picture": "",
+		"narr_text": "No chestplate. No sign of what once protected you in that forest. 'Kaela... where’s my armor?' She avoids your eyes while checking her surroundings. 'Damn.. Scholar's got it. it was radiating unstable magic so I gave it to him to find what's wrong with it. Come, we have to keep moving.' \n\nShe grabs your arm and runs away with you into the distance.",
+		"choices": {
+		  "1": {
+				"text": "Continue",
+				"output": "011_to_the_inn"	
+			},
+		},
+	},
+	"011_to_the_inn": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You and Kaela dart through narrow alleys, vaulting crates and fences. Her grip on your arm is iron. 'We’ll circle back to the inn,' she pants. 'Left supplies there.” “Who were they?” you ask. 'Bounty hunters. I think.' Your pulse pounds. 'For me?', 'Looks like it.' She doesn’t say more, but her jaw tightens.",
+		"choices": {
+		  "1": {
+				"text": "Follow her to the inn.",
+				"output": "011_inn_ransacked"	
 			},
 		},
 	},
 	"011_inn_ransacked": {
 		"title": "",
 		"picture": "res://assets/art/Alley_Run.jpg",
-		"narr_text": " after the fight You and Kaela dart through narrow alleys, vaulting crates and fences. Her grip on your arm is iron. “We’ll circle back to the inn,” she pants. “Left supplies there.” “Who were they?” you ask. “Bounty hunters. I think.” Your pulse pounds. “For me?” “Looks like it.” She doesn’t say more, but her jaw tightens.",
+		"narr_text": "As you approach the inn you both head inside quickly and go upstares when you see that your room door creaks open. Inside, overturned chairs and shattered bottles mark chaos. Kaela’s bag, weapons, even her gold—gone. She stands frozen, fists clenched. 'Everything’s missing.' Footsteps clatter downstairs. A villager bursts in, breathless. 'They’re here. Downstairs. Asking for you two. You need to leave. Now.'",
 		"choices": {
 		  "1": {
-				"text": "Fight the bandit with the 2x4!",
-				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json",
-				"output": "011_fight_sequence"	
+				"text": "Ask what's going on.",
+				"output": "011_villager_confrontation"	
 				
+			},
+		},
+	},
+	"011_villager_confrontation": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The woman—Kaela’s friend—glares at her. 'You brought this on us. Asking around about that mark. Trying to sell his chestplate?' She jabs a finger at Kayla. 'Now bounty hunters are sniffing around like wolves.' Kaela tries to protest. The woman cuts her off. 'You're indebted to him now, Kaela.'",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "011_go_to_the_elf"	
+			},
+		},
+	},
+	"011_go_to_the_elf": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'Go to that miserable elf. The scholar,' the friend says, voice trembling. 'If anyone knows what’s really going on, it’s him.' You step forward. 'Why did she take my chestplate?' The woman snorts. 'Study it. Sell it. Same thing. Now jump.' She throws the window open. 'They’re coming.'",
+		"choices": {
+		  "1": {
+				"text": "I need answers.",
+				"output": "011_window_escape"	
+			},
+		},
+	},
+	"011_window_escape": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Kaela grabs your wrist. 'No time.' The two of you leap from the window just as voices rise behind you. You hit the mud hard. Kaela groans. 'Come on.' She pulls you up. 'We go to the elf. He has your armor—and maybe some answers.' You start running again.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "011_ends"	
+			},
+		},
+	},
+	"011_ends": {
+		"title": "THANKS FOR PLAYING SO FAR",
+		"picture": "",
+		"narr_text": "That's all for CHOYA so far! Thank you so much for being a beta tester and joining us on this early part of the journey. Your feedback and support have been incredibly valuable. We're currently working on several exciting new features, including Audio System 2.0 to bring custom music into each chapter and scene, improved visual effects to enhance immersion, a deeper and more tactical combat system, and the introduction of inventory and stat tracking to reflect your choices and progression. There's a lot more to come, and we’re thrilled to have you with us as we continue building this world. Thank you again for playing!",
+		"choices": {
+		  "1": {
+				"text": "Bye.",
+				"output": "011_ends"	
 			},
 		},
 	},

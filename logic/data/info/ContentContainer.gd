@@ -120,7 +120,8 @@ func process_choice(choice_index: int) -> void:
 	if choice_data.has("load_combat_encounter"):
 		var combat_data_path = choice_data["load_combat_encounter"]
 		start_combat_encounter(combat_data_path)
-		return
+		
+		
 
 	if content_dict[current_page]["choices"][str(choice_index)].has("output"):
 		get_parent().scroll_vertical = 0
