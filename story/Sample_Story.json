@@ -777,6 +777,201 @@
 		"choices": {
 		  "1": {
 				"text": "Continue.",
+				"output": "012_arrive_at_emporium"	
+			},
+		},
+	},
+	"012_arrive_at_emporium": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You and Kaela arrive breathless at the edge of the Emporium—a squat tower of stone and metal wreathed in blue glyphlight. Four mercenaries eye you with suspicion. Kaela raises her hand, muttering a name. They let you through.",
+		"choices": {
+		  "1": {
+				"text": "Enter the mage’s workshop.",
+				"output": "012_meet_the_mage"	
+			},
+		},
+	},
+	"012_meet_the_mage": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Inside, the air hums with power. Crystal runes glow on hanging chains. Behind a cluttered desk stands the first elf you’ve ever seen—pale as snow, with eyes like frozen stars. 'You must be Lyaris Talbot,' he says flatly. 'Sit.",
+		"choices": {
+		  "1": {
+				"text": "Sit down.",
+				"output": "012_mage_questions"	
+			},
+		},
+	},
+	"012_mage_questions": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The elf's gaze pierces you. 'How often does the soreness flare up—when you use mana, or just when you think too hard?' He steps closer. 'This girl saved your life and is now endangering it due to her lack of caution and curiosity' You blink. He’s not done. 'This burg is called Nytheas, I doubt the half elf would have told you but you are in the Verdent Dominion, Specifically The Sylvan Concord.'",
+		"choices": {
+		  "1": {
+				"text": "Where is my armor?",
+				"output": "012_mage_explains"	
+			},
+		  "2": {
+				"text": "I didn't know that.",
+				"output": "012_mage_explains"	
+			},
+		},
+	},
+	"012_mage_explains": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'This town isn't governed—it's auctioned off by merchant factions,' the mage mutters. 'Word of your mark will spread for a time. Power always draws carrion.' \n\nHe studies you for a long moment. 'You’re not just some vagrant. That mark, the quality of your armor… it’s a recent design that the Solarians adapted from the Terrans...', you reflexively touch your mark again and the Elf notices and responds by asking 'You keep touching the tattoo. Is that comfort, or a failed attempt to ground yourself?', You don't respond.",
+		"choices": {
+		  "1": {
+				"text": "Continue",
+				"output": "012_mage_2"	
+			},
+		},
+	},
+	"012_mage_2": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The Elf starts walking about, handling various ingredients and putting things together, Kaela moves to speak but the elf raises a hand and she stops before a sound comes out of her mouth. Upon pointing to the direction outside suddenly sounds of shouting comes from outside, kaela looks the mage in the eye and turns to go back outside.",
+		"choices": {
+		  "1": {
+				"text": "Follow her",
+				"output": "012_mage_3"	
+			},
+		},
+	},
+	"012_mage_3": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'Stay here' The elf says to you. you freeze in place despite yourself and turn around to glance at the elf 'Come, follow me' he says as he goes deeper into the emporium.",
+		"choices": {
+		  "1": {
+				"text": "Turn back and follow the elf",
+				"output": "012_mage_4"	
+			},
+		},
+	},
+	"012_mage_4": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Despite the sounds and shouting outside you turn back to follow the elf deeper in the emporium into a new room, \n\nThe room smelled of old vellum, dust, and scorched silver. Wards glimmered faintly across the stone walls—sigils not meant to be read, only obeyed. A low fire hissed in the hearth, casting long shadows behind racks of enchanted relics and half-open books.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "012_mage_5"	
+			},
+		},
+	},
+	"012_mage_5": {
+		"title": "",
+		"picture": "",
+		"narr_text": "The cauldron hissed, and the scent of bitter dandelion and powdered redroot filled the room. Glass vials lined the shelves like soldiers waiting for command, their contents glowing faintly—amber, cerulean, a vicious green that seemed to crawl. 'you brought bandits to my emporium and I have no doubt they are destroying my item display that I had outside, I assume you plan to pay for this?'\n\nThe elf stirred the mixture once, twice. Counterclockwise. Always counterclockwise. His eyes never left you as you are seated by the wall. 'I plan to, I just want to find answers.' you say desperately, the elf looks long and hard into your eyes then looks away. 'No memories...'",
+		"choices": {
+		  "1": {
+				"text": "I don't remember anything.",
+				"output": "012_mage_6"	
+			},
+		},
+	},
+	"012_mage_6": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'You have Retrograde Amnesia, it may be permanent. your mind and behavior and and core personality are unchanged, you just can't recall things such as names, dates, places, and specific personal experiences', You listen on with a semi shocked look on your face before he continues. \n\n'As for how... you likely suffered from a mana burst event, which should be unlikely since we haven't had one of those in 500 years, but this is the only thing that could have occured.'",
+		"choices": {
+		  "2": {
+				"text": "Why did this happen?",
+				"output": "012_mage_7"	
+			},
+		  "1": {
+				"text": "How can I fix it",
+				"output": "012_mage_7"	
+			},
+		},
+	},
+	"012_mage_7": {
+		"title": "",
+		"picture": "",
+		"narr_text": "He swirled the next ingredient into the brew, the liquid thickening into a honeyed coil. 'from my observations, you must be an adventurer, likely not of this area to say the least, you will need to figure that out for yourself after you solve the present situation'",
+		"choices": {
+		  "1": {
+				"text": "Present Situation?",
+				"output": "012_mage_8"	
+			},
+		},
+	},
+	"012_mage_8": {
+		"title": "",
+		"picture": "",
+		"narr_text": "Just as the words leave your lips the walls of the emporium shook with the blast, a dull thunder that rolled through the stone like the growl of some ancient beast. Glass shattered. Screams tore through the air beyond the heavy oak doors—women, and perhaps a child.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "012_mage_blow"	
+			},
+		},
+	},
+	"012_mage_blow": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You flinched instinctively, hand darting to the dagger at your belt, steel hissing free. It felt familiar. Weighted for your grip. Balanced like a limb you’d never forgotten how to use. \n\n'What was that?' you asked, heart pounding. \n\nThe elf didn’t flinch. He simply looked up from his potion bench, eyes as pale and calm as polished ice. 'Likely a fire bomb,' he said, as if remarking on the weather. 'The ingredients to make those are rare in these parts. Expensive. You don’t waste them on noise unless you’re trying to make a point.'",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "012_mage_blow1"	
+			},
+		},
+	},
+	"012_mage_blow1": {
+		"title": "",
+		"picture": "",
+		"narr_text": "He turned back to his vials, but his voice darkened. 'You need to go.', You stared at him, heat and fear rising up like bile. \n\n'Why me? I don’t know anything about myself. Not who I am. Not why I’m here. What makes you think I can help?' \n\nThe elf finally looked up again. Slowly. Measured. Not unkind, but utterly without pity. 'Because from where I’m standing, you’re already helping.'",
+		"choices": {
+		  "1": {
+				"text": "Continue",
+				"output": "012_mage_blow2"	
+			},
+		},
+	},
+	"012_mage_blow2": {
+		"title": "",
+		"picture": "",
+		"narr_text": "He gestured with the pestle at the way you stood—dagger in hand, legs braced in that unconscious stance of readiness, weight balanced at the balls of your feet. 'That’s not how a baker holds a blade. Or a farmer. You’re a warrior. Or were. Maybe more. You’ve fought monsters before, even if your mind’s dropped the memory.', He corked the final vial, hands steady despite the rising panic outside. \n\n'Memory is a library. You’ve lost the map, but the books are still there.'\n\n\nyour throat is dry.",
+		"choices": {
+		  "1": {
+				"text": "Then what do I do?",
+				"output": "012_mage_blow3"	
+			},
+		},
+	},
+	"012_mage_blow3": {
+		"title": "",
+		"picture": "",
+		"narr_text": "'Act like you’ve always done.', He walked past you, pausing at the door to the alchemy chamber. 'Keep your head up. Trust what feels natural.' His gaze narrowed slightly. 'And protect Kayla.' \n\nAnother scream. Closer this time. Boots thudded outside the hall.",
+		"choices": {
+		  "1": {
+				"text": "Continue.",
+				"output": "012_mage_blow4"	
+			},
+		},
+	},
+	"012_mage_blow4": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You nod. 'This isn't charity.' He says as he hands you a flask. 'Stabilizes your mana and should bring you back to good health. No more headaches and bad chest pains, but you will still be sore for a few weeks.' He slides your armor forward—sleek, refitted, and glowing faintly. 'Still dense with mana, but I turned it into an advantage. It’ll break easier, though.' A scroll for Kaela. A short sword for you. \n\n'And your name—Talbot. That’s Solarian. Think on that.'",
+		"choices": {
+		  "1": {
+				"text": "Take everything and thank him.",
+				"output": "012_mage_blow5"	
+			},
+		},
+	},
+	"012_mage_blow5": {
+		"title": "",
+		"picture": "",
+		"narr_text": "A boom rocks the tower. Dust rains from above. 'That’s your cue,' the elf says calmly. Kaela is already fighting out there. 'You need to get rid of the bandits outside—now.' The mercenaries outside shout. Fires bloom on the horizon. \n\nThe mage calls after you as you start to leave: 'If you survive, come back. There’s more you need to know.",
+		"choices": {
+		  "1": {
+				"text": "Run outside.",
 				"output": "011_ends"	
 			},
 		},
