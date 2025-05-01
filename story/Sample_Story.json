@@ -323,6 +323,7 @@
 	"003_archer_appearance": {
 		"title": "An Unexpected Ally",
 		"picture": "res://assets/art/Elf_Ranger.jpg",
+		"music": "res://assets/Music/2000_Peace.ogg",
 		"narr_text": "Before you can notice, Another wolf to your flank crouches low, readying itself for another lunge. Time slows as you attempt to react but your chest gives away. as you fall to your knees you look at the wolf with eyes filled with rage refusing the inevitable. Then, the sharp twang of a bowstring cuts through the tension. An arrow flies through the air and buries itself into the wolf’s skull with perfect precision. The beast collapses instantly, lifeless.\n\nYou turn your head and see her. A woman steps out of the shadows, bow in hand and a small, amused smile on her face. Her features are sharp yet friendly from her ears to her form, She hurried over while saying. 'You looked like you could use a hand,' she says casually, lowering her bow.\n\nRelief floods through you, the adrenaline finally fading. You open your mouth to speak, but as your eyes meet exhaustion catches up to you. The last thing you see is her rushing toward you as your vision fades to black.",
 		"choices": {
 			"1": {
@@ -465,6 +466,7 @@
 	"008_kaela_interest": {
 		"title": "A Curious Bond",
 		"picture": "res://assets/art/Kaela_Staring.jpg",
+		"music": "res://assets/Music/Cobblestone_Village_Tavern.mp3",
 		"narr_text": "You both walk in silence as the dried grass crunch under your feet for a moment until she decides to speak again 'Terrans don’t come this far. Not many make it past the port,' Kaela says with a thoughtful frown. 'And you don’t seem like the.....'\n\nShe looks at you for a long moment, her gaze intense yet not unkind. 'I’ve met a few of your kind in the past. Adventurers, explorers... they.... you seem different. I can’t quite place it.'\n\nShe pauses, letting her words sink in before adding, 'Maybe it’s that look in your eyes. The same one I had when I first ventured out of my country, seeking... something.'\n\nShe smirks lightly, glancing away. 'But you can’t expect me to believe you’re just wandering around aimlessly, can you?'",
 		"choices": {
 			"1": {
@@ -623,6 +625,7 @@
 	"009_mark_conversation": {
 		"title": "Fragments and Marks",
 		"picture": "res://assets/art/Wrist_Mark.jpg",
+		"music": "res://assets/Music/Chainsaw-Man-OPMED.mp3",
 		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing. Like its clouded.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark—it’s tied to some heavy stuff. I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern.",
 		"choices": {
 			"1": {

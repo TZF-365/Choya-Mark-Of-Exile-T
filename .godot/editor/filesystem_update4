@@ -16,3 +16,8 @@ res://scenes/entities/Goblin.tscn
 res://scenes/combat_screen_new.tscn
 res://scenes/entities/Player.tscn
 res://scenes/System/Tools.tscn
+res://scenes/main_menu.tscn
+res://assets/pixelart/pixelart.tres
+res://logic/backend/viewport_container.gd
+res://logic/data/info/ContentContainer.gd
+res://logic/data/info/game_screen.gd

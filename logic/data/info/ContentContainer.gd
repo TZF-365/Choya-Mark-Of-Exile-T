@@ -105,15 +105,9 @@ func _process(_delta):
 func process_choice(choice_index: int) -> void:
 	
 	statindicator.text = ""
-	#choice_index is just specifically which button is pressed to make a choice
-	#print("PIZZA ", choice_index)
-	#print("PIZZA ", content_dict)
-	
-
 	if is_dead:
 		current_page = death_page
 			
-		
 	var choice_data = content_dict[current_page]["choices"][str(choice_index)]
 	#print("PIZZA ", choice_data)
 	# Check if the choice includes a combat encounter
@@ -121,6 +115,12 @@ func process_choice(choice_index: int) -> void:
 		var combat_data_path = choice_data["load_combat_encounter"]
 		start_combat_encounter(combat_data_path)
 		
+	var next_page_data = content_dict.get(current_page, {})
+	if next_page_data.has("music"):
+		var music_path = next_page_data["music"]
+		var music_stream = load(music_path)
+		await AudioManager.fade_out_music()
+		AudioManager.play_music(music_stream)
 		
 
 	if content_dict[current_page]["choices"][str(choice_index)].has("output"):
