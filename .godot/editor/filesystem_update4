@@ -1,4 +1,4 @@
-res://scenes/entities/Death.tscn
+res://scenes/game_screen.tscn
 res://logic/data/resources/Techniques/cleave.tres
 res://logic/data/resources/Techniques/special_cleave.tres
 res://logic/data/resources/Techniques/finishing_cleave.tres
@@ -9,12 +9,10 @@ res://logic/data/resources/Items/weapons/bronze_dagger.tres
 res://assets/pixelart/troochi.tres
 res://assets/pixelart/game_screen_di.tres
 res://assets/pixelart/SE_Bottom_menu.tres
-res://story/storyenemies/gobby_the_ugly_encounter.json
+res://assets/pixelart/Combat_screen_Bottom Buttons.tres
 res://story/Sample_Story.json
 res://scenes/combat_screen.tscn
-res://scenes/game_screen.tscn
-res://scenes/entities/Gobby_The_Ugly.tscn
-res://scenes/entities/Grimy Outlaw.tscn
-res://logic/data/resources/Items/armors/hide_armor.tres
-res://logic/data/combatLogic/Battlemanager.gd
-res://export_presets.cfg
+res://scenes/entities/Goblin.tscn
+res://scenes/combat_screen_new.tscn
+res://scenes/entities/Player.tscn
+res://scenes/System/Tools.tscn

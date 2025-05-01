@@ -309,7 +309,7 @@
 				},
 				"buffs": {
 					"mana": -10,
-					"current_hp": -1
+					"current_hp": -10
 				},
 				"output": "002_draw_power",
 				"failed_output": "003_archer_appearance"
@@ -627,6 +627,9 @@
 		"choices": {
 			"1": {
 				"text": "Continue!",
+				"buffs": {
+					"current_stamina": -7,
+				},
 				"output": "009_axe"
 			},
 		},
@@ -669,10 +672,13 @@
 		"picture": "res://assets/art/Alley_Run.jpg",
 		"narr_text": "Only two remain.\n\nKaela skids to a stop in a rain-slick courtyard, her breath visible in the cool air. She draws a short blade from beneath her coat. 'No more running.'\n\nYou spot a broken 2x4 near a stack of crates and pick it up, gripping it tight. One of the remaining bandits lunges at you, while the other circles Kaela.\n\nShe meets your eyes and you glare back with a stern expression. 'Let’s end this.'",
 		"choices": {
-		  "1": {
+			"1": {
 				"text": "Fight the bandit with the 2x4!",
+				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json",
+				"buffs": {
+					"current_hp": 70,
+				},
 				"output": "011_after_combat",
-				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
 			},
 		},
 	},
@@ -683,6 +689,9 @@
 		"choices": {
 		  "1": {
 				"text": "Take the dagger and look around.",
+				"buffs": {
+					"mana": -7,
+				},
 				"output": "011_memory_burn"	
 			},
 		},
@@ -750,6 +759,10 @@
 		"choices": {
 		  "1": {
 				"text": "I need answers.",
+				"buffs": {
+					"max_stamina": -9,
+					"current_hp": -7,
+				},
 				"output": "011_window_escape"	
 			},
 		},
