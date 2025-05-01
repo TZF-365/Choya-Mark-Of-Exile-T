@@ -21,3 +21,4 @@ res://assets/pixelart/pixelart.tres
 res://logic/backend/viewport_container.gd
 res://logic/data/info/ContentContainer.gd
 res://logic/data/info/game_screen.gd
+res://export_presets.cfg
