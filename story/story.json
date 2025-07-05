@@ -1,0 +1,234 @@
+{
+	"black_merchant_intro": {
+		"title": "The Merchant of Shadows",
+		"picture": "res://assets/art/merchant_tent.jpg",
+		"music": "res://assets/music/merchant_theme.ogg",
+		"narr_text": "A strange scent drifts through the dense fog as you stumble upon a colorful caravan nestled between the twisted trees. Lanterns flicker like fireflies, and a tall man in deep robes gestures you forward. \"You are not from around here,\" he says, his voice like coals under silk. \"But that matters little. What do you desire, traveler?\"",
+		"choices": {
+			"1": {
+				"text": "Power, at any cost",
+				"output": "black_merchant_power",
+				"requirement": {
+					"mana": 10
+				},
+				"buffs": {
+					"mana": -10
+				}
+			},
+			"2": {
+				"text": "Wisdom, to make the right choices",
+				"output": "black_merchant_wisdom"
+			},
+			"3": {
+				"text": "Freedom, to walk my own path",
+				"output": "black_merchant_freedom"
+			}
+		}
+	},
+	"black_merchant_power": {
+		"title": "Black Merchant Power",
+		"picture": "",
+		"music": "",
+		"narr_text": "He smiles, baring a glint of gold tooth. \"Then bleed, for power never comes free.\" He uncorks a flask. The smell is sharp — ancient. Drinking it sears your throat, your mind reels.",
+		"choices": {
+			"1": {
+				"text": "Drink the elixir",
+				"output": "black_merchant_power_result",
+				"buffs": {
+					"val": 2,
+					"mana": 5,
+					"current_hp": -10
+				}
+			},
+			"2": {
+				"text": "Throw it to the ground",
+				"output": "black_merchant_throw_elixir"
+			}
+		}
+	},
+	"black_merchant_power_result": {
+		"title": "Black Merchant Power Result",
+		"picture": "",
+		"music": "",
+		"narr_text": "The world dims, then flares bright. For a moment, you see all — the strings that bind fate and fear. The merchant chuckles. \"You are more interesting than I thought.\"",
+		"choices": {
+			"1": {
+				"text": "Ask what he saw in you",
+				"output": "black_merchant_vision"
+			},
+			"2": {
+				"text": "Leave before he asks more of you",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_throw_elixir": {
+		"title": "Black Merchant Throw Elixir",
+		"picture": "",
+		"music": "",
+		"narr_text": "The elixir sizzles as it touches the soil. The merchant raises a brow. \"A shame. You might have done great things.\"",
+		"choices": {
+			"1": {
+				"text": "Apologize",
+				"output": "black_merchant_wisdom"
+			},
+			"2": {
+				"text": "Remain silent",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_wisdom": {
+		"title": "Black Merchant Wisdom",
+		"picture": "",
+		"music": "",
+		"narr_text": "He reaches beneath his cloak, pulling out a single glowing orb. \"Ask it one question. One truth. But beware — clarity can curse as much as it blesses.\"",
+		"choices": {
+			"1": {
+				"text": "Ask about your past",
+				"output": "black_merchant_past",
+				"requirement": {
+					"val": 1
+				}
+			},
+			"2": {
+				"text": "Ask about your future",
+				"output": "black_merchant_future"
+			},
+			"3": {
+				"text": "Refuse the offer",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_past": {
+		"title": "Black Merchant Past",
+		"picture": "",
+		"music": "",
+		"narr_text": "The orb pulses, then dims. A memory you didn’t know you had surfaces — fire, screaming, your own name spoken with fear. \"You were betrayed,\" the merchant says simply. \"Now you can choose vengeance... or peace.\"",
+		"choices": {
+			"1": {
+				"text": "Swear vengeance",
+				"output": "black_merchant_vengeance"
+			},
+			"2": {
+				"text": "Choose peace",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_future": {
+		"title": "Black Merchant Future",
+		"picture": "",
+		"music": "",
+		"narr_text": "The orb shows only a river, endlessly splitting into branches. \"You have many paths. But only one true end.\"",
+		"choices": {
+			"1": {
+				"text": "Demand clarity",
+				"output": "black_merchant_vision"
+			},
+			"2": {
+				"text": "Accept uncertainty",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_vengeance": {
+		"title": "Black Merchant Vengeance",
+		"picture": "",
+		"music": "",
+		"narr_text": "He nods approvingly. \"Then prove it. Take this blade.\"",
+		"choices": {
+			"1": {
+				"text": "Accept the cursed blade",
+				"output": "black_merchant_combat_intro",
+				"buffs": {
+					"val": 3,
+					"mana": -5
+				}
+			},
+			"2": {
+				"text": "Refuse the gift",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_freedom": {
+		"title": "Black Merchant Freedom",
+		"picture": "",
+		"music": "",
+		"narr_text": "He bows slightly. \"A rare choice. I will not bind you.\" But as you turn to leave, the shadows close in. \"Still,\" he murmurs, \"freedom must be earned.\"",
+		"choices": {
+			"1": {
+				"text": "Face the shadows",
+				"output": "black_merchant_shadow_battle",
+				"load_combat_encounter": "res://story/combat/shadow_trial.json"
+			},
+			"2": {
+				"text": "Run",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_vision": {
+		"title": "Black Merchant Vision",
+		"picture": "",
+		"music": "",
+		"narr_text": "He smiles. \"The truth is a blade. Wield it carefully.\" He fades into the dark as a breeze stirs the tent flaps. The caravan is gone.",
+		"choices": {
+			"1": {
+				"text": "Step into the forest, changed",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_combat_intro": {
+		"title": "Black Merchant Combat Intro",
+		"picture": "",
+		"music": "",
+		"narr_text": "You grip the blade. It hums with hunger. Shadows rise from the corners of the tent — snarling, human-shaped things.",
+		"choices": {
+			"1": {
+				"text": "Fight them",
+				"output": "black_merchant_combat",
+				"load_combat_encounter": "res://story/combat/merchant_guardians.json"
+			}
+		}
+	},
+	"black_merchant_combat": {
+		"title": "Black Merchant Combat",
+		"picture": "",
+		"music": "",
+		"narr_text": "This is where your story will be forged in blood.",
+		"choices": {
+			"1": {
+				"text": "Continue after the battle",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"black_merchant_shadow_battle": {
+		"title": "Black Merchant Shadow Battle",
+		"picture": "",
+		"music": "",
+		"narr_text": "You draw your breath, steady your hands. The shadow trial begins.",
+		"choices": {
+			"1": {
+				"text": "Continue after the trial",
+				"output": "forest_exit"
+			}
+		}
+	},
+	"forest_exit": {
+		"title": "Forest Exit",
+		"picture": "",
+		"music": "",
+		"narr_text": "The wind shifts. Leaves whisper. The Black Merchant is gone — or perhaps he was never there. But something in you is... different.",
+		"choices": {
+			"1": {
+				"text": "Continue your journey",
+				"output": "next_scene"
+			}
+		}
+	}
+}

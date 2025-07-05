@@ -6,6 +6,8 @@ var dialogPath: Array = [
 	"res://story/Sample_Story.json",
 	"res://story/tavern1.json",
 	"res://story/game_over.json",
+	"res://story/story.json",
+	
 ]
 
 # Current phrase number

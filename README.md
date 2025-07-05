@@ -65,6 +65,7 @@ This project is built on top of the [Interactive Story System](https://github.co
 - Event and story management logic
 - Custom UI elements for interactive stories
 
+It has since been rebuilt from scratch but the game origonally used this as the skeliton so no worries. 
 ---
 
 ## 💡 Contribute

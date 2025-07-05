@@ -24,7 +24,6 @@ func _on_Menu_button_pressed() -> void:
 	TransitionManager.transition(0.5)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
-	SaveManager.save_current_game()
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 
 

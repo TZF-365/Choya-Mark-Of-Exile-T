@@ -817,6 +817,7 @@ text = "Panel"
 metadata/_edit_use_anchors_ = true
 
 [node name="Help" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+visible = false
 custom_minimum_size = Vector2(220, 100)
 layout_mode = 1
 anchors_preset = -1

@@ -6,7 +6,7 @@
 		"choices": {
 			"1": {
 				"text": "Continue.",
-				"output": "000_prologue_c1",
+				"output": "000_prologue_c1"
 			}
 		}
 	},
@@ -17,7 +17,7 @@
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
-				"output": "000_prologue_2",
+				"output": "000_prologue_2"
 			},
 			"2": {
 				"text": "Take in the surroundings.",
@@ -105,7 +105,7 @@
 			"1": {
 				"text": "Continue",
 				"output": "000_prologue_5_c1"
-			},
+			}
 		}
 	},
 
@@ -118,7 +118,7 @@
 			"1": {
 				"text": "Continue",
 				"output": "000_prologue_5_c2"
-			},
+			}
 		}
 	},
 
@@ -131,7 +131,7 @@
 			"1": {
 				"text": "Continue",
 				"output": "000_prologue_5_c3"
-			},
+			}
 		}
 	},
 
@@ -275,7 +275,7 @@
 				},
 				"buffs": {
 					"mana": -4,
-					"current_hp": -7,
+					"current_hp": -7
 				},
 				"output": "002_draw_power",
 				"failed_output": "002_physical_confrontation"
@@ -472,8 +472,8 @@
 			"1": {
 				"text": "Stay Silent.",
 				"output": "009_guild_arrival"
-			},
-		},
+			}
+		}
 	},
 	"009_guild_arrival": {
 		"title": "The Adventurer's Guild",
@@ -483,8 +483,8 @@
 			"1": {
 				"text": "Continue",
 				"output": "009_kindly_help"
-			},
-		},
+			}
+		}
 	},
 	"009_kindly_help": {
 		"title": "",
@@ -494,8 +494,8 @@
 		  "1": {
 				"text": "Listen to what she has to say.",
 				"output": "09_a_bold-lady"	
-			},
-		},
+			}
+		}
 	},
 	"09_a_bold-lady": {
 		"title": "",
@@ -505,8 +505,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "09_a_boar_problem"	
-			},
-		},
+			}
+		}
 	},
 	"09_a_boar_problem": {
 		"title": "",
@@ -516,8 +516,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "09_boars"	
-			},
-		},
+			}
+		}
 	},
 	"09_boars": {
 		"title": "",
@@ -527,8 +527,8 @@
 		  "1": {
 				"text": "is that a weird behavior for boars?",
 				"output": "09_boars2"	
-			},
-		},
+			}
+		}
 	},
 	"09_boars2": {
 		"title": "",
@@ -538,8 +538,8 @@
 		  "1": {
 				"text": "Ah, I see",
 				"output": "09_boar3"	
-			},
-		},
+			}
+		}
 	},
 	"09_boar3": {
 		"title": "",
@@ -549,8 +549,8 @@
 		  "1": {
 				"text": "So let me guess—most adventurers won’t take the job",
 				"output": "09_boar4"	
-			},
-		},
+			}
+		}
 	},
 	"09_boar4": {
 		"title": "",
@@ -560,8 +560,8 @@
 		  "1": {
 				"text": "Continue",
 				"output": "09_boar5"	
-			},
-		},
+			}
+		}
 	},
 	"09_boar5": {
 		"title": "",
@@ -575,8 +575,8 @@
 		  "2": {
 				"text": "Shelter will do. No beast should roam human fields unchallenged.",
 				"output": "09_boar_hope"	
-			},
-		},
+			}
+		}
 	},
 	"09_boar_hope": {
 		"title": "",
@@ -586,8 +586,8 @@
 		  "1": {
 				"text": "Wave goodbye.",
 				"output": "09_boar_hope_1"	
-			},
-		},
+			}
+		}
 	},
 	"09_boar_hope_1": {
 		"title": "",
@@ -597,8 +597,8 @@
 		  "1": {
 				"text": "Take a seat.",
 				"output": "010_hurting"	
-			},
-		},
+			}
+		}
 	},
 	"010_hurting": {
 		"title": "",
@@ -608,8 +608,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "010_answers"	
-			},
-		},
+			}
+		}
 	},
 	"010_answers": {
 		"title": "",
@@ -619,8 +619,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "009_mark_conversation"	
-			},
-		},
+			}
+		}
 	},
 	"009_mark_conversation": {
 		"title": "Fragments and Marks",
@@ -631,11 +631,11 @@
 			"1": {
 				"text": "Continue!",
 				"buffs": {
-					"current_stamina": -7,
+					"current_stamina": -7
 				},
 				"output": "009_axe"
-			},
-		},
+			}
+		}
 	},
 	"009_axe": {
 		"title": "",
@@ -645,8 +645,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "009_axe2"	
-			},
-		},
+			}
+		}
 	},
 	"009_axe2": {
 		"title": "",
@@ -656,8 +656,8 @@
 		  "1": {
 				"text": "Follow behind Kaela.",
 				"output": "010_alley_run"	
-			},
-		},
+			}
+		}
 	},
 	"010_alley_run": {
 		"title": "Escape in the Rain",
@@ -666,9 +666,9 @@
 		"choices": {
 		  "1": {
 				"text": "Continue.",
-				"output": "010_alley_escape",
-			},
-		},
+				"output": "010_alley_escape"
+			}
+		}
 	},
 	"010_alley_escape": {
 		"title": "",
@@ -679,11 +679,11 @@
 				"text": "Fight the bandit with the 2x4!",
 				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json",
 				"buffs": {
-					"current_hp": 70,
+					"current_hp": 70
 				},
-				"output": "011_after_combat",
-			},
-		},
+				"output": "011_after_combat"
+			}
+		}
 	},
 	"011_after_combat": {
 		"title": "",
@@ -693,11 +693,11 @@
 		  "1": {
 				"text": "Take the dagger and look around.",
 				"buffs": {
-					"mana": -7,
+					"mana": -7
 				},
 				"output": "011_memory_burn"	
-			},
-		},
+			}
+		}
 	},
 	"011_memory_burn": {
 		"title": "",
@@ -707,8 +707,8 @@
 		  "1": {
 				"text": "Ask about your armor.",
 				"output": "011_missing_armor"	
-			},
-		},
+			}
+		}
 	},
 	"011_missing_armor": {
 		"title": "",
@@ -718,8 +718,8 @@
 		  "1": {
 				"text": "Continue",
 				"output": "011_to_the_inn"	
-			},
-		},
+			}
+		}
 	},
 	"011_to_the_inn": {
 		"title": "",
@@ -729,8 +729,8 @@
 		  "1": {
 				"text": "Follow her to the inn.",
 				"output": "011_inn_ransacked"	
-			},
-		},
+			}
+		}
 	},
 	"011_inn_ransacked": {
 		"title": "",
@@ -741,8 +741,8 @@
 				"text": "Ask what's going on.",
 				"output": "011_villager_confrontation"	
 				
-			},
-		},
+			}
+		}
 	},
 	"011_villager_confrontation": {
 		"title": "",
@@ -752,8 +752,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "011_go_to_the_elf"	
-			},
-		},
+			}
+		}
 	},
 	"011_go_to_the_elf": {
 		"title": "",
@@ -764,11 +764,11 @@
 				"text": "I need answers.",
 				"buffs": {
 					"max_stamina": -9,
-					"current_hp": -7,
+					"current_hp": -7
 				},
 				"output": "011_window_escape"	
-			},
-		},
+			}
+		}
 	},
 	"011_window_escape": {
 		"title": "",
@@ -778,8 +778,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "012_arrive_at_emporium"	
-			},
-		},
+			}
+		}
 	},
 	"012_arrive_at_emporium": {
 		"title": "",
@@ -789,8 +789,8 @@
 		  "1": {
 				"text": "Enter the mage’s workshop.",
 				"output": "012_meet_the_mage"	
-			},
-		},
+			}
+		}
 	},
 	"012_meet_the_mage": {
 		"title": "",
@@ -800,8 +800,8 @@
 		  "1": {
 				"text": "Sit down.",
 				"output": "012_mage_questions"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_questions": {
 		"title": "",
@@ -815,8 +815,8 @@
 		  "2": {
 				"text": "I didn't know that.",
 				"output": "012_mage_explains"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_explains": {
 		"title": "",
@@ -826,8 +826,8 @@
 		  "1": {
 				"text": "Continue",
 				"output": "012_mage_2"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_2": {
 		"title": "",
@@ -837,8 +837,8 @@
 		  "1": {
 				"text": "Follow her",
 				"output": "012_mage_3"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_3": {
 		"title": "",
@@ -848,8 +848,8 @@
 		  "1": {
 				"text": "Turn back and follow the elf",
 				"output": "012_mage_4"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_4": {
 		"title": "",
@@ -859,8 +859,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "012_mage_5"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_5": {
 		"title": "",
@@ -870,8 +870,8 @@
 		  "1": {
 				"text": "I don't remember anything.",
 				"output": "012_mage_6"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_6": {
 		"title": "",
@@ -885,8 +885,8 @@
 		  "1": {
 				"text": "How can I fix it",
 				"output": "012_mage_7"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_7": {
 		"title": "",
@@ -896,8 +896,8 @@
 		  "1": {
 				"text": "Present Situation?",
 				"output": "012_mage_8"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_8": {
 		"title": "",
@@ -907,8 +907,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "012_mage_blow"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow": {
 		"title": "",
@@ -918,8 +918,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "012_mage_blow1"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow1": {
 		"title": "",
@@ -929,8 +929,8 @@
 		  "1": {
 				"text": "Continue",
 				"output": "012_mage_blow2"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow2": {
 		"title": "",
@@ -940,8 +940,8 @@
 		  "1": {
 				"text": "Then what do I do?",
 				"output": "012_mage_blow3"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow3": {
 		"title": "",
@@ -951,8 +951,8 @@
 		  "1": {
 				"text": "Continue.",
 				"output": "012_mage_blow4"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow4": {
 		"title": "",
@@ -962,8 +962,8 @@
 		  "1": {
 				"text": "Take everything and thank him.",
 				"output": "012_mage_blow5"	
-			},
-		},
+			}
+		}
 	},
 	"012_mage_blow5": {
 		"title": "",
@@ -973,8 +973,8 @@
 		  "1": {
 				"text": "Run outside.",
 				"output": "011_ends"	
-			},
-		},
+			}
+		}
 	},
 	"011_ends": {
 		"title": "THANKS FOR PLAYING SO FAR",
@@ -984,7 +984,7 @@
 		  "1": {
 				"text": "Bye.",
 				"output": "011_ends"	
-			},
-		},
-	},
+			}
+		}
+	}
 }
