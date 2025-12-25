@@ -1,12 +1,10 @@
 
 
-## 🧭 **Granular Chapter ID Ranges**
+🧭 **Granular Chapter ID Ranges**
 
 Each range is assigned a **narrative phase, region, theme, or emotional arc**. You can adjust the names to fit your world, but this should give you a solid template to structure and sort your story.
 
----
-
-### 🟢 `000–099` – **Prologue & Setup**
+🟢 `000–099` – **Prologue & Setup**
 
 > Player awakening, introduction, early exposition.
 
@@ -18,24 +16,24 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `050–059`: First encounter (combat / danger)
 * `060–099`: Misc. prelude content or lore drops
 
----
 
-### 🏘️ `100–199` – **Village Life & Key NPCs**
+
+`100–199` – **Village Life & Key NPCs**
 
 > Home base, social structure, gathering allies.
 
-* `100–109`: Village overview (exploration)
-* `110–119`: Tavern & rumors
-* `120–129`: Chapel / spiritual insights
-* `130–139`: Market & trade
-* `140–149`: Town hall / authority
-* `150–159`: Village outskirts (small quests)
-* `160–169`: Personal character interactions
-* `170–199`: Optional or branching village quests
+`100–109`: Village overview (exploration)
+`110–119`: Tavern & rumors
+`120–129`: Chapel / spiritual insights
+`130–139`: Market & trade
+`140–149`: Town hall / authority
+`150–159`: Village outskirts (small quests)
+`160–169`: Personal character interactions
+`170–199`: Optional or branching village quests
 
----
 
-### 🌲 `200–299` – **Wyrmwood Forest / Wilds**
+
+`200–299` – **Wyrmwood Forest / Wilds**
 
 > Exploration, mystery, danger escalation.
 
@@ -48,9 +46,8 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `260–269`: Sub-bosses or guardian fights
 * `270–299`: Major choice point or dungeon entrance
 
----
 
-### ⛰️ `300–399` – **Ruins, Deep Zones, Lost Places**
+`300–399` – **Ruins, Deep Zones, Lost Places**
 
 > Forgotten knowledge, ancient secrets, descent.
 
@@ -60,9 +57,9 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `360–379`: Lost civilizations
 * `380–399`: Major reveal or betrayal
 
----
 
-### 💀 `400–499` – **Enemies, Betrayals, and Inner War**
+
+`400–499` – **Enemies, Betrayals, and Inner War**
 
 > Heavy narrative turns, mental and emotional strain.
 
@@ -72,9 +69,9 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `460–479`: Reflections, regrets
 * `480–499`: Climax of emotional arc or internal war
 
----
 
-### 🌕 `500–599` – **Midpoint: Choice, Transformation, Rebuild**
+
+`500–599` – **Midpoint: Choice, Transformation, Rebuild**
 
 > Turning point or moment of clarity/change.
 
@@ -84,9 +81,9 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `560–579`: Split path confirmation
 * `580–599`: End of Act II / re-emergence
 
----
 
-### 🔥 `600–699` – **Final Descent / Consequences**
+
+`600–699` – **Final Descent / Consequences**
 
 > World's edges, big truths, fatal consequences.
 
@@ -96,9 +93,9 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `660–679`: Transformation or corruption
 * `680–699`: Beginning of endgame
 
----
 
-### ⚔️ `700–799` – **Endgame / Climax**
+
+`700–799` – **Endgame / Climax**
 
 > All paths converge toward conclusion.
 
@@ -108,7 +105,7 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `770–789`: Major deaths / sacrifices
 * `790–799`: Final confrontation
 
----
+
 
 ### 🕊️ `800–899` – **Post-Final: Epilogue Paths**
 
@@ -120,9 +117,9 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `860–879`: Secret or alternate endings
 * `880–899`: Timeline resets or paradoxes
 
----
 
-### ⚫ `900–999` – **Game Over / Meta / Death Realms**
+
+`900–999` – **Game Over / Meta / Death Realms**
 
 > Fail states, alternate realities, breaking the fourth wall.
 
@@ -132,14 +129,10 @@ Each range is assigned a **narrative phase, region, theme, or emotional arc**. Y
 * `950–969`: Lost souls or failed quests
 * `970–999`: Hard resets, rebirths, hidden paths
 
----
+
 
 ## 🧠 Tips for Use
 
-* Keep a **simple chapter index spreadsheet** to track IDs and outputs.
+* Keep a simple chapter index spreadsheet to track IDs and outputs.
 * Use Godot’s `Dictionary.keys().sort()` or a `re.match(r'(\d+)_', id)` method to sort these logically.
 * You can **group JSON files** by arc too (e.g., `forest.json`, `village.json`) while keeping unique IDs.
-
----
-
-Would you like a JSON template or editor-friendly visual layout for this system?

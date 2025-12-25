@@ -48,9 +48,9 @@ font = SubResource("SystemFont_4dvq6")
 font_size = 40
 outline_size = 1
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2pr"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyk2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2pr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5pvs"]
 
@@ -69,9 +69,9 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sayef"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2dfu"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4e1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2dfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eao6o"]
 bg_color = Color(0, 0, 0, 0.675)
@@ -248,8 +248,8 @@ anchor_top = 0.019802
 anchor_right = 0.964671
 anchor_bottom = 0.49411
 grow_horizontal = 0
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xyk2d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
 icon = ExtResource("6_uqpg7")
 icon_alignment = 1
 expand_icon = true
@@ -455,16 +455,16 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Behavior Notes"
 
 [node name="Button2" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Physical Condition"
 
 [node name="Button3" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
@@ -472,8 +472,8 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_ynhfh")
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Current Effects"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator"]
@@ -518,14 +518,14 @@ anchor_top = 0.113333
 anchor_right = 0.973077
 anchor_bottom = 0.968
 theme_override_fonts/normal_font = ExtResource("9_y14dk")
-theme_override_fonts/italics_font = ExtResource("11_mmyfa")
-theme_override_fonts/bold_italics_font = ExtResource("9_jd408")
 theme_override_fonts/bold_font = ExtResource("9_jd408")
+theme_override_fonts/bold_italics_font = ExtResource("9_jd408")
+theme_override_fonts/italics_font = ExtResource("11_mmyfa")
+theme_override_font_sizes/normal_font_size = 58
+theme_override_font_sizes/bold_font_size = 44
 theme_override_font_sizes/bold_italics_font_size = 58
 theme_override_font_sizes/italics_font_size = 58
 theme_override_font_sizes/mono_font_size = 58
-theme_override_font_sizes/normal_font_size = 58
-theme_override_font_sizes/bold_font_size = 44
 bbcode_enabled = true
 text = "Whereas disregard and contempt for human rights have resulted"
 scroll_following = true
@@ -724,8 +724,8 @@ anchor_bottom = 0.454792
 offset_top = -0.0626221
 offset_right = -0.0529785
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 theme_override_styles/normal = ExtResource("8_cn3pl")
+theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 text = "
 Heavy Attack
 
@@ -757,8 +757,8 @@ anchor_right = 0.608797
 anchor_bottom = 1.01657
 offset_right = -40.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 theme_override_styles/normal = ExtResource("8_cn3pl")
+theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 text = "Defend
 "
 metadata/_edit_use_anchors_ = true
@@ -773,8 +773,8 @@ anchor_right = 0.894213
 anchor_bottom = 1.01455
 offset_right = -40.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 theme_override_styles/normal = ExtResource("8_cn3pl")
+theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
 text = "Dodge
 "
 metadata/_edit_use_anchors_ = true

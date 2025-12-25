@@ -146,7 +146,7 @@
 			},
 			"2": {
 				"text": "Accept the mark and move on.",
-				"output": "001_intro"
+				"output": "010_intro"
 			}
 		}
 	},
@@ -157,7 +157,7 @@
 		"choices": {
 			"1": {
 				"text": "Move forward cautiously.",
-				"output": "001_intro"
+				"output": "010_intro"
 			}
 		}
 	},
@@ -548,7 +548,7 @@
 		"choices": {
 		  "1": {
 				"text": "So let me guess—most adventurers won’t take the job",
-				"output": "09_boar4"	
+				"output": "010_boar4"
 			}
 		}
 	},
@@ -677,7 +677,7 @@
 		"choices": {
 			"1": {
 				"text": "Fight the bandit with the 2x4!",
-				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json",
+				"load_combat_encounter": "res://story/storyenemies/gobby_the_ugly_encounter.json",
 				"buffs": {
 					"current_hp": 70
 				},
@@ -910,7 +910,7 @@
 			}
 		}
 	},
-	"012_mage_blow": {
+	"010_mage_blow": {
 		"title": "",
 		"picture": "",
 		"narr_text": "You flinched instinctively, hand darting to the dagger at your belt, steel hissing free. It felt familiar. Weighted for your grip. Balanced like a limb you’d never forgotten how to use. \n\n'What was that?' you asked, heart pounding. \n\nThe elf didn’t flinch. He simply looked up from his potion bench, eyes as pale and calm as polished ice. 'Likely a fire bomb,' he said, as if remarking on the weather. 'The ingredients to make those are rare in these parts. Expensive. You don’t waste them on noise unless you’re trying to make a point.'",
@@ -921,7 +921,7 @@
 			}
 		}
 	},
-	"012_mage_blow1": {
+	"010_mage_blow1": {
 		"title": "",
 		"picture": "",
 		"narr_text": "He turned back to his vials, but his voice darkened. 'You need to go.', You stared at him, heat and fear rising up like bile. \n\n'Why me? I don’t know anything about myself. Not who I am. Not why I’m here. What makes you think I can help?' \n\nThe elf finally looked up again. Slowly. Measured. Not unkind, but utterly without pity. 'Because from where I’m standing, you’re already helping.'",
@@ -932,7 +932,7 @@
 			}
 		}
 	},
-	"012_mage_blow2": {
+	"010_mage_blow2": {
 		"title": "",
 		"picture": "",
 		"narr_text": "He gestured with the pestle at the way you stood—dagger in hand, legs braced in that unconscious stance of readiness, weight balanced at the balls of your feet. 'That’s not how a baker holds a blade. Or a farmer. You’re a warrior. Or were. Maybe more. You’ve fought monsters before, even if your mind’s dropped the memory.', He corked the final vial, hands steady despite the rising panic outside. \n\n'Memory is a library. You’ve lost the map, but the books are still there.'\n\n\nyour throat is dry.",
@@ -943,7 +943,7 @@
 			}
 		}
 	},
-	"012_mage_blow3": {
+	"010_mage_blow3": {
 		"title": "",
 		"picture": "",
 		"narr_text": "'Act like you’ve always done.', He walked past you, pausing at the door to the alchemy chamber. 'Keep your head up. Trust what feels natural.' His gaze narrowed slightly. 'And protect Kayla.' \n\nAnother scream. Closer this time. Boots thudded outside the hall.",
@@ -954,7 +954,7 @@
 			}
 		}
 	},
-	"012_mage_blow4": {
+	"010_mage_blow4": {
 		"title": "",
 		"picture": "",
 		"narr_text": "You nod. 'This isn't charity.' He says as he hands you a flask. 'Stabilizes your mana and should bring you back to good health. No more headaches and bad chest pains, but you will still be sore for a few weeks.' He slides your armor forward—sleek, refitted, and glowing faintly. 'Still dense with mana, but I turned it into an advantage. It’ll break easier, though.' A scroll for Kaela. A short sword for you. \n\n'And your name—Talbot. That’s Solarian. Think on that.'",
@@ -965,7 +965,7 @@
 			}
 		}
 	},
-	"012_mage_blow5": {
+	"010_mage_blow5": {
 		"title": "",
 		"picture": "",
 		"narr_text": "A boom rocks the tower. Dust rains from above. 'That’s your cue,' the elf says calmly. Kaela is already fighting out there. 'You need to get rid of the bandits outside—now.' The mercenaries outside shout. Fires bloom on the horizon. \n\nThe mage calls after you as you start to leave: 'If you survive, come back. There’s more you need to know.",

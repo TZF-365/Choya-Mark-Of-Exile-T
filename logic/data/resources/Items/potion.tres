@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://th1llugc7wnt"]
 
-[ext_resource type="Script" uid="uid://c1sjfbl1sk0jc" path="res://logic/data/ent/BaseItem.gd" id="1_t6jw8"]
+[ext_resource type="Script" uid="uid://c1sjfbl1sk0jc" path="res://logic/ent/BaseItem.gd" id="1_t6jw8"]
 
 [resource]
 script = ExtResource("1_t6jw8")
