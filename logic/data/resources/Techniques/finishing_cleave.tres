@@ -7,10 +7,7 @@ script = ExtResource("1_4n8xu")
 name = "FINISHING Cleave"
 description = "A powerful downward slash that rips through light armor."
 attack_type = "finisher"
-stance_required = ""
-scaling_stat = "strength"
 scaling_factor = 6.38
-flat_bonus = 0.0
 armor_bonus_table = {
 "composite": 0.0,
 "iron": 0.0,
@@ -28,8 +25,5 @@ armor_bonus_table = {
 "steel_scale": 0.0
 }
 base_multiplier = 0.0
-bonus_when_low_hp = 0.0
-requires_momentum = 0
-extra_momentum_bonus = 0.0
 metadata/_custom_type_script = "uid://cgm5c14qfbqs7"
 metadata/HOW = "scaling and milt not to pass 0.5"

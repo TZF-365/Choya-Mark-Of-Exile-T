@@ -1,5 +1,5 @@
 {
-	"010_tavern_intro": {
+	"005_tavern_intro": {
 		"title": "Whispers at the Tavern",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
 		"narr_text": "The tavern is dimly lit, the scent of roasted meat and spilled ale clinging to the air. Behind the counter, a broad-shouldered man polishes a mug, eyeing you with cautious curiosity.",
@@ -14,7 +14,7 @@
 			}
 		}
 	},
-	"011_tavern_greeting": {
+	"005_tavern_greeting": {
 		"title": "A Quiet Conversation",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
 		"narr_text": "Lyaris: \"Evening. I’m looking for answers—maybe you’re the kind of man who hears things?\"\n\nThe keeper shrugs, eyes flicking over you. \"Depends on what you’re buying—and what you’re asking.\"",
@@ -33,7 +33,7 @@
 			}
 		}
 	},
-	"012_ask_travelers": {
+	"005_ask_travelers": {
 		"title": "",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
 		"narr_text": "Lyaris: \"Anyone new pass through recently? Someone...out of place.\"\n\nThe keeper grunts. \"Aye. A cloaked fellow, asked for wine and silence. Paid in foreign coin. Didn’t touch his drink.\"\n\nHe leans in. \"Left at dawn. Headed toward the Wyrmwood. Dangerous trail, that.\"",
@@ -48,7 +48,7 @@
 			}
 		}
 	},
-	"013_ask_rumors": {
+	"005_ask_rumors": {
 		"title": "",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
 		"narr_text": "Lyaris: \"What’s the word around here? Anything...unusual?\"\n\nThe tavern keeper sighs. \"Depends on what scares you. Cattle gone missing. Screams in the night. Some say the dead don’t stay buried anymore. I say it’s wolves. Or worse.\"\n\nHe looks toward the hearth. \"Either way, folk are packing up. Even the brave ones.\"",
@@ -63,7 +63,7 @@
 			}
 		}
 	},
-	"014_ask_wyrmwood": {
+	"005_ask_wyrmwood": {
 		"title": "",
 		"picture": "res://assets/art/Wyrmwood_Path.jpg",
 		"narr_text": "The keeper spits to the side. \"They say the Wyrmwood was cursed during the old wars. Trees whisper. Roads twist. Hunters vanish. If you follow that man, keep steel ready and eyes open.\"\n\nHe hesitates. \"...Or don’t follow him at all.\"",
@@ -80,7 +80,7 @@
 			}
 		}
 	},
-	"015_ask_undead": {
+	"005_ask_undead": {
 		"title": "",
 		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
 		"narr_text": "He frowns deeply. \"The priest’s been burning bodies. Quietly. No rites. Just fire and salt. Town council says it’s sickness. I say it’s fear.\"\n\nHe lowers his voice. \"Two nights ago, someone saw a child walking who’d died a week before. No heartbeat. Just hunger.\"",
@@ -95,7 +95,7 @@
 			}
 		}
 	},
-	"016_prepare_departure": {
+	"005_prepare_departure": {
 		"title": "A Lead in the Wyrmwood",
 		"picture": "res://assets/art/Tavern_Exterior.jpg",
 		"narr_text": "You nod and toss a coin onto the counter. The keeper catches it midair. \"May the old gods watch your steps, stranger.\"\n\nYou step out into the night, the path ahead uncertain, but the trail warm.",
@@ -106,7 +106,7 @@
 			}
 		}
 	},
-	"017_find_priest": {
+	"005_find_priest": {
 		"title": "",
 		"picture": "res://assets/art/Church_Shrine.jpg",
 		"narr_text": "The keeper jerks a thumb toward the chapel. \"You’ll find him at the old shrine, past the well. Doesn’t talk much, but he knows things... things better left buried.\"",
@@ -117,7 +117,7 @@
 			}
 		}
 	},
-	"018_go_graveyard": {
+	"005_go_graveyard": {
 		"title": "",
 		"picture": "res://assets/art/Graveyard_Moonlight.jpg",
 		"narr_text": "Fog clings to the graves like a living thing. The gate creaks open at your touch. Somewhere in the mist, something shifts.\n\nYou are not alone.",

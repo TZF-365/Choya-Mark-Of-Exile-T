@@ -4,6 +4,7 @@ class_name Gamesc
 #Declared entity node and connected it to 
 @export var entity_var: Player_AL
 @onready var player_stats = entity_var
+var has_died = false
 
 @onready var anim_player: AnimationPlayer = $"../../../../../AnimationPlayer" # Ensure you have an AnimationPlayer node
 
@@ -22,7 +23,7 @@ var alpha = clamp(fade_timer / fade_duration, 0.0, 1.0)
 
 
 @export var start_page:String = "000_prologue"
-@export var death_page:String = "health_is_zero"
+var death_page:String = "health_is_zero"
 @export var mana_low_page:String = "mana_is_zero" #you can go ahead and implement something with this
 
 # Declare variables for UI elements and connect them to their respective nodes in the scene
@@ -68,29 +69,27 @@ func _ready() -> void:
 	choice_4.connect("choice_btn_pressed", Callable(self, "process_choice"))
 
 
+func handle_death():
+	if has_died:
+		return
+
+	has_died = true
+	is_dead = true
+
+	print("Handling death sequence")
+
+	current_page = death_page
+	Ccid.set_page(death_page)
+	set_content(content_dict[death_page])
+
+
 func _process(_delta):
-	
 	player_stats = Player_AL
-	if player_stats["val"] <=0:
-		is_dead = true 
-		
-	if is_dead and shown_death == false:
-		var death_text = str(content_dict[death_page]["narr_text"])+"\n"
-		print("death text is ",death_text)
-		narr_text.text = narr_text.text+"\n"+death_text
-		var output =content_dict[death_page]["choices"][str(1)]
-		print(output)
-		set_choice_btn(content_dict[death_page])
-		shown_death=true	
 
-		Ccid.set_page(current_page)  # Ensure global page is updated here
-		set_content(content_dict[current_page])	
-		
-	# Set current chapter_id if present in output page
+	if player_stats["val"] <= 0 and not has_died:
+		handle_death()
 
-
-
-	# ✅ FADE IN LOGIC
+	# Fade-in logic stays as-is
 	if fading_in:
 		fade_timer += _delta
 		var alpha = clamp(fade_timer / fade_duration, 0.0, 1.0)
@@ -105,8 +104,7 @@ func _process(_delta):
 func process_choice(choice_index: int) -> void:
 	
 	statindicator.text = ""
-	if is_dead:
-		current_page = death_page
+
 			
 	var choice_data = content_dict[current_page]["choices"][str(choice_index)]
 	#print("PIZZA ", choice_data)
@@ -186,7 +184,8 @@ func _on_combat_ended(victory: bool) -> void:
 		# Handle defeat (could be game over or retry)
 		print("Combat lost! Handling defeat...")
 		is_dead = true
-		process_choice(1)  # Assuming 1 leads to the death path
+		set_content(content_dict[death_page])
+
 
 
 # Function to set the title text
@@ -221,47 +220,28 @@ func run_actions(action_list: Array) -> void:
 		# Add more actions as needed
 
 
-
-# Function to set the choice buttons
 func set_choice_btn(output_value) -> void:
-	# Hide all choice buttons initially
 	for choice_i in choices_con.get_children():
-		if choice_i.visible:
-			choice_i.set_text("")
-			choice_i.visible = false
-			
-	# Display and set text for each choice button based on the current content
-	if is_dead == false:
-		for choice in output_value["choices"]:
-			match choice:
-				"1":
-					choice_1.set_text(str(output_value["choices"][str(choice_1.choice_index)]["text"]))
-					choice_1.visible = true
-				"2":
-					choice_2.set_text(str(output_value["choices"][str(choice_2.choice_index)]["text"]))
-					choice_2.visible = true
-				"3":
-					choice_3.set_text(str(output_value["choices"][str(choice_3.choice_index)]["text"]))
-					choice_3.visible = true
-				"4":
-					choice_4.set_text(str(output_value["choices"][str(choice_4.choice_index)]["text"]))
-					choice_4.visible = true
-					
-	elif is_dead == true:
-		for choice in content_dict[death_page]["choices"]:
-			match choice:
-				"1":
-					choice_1.set_text(str(content_dict[death_page]["choices"][str(choice_1.choice_index)]["text"]))
-					choice_1.visible = true
-				"2":
-					choice_2.set_text(str(content_dict[death_page]["choices"][str(choice_2.choice_index)]["text"]))
-					choice_2.visible = true
-				"3":
-					choice_3.set_text(str(content_dict[death_page]["choices"][str(choice_3.choice_index)]["text"]))
-					choice_3.visible = true
-				"4":
-					choice_4.set_text(str(content_dict[death_page]["choices"][str(choice_4.choice_index)]["text"]))
-					choice_4.visible = true
+		choice_i.visible = false
+		choice_i.set_text("")
+
+	var source = output_value
+
+
+	for choice in source["choices"]:
+		match choice:
+			"1":
+				choice_1.set_text(source["choices"]["1"]["text"])
+				choice_1.visible = true
+			"2":
+				choice_2.set_text(source["choices"]["2"]["text"])
+				choice_2.visible = true
+			"3":
+				choice_3.set_text(source["choices"]["3"]["text"])
+				choice_3.visible = true
+			"4":
+				choice_4.set_text(source["choices"]["4"]["text"])
+				choice_4.visible = true
 
 
 

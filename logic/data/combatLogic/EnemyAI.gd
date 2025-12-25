@@ -15,17 +15,17 @@ func choose_action() -> String:
 		print("No enemy or player connected to enemy AI")
 		return "idle"  # Safe fallback in case enemy or player is not assigned
 	else:
-		var actions = ["attack", "defend", "dodge", "light", "heavy"]
+		var actions = ["light", "defend", "dodge", "heavy"]
 		return actions[randi() % actions.size()]
 
 # Can be expanded for more complex decision making (e.g., based on health, player behavior, etc.)
 func choose_action_based_on_health() -> String:
 	if enemy == null or player == null:
 		print("No enemy or player connected to enemy AI")
-		return "idle"  # Safe fallback in case enemy or player is not assigned
+		return "light"  # Safe fallback in case enemy or player is not assigned
 	
 	# If the enemy's health is very low, be more defensive
-	if enemy.current_hp < 20:
+	if enemy.current_hp < 10:
 		var actions = ["defend", "dodge"]
 		return actions[randi() % actions.size()]  # Randomly choose between defend or dodge
 	
@@ -34,13 +34,13 @@ func choose_action_based_on_health() -> String:
 		if randi() % 2 == 0:
 			return "defend"  # 50% chance to defend
 		else:
-			return "attack"  # Otherwise, attack
+			return "light"  # Otherwise, attack
 	
 	# If the enemy has more strength than the player, prioritize attacking
 	elif enemy.stats["strength"] > player.stats["strength"]:
-		return "attack"  # Stronger enemy attacks
+		return "heavy"  # Stronger enemy attacks
 	
 	# If the enemy's health is good and they are not stronger, dodge to avoid taking damage
 	else:
-		var actions = ["attack", "dodge"]
+		var actions = ["light", "dodge"]
 		return actions[randi() % actions.size()]  # Randomly choose between attack or dodge

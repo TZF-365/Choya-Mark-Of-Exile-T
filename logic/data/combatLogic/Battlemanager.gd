@@ -44,6 +44,7 @@ var current_action: String = ""	# Tracks the player's current selected action
 var cleave_technique = load("res://logic/data/resources/Techniques/cleave.tres") as Technique_
 var stab_technique = load("res://logic/data/resources/Techniques/quick_jab.tres") as Technique_
 
+
 # Equip to player or enemy
 
 
@@ -65,6 +66,9 @@ func _ready():
 	player.equip_armor("chest", iron_chest)
 
 	enemy.techniques.append(stab_technique)
+	enemy.techniques.append(cleave_technique)
+	player.techniques.append(cleave_technique)
+	player.techniques.append(stab_technique)
 	enemy.equip_armor("chest", hide)
 	enemy.equip_weapon(dagger, "main_hand")
 	

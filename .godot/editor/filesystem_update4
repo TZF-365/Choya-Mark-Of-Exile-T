@@ -7,3 +7,19 @@ res://assets/pixelart/pixelart.tres
 res://assets/pixelart/Combat_screen_Bottom Buttons.tres
 res://logic/ent/BaseChar.gd
 res://logic/data/combatLogic/Battlemanager.gd
+res://logic/data/resources/Techniques/cleave.tres
+res://logic/data/resources/Techniques/finishing_cleave.tres
+res://scenes/combat_screen.tscn
+res://logic/data/combatLogic/EnemyAI.gd
+res://logic/data/resources/Techniques/charge.tres
+res://logic/data/combatLogic/TechniqueManager.gd
+res://scenes/combat_screen_new.tscn
+res://logic/data/resources/Items/weapons/glass_rapier.tres
+res://logic/data/resources/Techniques/quick_jab.tres
+res://scenes/entities/Player.tscn
+res://logic/data/resources/Items/weapons/bronze_dagger.tres
+res://logic/data/resources/Items/armors/hide_armor.tres
+res://story/SS copy (1).json
+res://logic/data/info/ContentContainer.gd
+res://story/game_over.json
+res://scenes/game_screen.tscn

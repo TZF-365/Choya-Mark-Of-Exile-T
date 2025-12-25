@@ -98,7 +98,7 @@
 		"choices": {
 			"1": {
 				"text": "Walk in With Weapon Drawn.",
-				"load_combat_encounter": "res://story/storyenemies/gravewalker_encounter_data.json"
+
 			}
 		}
 	}

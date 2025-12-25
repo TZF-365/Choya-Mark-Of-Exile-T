@@ -2,13 +2,13 @@ extends Node
 
 var techniques: Dictionary = {}
 
-func _ready():
+#func _ready():
 		# Preload techniques here — name them as keys
-	techniques["charge"] = preload("res://logic/data/resources/Techniques/charge.tres")
-	techniques["cleave"] = preload("res://logic/data/resources/Techniques/cleave.tres")
-	techniques["hack"] = preload("res://logic/data/resources/Techniques/hack.tres")
-	techniques["quick_jab"] = preload("res://logic/data/resources/Techniques/quick_jab.tres")
-	techniques["riposte"] = preload("res://logic/data/resources/Techniques/riposte.tres")
+	# techniques["charge"] = preload("res://logic/data/resources/Techniques/charge.tres")
+	# techniques["cleave"] = preload("res://logic/data/resources/Techniques/cleave.tres")
+	# techniques["hack"] = preload("res://logic/data/resources/Techniques/hack.tres")
+	# techniques["quick_jab"] = preload("res://logic/data/resources/Techniques/quick_jab.tres")
+	# techniques["riposte"] = preload("res://logic/data/resources/Techniques/riposte.tres")
 	# ... add more here as needed
 
 

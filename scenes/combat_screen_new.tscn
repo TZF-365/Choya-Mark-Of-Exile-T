@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cvgqa6jliu8md"]
+[gd_scene load_steps=50 format=3 uid="uid://cvgqa6jliu8md"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_ksr3s"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_div0j"]
@@ -19,14 +19,12 @@
 [ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="16_x5n72"]
 [ext_resource type="PackedScene" uid="uid://csr827wnnt3vs" path="res://scenes/entities/EnemyAI.tscn" id="17_vb8tf"]
 [ext_resource type="PackedScene" uid="uid://d03n73vvq8t0x" path="res://scenes/entities/Goblin.tscn" id="18_5o7rp"]
-[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="20_nbkxo"]
+[ext_resource type="Script" uid="uid://dadbbau0x8kao" path="res://logic/data/combatLogic/Technique.gd" id="20_nbkxo"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="20_yigel"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="21_wlfj2"]
-[ext_resource type="Resource" uid="uid://1nkvl7t7cn01" path="res://logic/data/resources/Techniques/quick_jab.tres" id="21_wwhih"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="22_rxw5e"]
-[ext_resource type="Resource" uid="uid://cmwyew0retq7m" path="res://logic/data/resources/Techniques/special_cleave.tres" id="22_wwhih"]
+[ext_resource type="Resource" uid="uid://btikpymqav4bo" path="res://logic/data/resources/Techniques/cleave.tres" id="22_wwhih"]
 [ext_resource type="Resource" uid="uid://bait7sjsvkds8" path="res://logic/data/resources/Techniques/overhead_strike.tres" id="23_fda8a"]
-[ext_resource type="Resource" uid="uid://dtmue34gqf3a0" path="res://logic/data/resources/Techniques/riposte.tres" id="24_fda8a"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="25_csfl4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
@@ -55,9 +53,9 @@ font = SubResource("SystemFont_4dvq6")
 font_size = 40
 outline_size = 1
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2pr"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyk2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ey2pr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5pvs"]
 
@@ -76,9 +74,9 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sayef"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2dfu"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4e1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2dfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eao6o"]
 bg_color = Color(0, 0, 0, 0.675)
@@ -252,8 +250,8 @@ anchor_top = 0.019802
 anchor_right = 0.964671
 anchor_bottom = 0.49411
 grow_horizontal = 0
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xyk2d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ey2pr")
 icon = ExtResource("6_fda8a")
 icon_alignment = 1
 expand_icon = true
@@ -460,16 +458,16 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Behavior Notes"
 
 [node name="Button2" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Physical Condition"
 
 [node name="Button3" type="Button" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel/Hbox"]
@@ -477,8 +475,8 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_1bghp")
 theme_override_font_sizes/font_size = 26
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e4e1v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y2dfu")
 text = "Current Effects"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator"]
@@ -523,14 +521,14 @@ anchor_top = 0.094697
 anchor_right = 0.972857
 anchor_bottom = 0.976515
 theme_override_fonts/normal_font = ExtResource("10_tos8e")
-theme_override_fonts/italics_font = ExtResource("11_wnd0d")
-theme_override_fonts/bold_italics_font = ExtResource("12_v4n40")
 theme_override_fonts/bold_font = ExtResource("12_v4n40")
+theme_override_fonts/bold_italics_font = ExtResource("12_v4n40")
+theme_override_fonts/italics_font = ExtResource("11_wnd0d")
+theme_override_font_sizes/normal_font_size = 58
+theme_override_font_sizes/bold_font_size = 44
 theme_override_font_sizes/bold_italics_font_size = 58
 theme_override_font_sizes/italics_font_size = 58
 theme_override_font_sizes/mono_font_size = 58
-theme_override_font_sizes/normal_font_size = 58
-theme_override_font_sizes/bold_font_size = 44
 bbcode_enabled = true
 text = "Whereas disregard and contempt for human rights have resulted"
 scroll_following = true
@@ -993,7 +991,6 @@ script = ExtResource("16_x5n72")
 display_name = "Gobby the Ugly"
 max_hp = 160
 current_hp = 160
-techniques = Array[ExtResource("20_nbkxo")]([ExtResource("21_wwhih"), ExtResource("22_wwhih"), ExtResource("23_fda8a"), ExtResource("24_fda8a")])
 stats = {
 "agility": 5,
 "dexterity": 4,
@@ -1018,6 +1015,7 @@ stats = {
 
 [node name="Player" parent="CombatScenes" instance=ExtResource("25_csfl4")]
 stamina = 50
+_techniques_editor = Array[ExtResource("20_nbkxo")]([ExtResource("22_wwhih"), ExtResource("23_fda8a")])
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("20_yigel")
