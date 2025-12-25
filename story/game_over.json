@@ -33,7 +33,7 @@
 			"1": {
 				"text": "Walk towards the gate.",
 				"output": "death_page"
-			},
+			}
 		}
 	},
 	"913_Loss": {
@@ -44,7 +44,7 @@
 			"1": {
 				"text": "Ask about the dead not staying buried.",
 				"output": "914_thisis"
-			},
+			}
 		}
 	},
 	"914_thisis": {
@@ -55,7 +55,7 @@
 			"1": {
 				"text": "'So, this is it. Another chapter closed, another warrior lost to the storm.' Lycarus thinks bitterly, his breath shallow. The sylphs' voices, soft and sorrowful, seem almost too gentle for the harsh reality of the world he fights to protect. He wonders for a moment if their sorrow is truly for him—or for the fate of humanity as a whole. Their eternal grief seems so... infinite.",
 				"output": "615_flicker"
-			},
+			}
 		}
 	},
 	"615_flicker": {
@@ -66,7 +66,7 @@
 			"1": {
 				"text": "Ask where the priest can be found.",
 				"output": "death_page"
-			},
+			}
 		}
 	},
 	"016_prepare_departure": {

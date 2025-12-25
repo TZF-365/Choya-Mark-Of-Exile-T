@@ -3,10 +3,9 @@ extends Node
 
 # Path to the dialog files
 var dialogPath: Array = [
-	"res://story/Sample_Story.json",
+	"res://story/Choya_Chapter1_Linear.json",
 	"res://story/tavern1.json",
 	"res://story/game_over.json",
-	"res://story/story.json",
 	
 ]
 

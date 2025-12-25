@@ -33,7 +33,7 @@ var scene_audio_streams = {
 	preload("res://assets/Music/Chainsaw-Man-OPMED.mp3"),
 	preload("res://assets/Music/battlemusic.mp3"),
 	preload("res://assets/Music/Calmingmusic.mp3"),
-	preload("res://assets/Music/orchestra-fantasy.mp3")
+	preload("res://assets/Music/Magical-Transition.mp3")
 ]
 
 
