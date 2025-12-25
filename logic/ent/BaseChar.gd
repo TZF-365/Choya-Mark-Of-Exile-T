@@ -39,7 +39,12 @@ var team_id: int = -1
 var turn_order: Array[BaseChar]
 
 @export var skills: Dictionary = {}  # Initialize as an empty Dictionary
-@export var techniques: Array[Technique_] = []
+
+@export var _techniques_editor: Array[Technique_] = []
+
+var techniques: Array[Technique_] = _techniques_editor.duplicate()
+
+
 @export var known_techniques: Array[Resource] = []
 
 var current_action: String = ""

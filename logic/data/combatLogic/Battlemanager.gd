@@ -50,7 +50,7 @@ var stab_technique = load("res://logic/data/resources/Techniques/quick_jab.tres"
 
 ### READY FUNCTION ###
 func _ready():
-	var technique = choose_technique(player, enemy, "light")
+	# var technique = choose_technique(player, enemy, "light")
 		
 	# Create the tween instance for hp animation
 	update_health_labels()
@@ -109,7 +109,7 @@ func resolve_action(actor: BaseChar, action: String, target: BaseChar):
 	print("\n--- Resolving action: %s by %s targeting %s ---" % [action, actor.display_name, target.display_name])
 
 	var chosen_technique = choose_technique(actor, target, attack_type)
-	var damage = 0
+	# var damage = 0
 	
 	if chosen_technique != null:
 		log_entry += "%s uses %s! " % [actor.display_name, chosen_technique.name]
@@ -189,7 +189,7 @@ func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, atta
 		if technique.technique_type == attack_type and not technique.on_cooldown:
 			print("%s uses %s (%s) on %s!" % [attacker.display_name, technique.name, attack_type, vulnerable_target.display_name])
 
-			var damage = damage_calc(attacker, vulnerable_target, attack_type, Technique)
+			damage = damage_calc(attacker, vulnerable_target, attack_type, technique)
 			vulnerable_target.current_hp -= damage
 			vulnerable_target.current_hp = clamp(vulnerable_target.current_hp, 0, vulnerable_target.max_hp)
 
@@ -209,19 +209,22 @@ func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, atta
 
 
 
-func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique:
-	for technique in actor.techniques:
-		if technique.attack_type != attack_type:
+func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique_:
+	for techniques in actor.techniques:
+		if techniques.attack_type != attack_type:
 			continue
-		if technique.stance_required != "" and technique.stance_required != actor.current_stance:
+		if techniques.stance_required != "" and techniques.stance_required != actor.current_stance:
 			continue
-		if technique.requires_momentum > 0 and actor.momentum < technique.requires_momentum:
+		if techniques.requires_momentum > 0 and actor.momentum < techniques.requires_momentum:
 			continue
-		if technique.trigger_condition != null and technique.trigger_condition.is_valid():
-			if not technique.trigger_condition.call(actor, target):
+		if techniques.trigger_condition != null and techniques.trigger_condition.is_valid():
+			if not techniques.trigger_condition.call(actor, target):
 				continue
-		return 
-	print("No valid technique found for %s (attack type: %s). Techniques checked: %d" % [actor.display_name, attack_type, actor.techniques.size()])
+
+		return techniques  # ✅ RETURN THE ACTUAL TECHNIQUE
+
+	print("No valid technique found for %s (attack type: %s). Techniques checked: %d"
+		% [actor.display_name, attack_type, actor.techniques.size()])
 	return null
 
 
@@ -314,8 +317,7 @@ func finalize_turn_log():
 		turn_log = ""  # Reset the buffer for the next turn
 	update_health_labels()  # <-- This ensures health is updated once, at the end of both turns
 
-
-func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique = null) -> int:
+func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique_ = null) -> int:
 	var attack_power = actor.stats["strength"] * 2.7 + actor.get_weapon_power()
 	var multiplier = get_final_multiplier(actor, target, attack_type, technique)
 	var base_damage = attack_power * multiplier
@@ -411,7 +413,7 @@ func adjust_momentum(actor: BaseChar, amount: int, reason: String = ""):
 
 
 
-func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique = null) -> float:
+func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique_ = null) -> float:
 	var multiplier = 1.0
 
 	# Technique bonus

@@ -4,10 +4,6 @@ res://assets/fonts/ChoyaFont1.tres
 res://assets/pixelart/game_screen_di.tres
 res://assets/pixelart/SE_Bottom_menu.tres
 res://assets/pixelart/pixelart.tres
-res://story/000SortingChapterGuide.txt
-res://story/Choya_Chapter1_Linear.json
-res://scenes/combat_screen.tscn
-res://scenes/game_screen.tscn
+res://assets/pixelart/Combat_screen_Bottom Buttons.tres
+res://logic/ent/BaseChar.gd
 res://logic/data/combatLogic/Battlemanager.gd
-res://logic/data/combatLogic/CombatInstantiator.gd
-res://logic/data/info/ContentContainer.gd
