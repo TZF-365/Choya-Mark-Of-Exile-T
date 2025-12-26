@@ -14,7 +14,6 @@ var fstart = true
 
 func _ready():
 	await get_tree().create_timer(3.0).timeout
-	AudioManager.play_song(1)
 	stats_label.text = str("val: " + str(stats["val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 	print(stats_label.text)
 

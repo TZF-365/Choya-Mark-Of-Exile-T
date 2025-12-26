@@ -78,15 +78,42 @@ func play_sfx_music_by_name(track_name: String, volume_db: float = 0):
 	player.volume_db = volume_db
 	player.play()
 
+var music_fade_enabled: bool = true  # default: fade in when playing music
+
+func set_music_fade_enabled(enabled: bool):
+	music_fade_enabled = enabled
+
+
 # --- Music playback ---
-func play_music(stream: AudioStream, volume_db: float = -8.0):
-	var player = _get_active_music_player()
-	if not player:
+func play_music(stream: AudioStream, volume_db: float = -8.0, fade_duration_sec: float = 2.0):
+	var from_player = _get_active_music_player()
+	var to_player = _get_inactive_music_player()
+	if not from_player or not to_player:
 		return
-	player.stop()
-	player.stream = stream
-	player.volume_db = volume_db
-	player.play()
+
+	# Determine if a crossfade should happen
+	var should_crossfade = music_fade_enabled and from_player.is_playing()
+
+	if should_crossfade:
+		# Fade out current track, fade in new track
+		to_player.stop()
+		to_player.stream = stream
+		to_player.volume_db = min_volume_db
+		to_player.play()
+
+		var tween = create_tween()
+		tween.tween_property(from_player, "volume_db", min_volume_db, fade_duration_sec)
+		tween.parallel().tween_property(to_player, "volume_db", volume_db, fade_duration_sec)
+		current_player_is_a = !current_player_is_a
+	else:
+		# No crossfade: instantly play new track
+		from_player.stop()
+		to_player.stop()
+		to_player.stream = stream
+		to_player.volume_db = volume_db
+		to_player.play()
+		current_player_is_a = !current_player_is_a
+
 
 func play_music_crossfade(stream: AudioStream, target_volume_db: float = 0.0):
 	var from_player = _get_active_music_player()
