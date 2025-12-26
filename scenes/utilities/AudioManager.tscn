@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccvn8owweybsr"]
 
-[ext_resource type="Script" uid="uid://b2nddcthik6ca" path="res://logic/data/info/al_sound_manager.gd" id="1_wgeoa"]
+[ext_resource type="Script" uid="uid://b2nddcthik6ca" path="res://logic/data/scenelogic/al_sound_manager.gd" id="1_wgeoa"]
 
 [node name="AudioManager" type="Control"]
 layout_mode = 3
@@ -16,7 +16,15 @@ volume_db = -17.332
 
 [node name="MusicPlayerB" type="AudioStreamPlayer" parent="."]
 
-[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFXPlayer1" type="AudioStreamPlayer" parent="."]
+volume_db = -12.381
+pitch_scale = 0.76
+
+[node name="SFXPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -12.381
+pitch_scale = 0.76
+
+[node name="SFXPlayer3" type="AudioStreamPlayer" parent="."]
 volume_db = -12.381
 pitch_scale = 0.76
 

@@ -1,5 +1,5 @@
 extends Node
-class_name SaveManager
+class_name SaveManager_Node
 
 var config = ConfigFile.new()
 var cont = "res://logic/data/info/ContentContainer.gd"

@@ -92,4 +92,4 @@ func _on_exitbutton_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	TransitionManager.transition(0.5)
 	await TransitionManager.on_transition_finished
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	Scene.change("res://scenes/main_menu.tscn")

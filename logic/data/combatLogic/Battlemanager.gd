@@ -197,8 +197,8 @@ func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, atta
 			vulnerable_target.current_hp -= damage
 			vulnerable_target.current_hp = clamp(vulnerable_target.current_hp, 0, vulnerable_target.max_hp)
 
-			var log = "%s sees an opening and uses %s on %s!" % [attacker.display_name, technique.name, vulnerable_target.display_name]
-			add_to_turn_log(log + " " + generate_attack_description(attacker, vulnerable_target, damage))
+			var logger = "%s sees an opening and uses %s on %s!" % [attacker.display_name, technique.name, vulnerable_target.display_name]
+			add_to_turn_log(logger + " " + generate_attack_description(attacker, vulnerable_target, damage))
 			update_health_labels()
 
 			if attack_type == "opportunity":
@@ -294,10 +294,10 @@ func process_stamina_endurance(actor: BaseChar, action: String) -> void:
 
 
 
-func reset_combat_states(char: BaseChar):
-	char.is_defending = false
-	char.is_dodging = false
-	decay_momentum(char)
+func reset_combat_states(character: BaseChar):
+	character.is_defending = false
+	character.is_dodging = false
+	decay_momentum(character)
 
 
 ##LOGGING
@@ -644,9 +644,8 @@ var event_triggered: bool = false
 ###EVENTS
 func trigger_event():
 	# Check if the event hasn't been triggered and the conditions are met
-	if not event_triggered and player.current_hp < 30 and randf() < 1.0:
-		var sound_effect = preload("res://assets/Music/I_Will_Not_Let_You.mp3")
-		AudioManager.play_sound_effect_with_dynamic_fade(sound_effect, 3.0)
+	if not event_triggered and player.current_hp < 50 and randf() < 1.0:
+		AudioManager.play_event_music_by_key("aaaa", false)
 		add_to_turn_log("RAAAAAAAAAAAAAAAAAAAAAAAA I WILL NOT LET YOU DESTROY MY WORRRRLLLLDDD... \n \n")
 		player.stats["strength"] += 3
 		event_triggered = true  # Mark the event as triggered so it doesn't activate again

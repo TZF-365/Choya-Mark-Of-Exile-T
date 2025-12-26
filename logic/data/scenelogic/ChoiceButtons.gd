@@ -17,3 +17,4 @@ func _on_button_pressed():
 # Set text to ChoiceText
 func set_text(new_text: String) -> void:
 	choice_text.text = new_text
+	await Scene.wait()

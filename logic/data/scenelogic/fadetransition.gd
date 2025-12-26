@@ -37,3 +37,6 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play("Fadeout")  # Play the Fadeout animation
 	elif anim_name == "Fadeout":
 		color_rect.visible = false  # Hide the color rect after the fadeout
+
+func change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)

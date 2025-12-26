@@ -1,7 +1,7 @@
 [gd_scene load_steps=48 format=3 uid="uid://bgo6cn334xsl1"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
-[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="2_7jpoa"]
+[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/scenelogic/buttonpress.gd" id="2_7jpoa"]
 [ext_resource type="Texture2D" uid="uid://dx8rn8d76y6q8" path="res://assets/art/backgroundcombat1.jpg" id="3_jxhud"]
 [ext_resource type="StyleBox" uid="uid://t0akpkcnek7l" path="res://assets/pixelart/Combat_Screen Menu_flat.tres" id="4_o6s4n"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
@@ -9,7 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
 [ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
 [ext_resource type="FontFile" uid="uid://b8sgg1yjclern" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf" id="8_ynhfh"]
-[ext_resource type="Script" uid="uid://bklxyb4y7iyq4" path="res://logic/data/info/combattextdesplay.gd" id="9_4tvcf"]
+[ext_resource type="Script" uid="uid://bklxyb4y7iyq4" path="res://logic/data/scenelogic/combattextdesplay.gd" id="9_4tvcf"]
 [ext_resource type="FontFile" uid="uid://bkm3c0gnlhuc3" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf" id="9_jd408"]
 [ext_resource type="FontFile" uid="uid://pqia5c152xko" path="res://assets/fonts/MainUI_Font/CrimsonPro-VariableFont_wght.ttf" id="9_lh3el"]
 [ext_resource type="FontFile" uid="uid://ccjiphyilnveq" path="res://assets/fonts/ChoyaFont1.tres" id="9_y14dk"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_irmyc"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="15_irmyc"]
 [ext_resource type="PackedScene" uid="uid://hy7kgr6ksexl" path="res://scenes/entities/Grimy Outlaw.tscn" id="19_lh3el"]
-[ext_resource type="Script" uid="uid://dadbbau0x8kao" path="res://logic/data/combatLogic/Technique.gd" id="20_jq25w"]
+[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="20_jq25w"]
 [ext_resource type="Resource" uid="uid://dlsohdwrjfbcg" path="res://logic/data/resources/Techniques/thrust.tres" id="21_jq25w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]

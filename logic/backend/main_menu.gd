@@ -23,31 +23,39 @@ func _exit_tree():
 	exit_button.pressed.disconnect(_on_exit_pressed)
 
 func _on_start_button_pressed():
+	AudioManager.play_sfx_music_by_name("menubutton", -20)
 	# Start the transition (wait for it to finish before continuing)
 	TransitionManager.transition(0.3)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
 	# After transition, change the scene
-	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
+	Scene.change("res://scenes/game_screen.tscn")
 
 
 
 func _on_exit_pressed():
+	AudioManager.play_sfx_music_by_name("menubutton", -20)
+	await get_tree().create_timer(3.0).timeout
 	get_tree().quit()
 
 
 func _on_settings_pressed():
+	AudioManager.play_sfx_music_by_name("menubutton", -20)
 	current_menu = Menu.SETTINGS_MENU
 
 
 func _on_return_main_menu_buthealth_is_zeroton_pressed():
 	current_menu = Menu.MAIN_MENU
+	AudioManager.play_sfx_music_by_name("menubutton", -20)
 
 
 func _on_load_button_pressed() -> void:
-	# Start the transition (wait for it to finish before continuing)
+	# Start fade-out
+	AudioManager.play_sfx_music_by_name("menubutton", -20)
 	TransitionManager.transition(0.3)
-	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
-	#SaveManager.load_current_game()
-	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
+	# Load save data (data-only)
+	await SaveManager.load_current_game()
+
+	# Change scene (DO NOT await)
+	Scene.change("res://scenes/game_screen.tscn")

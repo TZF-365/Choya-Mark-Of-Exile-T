@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://dv7ic2xynwjqq"]
 
 [ext_resource type="Texture2D" uid="uid://cb48ykm5cosku" path="res://assets/art/background9.jpg" id="1_oye1b"]
-[ext_resource type="Script" uid="uid://c764m7hnj3nct" path="res://logic/data/info/Game_Over.gd" id="2_wawo4"]
+[ext_resource type="Script" uid="uid://c764m7hnj3nct" path="res://logic/data/scenelogic/Game_Over.gd" id="2_wawo4"]
 [ext_resource type="Texture2D" uid="uid://cslgmvvxq5gr7" path="res://assets/art/pexels-marek-piwnicki-3907296-11513053.jpg" id="3_o57t2"]
 [ext_resource type="FontFile" uid="uid://b5a8ujpl2jgww" path="res://assets/fonts/Lore_Item_Font/IMFellEnglish-Italic.ttf" id="4_56v3a"]
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="4_n0gna"]
 [ext_resource type="FontFile" uid="uid://cdkwhyrr2mt2g" path="res://assets/fonts/Header_combat_Font/CinzelDecorative-Bold.ttf" id="7_tdjww"]
 [ext_resource type="FontFile" uid="uid://cifveys2aswe5" path="res://assets/fonts/Dialog_Font/Cinzel-VariableFont_wght.ttf" id="14_pkxfd"]
-[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/info/buttonpress.gd" id="15_tei00"]
+[ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/scenelogic/buttonpress.gd" id="15_tei00"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="16_p65md"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="17_sjqrh"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="18_dua4v"]
@@ -78,7 +78,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_o57t2")
 
 [node name="Flavor" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = -0.00285714
 anchor_top = 0.252
 anchor_right = 0.996857
@@ -115,7 +115,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Game Over" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.00285714
 anchor_top = -0.264333
 anchor_right = 0.00285714
@@ -133,7 +133,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Flavorinfo" type="Label" parent="MarginContainer/HBoxContainer2/Panel"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.00285714
 anchor_top = 0.438667
 anchor_right = 0.991714
@@ -166,7 +166,7 @@ text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="followcreator" type="Button" parent="MarginContainer/HBoxContainer2/Panel"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.197
 anchor_top = 0.935
 anchor_right = 0.801

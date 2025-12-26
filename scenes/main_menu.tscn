@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=26 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://assets/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" uid="uid://dxb5u2kgn15ey" path="res://logic/backend/main_menu.gd" id="1_7gw0o"]
@@ -7,12 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cbd6qlawp2u3l" path="res://scenes/utilities/circle_transition.tscn" id="3_lqaap"]
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://assets/pixelart/button_pressed_style.tres" id="3_u8ajb"]
 [ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://assets/sprites/ui/ui-tileset.png" id="4_05n6c"]
-[ext_resource type="Script" uid="uid://da5yr06jbidxq" path="res://logic/backend/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" uid="uid://crbktcitbaljs" path="res://logic/backend/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://dlwi6jgvvy220" path="res://assets/art/titlescreenbackground.webp" id="6_nqgty"]
 [ext_resource type="PackedScene" uid="uid://peloieugygrl" path="res://scenes/utilities/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="SystemFont" uid="uid://03uphxnuc2j" path="res://assets/pixelart/troochi.tres" id="10_7b55j"]
-[ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_1ajci"]
 [ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="15_5pajh"]
 [ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="15_7b55j"]
 
@@ -210,13 +208,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
 
-[node name="Audio Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
-layout_mode = 2
-script = ExtResource("4_mjs4o")
-master_slider = NodePath("../MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/HSlider")
-music_slider = NodePath("../MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/HSlider2")
-sfx_slider = NodePath("../MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/HSlider3")
-
 [node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
 layout_mode = 2
 theme_override_constants/margin_left = 40
@@ -318,10 +309,6 @@ text = "Return"
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("15_7b55j")
 metadata/_custom_type_script = "uid://dbio2vtk3488t"
-
-[node name="AudioManager" parent="." instance=ExtResource("14_1ajci")]
-visible = false
-layout_mode = 1
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/start_button" to="Main Menu/Menu Control" method="_on_start_button_pressed"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/load_button" to="Main Menu/Menu Control" method="_on_load_button_pressed"]

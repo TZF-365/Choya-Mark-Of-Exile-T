@@ -1,0 +1,16 @@
+res://scenes/game_screen.tscn
+res://assets/pixelart/combat_buttons.tres
+res://assets/fonts/ChoyaFont1.tres
+res://assets/pixelart/pixelart.tres
+res://assets/pixelart/game_screen_di.tres
+res://assets/pixelart/SE_Bottom_menu.tres
+res://logic/data/scenelogic/al_sound_manager.gd
+res://logic/data/scenelogic/buttonpress.gd
+res://scenes/main_menu.tscn
+res://logic/backend/main_menu.gd
+res://logic/data/scenelogic/game_screen.gd
+res://logic/data/scenelogic/ChoiceButtons.gd
+res://logic/backend/SceneManager.gd
+res://scenes/combat_screen.tscn
+res://logic/data/combatLogic/combat_screen.gd
+res://logic/data/combatLogic/Battlemanager.gd

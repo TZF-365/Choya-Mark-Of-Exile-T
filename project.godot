@@ -31,13 +31,14 @@ TransitionManager="*res://scenes/utilities/fadetransition.tscn"
 Gamelogic="*res://scenes/utilities/gamelogic.tscn"
 Ccid="*res://logic/backend/CCID.gd"
 AudioManager="*res://scenes/utilities/AudioManager.tscn"
-Storyflags="*res://logic/data/info/storyflags.gd"
-ContentData="*res://logic/data/info/content_data.gd"
+Storyflags="*res://logic/data/scenelogic/storyflags.gd"
+ContentData="*res://logic/data/scenelogic/content_data.gd"
 DamageCalc="*res://logic/data/combatLogic/damage_calculator.gd"
 BaseChar="*res://logic/ent/BaseChar.gd"
 SkillManager="*res://logic/data/combatLogic/SkillManager.gd"
 TechniqueManager="*res://logic/data/combatLogic/TechniqueManager.gd"
 Player_AL="*res://scenes/entities/Player.tscn"
+Scene="*res://logic/backend/SceneManager.gd"
 
 [display]
 

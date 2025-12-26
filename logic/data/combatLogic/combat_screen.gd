@@ -11,7 +11,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await AudioManager.fade_out_music()
 	AudioManager.play_music(preload("res://assets/Music/03_Melee.ogg"))
 
 
@@ -24,7 +23,7 @@ func _on_Menu_button_pressed() -> void:
 	TransitionManager.transition(0.5)
 	# Wait for the transition to finish using the "on_transition_finished" signal
 	await TransitionManager.on_transition_finished
-	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
+	Scene.change("res://scenes/game_screen.tscn")
 
 
 func _on_action_pressed() -> void:
