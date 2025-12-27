@@ -2,7 +2,7 @@ extends Node
 class_name Base_Charm
 
 # General properties
-@export var display_name: String = "Lycarus"
+@export var display_name: String = "Mary"
 @export var val: float = 10.00
 @export var max_hp: int = 100
 @export var current_hp: int = 100
@@ -44,8 +44,7 @@ var turn_order: Array[BaseChar]
 
 var techniques: Array[Technique_] = _techniques_editor.duplicate()
 
-
-@export var known_techniques: Array[Resource] = []
+@export var known_techniques: Array[Technique_] = []
 
 var current_action: String = ""
 
@@ -69,23 +68,21 @@ var current_action: String = ""
 }
 
 # Equipment
-@export var equipment: Dictionary = {
+@export var equipment: Dictionary[String, WeaponResource] = {
 	"main_hand": null,
-	"off_hand": null,
-	"accessory": []
+	"off_hand": null
 }
+@export var accessories: Array[WeaponResource] = []
 
-var armor_slots := {
-	"head": null,
-	"chest": null,
-	"legs": null,
-	"arms": null,
-	"shield": null
-}
+var armor_slots: Dictionary = {}
+# ARMOR SLOTS (have to add a armorslotresource for it to show up)
+@export var armor_data: ArmorSlotsResource
+
+
 
 
 # Body part VAL (for location-based damage)
-@export var body_part_val: Dictionary = {
+@export var body_part_val: Dictionary[String, int] = {
 	"head": 30,
 	"left_hand": 50,
 	"right_hand": 50,
@@ -93,6 +90,7 @@ var armor_slots := {
 	"left_leg": 40,
 	"right_leg": 40
 }
+
 
 # Story-related variables
 @export var story_var: Dictionary = {
@@ -132,7 +130,6 @@ func get_weapon_power() -> float:
 	return 2.0
 
 
-
 func take_damage(amount: int, source: BaseChar = null):
 	var total_damage = amount
 
@@ -159,12 +156,6 @@ func take_damage(amount: int, source: BaseChar = null):
 		print("%s took %d damage!" % [self.name, amount])
 
 
-
-
-
-
-
-		
 
 func use_skill(skill_name: String, target: BaseChar):
 	if skills.has(skill_name):
@@ -230,6 +221,7 @@ func get_equipped_weapon(slot: String = "main_hand") -> ItemResource:
 		return equipment[slot]
 	return null
 
+
 #ARMOR 
 func equip_armor(slot: String, armor: ArmorResource) -> void:
 	if not armor:
@@ -259,6 +251,7 @@ func resolve_hit_location() -> String:
 		return "head"
 	else:
 		return "shield"
+
 
 func get_damage_reduction_from_hit() -> float:
 	var hit_location = resolve_hit_location()

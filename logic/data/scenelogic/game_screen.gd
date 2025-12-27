@@ -13,7 +13,7 @@ var start_page: String
 var fstart = true
 
 func _ready():
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	stats_label.text = str("val: " + str(stats["val"]) + ", " + "Mana: " + str(stats["mana"]) + ", " + "Coins: " + str(stats["coins"]) + "\nStatus: " + str(stats["status"]))
 	print(stats_label.text)
 

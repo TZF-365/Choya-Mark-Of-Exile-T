@@ -8,6 +8,7 @@ var player_team: Array[BaseChar] = []
 var enemy_team: Array[BaseChar] = []
 
 func _ready():
+	print("Combat Instantiator On")
 	setup_combat()
 
 func setup_combat():

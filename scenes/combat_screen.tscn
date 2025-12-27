@@ -914,17 +914,17 @@ grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("enemy", "enemy_ai", "combat_log", "player_health_label", "enemy_health_label", "enemy_name_label")]
+[node name="Combatmanager" type="Node" parent="." node_paths=PackedStringArray("enemy", "combat_log", "player_health_label", "enemy_health_label", "enemy_name_label")]
 script = ExtResource("10_vy0o1")
-enemy = NodePath("../CombatScenes/Outlaw")
-enemy_ai = NodePath("../CombatScenes/EnemyAi")
+enemy = NodePath("../CombatScenes/Goblin")
 combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/CombatTexts")
 player_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar2")
 enemy_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar")
 enemy_name_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox/Enemy_name_Label")
 
-[node name="CombatInstantiator" type="Node" parent="Combatmanager"]
+[node name="CombatInstantiator" type="Node" parent="Combatmanager" node_paths=PackedStringArray("enemy_list")]
 script = ExtResource("11_4tvcf")
+enemy_list = [NodePath("../../CombatScenes/Goblin")]
 
 [node name="Node2" type="Node" parent="Combatmanager"]
 

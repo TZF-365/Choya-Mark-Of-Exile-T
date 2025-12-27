@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b236yy7yxpnij"]
+
+[ext_resource type="Script" uid="uid://bc7g75gnrwmeb" path="res://logic/ent/goblin.gd" id="1_ep5du"]
+
+[node name="Bandit" type="Node2D"]
+script = ExtResource("1_ep5du")
+display_name = "Bandit"

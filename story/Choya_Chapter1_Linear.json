@@ -677,7 +677,13 @@
 		"choices": {
 			"1": {
 				"text": "Fight the bandit with the 2x4!",
-				"load_combat_encounter": "res://story/storyenemies/gobby_the_ugly_encounter.json",
+				"load_combat_encounter":{
+					"enemy_id": "bandit", 
+					"override_display_name": "Scarred Bandit", 
+					"override_hp": 70, 
+					"override_weapon": "res://logic/data/resources/Items/weapons/wooden_plank.tres", 
+					"battle_events": []
+				},
 				"buffs": {
 					"current_hp": 70
 				},

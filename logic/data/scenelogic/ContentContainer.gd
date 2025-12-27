@@ -6,6 +6,9 @@ class_name Gamesc
 @onready var player_stats = entity_var
 var has_died = false
 
+@onready var combat_initializer: CombatInstantiator = get_node("Combatmanager/CombatInstantiator")
+
+
 @onready var anim_player: AnimationPlayer = $"../../../../../AnimationPlayer" # Ensure you have an AnimationPlayer node
 
 var used_hp = false
@@ -99,59 +102,135 @@ func _process(_delta):
 
 
 
-
-# Function to process a choice made by the user
 func process_choice(choice_index: int) -> void:
-	
 	statindicator.text = ""
 
-			
-	var choice_data = content_dict[current_page]["choices"][str(choice_index)]
-	#print("PIZZA ", choice_data)
-	# Check if the choice includes a combat encounter
+	# Ensure the current page exists
+	if not content_dict.has(current_page):
+		push_warning("Current page not found in content_dict: %s" % current_page)
+		return
+
+	var page_data: Dictionary = content_dict[current_page]
+	var choice_key = str(choice_index)
+	
+	# Ensure the choice exists
+	if not page_data["choices"].has(choice_key):
+		push_warning("Choice index %s not found in page %s" % [choice_index, current_page])
+		return
+
+	var choice_data: Dictionary = page_data["choices"][choice_key]
+
+	# --- HANDLE COMBAT ENCOUNTER ---
 	if choice_data.has("load_combat_encounter"):
-		var combat_data_path = choice_data["load_combat_encounter"]
-		start_combat_encounter(combat_data_path)
-		
-	var next_page_data = content_dict.get(current_page, {})
-	if next_page_data.has("music"):
-		var music_path = next_page_data["music"]
+		var enc_data = choice_data["load_combat_encounter"]
+		var enc: Dictionary = {}
+
+		if typeof(enc_data) == TYPE_DICTIONARY:
+			enc = enc_data
+		elif typeof(enc_data) == TYPE_STRING:
+			# For legacy string path
+			enc = {"scene_path": enc_data}
+		else:
+			push_warning("Unexpected type for load_combat_encounter: %s" % typeof(enc_data))
+
+		# Initialize CombatData safely
+		CombatData.player = Player_AL
+		CombatData.enemy_instance = null
+		CombatData.enemy_id = ""
+		CombatData.enemy_config = {}
+		CombatData.battle_events = enc.get("battle_events", [])
+
+		# Handle enemy instance if provided
+		if enc.has("enemy_instance") and enc["enemy_instance"] != null:
+			CombatData.enemy_instance = enc["enemy_instance"] as BaseChar
+
+		# Handle enemy_id or enemy_scene
+		if enc.has("enemy_id"):
+			CombatData.enemy_id = str(enc["enemy_id"])
+		if enc.has("enemy_scene"):
+			var enemy_scene = load(enc["enemy_scene"])
+			if enemy_scene:
+				var enemy_instance = enemy_scene.instantiate() as BaseChar
+				CombatData.enemy_instance = enemy_instance
+
+		# Handle enemy_config overrides
+		CombatData.enemy_config = {
+			"override_display_name": enc.get("override_display_name", null),
+			"override_hp": enc.get("override_hp", null),
+			"override_stats": enc.get("override_stats", {}),
+			"override_weapon": enc.get("override_weapon", null),
+			"override_armor": enc.get("override_armor", null),
+			"override_techniques": enc.get("override_techniques", [])
+		}
+
+		# Apply overrides immediately if instance exists
+		if CombatData.enemy_instance != null:
+			var e = CombatData.enemy_instance
+			if CombatData.enemy_config["override_display_name"] != null:
+				e.display_name = CombatData.enemy_config["override_display_name"]
+			if CombatData.enemy_config["override_hp"] != null:
+				e.max_hp = int(CombatData.enemy_config["override_hp"])
+				e.current_hp = e.max_hp
+			if CombatData.enemy_config["override_stats"].size() > 0:
+				for k in CombatData.enemy_config["override_stats"]:
+					e.stats[k] = CombatData.enemy_config["override_stats"][k]
+			if CombatData.enemy_config["override_weapon"] != null:
+				var w = load(CombatData.enemy_config["override_weapon"])
+				if w: e.equip_weapon(w, "main_hand")
+			if CombatData.enemy_config["override_armor"] != null:
+				var a = load(CombatData.enemy_config["override_armor"])
+				if a: e.equip_armor("chest", a)
+			if CombatData.enemy_config["override_techniques"].size() > 0:
+				e.techniques.clear()
+				for tpath in CombatData.enemy_config["override_techniques"]:
+					var tres = load(tpath)
+					if tres:
+						e.techniques.append(tres)
+
+		# Transition to combat scene
+		get_tree().change_scene_to_file("res://scenes/combat_screen.tscn")
+
+	# --- HANDLE MUSIC CHANGE ---
+	if page_data.has("music"):
+		var music_path = page_data["music"]
 		var music_stream = load(music_path)
 		await AudioManager.fade_out_music()
 		AudioManager.play_music(music_stream)
-		
 
-	if content_dict[current_page]["choices"][str(choice_index)].has("output"):
-		get_parent().scroll_vertical = 0
-		var output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
-		print("PIZZA ", output_value)
-		if content_dict[current_page]["choices"][str(choice_index)].has("requirement"):
-			var requirements = content_dict[current_page]["choices"][str(choice_index)]["requirement"]
-			for requirement in requirements.keys():
-				if player_stats[requirement] < requirements[requirement] and content_dict[current_page]["choices"][str(choice_index)].has("failed_output"):
-					if requirement == "mana":
-						var health_deduction = player_stats[requirement] - requirements[requirement]
-						player_stats["current_hp"] += round(health_deduction * 1.5)
-						statindicator.text += "\n[color=red]" + str("health") + " has decreased by " + str(round(-health_deduction * 1.5)) + "[/color]"
-						used_hp = true
-						output_value = content_dict[current_page]["choices"][str(choice_index)]["output"]
-					else:
-						output_value = content_dict[current_page]["choices"][str(choice_index)]["failed_output"]
+	# --- HANDLE SCENE CHANGE ---
+	if page_data.has("scenechange"):
+		var scene_path = page_data["scenechange"]
+		get_tree().change_scene_to_file(scene_path)
 
-		if content_dict[current_page]["choices"][str(choice_index)].has("buffs"):
-			var buff_value = content_dict[current_page]["choices"][str(choice_index)]["buffs"]
-			for key in buff_value.keys():
-				if buff_value[key] >= 0:
-					statindicator.text += "\n[color=green]" + key + " has increased by " + str(buff_value[key]) + "[/color]"
-				else:
-					statindicator.text += "\n[color=red]" + key + " has decreased by " + str(-buff_value[key]) + "[/color]"
-				player_stats[key] += buff_value[key]
+	# --- HANDLE REQUIREMENTS AND BUFFS ---
+	var output_value = choice_data.get("output", null)
 
-		# Update current page and load content
+	if choice_data.has("requirement"):
+		var requirements = choice_data["requirement"]
+		for key in requirements.keys():
+			if player_stats.get(key) < requirements[key]:
+				if choice_data.has("failed_output"):
+					output_value = choice_data["failed_output"]
+
+	if choice_data.has("buffs"):
+		var buffs = choice_data["buffs"]
+		for key in buffs.keys():
+			var delta = buffs[key]
+			if delta >= 0:
+				statindicator.text += "\n[color=green]%s has increased by %s[/color]" % [key, str(delta)]
+			else:
+				statindicator.text += "\n[color=red]%s has decreased by %s[/color]" % [key, str(-delta)]
+			player_stats[key] += delta
+
+	# --- UPDATE PAGE ---
+	if output_value != null:
 		Ccid.set_page(output_value)
-		current_page = output_value  # Optional, just for local convenience
-		set_content(content_dict[output_value])
-		
+		current_page = output_value
+		if content_dict.has(output_value):
+			set_content(content_dict[output_value])
+		else:
+			push_warning("Output page not found: %s" % output_value)
+
 
 # Function to set the content of the current page
 func set_content(output_value) -> void:
