@@ -50,7 +50,7 @@
 	"010_prologue_3": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "My muscles screamed with every breath, the pain buried deep, as if each fibre had been torn and reknit by barbed wire as surgical tools. Moving was agony—but I moved all the same. Through grit and groaning will, I brought myself to my knees. \n\nThe forest loomed in silence. Ancient. Watchful...",
+		"narr_text": "Muscles screamed with every breath, the pain buried deep, as if each fibre had been torn and reknit by barbed wire as surgical tools. Moving was agony... but I moved all the same. Through grit and groaning will, I brought myself to my knees. \n\nThe forest loomed in silence. Ancient. Watchful...",
 		"choices": {
 			"1": {
 				"text": "Continue.",
@@ -61,7 +61,7 @@
 	"010_prologue_3_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "The air hung heavy with the scent of damp earth and rot, thick as a burial shroud. Every breath tasted of soil and time. Then—somewhere in the distance—a howl. Long, low, and full of hunger. It tore through the stillness like a blade. \n\nThe sound gripped my spine like a cold hand, pulling me upright despite the pain. I rose, trembling—not from strength, but from fear.",
+		"narr_text": "The air hung heavy with the scent of damp earth and rot, thick like a shroud. Every breath tasted of soil. Then somewhere in the distance, a howl. Long, low, and full. It tore through the stillness like a blade. \n\nThe sound gripped my spine like a cold hand, pulling me upright despite the pain. I rose, trembling.",
 		"choices": {
 			"1": {
 				"text": "Continue.",
@@ -76,10 +76,10 @@
 	"010_prologue_4": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "Just then, images struck like lightning behind my eyes—fleeting, cruel, and unwelcome. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue now, but it fit once. I remember the flutter of excitement, dulled by a shadow of doubt I never voiced. \n\nGold was promised—whispered like a secret, bartered not in open sun, but in the corners where light dares not linger. The journey blurs—long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. \n\nThen came the dark. And monsters. Real or imagined, I cannot say. Laughter followed me there too—sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then—pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
+		"narr_text": "Just then, images struck like lightning behind my eyes—fleeting. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue. I remember the flutter of excitement, dulled by a doubt I never voiced. \n\nGold was promised, bartered in the corners where light dares not linger. The journey blurs long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. \n\nThen came the dark. And monsters... Laughter followed me too. Sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
 		"choices": {
 			"1": {
-				"text": "Continue",
+				"text": "Try to speak.",
 				"output": "010_prologue_4_c1"
 			}
 		}
@@ -87,7 +87,7 @@
 	"010_prologue_4_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "His voice cracked the silence like dry bark splitting under great pressure. 'They left me...' he rasped, the words barely more than a whisper torn from a throat scoured raw by thirst and dust.",
+		"narr_text": "His voice cracked the silence like dry bark splitting under great pressure. 'They left me...' I rasped, the words barely more than a whisper from a throat raw by thirst and dust.",
 		"choices": {
 			"1": {
 				"text": "Examine my body for injuries.",
@@ -100,7 +100,7 @@
 	"010_prologue_5": {
 		"title": "Prologue: The Mark",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "A pause 'Abandoned... to this gods-forsaken wild...' another pause, then a bitter bark of laughter that turned to coughing—wracking, violent, as if his lungs had forgotten the shape of breath. 'Why?' he gasped, the sound ragged, pleading. 'Why—' Another fit seized him, hacking and gasping until his knees buckled and the forest floor caught him in its cold embrace. \n\nHe clutched his chest but could only feel the cold chestplate he had on, wide-eyed, as though only now realizing he hadn’t truly breathed since he’d woken. His body trembled.",
+		"narr_text": "A pause 'Abandoned... to this gods-forsaken wild...' another pause, then a bitter bark of laughter that turned to coughing—wracking, violent, as if his lungs had forgotten the shape of breath. 'Why?' he gasped, the sound ragged, pleading. 'Why—' Another fit seized him, hacking and gasping until his knees buckled and the forest floor caught him in its cold embrace. \n\nHe clutched his chest but could only feel the cold chestplate he had on, wide eyed, as though only now realizing he hadn’t truly breathed since he’d woken. His body trembled.",
 		"choices": {
 			"1": {
 				"text": "Continue",
@@ -126,10 +126,10 @@
 	"010_prologue_5_c2": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "Beneath my skin, something burns—an unholy heat that writhes like molten iron coursing through my veins. It is not the fire of fever, but of something older, crueler. The pain is dull, constant, like a forge left simmering long after the smith has gone.",
+		"narr_text": "Beneath my skin, something burns an unholy heat that writhes like molten iron coursing through my veins. It is not the fire of fever, The pain is dull, constant, like a forge left simmering long after the smith has gone.",
 		"choices": {
 			"1": {
-				"text": "Continue",
+				"text": "Feel the area",
 				"output": "010_prologue_5_c3"
 			}
 		}
@@ -138,7 +138,7 @@
 	"010_prologue_5_c3": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "My hand trembles as I lift the tattered remnants of cloth clinging to my frame. There, etched into the pallor of my skin, is a mark—no wound, no scar, but something older. like a tattoo. It glows faintly, the color of a cloudless sky, cold. It feels wrong...",
+		"narr_text": "My hand trembles as I lift the tattered remnants of cloth clinging to my frame. There, etched into the pallor of my skin, is a mark, no wound, no scar, but it looks like... a tattoo? /n/nIt glows faintly, the color of a cloudless sky, cold. It feels wrong...",
 		"choices": {
 			"1": {
 				"text": "Panic and try to suppress it.",
@@ -153,7 +153,7 @@
 	"010_prologue_6": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "I grip my wrist tightly, as if I could hold the chaos in place. My breathing quickens, the glow intensifying for a moment before it settles. I could tell that This Mark... it saved me, didn’t it? I'm not...",
+		"narr_text": "I grip my wrist tightly, as if I could hold the chaos in place. My breathing quickens, the glow intensifying for a moment before it settles. I'm not...",
 		"choices": {
 			"1": {
 				"text": "Move forward cautiously.",
@@ -164,7 +164,7 @@
 	"010_intro": {
 		"title": "",
 		"picture": "res://assets/art/Forest_Path.jpg",
-		"narr_text": "The forest is alive with sounds—howls that pierce the night, rustling leaves that hint at unseen predators. I stagger to my feet, my body screaming in protest. I have nothing but my will and this cursed mark. Somewhere in the distance, I see the very faint glow of torches. A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
+		"narr_text": "I looked around and noticed the forest is alive with sounds howls that pierce the night, there are sounds of rustling leaves and a broken branch in the distance behind of me, but there are no sounds of insects and birds. I stagger to my feet, my body screaming in protest. /n/nSomewhere in the distance, I see the very faint glow of... torches? A village, perhaps? Or bandits. Either way, it’s a chance I have to take.",
 		"choices": {
 			"1": {
 				"text": "Head toward the lights, hoping for sanctuary.",
@@ -179,7 +179,7 @@
 	"010_wandering_1": {
 		"title": "",
 		"picture": "res://assets/art/Dark_Forest.jpg",
-		"narr_text": "As my weak dragging turns into defined steps as the minutes pass. The ground crunches underfoot, the sound unnaturally loud in the oppressive silence. Each step feels like a question I can't answer. \n\nMy memories flicker like distant lanterns—there, but too far to grasp. I push forward, guided by nothing but the hope that movement itself will lead me somewhere.",
+		"narr_text": "As my weak dragging turns into defined steps as the minutes pass. The ground crunches underfoot, the sound unnaturally loud in the oppressive silence. Each step accompanied by raspy breaths of the cold dry air. \n\nMy memories flicker like distant lanterns, but the details are too far to grasp. I push forward, guided by nothing but the hope that movement itself will lead me somewhere.",
 		"choices": {
 			"1": {
 				"text": "Turn to the left and continue walking.",
@@ -194,7 +194,7 @@
 	"010_wandering_2": {
 		"title": "",
 		"picture": "res://assets/art/Dark_Forest.jpg",
-		"narr_text": "The trees feel closer now, their ancient bark like gnarled faces frozen in silent judgment. My name echoes in my mind—Lyaris Alaric Talbot.",
+		"narr_text": "The trees feel closer now, the ancient bark looked like gnarled faces frozen in silent judgment. My name echoes in my mind... Lyaris Alaric Talbot.",
 		"choices": {
 			"1": {
 				"text": "Continue",
@@ -221,7 +221,7 @@
 	"010_wandering_3": {
 		"title": "Wandering: The Forest Speaks",
 		"picture": "res://assets/art/Night_Forest.jpg",
-		"narr_text": "A distant howl cuts through the night, sending another shiver up my spine. The air smells damp and earthy, with a faint metallic tang I can't place. My hand unconsciously brushes the mark on my wrist. It's warm to the touch, a steady reminder that I am... different now. The memories of betrayal surface again, unbidden. I trusted them... And they left me here to die.",
+		"narr_text": "A distant howl cuts through the night, sending another shiver up my spine. The air smells damp and earthy, with a faint metallic tang I can't place. My hand unconsciously brushes the mark on my wrist. It's warm to the touch, I am... different now. The memories of betrayal surface again. I trusted them... And they left me here to die.",
 		"choices": {
 			"1": {
 				"text": "Pause to listen, then move toward the noise.",
@@ -236,7 +236,7 @@
 	"010_wandering_4": {
 		"title": "Wandering: The Endless Forest",
 		"picture": "res://assets/art/Night_Forest.jpg",
-		"narr_text": "The darkness feels alive, the forest pressing in on all sides. I catch glimpses of movement in the corner of my eye, but when I turn, there’s nothing there. My breath is steady, but my mind races. Who am I really? I can't remember anything beyond the last words I just said. I feel lonely, as though the weight of the question is sinking me into the earth itself.",
+		"narr_text": "The darkness feels alive and dead at the same time, the forest feels like it's pressing in on all sides. I catch glimpses of movement in the corner of my eye, but when I turn, there’s nothing there. My breath is steady now, but my mind races. Who am I really? I can't remember anything beyond the last words I just said. I feel lonely, I feel like I am into the earth itself...",
 		"choices": {
 			"1": {
 				"text": "Check your belongings for anything useful.",
@@ -251,7 +251,7 @@
 	"010_remembers_map": {
 		"title": "Wandering: The Map",
 		"picture": "res://assets/art/Crumpled_Map.jpg",
-		"narr_text": "My fingers fumble in my pockets until they close around something crumpled and folded. A map. Relief shivers over me as I pull it out, though the paper is crumpled and smudged with dirt. The markings are faint, but they show landmarks—the forest, a river, and a settlement not too far from here. My heart quickens and my breathing feels firmer.",
+		"narr_text": "My fingers fumble in my pockets until they close around something crumpled and folded. A map. Relief shivers over me as I pull it out, though the paper is crumpled and smudged with dirt. The markings are faint, but they show landmarks, the forest, a river, and a settlement not too far from here. My heart quickens and my breathing feels firmer.",
 		"choices": {
 			"1": {
 				"text": "Head toward the settlement.",
@@ -266,7 +266,7 @@
 	"010_wolf_attack": {
 		"title": "An Unexpected Threat",
 		"picture": "res://assets/art/Forest_Wolf.jpg",
-		"narr_text": "As you feel some strength return to you move through the forest, your senses prickle with unease. The hair on the back of your neck stands on end as a rustling sound cuts through the otherwise quiet night. Then it happens—a shadow bursts from your right flank, teeth bared and eyes glowing with feral intensity. A wolf. It lunges for your side, jaws snapping.\n\nYou barely manage to twist out of the way, the beast's claws grazing your cloak. Your mind races. You can feel the mark on your wrist pulsing faintly. You know you have the power to summon fire, but at a cost. Alternatively, you could rely on your agility and the dagger you feel strapped to your thigh.\n\nThe wolf snarls and prepares for another strike, circling you like a predator savoring its prey. What will you do?",
+		"narr_text": "As you feel some strength return to you move through the forest, your senses prickle with unease. The hair on the back of your neck stands on end as a rustling sound cuts through the otherwise quiet night. Then it happens a shadow bursts from your right flank, teeth bared and eyes glowing with feral intensity. A wolf. It lunges for your side, jaws snapping.\n\nYou barely manage to twist out of the way, the beast's claws grazing your cloak. Your mind races. You can feel the mark on your wrist pulsing faintly. You know you have the power to summon fire, but at a cost. Alternatively, you could rely on your agility and the dagger you feel strapped to your thigh.\n\nThe wolf snarls and prepares for another strike, circling you like a predator savoring its prey. What will you do?",
 		"choices": {
 			"1": {
 				"text": "Draw power from the mark to summon a fireball and incinerate the wolf.",
@@ -335,7 +335,7 @@
 	"010_waking_in_inn": {
 		"title": "A Strange Awakening",
 		"picture": "res://assets/art/Inn1.jpg",
-		"narr_text": "You wake to the gentle creak of wooden doors and the faint smell of stew wafting through the air. A soft bed cradles your aching body, a stark contrast to the harsh forest floor. your eyes blur open then clear as you see the woman from before is seated across the room, idly polishing her bow.\n\nShe notices you stirring and offers a smile. 'Glad to see you're alive,' she says. 'You’ve got some explaining to do, though.'\n\nHer words are light, but her eyes are sharp, assessing you. You realize your mark was well hidden, The question is, how much do you tell her?",
+		"narr_text": "You wake to the gentle creak of wooden doors and the faint smell of stew wafting through the air. A soft bed cradles your aching body, a stark contrast to the harsh forest floor. your eyes blur open then clear as you see the woman from before is seated across the room, idly polishing her bow.\n\nShe notices you stirring and offers a smile. 'Glad to see you're awake,' she says. 'if you are able to speak I have some questions for you, if you are able.'\n\nHer words are light, but her eyes are sharp, assessing you. You realize your mark was well hidden, The question is, how much do you tell her?",
 		"choices": {
 			"1": {
 				"text": "Thank her and share some of your story.",
@@ -350,10 +350,10 @@
 	"010_conversation": {
 		"title": "A Tense Exchange",
 		"picture": "res://assets/art/Inn1.jpg",
-		"narr_text": "The archer leans forward, resting her elbows on her knees as she studies you. 'So, you’re not just some lost traveler, are you?' she says, her tone light but her eyes sharp and staring deep into yours. 'That mark of yours... it’s not something you see every day.'\n\nYour arm instinctively tries to hide itself, the mark now barely visible under your sleeve. She caught a glimpse. You’ll need to tread carefully.\n\n'What’s your name?' she asks, tilting her head and sharp, pointed ears. 'And why were you wandering alone in a place crawling with wolves and many monsters?'\n\nYou can feel the weight of her curiosity, but also the undercurrent of caution in her voice.",
+		"narr_text": "The archer leans forward, resting her elbows on her knees as she studies you. 'So, I don't think you got lost in the forest like a lost traveler, did you?' she says, her tone light but her eyes sharp and staring deep into yours. 'That mark of yours... it’s not something you see every day.'\n\nYour arm instinctively tries to hide itself, the glowing mark now barely visible under your sleeve. 'She saw... it make sense that she did.' You’ll need to tread carefully you tell yourself.\n\n'What’s your name?' she asks, tilting her head and sharp, pointed ears. 'And why were you wandering alone in that forest, don't you know that a Riven is buried there? ?'\n\nYou can feel the weight of her curiosity, but also the undercurrent of caution in her voice.",
 		"choices": {
 			"1": {
-				"text": "Tell her your name and part of the truth about your journey.",
+				"text": "Tell her your name and what you know.",
 				"output": "010_partial_truth"
 			},
 			"2": {
@@ -369,14 +369,14 @@
 	"010_partial_truth": {
 		"title": "A Fragile Alliance",
 		"picture": "res://assets/art/Inn1.jpg",
-		"narr_text": "'My name is Lyaris,' you begin cautiously. 'I’ve been... I am...  searching for answers. That mark you saw—it’s tied to something I don’t fully understand yet.'\n\nHer gaze softens slightly. 'Answers, huh? You’re lucky I found you when I did.'\n\nShe leans back, crossing her arms. 'Name’s Kaela, by the way. And you’re safe here, I rented out this inn so you could rest. And now you owe me.'\n\nHer cryptic comment leaves you with more questions than answers. Before you can press her, she stands. 'I have more questions, but first, you need to eat. Rest up. We’ll need to move soon.'",
+		"narr_text": "'My name is Lyaris,' you begin cautiously. 'I’ve been... I am...  searching for answers. That mark you saw, it’s tied to something I don’t fully understand yet.'\n\nHer gaze softens slightly. 'Answers... Well you’re lucky I found you when I did.'\n\nShe leans back, crossing her arms. 'Name’s Kaela, by the way. And you’re safe here, I rented out this inn so you could rest. And now you owe me.'\n\nHer wry comment leaves you with more questions than answers. Before you can press her, she stands. 'I have more questions, but first, you need to eat. Rest up. We’ll need to leave soon.'",
 		"choices": {
 			"1": {
 				"text": "Thank her and agree to rest.",
 				"output": "010_preparing_to_leave"
 			},
 			"2": {
-				"text": "Ask what she meant by ‘not entirely selfless.’",
+				"text": "Ask what she meant by ‘I owe her’",
 				"output": "010_selfless_motives"
 			}
 		}
@@ -384,7 +384,7 @@
 	"010_deflect": {
 		"title": "Turning the Tables",
 		"picture": "res://assets/art/inn1.jpg",
-		"narr_text": "'Who I am isn’t the important question right now,' you say, your tone even. 'The real question is: who are you? And why were you in the forest with a bow at the ready?'\n\nKaela raises an eyebrow, a faint smile playing on her lips. 'Fair enough. My name’s Kaela, and let’s just say the forest is my home. As for why I was there... let’s just say I had a job nearby. Lucky for you, I have good aim.'\n\nShe stands, stretching her arms over her head. 'Now, if you’re done interrogating me after I saved your life, maybe you can focus on getting something to eat for your own sake.'",
+		"narr_text": "'Who I am isn’t the important question right now,' you say, your tone even. 'The real question is: who are you? And why were you in the forest with a bow at the ready?'\n\nKaela raises an eyebrow, a faint smile playing on her lips. 'Fair enough. My name’s Kaela, and the forest contains an unspeakable evil under the ground, I was tasked to check and make sure it's in the same place. As for how I found you... let’s just say I had another job nearby. Lucky for you, I have good aim.'\n\nShe stands, stretching her arms over her head. 'Now, if you’re done interrogating me after I saved your life, maybe you can focus on getting something to eat for your own sake.'",
 		"choices": {
 			"1": {
 				"text": "Stay silent.",
@@ -399,7 +399,7 @@
 	"010_silence": {
 		"title": "Measured Silence",
 		"picture": "res://assets/art/inn1.jpg",
-		"narr_text": "You say nothing, your gaze steady as you study her. The silence stretches, but Kaela doesn’t seem perturbed. Instead, she smirks and sits back, crossing one leg over the other.\n\n'Not much of a talker, huh?' she says, her tone teasing. 'That’s fine. Actions speak louder, anyway.'\n\nShe stands, her movements fluid and deliberate. 'You’ve got secrets. I’ve got mine... kind of, Maybe we’ll get along.' Her words carry a hint of amusement, but her eyes stay watchful. This woman is clearly used to danger.",
+		"narr_text": "You say nothing, your gaze steady as you study her. The silence stretches, but Kaela doesn’t seem perturbed. Instead, she smirks and sits back, crossing one leg over the other.\n\n'Not much of a talker, now?' she says, her tone teasing. 'That’s fine then. anyway,'\n\nShe stands, her movements fluid and deliberate. 'You’ve got secrets. I’ve got mine... kind of, we’ll get along just fine!' Her words carry a hint of amusement, but her eyes stay watchful.",
 		"choices": {
 			"1": {
 				"text": "Watch her as she walks away.",
@@ -414,7 +414,7 @@
 	"010_preparing_to_leave": {
 		"title": "A New Path",
 		"picture": "res://assets/art/Inn_Outside.jpg",
-		"narr_text": "After some time passes Kaela retunrs and hands you a small bundle of supplies and gestures toward the door. 'We need to get moving. Overstaying our welcome isn’t safe.'\n\nYou glance at the mark on your wrist, feeling its faint warmth. There’s no telling what dangers lie ahead, but for now, you have an ally. Kaela’s confidence is reassuring, though her motives remain unclear.\n\n.",
+		"narr_text": "After some time passes Kaela returns and hands you a small bundle of supplies and gestures toward the door. 'We need to get moving. Overstaying our welcome isn’t safe.'\n\nYou glance at the mark on your wrist, feeling its faint warmth. There’s no telling what dangers lie ahead, but for now, you have an ally of sorts. Kaela’s confidence is reassuring, though her motives remain unclear.\n\n.",
 		"choices": {
 			"1": {
 				"text": "Follow Kaela and ask her about her knowledge of the region.",
@@ -429,7 +429,7 @@
 	"010_selfless_motives": {
 		"title": "Hidden Motives",
 		"picture": "res://assets/art/inn_Outside.jpg",
-		"narr_text": "'Not entirely selfless?' you ask, narrowing your eyes.\n\nKaela pauses, her gaze sharpening. 'Let’s just say I’m not the kind of person to help out of the goodness of my heart. You’ve got something that might interest me. That mark of yours—it’s rare. Dangerous, too. And it’s drawn attention you’re probably not ready for.'\n\nHer words send a chill down your spine. For now, she seems willing to keep you alive. The question is, at what cost?",
+		"narr_text": "you ask, narrowing your eyes.\n\nKaela pauses, her gaze sharpening. 'Let’s just say I’m not the kind of person to help out of the goodness of my heart. You’ve got something that might interest me. That mark of yours, it’s rare. Dangerous, too. And it’s drawn attention you’re probably not ready for.'\n\nHer words send a chill down your spine. For now, she seems willing to help you. The question is, at what cost?",
 		"choices": {
 			"1": {
 				"text": "Demand to know what she wants.",
@@ -444,7 +444,7 @@
 	"010_new_allies": {
 		"title": "Into the Forest",
 		"picture": "res://assets/art/Kaela_Forest_Sunlight.jpg",
-		"narr_text": "Kaela leads the way out of the inn, the late morning sunlight filtering through the tall trees overhead. The area is dense with foliage and beautiful, the air fresh and the earth beneath your feet soft. You notice the occasional glint of light off her armor and the way she moves—careful, yet confident, with a practiced grace. Her dark hair, tied back in a loose ponytail, flutters slightly in the breeze, and her green eyes scan the surroundings, always alert.\n\nYou can feel her gaze occasionally flicking to you, not in an overtly obvious way, but enough that you can tell she’s keeping tabs. Her expression is calm, but there’s an underlying intensity about her. It’s clear she’s seen more than her fair share of danger. You wonder what she does for a living.\n\n'You’re not from around here, are you?' she says after a moment, glancing over her shoulder. 'Terran, right? But you don’t look like the typical kind who wanders too deep into foreign lands. I’d be surprised if you made it out of here alive on your own.' She smirks lightly, but there’s a tinge of genuine concern in her voice.\n\n'Why are you so far from home?'",
+		"narr_text": "Kaela leads the way out of the inn, the late morning sunlight filtering through the tall trees overhead. The area is dense with foliage and beautiful, the air fresh and the earth beneath your feet soft. You notice the occasional glint of light off her armor and the way she moves, careful, yet confident, with a practiced grace. Her dark hair, tied back in a loose ponytail, flutters slightly in the breeze, and her green eyes scan the surroundings, always alert.\n\nYou can feel her gaze occasionally flicking to you, not in an overtly obvious way, but enough that you can tell she’s keeping tabs. Her expression is calm, but there’s an underlying intensity about her. It’s clear she’s seen more than her fair share of danger. You wonder what she does for a living.\n\n'You’re not from around here, are you?' she says after a moment, glancing over her shoulder. 'Terran, right? But you don’t look like the typical kind who wanders too deep into foreign lands. I’d be surprised if you made it out of here alive on your own.' She smirks lightly, but there’s a tinge of genuine concern in her voice.\n\n'Why are you so far from home?'",
 		"choices": {
 			"1": {
 				"text": "Explain that you’re searching for something important.",
@@ -455,7 +455,7 @@
 	"010_partial_explanation": {
 		"title": "A Shared Journey",
 		"picture": "res://assets/art/Forest_Walk.jpg",
-		"narr_text": "You take a deep breath while looking down at your feet as each step aches slightly, thinking about what to say and choosing your words carefully. 'I’m searching for something—something that might help me understand... who I am.'\n\nKaela glances back, her green eyes narrowing slightly, but there’s no judgment in her gaze. She seems to be confused. \n\n 'You don’t have to tell me everything,' she says softly, 'But I’ve been around long enough to know that people rarely travel this far for nothing.'\n\nHer pace slows slightly as you both continue walking. The soft rustle of leaves underfoot and the distant calls of birds create an oddly peaceful atmosphere despite the forest’s danger.\n\n'What is it like back home for you?' she asks suddenly. 'Is it so different from here?' Her voice has a gentle curiosity, and her expression softens as she listens for your response.",
+		"narr_text": "You take a deep breath while looking down at your feet as each step aches slightly, thinking about what to say and choosing your words carefully. 'I’m searching for something... something that might help me understand... who I am.'\n\nKaela glances back, her green eyes narrowing slightly, but there’s no judgment in her gaze. She seems to be confused. \n\n 'You don’t have to tell me everything,' she says softly, 'But I’ve been around long enough to know that people rarely travel this far for nothing.'\n\nHer pace slows slightly as you both continue walking. The soft rustle of leaves underfoot and the distant calls of birds create an oddly peaceful atmosphere despite the forest’s danger.\n\n'What is it like back home for you?' she asks suddenly. 'Is it so different from here?' Her voice has a gentle curiosity, and her expression softens as she listens for your response.",
 		"choices": {
 			"1": {
 				"text": "...Stay Silent.",
@@ -467,7 +467,7 @@
 		"title": "A Curious Bond",
 		"picture": "res://assets/art/Kaela_Staring.jpg",
 		"music": "res://assets/Music/Cobblestone_Village_Tavern.mp3",
-		"narr_text": "You both walk in silence as the dried grass crunch under your feet for a moment until she decides to speak again 'Terrans don’t come this far. Not many make it past the port,' Kaela says with a thoughtful frown. 'And you don’t seem like the.....'\n\nShe looks at you for a long moment, her gaze intense yet not unkind. 'I’ve met a few of your kind in the past. Adventurers, explorers... they.... you seem different. I can’t quite place it.'\n\nShe pauses, letting her words sink in before adding, 'Maybe it’s that look in your eyes. The same one I had when I first ventured out of my country, seeking... something.'\n\nShe smirks lightly, glancing away. 'But you can’t expect me to believe you’re just wandering around aimlessly, can you?'",
+		"narr_text": "You both walk in silence as the dried grass crunch under your feet for a moment until she decides to speak again 'Terrans don’t come this far. Not many make it past the port,' Kaela says with a thoughtful frown. 'And you don’t seem like the.....'\n\nShe looks at you for a long moment, her gaze intense yet not unkind. 'I’ve met a few of your kind in the past. Adventurers, explorers... they.... you seem different. I can’t quite place it.'\n\nShe pauses, letting her words sink in before adding, 'Maybe it’s that look in your eyes... something.'\n\nShe smirks lightly, glancing away. 'But you can’t expect me to believe your plan is just wandering around aimlessly, can you?'",
 		"choices": {
 			"1": {
 				"text": "Stay Silent.",
@@ -478,7 +478,7 @@
 	"010_guild_arrival": {
 		"title": "The Adventurer's Guild",
 		"picture": "res://assets/art/Tavern_Interior.jpg",
-		"narr_text": "Kaela leads you through winding forest paths until the trees give way to a modest settlement nestled in the foothills. The scent of roasted meat and damp earth fills the air as you approach a stone-and-wood building marked with a faded crest above the door—a sword crossed with a hunter's horn.",
+		"narr_text": "Kaela leads you through winding forest paths until the trees give way to a modest settlement nestled in the foothills. The scent of roasted meat and damp earth fills the air as you approach a stone and wood building marked with a faded crest above the door a sword crossed with a hunter's horn.",
 		"choices": {
 			"1": {
 				"text": "Continue",
@@ -500,7 +500,7 @@
 	"010_a_bold-lady": {
 		"title": "",
 		"picture": "",
-		"narr_text": "The woman halts before your table and takes a moment to calm herself of her apparant panic and approches with purpose in her stride and steel in her eyes. Her travel-worn cloak is fastened by a brooch shaped like a griffin clutching a spear—an old symbol of the Guild’s founding order. She smells faintly of pine and parchment. \n\n'You two—new blood, are you not? You’ve the look. I’ve a matter that calls for quiet hands and sharp instincts, not braggarts with flapping tongues.' \n\nShe slaps the parchment down onto the table. The wax seal of the guild breaks with a soft crack, revealing a hastily inked missive.",
+		"narr_text": "The woman halts before your table and takes a moment to calm herself of her apparant panic and approches with purpose in her stride and steel in her eyes. Her travel-worn cloak is fastened by a brooch shaped like a griffin clutching a spear an old symbol that looks similar to that of the insignia on the front of the guild. She smells faintly of pine and parchment. \n\n'You two new blood, are you not? You’ve the look. I’ve a matter that calls for quiet hands and sharp instincts, not braggarts with flapping tongues.' \n\nShe slaps the parchment down onto the table. The wax seal of the guild breaks with a soft crack, revealing a hastily inked missive.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -511,7 +511,7 @@
 	"010_a_boar_problem": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'We’re listening. But know we don’t take work blindly.', Kayla says. 'Boar activity along the outskirts of Hollowmere... crops ravaged, livestock killed, no casualties—yet.’ She glances up and looks at you with a hint of sadness in her voice.",
+		"narr_text": "'We’re listening. But know we don’t take work blindly.', Kayla says. 'Boar activity along the outskirts of Hollowmere... crops ravaged, livestock killed, no casualties yet.’ She glances up and looks at you with a hint of sadness in her voice.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -522,7 +522,7 @@
 	"010_boars": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'Sounds like a standard extermination job.', Kayla says with a hint of concern and skepticism. 'It was. Until the beasts began acting aggressively towards us-them. They have become clever—too clever. They won’t go near armed men. Quickly vanish, only to strike elsewhere. We’ve had men stationed for weeks who haven’t seen a single tusk.'",
+		"narr_text": "'Sounds like a standard extermination job.', Kayla says with a hint of concern and skepticism. 'It was. Until the beasts began acting aggressively towards us... them. They have become clever, too clever. They won’t go near armed men. Quickly vanish, only to strike elsewhere. We’ve had men stationed for weeks who haven’t seen a single tusk.'",
 		"choices": {
 		  "1": {
 				"text": "is that a weird behavior for boars?",
@@ -533,7 +533,7 @@
 	"010_boars2": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'That’s the thing about boars. They tend to have a sense for what they’re up against. If they think they can’t win, they’ll move on and avoid the area. No brute instinct there—just survival. Using Gurrilla tactics is not like them however, if this is true and it's not just a villager stealing crops, this could go on for months without a proper fight.', Kayla says.",
+		"narr_text": "'That’s the thing about boars. They are just animals but tend to have a sense for what they’re up against. If they think they can’t win, they’ll move on and avoid the area which can't be said for actual monsters. No brute instinct there,just survival. Using Gurrilla tactics is not like them however, if this is true and it's not just a villager stealing crops, this could go on for months without a proper fight.', Kayla says.",
 		"choices": {
 		  "1": {
 				"text": "Ah, I see",
@@ -555,7 +555,7 @@
 	"010_boar4": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'So let me guess—most adventurers won’t take the job. Too much waiting around. Too much effort for too little glory.' Lycarus's deduction captures the attention of Kaela, who looks like she just put two and two together. \n\n'Yes. Exactly that. Most seek coin or quick renown. But Hollowmere is a quiet village. Simple folk. We don’t have much to offer but meals, shelter, and thanks. And I mean they don’t—' She catches herself. '—They don’t.' \n\nHer composure stiffens again, though the desperation in her eyes betrays her calm.",
+		"narr_text": "'So let me guess, most adventurers won’t take the job. Too much waiting around. Too much effort for too little glory.' Lycarus's deduction captures the attention of Kaela, who looks like she just put two and two together. \n\n'Yes. Exactly that. Most seek coin or quick renown. But Hollowmere is a quiet village. Simple folk. We don’t have much to offer but meals, shelter, and thanks. And I mean they don’t—' She catches herself. '—They don’t.' \n\nHer composure stiffens again, though the desperation in her eyes betrays her calm.",
 		"choices": {
 		  "1": {
 				"text": "Continue",
@@ -603,7 +603,7 @@
 	"010_hurting": {
 		"title": "",
 		"picture": "",
-		"narr_text": "as you move to take a seat you start wincing at the lingering soreness in your muscles.\n\nShe notices. 'Still hurting?' she asks, settling in her chair nicely. You nod. 'Feels like I got trampled by a stampede.'\n\nKaela smirks, 'You’ve been out for a while. Muscle atrophy hits harder than you’d think.'\n\nYou glance at her.",
+		"narr_text": "as you move to take a seat you start wincing at the lingering soreness in your muscles.\n\nShe notices. 'Still hurting?' she asks, settling in her chair nicely. You nod. 'Feels like I got trampled by a stampede.'\n\nKaela smirks, 'You’ve been out for a while. Muscle atrophy will do that to you.'\n\nYou glance at her.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -614,7 +614,7 @@
 	"010_answers": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'How long was I out? Why can’t I remember much of anything?' \n\nShe watches you quietly for a moment, eyes narrowing. 'Wait... You don’t remember anything?' Her tone sharpens, concern flickering in her gaze. 'That mark on your wrist—are you saying you don’t even know how you got it?'",
+		"narr_text": "'How long was I out? Why can’t I remember much of anything?' \n\nShe watches you quietly for a moment, eyes narrowing. 'Wait... You don’t remember anything?' Her tone sharpens, concern flickering in her gaze. 'That mark on your wrist, are you saying you don’t even know how you got it?'",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -626,7 +626,7 @@
 		"title": "Fragments and Marks",
 		"picture": "res://assets/art/Wrist_Mark.jpg",
 		"music": "res://assets/Music/Chainsaw-Man-OPMED.mp3",
-		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing. Like its clouded.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark—it’s tied to some heavy stuff. I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern.",
+		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark, I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern.",
 		"choices": {
 			"1": {
 				"text": "Continue!",
@@ -651,7 +651,7 @@
 	"010_axe2": {
 		"title": "",
 		"picture": "",
-		"narr_text": "The bandit snarls and slashes again—you dodge, barely. Kaela lunges toward you but veers away, shouting, 'MOVE!' before grabbing your hand and dragging you after her.\n\nThe two of you burst out the front door, feet pounding the muddy road as shouting erupts behind you.",
+		"narr_text": "The bandit snarls and slashes again, you dodge, barely. Kaela lunges toward you but veers away, shouting, 'MOVE!' before grabbing your hand and dragging you after her.\n\nThe two of you burst out the front door, feet pounding the muddy road as shouting erupts behind you.",
 		"choices": {
 		  "1": {
 				"text": "Follow behind Kaela.",
@@ -708,7 +708,7 @@
 	"010_memory_burn": {
 		"title": "",
 		"picture": "",
-		"narr_text": "As you grip the dagger, a shimmer of danger flickers. A bandit perches above, crossbow drawn. \n\nInstinct takes over—your palm ignites with light. A flash, then silence. \nThe man slumps. \nPain blooms in your chest. \nYou clutch it—and suddenly remember standing alone in the woods. The same burning feeling...",
+		"narr_text": "As you grip the dagger, a shimmer of danger flickers. A bandit perches above, crossbow drawn. \n\nInstinct takes over, your palm ignites with light. A flash, then silence. \nThe man slumps. \nPain blooms in your chest. \nYou clutch it and suddenly remember standing alone in the woods. The same burning feeling...",
 		"choices": {
 		  "1": {
 				"text": "Ask about your armor.",
@@ -741,7 +741,7 @@
 	"010_inn_ransacked": {
 		"title": "",
 		"picture": "res://assets/art/Alley_Run.jpg",
-		"narr_text": "As you approach the inn you both head inside quickly and go upstares when you see that your room door creaks open. Inside, overturned chairs and shattered bottles mark chaos. Kaela’s bag, weapons, even her gold—gone. She stands frozen, fists clenched. 'Everything’s missing.' Footsteps clatter downstairs. A villager bursts in, breathless. 'They’re here. Downstairs. Asking for you two. You need to leave. Now.'",
+		"narr_text": "As you approach the inn you both head inside quickly and go upstares when you see that your room door creaks open. Inside, overturned chairs and shattered bottles mark chaos. Kaela’s bag, weapons, even her gold is gone. She stands frozen, fists clenched. 'Everything’s missing.' Footsteps clatter downstairs. A villager bursts in, breathless. 'They’re here. Downstairs. Asking for you two. You need to leave. Now.'",
 		"choices": {
 		  "1": {
 				"text": "Ask what's going on.",
@@ -753,7 +753,7 @@
 	"010_villager_confrontation": {
 		"title": "",
 		"picture": "",
-		"narr_text": "The woman—Kaela’s friend—glares at her. 'You brought this on us. Asking around about that mark. Trying to sell his chestplate?' She jabs a finger at Kayla. 'Now bounty hunters are sniffing around like wolves.' Kaela tries to protest. The woman cuts her off. 'You're indebted to him now, Kaela.'",
+		"narr_text": "The woman, Kaela’s friend glares at her. 'You brought this on us. Asking around about that mark. Trying to sell his chestplate?' She jabs a finger at Kayla. 'Now bounty hunters are sniffing around like wolves.' Kaela tries to protest. The woman cuts her off. 'You're indebted to him now, Kaela.'",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -790,7 +790,7 @@
 	"010_arrive_at_emporium": {
 		"title": "",
 		"picture": "",
-		"narr_text": "You and Kaela arrive breathless at the edge of the Emporium—a squat tower of stone and metal wreathed in blue glyphlight. Four mercenaries eye you with suspicion. Kaela raises her hand, muttering a name. They let you through.",
+		"narr_text": "You and Kaela arrive breathless at the edge of the Emporium, a squat tower of stone and metal wreathed in blue glyphlight. Four mercenaries eye you with suspicion. Kaela raises her hand, muttering a name. They let you through.",
 		"choices": {
 		  "1": {
 				"text": "Enter the mage’s workshop.",
@@ -801,7 +801,7 @@
 	"010_meet_the_mage": {
 		"title": "",
 		"picture": "",
-		"narr_text": "Inside, the air hums with power. Crystal runes glow on hanging chains. Behind a cluttered desk stands the first elf you’ve ever seen—pale as snow, with eyes like frozen stars. 'You must be Lyaris Talbot,' he says flatly. 'Sit.",
+		"narr_text": "Inside, the air hums with power. Crystal runes glow on hanging chains. Behind a cluttered desk stands the first elf you’ve ever seen as pale as snow, with eyes like frozen stars. 'You must be Lyaris Talbot,' he says flatly. 'Sit.",
 		"choices": {
 		  "1": {
 				"text": "Sit down.",
@@ -812,7 +812,7 @@
 	"010_mage_questions": {
 		"title": "",
 		"picture": "",
-		"narr_text": "The elf's gaze pierces you. 'How often does the soreness flare up—when you use mana, or just when you think too hard?' He steps closer. 'This girl saved your life and is now endangering it due to her lack of caution and curiosity' You blink. He’s not done. 'This burg is called Nytheas, I doubt the half elf would have told you but you are in the Verdent Dominion, Specifically The Sylvan Concord.'",
+		"narr_text": "The elf's gaze pierces you. 'How often does the soreness flare up when you use mana, or just when you think too hard?' He steps closer. 'This girl saved your life and is now endangering it due to her lack of caution and curiosity' You blink. He’s not done. 'This burg is called Nytheas, I doubt the half elf would have told you but you are in the Verdent Dominion, Specifically The Sylvan Concord.'",
 		"choices": {
 		  "1": {
 				"text": "Where is my armor?",
@@ -827,7 +827,7 @@
 	"010_mage_explains": {
 		"title": "",
 		"picture": "",
-		"narr_text": "'This town isn't governed—it's auctioned off by merchant factions,' the mage mutters. 'Word of your mark will spread for a time. Power always draws carrion.' \n\nHe studies you for a long moment. 'You’re not just some vagrant. That mark, the quality of your armor… it’s a recent design that the Solarians adapted from the Terrans...', you reflexively touch your mark again and the Elf notices and responds by asking 'You keep touching the tattoo. Is that comfort, or a failed attempt to ground yourself?', You don't respond.",
+		"narr_text": "'This town isn't governed it's auctioned off by merchant factions,' the mage mutters. 'Word of your mark will spread for a time. Power always draws carrion.' \n\nHe studies you for a long moment. 'You’re not just some vagrant. That mark, the quality of your armor… it’s a recent design that the Solarians adapted from the Terrans...', you reflexively touch your mark again and the Elf notices and responds by asking 'You keep touching the tattoo. Is that comfort, or a failed attempt to ground yourself?', You don't respond.",
 		"choices": {
 		  "1": {
 				"text": "Continue",
@@ -974,10 +974,65 @@
 	"010_mage_blow5": {
 		"title": "",
 		"picture": "",
-		"narr_text": "A boom rocks the tower. Dust rains from above. 'That’s your cue,' the elf says calmly. Kaela is already fighting out there. 'You need to get rid of the bandits outside—now.' The mercenaries outside shout. Fires bloom on the horizon. \n\nThe mage calls after you as you start to leave: 'If you survive, come back. There’s more you need to know.",
+		"narr_text": "A boom rocks the tower. Dust rains from above. 'That’s your cue,' the elf says calmly. Kaela is already fighting out there. 'You need to get rid of the bandits outside, now.' The mercenaries outside shout. Fires bloom on the horizon. \n\nThe mage calls after you as you start to leave: 'If you survive, come back. There’s more you need to know.",
 		"choices": {
 		  "1": {
 				"text": "Run outside.",
+				"load_combat_encounter":{
+					"enemy_id": "bandit",
+					"override_display_name": "Masked Bandit",
+					"override_hp": 90,
+					"battle_events": [],
+				"010_mage_emporium_1"
+			}
+		}
+	},
+	"010_mage_emporium_1": {
+		"title": "Surprise",
+		"picture": "",
+		"narr_text": "The body of the bandit lies on the floor unmoving after the last attack you hit him with, you are injured and you have no weapon, but across the field you see Kaela fighting with a single dagger and two body guards trying to handle the situation, but one guard is heavily injured and bleeding.",
+		"choices": {
+		  "1": {
+				"text": "Move to help them",
+				"output": "011_ends"
+			}
+		}
+	},
+	"010_mage_emporium_2": {
+		"title": "",
+		"picture": "",
+		"narr_text": "You quickly dash towards one of the bandits attacking Kaela but a bandit swings from your blind side and almost hits you with a wooden mallet, but you dodge just in time and go into a tumble roll. You are still healing from your muscle atrophy and the last battle but you get up nontheless and break a piece of plywood on a fence to use as a weapon",
+		"choices": {
+		  "1": {
+				"text": "Attack the Bandit",
+				"output": "010_mage_emporium_3"
+			}
+		}
+	},
+	"010_mage_emporium_3": {
+		"title": "Engagement",
+		"picture": "",
+		"narr_text": "The bandit rushes you!!",
+		"choices": {
+		  "1": {
+				"text": "Bye.",
+				"load_combat_encounter":{
+					"enemy_id": "bandit",
+					"override_display_name": "Buff Bandit",
+					"override_hp": 130,
+					"override_weapon": "res://logic/data/resources/Items/weapons/wooden_plank.tres",
+					"battle_events": [],
+				"output": "011_ends"
+			}
+		}
+	},
+	"010_mage_emporium_4": {
+		"title": "Success",
+		"picture": "",
+		"narr_text": "After the bandit drops unconscious you take your wooden plank and throw it at the back of the head at the bandit attacking Kaela, snatch the wooden mallet from your opponent and slams it into the side of the last bandit standing, Kaela is able to jump back and use her bow and arrow to shoot the bandit in the leg, forcing him to his knees and the bodyguards finish it with a hard hit to the chin!",
+		"choices": {
+		  "1": {
+				"text": "What the hell.",
 				"output": "001_ends"
 			}
 		}
