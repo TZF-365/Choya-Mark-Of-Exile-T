@@ -1,14 +1,15 @@
+HBoxContainer
+CenterContainer
+TextureRect
 Node
 Button
 Base_Charm
 TabBar
 InventoryMenu
 AnimationPlayer
-TextureRect
 Timer
 AudioStreamPlayer
 Player
-SaveManager
 Gamesc
 AudioStreamPlayer2D
 Node2D

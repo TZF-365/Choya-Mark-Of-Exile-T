@@ -6,8 +6,13 @@ class_name Technique_
 @export var attack_type: String = "light" # "light", "heavy", "special", "finisher", etc.
 @export var stance_required: String = ""
 
+@export var cooldown_turns: int = 4
+
+var cooldown_remaining: int = 0
+
 @export var scaling_stat: String = "strength"
 @export var scaling_factor: float = 0.1  
+@export var on_cooldown: bool = false
 @export var flat_bonus: float = 0.0  
 @export var armor_bonus_table := {
 	"none": 0.0,
@@ -40,5 +45,14 @@ func power_multiplier(actor: BaseChar) -> int:
 	var _stat_value = actor.stats.get(scaling_stat, 0)
 	return base_multiplier + 1.0
 	
-	
-	
+
+func trigger_cooldown() -> void:
+	if cooldown_turns > 0:
+		cooldown_remaining = cooldown_turns
+
+func on_turn_passed() -> void:
+	if cooldown_remaining > 0:
+		cooldown_remaining -= 1
+
+func is_on_cooldown() -> bool:
+	return cooldown_remaining > 0

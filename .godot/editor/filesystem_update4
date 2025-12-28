@@ -1,8 +1,17 @@
-res://logic/data/enemies/bandit.tscn
+res://scenes/combat_screen_new.tscn
 res://assets/pixelart/combat_buttons.tres
 res://assets/pixelart/game_screen_di.tres
 res://assets/fonts/ChoyaFont1.tres
 res://assets/pixelart/SE_Bottom_menu.tres
 res://assets/pixelart/pixelart.tres
-res://scenes/entities/Player.tscn
+res://assets/pixelart/Combat_screen_Bottom Buttons.tres
+res://logic/ent/BaseChar.gd
 res://logic/data/combatLogic/Battlemanager.gd
+res://logic/data/enemies/bandit.tscn
+res://logic/data/combatLogic/combat_screen.gd
+res://scenes/combat_screen_old Latest.tscn
+res://scenes/combat_screen.tscn
+res://story/Choya_Chapter1_Linear.json
+res://scenes/entities/Player.tscn
+res://logic/data/combatLogic/Technique.gd
+res://logic/data/resources/Techniques/finishing_cleave.tres

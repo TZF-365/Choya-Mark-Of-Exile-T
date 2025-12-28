@@ -5,17 +5,40 @@ class_name Base_Charm
 @export var display_name: String = "Mary"
 @export var val: float = 10.00
 @export var max_hp: int = 100
-@export var current_hp: int = 100
+@export var current_hp: int = 100:
+	set(value):
+		current_hp = clamp(value, 0, max_hp)
 var current_val = current_hp
-@export var stamina: int = current_stamina 
-@export var current_stamina: int = 50
-@export var max_stamina: int = 50
-@export var endurance: float = 25
+
+@export var max_stamina: int = 80
+@export var stamina: int = 80:
+	set(value):
+		stamina = clamp(value, 0, max_stamina)
+#@export var stamina = current_stamina 
+
 @export var max_endurance: float = 25
-@export var mana: int = 30
+@export var endurance: float = 25:
+	set(value):
+		endurance = clamp(value, 0, max_endurance)
+
 @export var max_mana: int = 30
-@export var action_points: int = 4
-@export var max_action_points: int = 4
+@export var mana: int = 30:
+	set(value):
+		mana = clamp(value, 0, max_mana)
+
+
+@export var max_action_points: int = 7:
+	set(value):
+		max_action_points = max(value, 1)
+		action_points = clamp(action_points, 0, max_action_points)
+		action_points_changed.emit(action_points, max_action_points)
+
+@export var action_points: int = 3:
+	set(value):
+		action_points = clamp(value, 0, max_action_points)
+		action_points_changed.emit(action_points, max_action_points)
+
+
 @export var max_part_val: int = 1
 @export var body_part_amount: int = 1
 @export var damage_percentage: int = 1
@@ -67,6 +90,10 @@ var current_action: String = ""
 	"agility": 5
 }
 
+#Signals
+signal action_points_changed(current: int, max: int)
+
+
 # Equipment
 @export var equipment: Dictionary[String, WeaponResource] = {
 	"main_hand": null,
@@ -99,6 +126,11 @@ var armor_slots: Dictionary = {}
 	"player_injured": false,
 	"player_badly_injured": false
 }
+
+
+func _init() -> void:
+	action_points = action_points
+
 
 
 

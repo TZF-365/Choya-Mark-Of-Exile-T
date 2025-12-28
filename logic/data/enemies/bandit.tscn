@@ -10,6 +10,11 @@
 [node name="Bandit" type="Node2D"]
 script = ExtResource("1_ep5du")
 display_name = "Bandit"
+max_hp = 200
+current_hp = 200
+momentum = 14
+opportunity_available = 16
+finisher_available = 20
 techniques = Array[ExtResource("2_okejv")]([ExtResource("3_4tdqv"), ExtResource("4_wqnho")])
 equipment = Dictionary[String, ExtResource("2_bjl0j")]({
 "main_hand": ExtResource("3_bi8l1"),

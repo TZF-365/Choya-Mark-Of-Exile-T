@@ -680,7 +680,6 @@
 				"load_combat_encounter":{
 					"enemy_id": "bandit", 
 					"override_display_name": "Scarred Bandit", 
-					"override_hp": 70, 
 				},
 				"buffs": {
 					"current_hp": 70
@@ -992,7 +991,7 @@
 		"choices": {
 		  "1": {
 				"text": "Move to help them",
-				"output": "011_ends"
+				"output": "010_mage_emporium_2"
 			}
 		}
 	},
@@ -1021,7 +1020,7 @@
 					"override_weapon": "res://logic/data/resources/Items/weapons/wooden_plank.tres",
 					"battle_events": []
 				},
-				"output": "011_ends"
+				"output": "001_ends"
 			}
 		}
 	},

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Technique_" load_steps=2 format=3 uid="uid://gjdxfxswtggt"]
 
-[ext_resource type="Script" uid="uid://cgm5c14qfbqs7" path="res://logic/data/combatLogic/Technique.gd" id="1_4n8xu"]
+[ext_resource type="Script" uid="uid://dadbbau0x8kao" path="res://logic/data/combatLogic/Technique.gd" id="1_4n8xu"]
 
 [resource]
 script = ExtResource("1_4n8xu")
@@ -8,6 +8,7 @@ name = "FINISHING Cleave"
 description = "A powerful downward slash that rips through light armor."
 attack_type = "finisher"
 scaling_factor = 6.38
+flat_bonus = 10.0
 armor_bonus_table = {
 "composite": 0.0,
 "iron": 0.0,
@@ -24,6 +25,8 @@ armor_bonus_table = {
 "steel_plate": 0.0,
 "steel_scale": 0.0
 }
-base_multiplier = 0.0
+base_multiplier = 10.0
+bonus_when_low_hp = 10.0
+requires_momentum = 25
 metadata/_custom_type_script = "uid://cgm5c14qfbqs7"
 metadata/HOW = "scaling and milt not to pass 0.5"

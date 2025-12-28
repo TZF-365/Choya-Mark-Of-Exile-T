@@ -5,6 +5,8 @@ class_name CombatManager_
 var player: BaseChar = Player_AL
 @export var enemy:  BaseChar
 
+@onready var combat_screen = $".."
+
 # Enemy AI controller
 var enemy_ai: EnemyAI
 
@@ -31,6 +33,8 @@ var is_first_turn := true
 # Damage-related variables
 var damage:  int = 0
 var turndamage: int = 0
+var pending_finisher: Dictionary = {}
+
 
 # Combat states
 enum State { PLAYER_TURN, ENEMY_TURN, BATTLE_OVER }
@@ -48,6 +52,17 @@ var displayed_enemy_val := 0.01
 # Battle events
 var battle_events: Array = []
 var event_triggered:  bool = false
+
+const ACTION_COSTS := {
+	"light": 2,
+	"heavy": 4,
+	"finisher": 4,
+	"defend": 1,
+	"dodge": 2,
+	"use_skill": 2,
+	"observe": 1
+}
+
 
 
 ### READY FUNCTION ###
@@ -256,6 +271,7 @@ func _setup_ai() -> void:
 func _initialize_ui() -> void:
 	"""Set up UI and display starting battle log."""
 	
+	combat_screen.bind_actor(player)
 	combat_log.bbcode_enabled = true
 	combat_log.clear()
 	
@@ -285,6 +301,13 @@ func _process(_delta):
 
 # Resolve all actions
 func resolve_action(actor: BaseChar, action: String, target: BaseChar):
+	if not has_enough_ap(actor, action):
+		print("%s does not have enough action points." % actor.display_name)
+		add_to_turn_log("%s is unable to use %s — not enough AP, turn skipped." % [actor.display_name, action])
+		return
+	consume_ap(actor, action)
+	
+	
 	var log_entry := ""
 	var is_attack := true	
 	print("\n--- Resolving action: %s by %s targeting %s ---"
@@ -327,29 +350,36 @@ func resolve_action(actor: BaseChar, action: String, target: BaseChar):
 
 		log_entry += generate_attack_description(actor, target, damage)
 
+		# ─── MOMENTUM APPLICATION ───
+		var momentum_added: int = calculate_momentum(actor, target, chosen_technique)
+
+		if momentum_added > 0:
+			target.momentum += momentum_added
+			print("\n\n%s Has gained/lost (+%d momentum). " % [target.display_name, momentum_added])
+		else:
+			print("%s Momentum remains unchanged. " % target.display_name)
+
+
 		# Consume stances ONLY when attacked
-		target.is_dodging = false
-		target.is_defending = false
 
-
-
-	print("Target Momentum:", target.momentum)
+	print("Target Momentum: ", target.momentum, " By ", target.display_name)
 
 	# ============================
 
-	if not target.finisher_available and target.momentum >= target.finisher_available:
+	if not target.finisher_active and target.momentum >= target.finisher_available:
 		target.finisher_active = true
-		add_to_turn_log(
-			"%s is vulnerable — a **Finisher** is now possible!"
-			% target.display_name
-		)
+		log_entry += "\n\n%s is vulnerable — a **Finisher** is now possible!" % target.display_name
+		print("A FINISHER IS AVAILABLE ON", target.display_name)
 
-	elif not target.opportunity_available and target.momentum >= target.opportunity_available:
+	elif not target.opportunity_active and target.momentum >= target.opportunity_available:
 		target.opportunity_active = true
-		add_to_turn_log(
-			"%s shows weakness — an **Opportunity Attack** is possible!"
-			% target.display_name
-		)
+		log_entry += "\n\n%s shows weakness — an **Opportunity Attack** is possible!" % target.display_name
+		print("An OPPORTUNITY IS AVAILABLE ON", target.display_name)
+
+	if target.finisher_active:
+		trigger_auto_counter("finisher", target, actor)
+	elif target.opportunity_active:
+		trigger_auto_counter("opportunity", target, actor)
 
 	print("Target HP after damage: %d / %d"
 		% [target.current_hp, target.max_hp])
@@ -361,40 +391,130 @@ func resolve_action(actor: BaseChar, action: String, target: BaseChar):
 
 	process_stamina_endurance(actor, action)
 
+# action point managers
+func has_enough_ap(actor: BaseChar, action: String) -> bool:
+	if not ACTION_COSTS.has(action):
+		return true # free / narrative actions
+	return actor.action_points >= ACTION_COSTS[action]
+
+func consume_ap(actor: BaseChar, action: String) -> void:
+	if ACTION_COSTS.has(action):
+		actor.action_points -= ACTION_COSTS[action]
+		actor.action_points = max(actor.action_points, 0)
+		print("\n\n",ACTION_COSTS[action], " AP is how much ap ", actor.display_name, " Used this turn.")
+		print(actor.display_name, " Has ", actor.action_points, " Left.")
 
 
-func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, attacker: BaseChar):
-	print("Checking if %s can auto-retaliate with a %s technique on %s" % [attacker.display_name, attack_type, vulnerable_target.display_name])
+func regenerate_action_points(actor: BaseChar) -> int:
+	var base_regen: int = 2
+	var min_regen: int = 2
 
-	if attack_type == "opportunity" and attacker.opportunity_used_this_turn: 
-		print("Opportunity already used by %s this turn. Skipping." % attacker.display_name)
+	# Determine penalty based on val (0-10)
+	var penalty: int = 0
+	if actor.val <= 2:
+		penalty = 2
+	elif actor.val <= 5:
+		penalty = 1
+
+	# Apply penalty to base regen
+	var total_regen: int = max(base_regen - penalty, min_regen)
+
+	# Apply the regen
+	actor.action_points += total_regen
+
+	# Debug prints
+	print(total_regen, " AP is the Amount Regenerated for ", actor.display_name)
+	print(actor.action_points, " is the total action points for ", actor.display_name)
+
+	return total_regen
+
+
+func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, attacker: BaseChar) -> void:
+	print("Checking if %s can auto-retaliate with a %s technique on %s"
+		% [attacker.display_name, attack_type, vulnerable_target.display_name])
+
+	# Safety: ensure vulnerability exists
+	if attack_type == "opportunity" and not vulnerable_target.opportunity_active:
+		return
+	if attack_type == "finisher" and not vulnerable_target.finisher_active:
+		return
+
+	# Per-turn usage limits
+	if attack_type == "opportunity" and attacker.opportunity_used_this_turn:
 		return
 	if attack_type == "finisher" and attacker.finisher_used_this_turn:
-		print("Finisher already used by %s this turn. Skipping." % attacker.display_name)
 		return
 
 	for technique in attacker.techniques:
-		print("Checking technique: %s (%s) [Cooldown: %s]" % [technique.name, technique.technique_type, str(technique.on_cooldown)])
-		if technique.technique_type == attack_type and not technique.on_cooldown:
-			print("%s uses %s (%s) on %s!" % [attacker.display_name, technique.name, attack_type, vulnerable_target.display_name])
+		if technique.attack_type != attack_type:
+			continue
+		if technique.on_cooldown:
+			continue
 
-			damage = damage_calc(attacker, vulnerable_target, attack_type, technique)
-			vulnerable_target.current_hp -= damage
-			vulnerable_target.current_hp = clamp(vulnerable_target.current_hp, 0, vulnerable_target.max_hp)
+		# FINISHER → queue, do not execute
+		if attack_type == "finisher":
+			pending_finisher = {
+				"attacker": attacker,
+				"target": vulnerable_target,
+				"technique": technique
+			}
+			print("Finisher queued:", technique.name)
+			return
 
-			var logger = "%s sees an opening and uses %s on %s!" % [attacker. display_name, technique.name, vulnerable_target.display_name]
-			add_to_turn_log(logger + " " + generate_attack_description(attacker, vulnerable_target, damage))
-			update_health_labels()
+		# OPPORTUNITY → execute immediately
+		var damage: int = damage_calc(attacker, vulnerable_target, attack_type, technique)
+		vulnerable_target.current_hp = clamp(
+			vulnerable_target.current_hp - damage,
+			0,
+			vulnerable_target.max_hp
+		)
 
-			if attack_type == "opportunity":
-				attacker.opportunity_used_this_turn = true
-			elif attack_type == "finisher":
-				attacker.finisher_used_this_turn = true
+		add_to_turn_log(
+			"%s exploits an opening with %s! "
+			% [attacker.display_name, technique.name]
+			+ generate_attack_description(attacker, vulnerable_target, damage)
+		)
 
-			technique.trigger_cooldown()
-			return  # Only one retaliation per type per turn
+		update_health_labels()
 
-	print("No valid %s technique available for %s to use." % [attack_type, attacker.display_name])
+		attacker.opportunity_used_this_turn = true
+		vulnerable_target.opportunity_active = false
+		vulnerable_target.momentum = max(vulnerable_target.momentum - 20, 0)
+
+		technique.trigger_cooldown()
+		return
+
+	print("No valid %s technique available for %s."
+		% [attack_type, attacker.display_name])
+
+
+
+
+func resolve_pending_finisher() -> void:
+	if pending_finisher.is_empty():
+		return
+
+	var attacker: BaseChar = pending_finisher.attacker
+	var target: BaseChar = pending_finisher.target
+	var technique: Technique_ = pending_finisher.technique
+
+	var damage: int = damage_calc(attacker, target, "finisher", technique)
+	target.current_hp = clamp(target.current_hp - damage, 0, target.max_hp)
+
+	add_to_turn_log(
+		"%s delivers a FINISHER — %s!"
+		% [attacker.display_name, technique.name]
+		+ " "
+		+ generate_attack_description(attacker, target, damage)
+	)
+
+	attacker.finisher_used_this_turn = true
+	target.finisher_active = false
+	target.momentum = 0
+
+	technique.trigger_cooldown()
+
+	pending_finisher.clear()
 
 
 func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique_:
@@ -422,23 +542,67 @@ func decay_momentum(actor: BaseChar):
 		return
 
 	var health_ratio = float(actor.current_hp) / actor.max_hp
-	var stamina_ratio = float(actor. current_stamina) / actor.max_stamina
+	var stamina_ratio = float(actor. stamina) / actor.max_stamina
 
 	var condition = (stamina_ratio * 0.7) + (health_ratio * 0.3)
 	var max_decay = lerp(2, 5, condition)
 	var decay_amount = randi_range(2, int(max_decay))
 
-	print("--- Momentum Decay Report ---")
+	print("\n\n--- Momentum Decay Report ---")
 	print("Actor:", actor.name)
 	print("Health:", actor.current_hp, "/", actor.max_hp, "(", round(health_ratio * 100.0), "% )")
-	print("Stamina:", actor.current_stamina, "/", actor.max_stamina, "(", round(stamina_ratio * 100.0), "% )")
+	print("Stamina:", actor.stamina, "/", actor.max_stamina, "(", round(stamina_ratio * 100.0), "% )")
 	print("Weighted Condition Score:", round(condition * 100.0), "%")
 	print("Calculated Decay Range:  2 to ", int(max_decay))
 	print("Final Momentum Lost:", decay_amount)
 	print("Reason: Condition-based momentum decay (stamina-weighted)")
-	print("-----------------------------\n")
+	print("-----------------------------\n\n")
 
 	adjust_momentum(actor, -decay_amount, "condition-based momentum decay")
+
+func calculate_momentum(actor: BaseChar, target: BaseChar, technique: Technique_) -> int:
+	var momentum_gain: int = 0
+
+	# 10% chance no momentum is applied
+	if randi() % 100 < 10:
+		return 0
+
+	# Determine base momentum range
+	var min_mom: int
+	var max_mom: int
+
+	if technique != null:
+		match technique.attack_type:
+			"light":
+				min_mom = 3
+				max_mom = 5
+			"heavy":
+				min_mom = 5
+				max_mom = 7
+			"special":
+				min_mom = 10
+				max_mom = 10
+			"finisher":
+				min_mom = 10
+				max_mom = 10
+			_:
+				min_mom = 5
+				max_mom = 10
+	else:
+		# No technique, standard attack
+		min_mom = 2
+		max_mom = 8
+
+	# Random momentum within range
+	momentum_gain = randi() % (max_mom - min_mom + 1) + min_mom
+
+	# Add technique bonus if any
+
+	# Optional: scale slightly with actor stats (strength, focus)
+
+
+	return momentum_gain
+
 
 
 func process_stamina_endurance(actor: BaseChar, action: String) -> void:
@@ -447,31 +611,31 @@ func process_stamina_endurance(actor: BaseChar, action: String) -> void:
 	if is_attacking:
 		var weapon_power = actor.get_weapon_power()
 		var strength = actor.stats.get("strength", 0)
-		var stamina_cost = int(1.2 * weapon_power + 0.2 + strength )
-		actor.current_stamina -= stamina_cost
-		print("🗡️", actor.name, "performed", action, "- Stamina cost:", stamina_cost)
+		var stamina_cost = int(weapon_power + 0.2 + strength )
+		actor.stamina -= stamina_cost
+		print("\n\n🗡️", actor.name, " performed ", action, " Action - Stamina cost: ", stamina_cost)
 	else:
 		actor.stamina += 5
-		print("💨", actor.name, "rested - Stamina recovered:  +5")
+		print("💨", actor.name, " rested - Stamina recovered:  +5")
 
 	actor.stamina = clamp(actor.stamina, 0, actor.max_stamina)
-	print("📊", actor.name, "Stamina after update:", actor.stamina, "/", actor.max_stamina)
+	print("📊", actor.name, " Stamina after update: ", actor.stamina, "/", actor.max_stamina)
 
 	var stamina_ratio = float(actor. stamina) / float(actor.max_stamina)
 
 	if stamina_ratio < 0.5:
 		var loss = 0.005 * actor.max_endurance
 		actor.endurance -= loss
-		print("⚠️", actor.name, "low stamina - Endurance decreased by", loss)
+		print("⚠️", actor.name, " low stamina - Endurance decreased by ", loss)
 	elif stamina_ratio > 0.75:
 		var gain = 0.003 * actor.max_endurance
 		actor.endurance += gain
-		print("💪", actor.name, "high stamina - Endurance increased by", gain)
+		print("💪", actor.name, " high stamina - Endurance increased by ", gain)
 	else:
-		print("⏸️", actor.name, "mid-range stamina - Endurance unchanged")
+		print("⏸️", actor.name, " mid-range stamina - Endurance unchanged ")
 
 	actor.endurance = clamp(actor.endurance, 0.0, actor.max_endurance)
-	print("📈", actor.name, "Endurance after update:", actor.endurance, "/", actor.max_endurance)
+	print("📈", actor.name, " Endurance after update: ", actor.endurance, "/", actor.max_endurance)
 
 
 func reset_combat_states(character: BaseChar):
@@ -496,6 +660,10 @@ func finalize_turn_log():
 		combat_log.append_text("%s\n\n" % turn_log.strip_edges())
 		turn_log = ""
 	update_health_labels()
+	enemy.is_dodging = false
+	enemy.is_defending = false
+	player.is_dodging = false
+	player.is_defending = false
 
 
 func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique_ = null) -> int:
@@ -779,8 +947,10 @@ func process_turn(action: String):
 		return
 
 	if current_state == State.PLAYER_TURN:
+
 		add_to_turn_log("  ")
 		trigger_event()
+		
 		resolve_action(player, action, enemy)
 		if current_state != State.BATTLE_OVER: 
 			current_state = State.ENEMY_TURN
@@ -788,8 +958,20 @@ func process_turn(action: String):
 
 		player. update_val()
 		enemy.update_val()
+		
 		print(turn_log)
 		finalize_turn_log()
+		resolve_pending_finisher()
+
+
+		var player_regen = regenerate_action_points(player)
+		var enemy_regen = regenerate_action_points(enemy)
+
+		print("Player regenerated ", player_regen, " AP.")
+		print("Enemy regenerated ", enemy_regen, " AP.")
+		print(enemy.momentum, " Is Enemy momentum")
+		print(player.momentum, " Is player momentum")
+				
 		reset_combat_states(player)
 		reset_combat_states(enemy)
 

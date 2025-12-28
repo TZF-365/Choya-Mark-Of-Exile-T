@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bgo6cn334xsl1"]
+[gd_scene load_steps=48 format=3 uid="uid://cvgqa6jliu8md"]
 
 [ext_resource type="Script" uid="uid://cqgxf3fjofq67" path="res://logic/data/combatLogic/combat_screen.gd" id="1_6yria"]
 [ext_resource type="Script" uid="uid://dtjglq6o0dtc2" path="res://logic/data/scenelogic/buttonpress.gd" id="2_7jpoa"]
@@ -7,7 +7,6 @@
 [ext_resource type="Theme" uid="uid://c3lkke57ygwlm" path="res://assets/pixelart/combat_buttons.tres" id="5_hqbrn"]
 [ext_resource type="Texture2D" uid="uid://u72jl83s8ala" path="res://assets/icons/lorc/cog.svg" id="6_uqpg7"]
 [ext_resource type="StyleBox" uid="uid://dw7ndymhmu2tf" path="res://assets/pixelart/Transparentinfopanelscombatscreen.tres" id="7_r5kdy"]
-[ext_resource type="StyleBox" uid="uid://c1bcwncw7nbgw" path="res://assets/pixelart/combatactionbuttons.tres" id="8_cn3pl"]
 [ext_resource type="FontFile" uid="uid://b8sgg1yjclern" path="res://assets/fonts/OpenDyslexic/OpenDyslexic3-Regular.ttf" id="8_ynhfh"]
 [ext_resource type="Script" uid="uid://bklxyb4y7iyq4" path="res://logic/data/scenelogic/combattextdesplay.gd" id="9_4tvcf"]
 [ext_resource type="FontFile" uid="uid://bkm3c0gnlhuc3" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Regular.ttf" id="9_jd408"]
@@ -18,9 +17,13 @@
 [ext_resource type="Script" uid="uid://by2futcs1t6gm" path="res://logic/data/combatLogic/CombatInstantiator.gd" id="11_4tvcf"]
 [ext_resource type="FontFile" uid="uid://d060foo1dnrdt" path="res://assets/fonts/IM_Fell_English/IMFellEnglish-Italic.ttf" id="11_mmyfa"]
 [ext_resource type="PackedScene" uid="uid://d03n73vvq8t0x" path="res://scenes/entities/Goblin.tscn" id="11_msaj8"]
+[ext_resource type="Texture2D" uid="uid://d0ssdwh4178db" path="res://assets/icons/menuicons/action_point.svg" id="14_80f1t"]
 [ext_resource type="PackedScene" uid="uid://ccvn8owweybsr" path="res://scenes/utilities/AudioManager.tscn" id="14_irmyc"]
 [ext_resource type="PackedScene" uid="uid://cdfbim2nhuflx" path="res://scenes/utilities/fadetransition.tscn" id="15_irmyc"]
-[ext_resource type="PackedScene" uid="uid://hy7kgr6ksexl" path="res://scenes/entities/Grimy Outlaw.tscn" id="19_lh3el"]
+[ext_resource type="Script" uid="uid://js823kcvfn1e" path="res://logic/backend/inventory_menu.gd" id="15_pf1vr"]
+[ext_resource type="Theme" uid="uid://bwo120nqahh6q" path="res://assets/pixelart/Combat_screen_Bottom Buttons.tres" id="16_did38"]
+[ext_resource type="PackedScene" uid="uid://bx32qsew5hl3x" path="res://scenes/entities/Player.tscn" id="21_io20u"]
+[ext_resource type="Script" uid="uid://dbio2vtk3488t" path="res://logic/backend/save_manager.gd" id="22_wm0pd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xsm5"]
 texture = ExtResource("3_jxhud")
@@ -93,9 +96,6 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0h3v8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvywa"]
-bg_color = Color(0, 0, 0, 0.551)
-
 [node name="Combat_Screen_Logic" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -104,6 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6yria")
+action_point_icon = ExtResource("14_80f1t")
 metadata/_edit_vertical_guides_ = [-10.0]
 
 [node name="buttonpress" type="Node" parent="."]
@@ -356,7 +357,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.264706
+anchor_bottom = 0.196682
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -396,11 +397,12 @@ grow_vertical = 2
 theme_override_constants/separation = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Enemy_name_Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
+[node name="Enemy_Name_Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("9_lh3el")
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
 text = "Enemy Status: Goblin Warrier"
 horizontal_alignment = 1
@@ -414,7 +416,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_guyis")
 text = "Position: [3 spaces apart - Preparing to attack]"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
+[node name="Enemy_Status_Label" type="Label" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -441,10 +443,10 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_sayef")
 [node name="Hbox" type="HBoxContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemydropdown/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0897059
-anchor_top = -0.142716
-anchor_right = 0.927206
-anchor_bottom = 0.503117
+anchor_left = 0.0867647
+anchor_top = 0.157861
+anchor_right = 0.924265
+anchor_bottom = 0.803694
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 80
@@ -479,7 +481,7 @@ text = "Current Effects"
 [node name="MarginContainer2" type="MarginContainer" parent="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.270398
+anchor_top = 0.206161
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -513,10 +515,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(500, 600)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0336538
-anchor_top = 0.113333
-anchor_right = 0.973077
-anchor_bottom = 0.968
+anchor_left = 0.0335714
+anchor_top = 0.094697
+anchor_right = 0.972857
+anchor_bottom = 0.976515
 theme_override_fonts/normal_font = ExtResource("9_y14dk")
 theme_override_fonts/bold_font = ExtResource("9_jd408")
 theme_override_fonts/bold_italics_font = ExtResource("9_jd408")
@@ -572,9 +574,15 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kh3cg")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = -0.147
+anchor_right = 0.906
+anchor_bottom = 0.931
+offset_left = 0.599998
+offset_top = -0.0957394
+offset_right = -0.640015
+offset_bottom = -0.00775146
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 60
@@ -602,70 +610,29 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_styles/panel = SubResource("StyleBoxFlat_kscbc")
 
-[node name="MarginContainer" type="MarginContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2"]
+[node name="MarginContainer" type="HBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2"]
+custom_minimum_size = Vector2(512, 512)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.139
-anchor_top = 0.13964
-anchor_right = 0.861
-anchor_bottom = 0.86036
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.026
+anchor_right = 0.9760001
+anchor_bottom = 0.99000007
+offset_right = 5113.235
+offset_bottom = 1065.7051
+scale = Vector2(0.085, 0.085)
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/separation = 200
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer"]
+[node name="APContainer" type="HBoxContainer" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 600)
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 160
+alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(65, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "ACT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(65, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "ACT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(65, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "ACT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(65, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "ACT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer/Button2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(65, 60)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "ACT"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Confirm" type="Button" parent="Main_Screen/Control/Input Screens/Panel/actionchainnbutton/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(180, 100)
@@ -701,15 +668,13 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.250926
-anchor_top = 0.057
-anchor_right = 0.464
-anchor_bottom = 0.440298
+anchor_left = 0.144444
+anchor_top = 0.0312225
+anchor_right = 0.360527
+anchor_bottom = 0.325629
 offset_top = 0.213654
 offset_right = -0.159546
 theme = ExtResource("5_hqbrn")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("8_cn3pl")
 text = "Light Attack"
 metadata/_edit_use_anchors_ = true
 
@@ -717,18 +682,71 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.536806
-anchor_top = 0.0720496
-anchor_right = 0.749806
-anchor_bottom = 0.454792
+anchor_left = 0.383333
+anchor_top = 0.0317788
+anchor_right = 0.600037
+anchor_bottom = 0.321602
 offset_top = -0.0626221
 offset_right = -0.0529785
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("8_cn3pl")
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
-text = "
-Heavy Attack
+theme = ExtResource("5_hqbrn")
+text = "Heavy Attack
+"
+metadata/_edit_use_anchors_ = true
 
+[node name="Magic" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.622222
+anchor_top = 0.0317788
+anchor_right = 0.838926
+anchor_bottom = 0.321602
+offset_top = -0.0626221
+offset_right = -0.0529785
+theme = ExtResource("5_hqbrn")
+text = "Magic"
+metadata/_edit_use_anchors_ = true
+
+[node name="Use_Item" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.144444
+anchor_top = 0.386161
+anchor_right = 0.361148
+anchor_bottom = 0.675984
+offset_top = -0.0626221
+offset_right = -0.0529785
+theme = ExtResource("5_hqbrn")
+text = "Use Item"
+metadata/_edit_use_anchors_ = true
+
+[node name="Observe_New" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.383333
+anchor_top = 0.386161
+anchor_right = 0.600037
+anchor_bottom = 0.675984
+offset_top = -0.0626221
+offset_right = -0.0529785
+theme = ExtResource("5_hqbrn")
+text = "Observe"
+metadata/_edit_use_anchors_ = true
+
+[node name="Interact" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.622222
+anchor_top = 0.386161
+anchor_right = 0.838926
+anchor_bottom = 0.675984
+offset_top = -0.0626221
+offset_right = -0.0529785
+theme = ExtResource("5_hqbrn")
+text = "Interact
 "
 metadata/_edit_use_anchors_ = true
 
@@ -736,14 +754,14 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0652778
-anchor_top = 0.639741
-anchor_right = 0.306019
-anchor_bottom = 1.02261
-offset_right = -39.9997
+anchor_left = 0.627778
+anchor_top = 0.739927
+anchor_right = 0.838556
+anchor_bottom = 1.03081
+offset_top = 0.243668
+offset_right = 0.47998
 offset_bottom = -0.22023
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("8_cn3pl")
+theme = ExtResource("5_hqbrn")
 text = "Use Skill"
 metadata/_edit_use_anchors_ = true
 
@@ -751,14 +769,13 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.368056
-anchor_top = 0.6337
-anchor_right = 0.608797
-anchor_bottom = 1.01657
-offset_right = -40.0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("8_cn3pl")
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
+anchor_left = 0.15
+anchor_top = 0.739984
+anchor_right = 0.360694
+anchor_bottom = 1.03036
+offset_top = 0.21512
+offset_right = 0.599915
+theme = ExtResource("5_hqbrn")
 text = "Defend
 "
 metadata/_edit_use_anchors_ = true
@@ -767,14 +784,13 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(260, 120)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.653472
-anchor_top = 0.631687
-anchor_right = 0.894213
-anchor_bottom = 1.01455
-offset_right = -40.0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = ExtResource("8_cn3pl")
-theme_override_styles/normal_mirrored = ExtResource("8_cn3pl")
+anchor_left = 0.388889
+anchor_top = 0.740599
+anchor_right = 0.599815
+anchor_bottom = 1.03037
+offset_top = -0.0901489
+offset_right = 0.266907
+theme = ExtResource("5_hqbrn")
 text = "Dodge
 "
 metadata/_edit_use_anchors_ = true
@@ -783,10 +799,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(220, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.025
-anchor_top = 0.0201354
-anchor_right = 0.178472
-anchor_bottom = 0.239611
+anchor_left = -0.0277778
+anchor_top = 0.724309
+anchor_right = 0.125
+anchor_bottom = 0.943785
 theme_override_font_sizes/font_size = 40
 text = "Turn"
 metadata/_edit_use_anchors_ = true
@@ -795,10 +811,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(220, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.835417
-anchor_top = 0.0322166
-anchor_right = 1.03889
-anchor_bottom = 0.255719
+anchor_left = 0.894444
+anchor_top = 0.740417
+anchor_right = 1.04722
+anchor_bottom = 0.96392
 theme_override_font_sizes/font_size = 40
 text = "TOV"
 metadata/_edit_use_anchors_ = true
@@ -807,26 +823,39 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(220, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0256944
-anchor_top = 0.279318
-anchor_right = 0.177778
-anchor_bottom = 0.492752
+anchor_left = -0.0333333
+anchor_top = 0.99815
+anchor_right = 0.122222
+anchor_bottom = 1.21158
 offset_bottom = 1.52588e-05
 theme_override_font_sizes/font_size = 40
 text = "Panel"
 metadata/_edit_use_anchors_ = true
 
 [node name="Help" type="Button" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
-visible = false
 custom_minimum_size = Vector2(220, 100)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.833333
-anchor_top = 0.30348
-anchor_right = 1.03681
-anchor_bottom = 0.504834
+anchor_left = 0.888889
+anchor_top = 0.99815
+anchor_right = 1.06111
+anchor_bottom = 1.1995
 theme_override_font_sizes/font_size = 40
 text = "HELP"
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryMenu" type="Control" parent="Main_Screen/Control/Input Screens/Panel/action buttons/Panel"]
+layout_mode = 1
+anchor_left = 0.916194
+anchor_top = 1.08067
+anchor_right = 1.01261
+anchor_bottom = 1.27196
+offset_left = -0.320038
+offset_top = 0.0157585
+offset_right = -0.160034
+offset_bottom = 0.0148315
+script = ExtResource("15_pf1vr")
+metadata/_custom_type_script = "uid://js823kcvfn1e"
 metadata/_edit_use_anchors_ = true
 
 [node name="bottom button" type="Panel" parent="Main_Screen/Control/Input Screens/Panel"]
@@ -840,60 +869,46 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hbsuu")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
-custom_minimum_size = Vector2(120, 100)
+[node name="Button" type="Button" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.612056
-anchor_top = 0.626028
-anchor_right = 0.824611
-anchor_bottom = 1.46186
-offset_left = -0.360107
-offset_top = -0.055336
-offset_right = 0.559937
-offset_bottom = 0.0324402
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
-text = "Orders"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
-custom_minimum_size = Vector2(120, 100)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.169694
-anchor_top = 0.5662
-anchor_right = 0.385694
-anchor_bottom = 1.46231
-offset_left = 0.639999
-offset_top = 0.0288925
-offset_right = -0.400024
-offset_bottom = -0.0351868
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
+anchor_left = 0.144444
+anchor_top = 0.531425
+anchor_right = 0.360806
+anchor_bottom = 1.29589
+offset_top = 0.0640621
+offset_right = 0.440002
+offset_bottom = -0.0106964
+theme = ExtResource("16_did38")
 text = "Character"
-horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
-custom_minimum_size = Vector2(120, 100)
+[node name="Button2" type="Button" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.406944
-anchor_top = 0.493945
-anchor_right = 0.589583
-anchor_bottom = 1.45549
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_mvywa")
+anchor_left = 0.383333
+anchor_top = 0.373362
+anchor_right = 0.594139
+anchor_bottom = 1.13782
+offset_top = 0.0640621
+offset_right = 0.440002
+offset_bottom = -0.0106964
+theme = ExtResource("16_did38")
 text = "Inventory"
-horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Main_Screen/Control/Input Screens/Panel/bottom button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.622222
+anchor_top = 0.531425
+anchor_right = 0.838583
+anchor_bottom = 1.29589
+offset_top = 0.0640621
+offset_right = 0.440002
+offset_bottom = -0.0106964
+theme = ExtResource("16_did38")
+text = "Orders"
 metadata/_edit_use_anchors_ = true
 
 [node name="vbox" type="VBoxContainer" parent="."]
@@ -918,11 +933,10 @@ enemy = NodePath("../CombatScenes/Goblin")
 combat_log = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer2/Panel/CombatTexts")
 player_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar2")
 enemy_health_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Panel/Status Bar")
-enemy_name_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox/Enemy_name_Label")
+enemy_name_label = NodePath("../Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/CombatPanel/HBoxContainer/Panel/HSeparator/MarginContainer/Panel/Enemystats/Panel/vbox/Enemy_Name_Label")
 
-[node name="CombatInstantiator" type="Node" parent="Combatmanager" node_paths=PackedStringArray("enemy_list")]
+[node name="CombatInstantiator" type="Node" parent="Combatmanager"]
 script = ExtResource("11_4tvcf")
-enemy_list = [NodePath("../../CombatScenes/Goblin")]
 
 [node name="Node2" type="Node" parent="Combatmanager"]
 
@@ -931,15 +945,35 @@ enemy_list = [NodePath("../../CombatScenes/Goblin")]
 [node name="EnemyAi" parent="CombatScenes" instance=ExtResource("10_dixns")]
 
 [node name="Goblin" parent="CombatScenes" instance=ExtResource("11_msaj8")]
+display_name = "Gobby the Ugly"
+max_hp = 160
+current_hp = 160
+stats = {
+"agility": 5,
+"dexterity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 6,
+"toughness": 4
+}
 
 [node name="Goblin2" parent="CombatScenes" instance=ExtResource("11_msaj8")]
+display_name = "Gobbers"
+max_momentum = 20
+stats = {
+"agility": 5,
+"dexterity": 4,
+"endurance": 5,
+"perception": 2,
+"strength": 6,
+"toughness": 3
+}
 
-[node name="Outlaw" parent="CombatScenes" instance=ExtResource("19_lh3el")]
-display_name = "Mary"
-max_hp = 100
-current_hp = 100
+[node name="Player" parent="CombatScenes" instance=ExtResource("21_io20u")]
 
 [node name="SaveManager" type="Node" parent="."]
+script = ExtResource("22_wm0pd")
+metadata/_custom_type_script = "uid://dbio2vtk3488t"
 
 [node name="AudioManager" parent="." instance=ExtResource("14_irmyc")]
 visible = false
@@ -950,6 +984,10 @@ layout_mode = 1
 [connection signal="pressed" from="Main_Screen/Control/InfoCombatScreens/VBoxContainer/InfoPanels/PlayerInfoPanel/HBoxContainer/Panel/Button" to="." method="_on_Menu_button_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Light_Attack" to="Combatmanager" method="_on_light_attack_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Heavy_attack" to="Combatmanager" method="_on_heavy_attack_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Magic" to="Combatmanager" method="_on_magic_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Use_Item" to="Combatmanager" method="_on_heavy_attack_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Observe_New" to="Combatmanager" method="_on_heavy_attack_pressed"]
+[connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Interact" to="Combatmanager" method="_on_heavy_attack_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Use_Skill" to="Combatmanager" method="_on_use_skill_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Defend" to="Combatmanager" method="_on_defend_pressed"]
 [connection signal="pressed" from="Main_Screen/Control/Input Screens/Panel/action buttons/Panel/Dodge" to="Combatmanager" method="_on_dodge_pressed"]
