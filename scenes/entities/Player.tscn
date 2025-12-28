@@ -1,32 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx32qsew5hl3x"]
+[gd_scene load_steps=12 format=3 uid="uid://bx32qsew5hl3x"]
 
 [ext_resource type="Script" uid="uid://cbalwifbhpjdf" path="res://logic/ent/player.gd" id="1_vgsr7"]
-[ext_resource type="Script" uid="uid://cgfhaakdh10ni" path="res://logic/data/resources/SkillResource.gd" id="2_j1g85"]
+[ext_resource type="Script" uid="uid://dj6dkvp7iuk5w" path="res://logic/data/resources/WeaponResource.gd" id="2_24gqh"]
+[ext_resource type="Script" uid="uid://cgfhaakdh10ni" path="res://logic/data/resources/SkillResource.gd" id="2_xq0cc"]
 [ext_resource type="Script" uid="uid://dadbbau0x8kao" path="res://logic/data/combatLogic/Technique.gd" id="3_7jddb"]
+[ext_resource type="Resource" uid="uid://dds1efpt4wokq" path="res://logic/data/resources/Items/weapons/glass_rapier.tres" id="3_yjynp"]
 [ext_resource type="Resource" uid="uid://1nkvl7t7cn01" path="res://logic/data/resources/Techniques/quick_jab.tres" id="4_lfoco"]
 [ext_resource type="Resource" uid="uid://btikpymqav4bo" path="res://logic/data/resources/Techniques/cleave.tres" id="5_h683u"]
 [ext_resource type="Resource" uid="uid://d3obo3p6met84" path="res://logic/data/resources/Items/armors/leather_vest.tres" id="6_lfoco"]
 [ext_resource type="Script" uid="uid://cqc8dxgcx2p8x" path="res://logic/ent/BaseChar_Script_Dependancies/ArmorSlotResource.gd" id="7_h683u"]
 
-[sub_resource type="Resource" id="Resource_xq0cc"]
+[sub_resource type="Resource" id="Resource_rafx0"]
+script = ExtResource("2_xq0cc")
+data_name = "sword"
+level = 5
+is_active = true
+metadata/_custom_type_script = "uid://cgfhaakdh10ni"
+
+[sub_resource type="Resource" id="Resource_h683u"]
 script = ExtResource("7_h683u")
 chest = ExtResource("6_lfoco")
 metadata/_custom_type_script = "uid://cqc8dxgcx2p8x"
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vgsr7")
-display_name = "Lycarus"
-max_hp = 140
-current_hp = 140
-momentum = 0
-skills = Array[ExtResource("2_j1g85")]([null])
-_techniques_editor = Array[ExtResource("3_7jddb")]([ExtResource("4_lfoco"), ExtResource("5_h683u")])
-stats = {
-"agility": 5,
-"dexterity": 4,
-"endurance": 5,
-"perception": 2,
-"strength": 4,
-"toughness": 4
-}
-armor_data = SubResource("Resource_xq0cc")
+skills = Array[ExtResource("2_xq0cc")]([SubResource("Resource_rafx0")])
+techniques = Array[ExtResource("3_7jddb")]([ExtResource("4_lfoco"), ExtResource("5_h683u")])
+equipment = Dictionary[String, ExtResource("2_24gqh")]({
+"main_hand": ExtResource("3_yjynp"),
+"off_hand": null
+})
+armor_data = SubResource("Resource_h683u")

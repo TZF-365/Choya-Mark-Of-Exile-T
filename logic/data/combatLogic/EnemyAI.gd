@@ -7,40 +7,55 @@ class_name EnemyAI
 @export var player: BaseChar
 
 # Randomly chooses an action for the enemy. You can expand this method for more sophisticated behavior.
-func choose_action() -> String:
-	if enemy == null:
-		print("No enemy connected to enemy AI")
-		return "idle"  # Safe fallback in case enemy is not assigned
+func choose_action_based_on_state() -> String:
 	if enemy == null or player == null:
 		print("No enemy or player connected to enemy AI")
-		return "idle"  # Safe fallback in case enemy or player is not assigned
-	else:
-		var actions = ["light", "defend", "dodge", "heavy"]
-		return actions[randi() % actions.size()]
+		return "idle"
 
-# Can be expanded for more complex decision making (e.g., based on health, player behavior, etc.)
-func choose_action_based_on_health() -> String:
-	if enemy == null or player == null:
-		print("No enemy or player connected to enemy AI")
-		return "light"  # Safe fallback in case enemy or player is not assigned
-	
-	# If the enemy's health is very low, be more defensive
-	if enemy.current_hp < 10:
-		var actions = ["defend", "dodge"]
-		return actions[randi() % actions.size()]  # Randomly choose between defend or dodge
-	
-	# If the enemy has lower health but not critical, mix between attacking and defending
-	elif enemy.current_hp < 50:
-		if randi() % 2 == 0:
-			return "defend"  # 50% chance to defend
+	var possible_actions: Array = []
+
+	# --- Assess enemy and player health ---
+	var enemy_hp_ratio = float(enemy.current_hp) / enemy.max_hp
+	var player_hp_ratio = float(player.current_hp) / player.max_hp
+
+	# --- Defensive behavior ---
+	if enemy_hp_ratio < 0.2:
+		# Low health -> prioritize dodge or defend
+		possible_actions += ["dodge", "defend"]
+	elif enemy_hp_ratio < 0.5:
+		# Moderate health -> mix of defense and light attack
+		possible_actions += ["light", "defend", "dodge"]
+
+	# --- Offensive behavior ---
+	if player_hp_ratio < 0.3:
+		# Player is weak -> try heavier attacks or finishers if available
+		if enemy.momentum >= enemy.finisher_available:
+			possible_actions.append("finisher")
 		else:
-			return "light"  # Otherwise, attack
-	
-	# If the enemy has more strength than the player, prioritize attacking
-	elif enemy.stats["strength"] > player.stats["strength"]:
-		return "heavy"  # Stronger enemy attacks
-	
-	# If the enemy's health is good and they are not stronger, dodge to avoid taking damage
-	else:
-		var actions = ["light", "dodge"]
-		return actions[randi() % actions.size()]  # Randomly choose between attack or dodge
+			possible_actions += ["heavy", "light"]
+	elif player_hp_ratio < 0.6:
+		possible_actions += ["light", "heavy"]
+
+	# --- Status-based adjustments ---
+	#if enemy.is_stunned or enemy.current_stamina < 2:
+		# Can't perform heavy attacks -> fallback to light/dodge
+	#	possible_actions = possible_actions.filter(func(a): return a != "heavy")
+
+	if player.is_defending:
+		# Avoid attacking into defended positions
+		possible_actions = possible_actions.filter(func(a): return a not in ["light", "heavy"])
+		possible_actions.append("dodge")
+
+	# --- Momentum-based prioritization ---
+	if enemy.momentum > enemy.opportunity_available and not enemy.opportunity_active:
+		# Open to take advantage -> consider aggressive attacks
+		possible_actions.append("heavy")
+
+	# --- Default fallback if no actions were added ---
+	if possible_actions.is_empty():
+		possible_actions = ["light", "defend", "dodge"]
+
+	# Randomly select one action from the evaluated options
+	var chosen_action = possible_actions[randi() % possible_actions.size()]
+	print("AI chose action: %s" % chosen_action)
+	return chosen_action

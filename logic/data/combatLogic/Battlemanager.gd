@@ -160,26 +160,88 @@ func _apply_enemy_overrides(enemy: BaseChar, config: Dictionary) -> void:
 			if tres:
 				enemy.techniques.append(tres)
 
-
 func _setup_equipment() -> void:
-	"""Equip player and enemy."""
-	
-	var sword = preload("res://logic/data/resources/Items/weapons/glass_rapier.tres")
-	var dagger = preload("res://logic/data/resources/Items/weapons/bronze_dagger.tres")
-	var iron_chest = load("res://logic/data/resources/Items/armors/Leather_Curass. tres") as ArmorResource
-	var hide_armor = load("res://logic/data/resources/Items/armors/hide_armor.tres") as ArmorResource
-	
-	# Player setup
-	player.equip_armor("chest", iron_chest)
-	player.equip_skill_from_file("res://logic/data/resources/Skills/fireball. tres")
-	player.techniques.append(cleave_technique)
-	player.techniques.append(stab_technique)
-	
-	# Enemy setup (only if not already equipped from procedural)
-	if enemy. armor_slots.is_empty():
-		enemy.equip_armor("chest", hide_armor)
-		enemy.techniques.append(stab_technique)
-		enemy.techniques.append(cleave_technique)
+	"""Automatically equip player and enemy based on their inventories, skills, and techniques."""
+
+	print("=== Setting up PLAYER equipment ===")
+
+	# --- PLAYER SETUP ---
+	# Equip all armor
+	for slot_name in player.armor_slots.keys():
+		var armor_piece = player.armor_data[slot_name]
+		if armor_piece and armor_piece is ArmorResource:
+			print("Equipping PLAYER armor in slot:", slot_name, "->", armor_piece.name)
+			player.equip_armor(slot_name, armor_piece)
+		else:
+			print("No valid armor found in PLAYER slot:", slot_name)
+
+	# Equip all weapons
+	for slot_name in player.equipment.keys():
+		var weapon = player.equipment[slot_name]
+		if weapon and weapon is WeaponResource:
+			print("Equipping PLAYER weapon in slot:", slot_name, "->", weapon.name)
+			player.equip_weapon(weapon, slot_name)
+		else:
+			print("No valid weapon found in PLAYER slot:", slot_name)
+
+	# Add all skills
+	#for skill in player.skills:
+	#	if skill is SkillResource:
+	#		print("Adding PLAYER skill:", skill.name)
+	#		player.add_skill(skill)
+	#	else:
+	#		print("Invalid skill found in PLAYER skills array")
+
+	# Add all techniques
+	var names = []
+	for technique in player.techniques:
+		if technique != null:
+			names.append(technique.name)
+	print("Player Techniques:", names)
+
+
+	print("=== Player setup complete ===\n")
+
+	# --- ENEMY SETUP ---
+	print("=== Setting up ENEMY equipment ===")
+
+	# Equip only if empty (respect procedural setups)
+	if enemy.armor_slots.is_empty():
+		print("Enemy armor slots empty. Equipping armor...")
+		for slot_name in enemy.armor_slots.keys():
+			var armor_piece = enemy.armor_slots[slot_name]
+			if armor_piece and armor_piece is ArmorResource:
+				print("Equipping ENEMY armor in slot:", slot_name, "->", armor_piece.name)
+				enemy.equip_armor(slot_name, armor_piece)
+			else:
+				print("No valid armor found in ENEMY slot:", slot_name)
+
+		for slot_name in enemy.equipment.keys():
+			var weapon = enemy.equipment[slot_name]
+			if weapon and weapon is WeaponResource:
+				print("Equipping ENEMY weapon in slot:", slot_name, "->", weapon.name)
+				enemy.equip_weapon(weapon, slot_name)
+			else:
+				print("No valid weapon found in ENEMY slot:", slot_name)
+	else:
+		print("Enemy already has armor. Skipping armor equip.")
+
+	# Add all enemy skills
+	for skill in enemy.skills:
+		if skill is SkillResource:
+			print("Adding ENEMY skill:", skill.name)
+			enemy.add_skill(skill)
+		else:
+			print("Invalid skill found in ENEMY skills array")
+
+	# Add all enemy techniques
+	for technique in enemy.techniques:
+		print("Adding ENEMY technique:", technique.name)
+		enemy.add_technique(technique)
+
+	print("=== Enemy setup complete ===\n")
+	print("Final PLAYER and ENEMY objects:", player, enemy)
+
 
 
 func _setup_ai() -> void:
@@ -663,10 +725,10 @@ func generate_attack_description(actor: BaseChar, target: BaseChar, damage: int)
 			match choice:
 				0, 1, 3:
 					description = normal_miss[choice] % [actor.display_name, target.display_name]
-				2, 4:
-					description = normal_miss[choice] % [actor.display_name]
-				5:
+				4:
 					description = normal_miss[choice] % [target.display_name]
+				2, 5:
+					description = normal_miss[choice] % [actor.display_name]
 	return description
 
 
@@ -739,7 +801,7 @@ func enemy_turn():
 		return
 
 	add_to_turn_log("")
-	var action = enemy_ai.choose_action_based_on_health()
+	var action = enemy_ai.choose_action_based_on_state()
 	resolve_action(enemy, action, player)
 
 	if current_state != State.BATTLE_OVER: 

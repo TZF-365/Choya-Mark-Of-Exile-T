@@ -8,13 +8,10 @@ critical_chance = 0.15
 reach = 1.3
 parry_bonus = 0.1
 weapon_traits = ["heavy", "two_handed"]
-Weapon_str = 2.0
-id = "steel_greatsword"
-name = "Steel Greatsword"
+id = "sword"
+name = "sword"
 type = "sword"
 weight = 3.1
-max_durability = 0
-durability = 0
 material = "steel"
 conditions = {
 "destruction": {
@@ -25,4 +22,4 @@ conditions = {
 }
 }
 is_weapon = true
-weapon_class = "Greatsword"
+weapon_class = "sword"

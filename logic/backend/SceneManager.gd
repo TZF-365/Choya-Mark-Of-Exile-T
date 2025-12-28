@@ -46,6 +46,4 @@ func change_scene_with_delay(scene_path: String, delay_sec: float = 3.0):
 	print("Scene changed!")
 
 func wait():
-	print("Start waiting")
 	await get_tree().create_timer(3.0).timeout
-	print("3 seconds passed!")

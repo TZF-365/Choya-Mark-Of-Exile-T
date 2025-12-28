@@ -40,9 +40,9 @@ var turn_order: Array[BaseChar]
 
 @export var skills: Array[SkillResource] = [] # Initialize as an empty Dictionary
 
-@export var _techniques_editor: Array[Technique_] = []
 
-var techniques: Array[Technique_] = _techniques_editor.duplicate()
+
+@export var techniques: Array[Technique_] 
 
 @export var known_techniques: Array[Technique_] = []
 
@@ -59,7 +59,7 @@ var current_action: String = ""
 
 # Attributes and stats
 @export var stats: Dictionary = {
-	"strength": 4,
+	"strength": 3,
 	"dexterity": 4,
 	"endurance": 5,
 	"toughness": 3,
