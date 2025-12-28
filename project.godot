@@ -41,6 +41,7 @@ Player_AL="*res://scenes/entities/Player.tscn"
 Scene="*res://logic/backend/SceneManager.gd"
 CombatData="*res://logic/data/combatLogic/CombatData.gd"
 EnemyCatalog="*res://logic/data/combatLogic/EnemyCatalog.gd"
+WeaponProficiencyDB="*res://logic/data/resources/Skills/WeaponProficiencyDB.gd"
 
 [display]
 

@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b236yy7yxpnij"]
+[gd_scene load_steps=4 format=3 uid="uid://b236yy7yxpnij"]
 
 [ext_resource type="Script" uid="uid://bc7g75gnrwmeb" path="res://logic/ent/goblin.gd" id="1_ep5du"]
+[ext_resource type="Script" uid="uid://dj6dkvp7iuk5w" path="res://logic/data/resources/WeaponResource.gd" id="2_bjl0j"]
+[ext_resource type="Resource" uid="uid://bhuxajakbrhyd" path="res://logic/data/resources/Items/weapons/goblin_sword.tres" id="3_bi8l1"]
 
 [node name="Bandit" type="Node2D"]
 script = ExtResource("1_ep5du")
 display_name = "Bandit"
+equipment = Dictionary[String, ExtResource("2_bjl0j")]({
+"main_hand": ExtResource("3_bi8l1"),
+"off_hand": null
+})

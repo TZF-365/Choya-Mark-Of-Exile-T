@@ -6,13 +6,7 @@
 script = ExtResource("1_xrngn")
 name = " Fireball"
 description = "BIG FIREBALL"
-cost = 10
-cooldown = 0
-level = 1
-max_level = 5
 is_active = true
-xp = 0
 xp_required_for_next_level = 0
-effect_type = "damage"
 effect_value = 20
 metadata/_custom_type_script = "uid://cgfhaakdh10ni"

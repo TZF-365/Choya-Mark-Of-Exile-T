@@ -152,14 +152,14 @@ anchor_left = 0.465
 anchor_top = 4.334
 anchor_right = 1.039
 anchor_bottom = 4.666
-offset_left = 0.379944
-offset_top = -0.105835
-offset_right = 2.54797
-offset_bottom = 1.10608
+offset_left = -115.900024
+offset_top = -2.6063232
+offset_right = 23.859985
+offset_bottom = -1.394165
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("10_7b55j")
 theme_override_font_sizes/font_size = 43
-text = "Version 0.7.9"
+text = "Version 0.8.9 Beta"
 label_settings = SubResource("LabelSettings_utnyj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -307,15 +307,14 @@ text = "Return"
 [node name="Player" parent="." instance=ExtResource("15_5pajh")]
 max_hp = 100
 current_hp = 100
-coins = 100
 momentum = 15
 stats = {
 "agility": 5,
 "dexterity": 4,
 "endurance": 5,
 "perception": 5,
-"strength": 6,
-"toughness": 8
+"strength": 4,
+"toughness": 3
 }
 
 [node name="SaveManager" type="Node" parent="."]

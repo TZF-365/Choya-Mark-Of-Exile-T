@@ -13,5 +13,11 @@ name = "Bronze Dagger"
 weight = 0.6
 max_durability = 10
 durability = 10
+combat_data = {
+"attack_flavor_text": "",
+"attack_power": 3,
+"custom_use_text": "",
+"skills_linked": []
+}
 is_weapon = true
 weapon_class = "Dagger"

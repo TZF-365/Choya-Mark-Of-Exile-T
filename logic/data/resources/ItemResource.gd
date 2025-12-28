@@ -10,8 +10,8 @@ class_name ItemResource
 @export var uses: int
 @export var weight: float
 @export var cost: int
-@export var max_durability: int
-@export var durability: int
+@export var max_durability: int = 50
+@export var durability: int = 50
 @export var throwable: bool
 @export var fragility: String
 var slot_type: String
@@ -63,7 +63,7 @@ enum Condition {
 # Conditions
 @export var conditions: Dictionary = {
 	"destruction": {"min_durability": 0},
-	"disarming": {"min_durability": 10}
+	"disarming": {"min_durability": 50}
 }
 
 # Materials the item is made of

@@ -13,7 +13,7 @@
 	"010_prologue_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "My limited vision swam in a haze—ancient trees loomed above like silent sentinels, it was bright... a bright sky blue enveloped me. and as my muscle struggled as I raised my head to the sky, the smudges that could only be stars blinked cold and distant, watching but offering no comfort.",
+		"narr_text": "My limited vision swam in a haze and ancient trees loomed above like silent sentinels, it was bright... a bright sky blue enveloped me. and as my muscle struggled as I raised my head to the sky, the smudges that could only be stars blinked cold and distant, watching but offering no comfort.",
 		"choices": {
 			"1": {
 				"text": "Focus on my name.",
@@ -76,7 +76,7 @@
 	"010_prologue_4": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
-		"narr_text": "Just then, images struck like lightning behind my eyes—fleeting. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue. I remember the flutter of excitement, dulled by a doubt I never voiced. \n\nGold was promised, bartered in the corners where light dares not linger. The journey blurs long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. \n\nThen came the dark. And monsters... Laughter followed me too. Sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
+		"narr_text": "Just then, images struck like lightning behind my eyes fleeting. An agreement... yes, with others. Adventurers, I think. The word feels wrong on my tongue. I remember the flutter of excitement, dulled by a doubt I never voiced. \n\nGold was promised, bartered in the corners where light dares not linger. The journey blurs long, arduous, filled with laughter and tension, campfire smoke and the hush of danger. Weeks, perhaps. \n\nThen came the dark. And monsters... Laughter followed me too. Sharp, cruel, like a dagger twisted for amusement. Faces rise from the fog of my memory, but their names do not follow. Only their ugliness, the betrayal etched in their eyes. And then pain... Cold steel, sure and deliberate, cutting through trust as easily as it split my flesh. And after that... a light. Blinding...",
 		"choices": {
 			"1": {
 				"text": "Try to speak.",
@@ -681,8 +681,6 @@
 					"enemy_id": "bandit", 
 					"override_display_name": "Scarred Bandit", 
 					"override_hp": 70, 
-					"override_weapon": "res://logic/data/resources/Items/weapons/wooden_plank.tres", 
-					"battle_events": []
 				},
 				"buffs": {
 					"current_hp": 70
@@ -860,7 +858,7 @@
 	"010_mage_4": {
 		"title": "",
 		"picture": "",
-		"narr_text": "Despite the sounds and shouting outside you turn back to follow the elf deeper in the emporium into a new room, \n\nThe room smelled of old vellum, dust, and scorched silver. Wards glimmered faintly across the stone walls—sigils not meant to be read, only obeyed. A low fire hissed in the hearth, casting long shadows behind racks of enchanted relics and half-open books.",
+		"narr_text": "Despite the sounds and shouting outside you turn back to follow the elf deeper in the emporium into a new room, \n\nThe room smelled of old vellum, dust, and scorched silver. Wards glimmered faintly across the stone walls, sigils not meant to be read, only obeyed. A low fire hissed in the hearth, casting long shadows behind racks of enchanted relics and half-open books.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -908,7 +906,7 @@
 	"010_mage_8": {
 		"title": "",
 		"picture": "",
-		"narr_text": "Just as the words leave your lips the walls of the emporium shook with the blast, a dull thunder that rolled through the stone like the growl of some ancient beast. Glass shattered. Screams tore through the air beyond the heavy oak doors—women, and perhaps a child.",
+		"narr_text": "Just as the words leave your lips the walls of the emporium shook with the blast, a dull thunder that rolled through the stone like the growl of some ancient beast. Glass shattered. Screams tore through the air beyond the heavy oak doors, women, and perhaps a child.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -963,7 +961,7 @@
 	"010_mage_blow4": {
 		"title": "",
 		"picture": "",
-		"narr_text": "You nod. 'This isn't charity.' He says as he hands you a flask. 'Stabilizes your mana and should bring you back to good health. No more headaches and bad chest pains, but you will still be sore for a few weeks.' He slides your armor forward—sleek, refitted, and glowing faintly. 'Still dense with mana, but I turned it into an advantage. It’ll break easier, though.' A scroll for Kaela. A short sword for you. \n\n'And your name—Talbot. That’s Solarian. Think on that.'",
+		"narr_text": "You nod. 'This isn't charity.' He says as he hands you a flask. 'Stabilizes your mana and should bring you back to good health. No more headaches and bad chest pains, but you will still be sore for a few weeks.' He slides your armor forward, sleek, refitted, and glowing faintly. 'Still dense with mana, but I turned it into an advantage. It’ll break easier, though.' A scroll for Kaela. A short sword for you. \n\n'And your name—Talbot. That’s Solarian. Think on that.'",
 		"choices": {
 		  "1": {
 				"text": "Take everything and thank him.",
@@ -982,8 +980,8 @@
 					"enemy_id": "bandit",
 					"override_display_name": "Masked Bandit",
 					"override_hp": 90,
-					"battle_events": [],
-				"010_mage_emporium_1"
+				},
+				"output": "010_mage_emporium_1"
 			}
 		}
 	},
@@ -1021,7 +1019,8 @@
 					"override_display_name": "Buff Bandit",
 					"override_hp": 130,
 					"override_weapon": "res://logic/data/resources/Items/weapons/wooden_plank.tres",
-					"battle_events": [],
+					"battle_events": []
+				},
 				"output": "011_ends"
 			}
 		}

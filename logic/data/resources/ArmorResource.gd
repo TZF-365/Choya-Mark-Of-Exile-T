@@ -29,3 +29,12 @@ func reduce_durability(damage_taken: float) -> void:
 	# Optionally log or handle when armor breaks
 	if durability == 0:
 		print("Armor is broken and no longer provides protection!")
+
+var MATERIAL_MULTIPLIERS := {
+	"iron": 1.3,
+	"steel": 1.47,
+	"wood": 0.75,
+	"glass": 0.4,
+	"bronze": 1.1,
+	"leather": 0.6
+}

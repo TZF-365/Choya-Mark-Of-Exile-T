@@ -79,7 +79,10 @@
 		"narr_text": "A flicker of defiance rises within him. Maybe he can't dodge the inevitable, but he won't go out quietly. If his last breath is to be a call to arms, then so be it.",
 		"choices": {
 			"1": {
-				"text": "Ask where the priest can be found.",
+				"text": "Face it head on.",
+				"buffs": {
+					"current_hp": 120
+				},
 				"output": "death_page"
 			}
 		}

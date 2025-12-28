@@ -100,6 +100,9 @@ func _ready():
 	# 7) Setup AI and UI
 	_setup_ai()
 	_initialize_ui()
+	
+	#add equipment 
+	_setup_equipment()
 
 	# 8) Clear CombatData to avoid stale references
 	CombatData.clear()
@@ -167,7 +170,6 @@ func _setup_equipment() -> void:
 	var hide_armor = load("res://logic/data/resources/Items/armors/hide_armor.tres") as ArmorResource
 	
 	# Player setup
-	player.equip_weapon(sword, "main_hand")
 	player.equip_armor("chest", iron_chest)
 	player.equip_skill_from_file("res://logic/data/resources/Skills/fireball. tres")
 	player.techniques.append(cleave_technique)
@@ -176,7 +178,6 @@ func _setup_equipment() -> void:
 	# Enemy setup (only if not already equipped from procedural)
 	if enemy. armor_slots.is_empty():
 		enemy.equip_armor("chest", hide_armor)
-		enemy.equip_weapon(dagger, "main_hand")
 		enemy.techniques.append(stab_technique)
 		enemy.techniques.append(cleave_technique)
 
@@ -222,77 +223,82 @@ func _process(_delta):
 
 # Resolve all actions
 func resolve_action(actor: BaseChar, action: String, target: BaseChar):
-	"""
-	Resolves a combat action (light_attack, heavy_attack, defend, dodge, or skill usage) for the given actor.
-	"""
-	var log_entry = ""
-	var attack_type = "light" if action == "light" else "heavy" if action == "heavy" else "normal"
+	var log_entry := ""
+	var is_attack := true	
+	print("\n--- Resolving action: %s by %s targeting %s ---"
+		% [action, actor.display_name, target.display_name])
 
-	print("\n--- Resolving action: %s by %s targeting %s ---" % [action, actor.display_name, target. display_name])
 
-	var chosen_technique = choose_technique(actor, target, attack_type)
-	
-	if chosen_technique != null:
-		log_entry += "%s uses %s!  " % [actor.display_name, chosen_technique.name]
-		print("Technique chosen: %s by %s" % [chosen_technique.name, actor.display_name])
-		damage = damage_calc(actor, target, attack_type, chosen_technique)
-	else:
-		damage = damage_calc(actor, target, attack_type)
-		print("No technique chosen. Standard %s attack by %s." % [attack_type, actor. display_name])
+	# STANCE ACTIONS (NO ATTACK)
+	if action == "defend":
+		actor.is_defending = true
+		log_entry = "%s prepares to defend. " % actor.display_name
+		#add_to_turn_log(log_entry)
+		is_attack = false
 
-	print("Calculated damage: %d" % damage)
-	target.current_hp -= damage
-	target. current_hp = clamp(target.current_hp, 0, target.max_hp)
-	log_entry += generate_attack_description(actor, target, damage)
-	print("Target HP after damage: %d / %d" % [target.current_hp, target.max_hp])
+	if action == "dodge":
+		actor.is_dodging = true
+		log_entry = "%s becomes evasive. " % actor.display_name
+		#add_to_turn_log(log_entry)
+		is_attack = false
+		
+	# SKILL ACTIONS
+	if action == "use_skill":
+		# Example: active combat skills
+		actor.use_selected_skill(target)
+		return
 
-	# === Momentum System (target gains momentum) ===
-	if damage > 0:
-		print("Target took damage.  Adjusting momentum...")
-		adjust_momentum(target, 4, "hit taken")
+	if is_attack:
+		var attack_type := action
+		var damage := 0
+
+		var chosen_technique = choose_technique(actor, target, attack_type)
+
 		if chosen_technique != null:
-			adjust_momentum(target, 5, "technique used against target")
-		if target.current_hp <= target.max_hp * 0.2:
-			print("Target HP is critical! Extra momentum granted.")
-			adjust_momentum(target, 8, "critical HP threshold")
-	else:
-		if target.is_dodging or target.is_defending:
-			print("Target avoided attack. Reducing momentum.")
-			adjust_momentum(target, -5, "successfully avoided damage")
+			log_entry += "%s uses %s! " % [actor.display_name, chosen_technique.name]
+			damage = damage_calc(actor, target, attack_type, chosen_technique)
+		else:
+			damage = damage_calc(actor, target, attack_type)
 
-	print("Target Momentum: %d" % target. momentum)
+		target.current_hp -= damage
+		target.current_hp = clamp(target.current_hp, 0, target.max_hp)
 
-	# === Opportunity / Finisher flag & auto-retaliation ===
-	if not target.finisher_available and target.momentum >= target.finisher_available: 
+		log_entry += generate_attack_description(actor, target, damage)
+
+		# Consume stances ONLY when attacked
+		target.is_dodging = false
+		target.is_defending = false
+
+
+
+	print("Target Momentum:", target.momentum)
+
+	# ============================
+
+	if not target.finisher_available and target.momentum >= target.finisher_available:
 		target.finisher_active = true
-		print("WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA %s is now open for a FINISHER!" % target.display_name)
-		add_to_turn_log("%s is vulnerable — a **Finisher** is now possible!" % target.display_name)
-		trigger_auto_counter("finisher", target, actor)
+		add_to_turn_log(
+			"%s is vulnerable — a **Finisher** is now possible!"
+			% target.display_name
+		)
 
 	elif not target.opportunity_available and target.momentum >= target.opportunity_available:
 		target.opportunity_active = true
-		print("WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA %s is now open for an OPPORTUNITY attack!" % target.display_name)
-		add_to_turn_log("%s is showing weakness — an **Opportunity Attack** is now possible!" % target. display_name)
-		trigger_auto_counter("opportunity", target, actor)
+		add_to_turn_log(
+			"%s shows weakness — an **Opportunity Attack** is possible!"
+			% target.display_name
+		)
 
-	# === Action-specific state flags ===
-	if action == "defend":
-		actor.is_defending = true
-		log_entry = "%s prepares to defend!" % actor.display_name
-	elif action == "dodge":
-		actor.is_dodging = true
-		log_entry = "%s is becoming evasive!" % actor.display_name
-	elif action == "use_skill":
-		if actor.skills.has("Fireball"):
-			actor.use_skill("Fireball", target)
-			log_entry = "%s uses Fireball on %s!" % [actor.display_name, target.display_name]
+	print("Target HP after damage: %d / %d"
+		% [target.current_hp, target.max_hp])
 
 	add_to_turn_log(log_entry)
 	update_health_labels()
 	check_battle_end()
-	reset_combat_states(player)
-	reset_combat_states(enemy)
+
+
 	process_stamina_endurance(actor, action)
+
 
 
 func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, attacker: BaseChar):
@@ -342,6 +348,7 @@ func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) ->
 				continue
 
 		return techniques
+		print(techniques, "Is found")
 
 	print("No valid technique found for %s (attack type: %s). Techniques checked: %d"
 		% [actor.display_name, attack_type, actor.techniques.size()])
@@ -433,7 +440,7 @@ func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, techniq
 	var attack_power = actor.stats["strength"] * 2.7 + actor.get_weapon_power()
 	var multiplier = get_final_multiplier(actor, target, attack_type, technique)
 	var base_damage = attack_power * multiplier
-	print("🔸 Attack Power:  %. 2f, Multiplier: %.2f, Base Damage: %.2f" % [attack_power, multiplier, base_damage])
+	print("🔸 Attack Power:  %.2f, Multiplier: %.2f, Base Damage: %.2f" % [attack_power, multiplier, base_damage])
 
 	var armor_reduction = apply_armor_reduction(target, attack_power)
 	print("🛡️ Armor Reduction: %.2f" % armor_reduction)
@@ -441,11 +448,26 @@ func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, techniq
 	print("🔻 Damage After Armor: %.2f" % base_damage)
 
 	if target.is_defending:
-		base_damage *= 0.8
-		add_to_turn_log("%s braces for impact, reducing damage!" % target.display_name)
-	elif target.is_dodging and randf() < 0.5:
-		base_damage *= 0.7
-		add_to_turn_log("%s dodges the attack, reducing damage!" % target. display_name)
+		# Random reduction between 50% and 100%
+		# Final damage multiplier is between 0.0 and 0.5
+		var reduction := randf_range(0.5, 1.0)
+		base_damage *= (1.0 - reduction)
+		var description := generate_attack_description(actor, target, base_damage)
+		add_to_turn_log(description)
+		print("defended")
+
+	elif target.is_dodging:
+		# 80% chance to take no damage at all
+		if randf() < 0.8:
+			base_damage = 0
+			var description := generate_attack_description(actor, target, base_damage)
+			add_to_turn_log(description)
+			print("dodged")
+
+		else:
+			var description := generate_attack_description(actor, target, base_damage)
+			add_to_turn_log(description)
+			print("took hit")
 
 	var defense_modifier = target.stats["toughness"] * 1.64
 	var final_damage = max(int(base_damage - defense_modifier), 0)
@@ -485,7 +507,7 @@ func apply_armor_reduction(target: BaseChar, attack_power: float) -> float:
 
 			if durability_factor < 0.303:
 				if randi() % 100 < 50:
-					add_to_turn_log("%s's %s breaks due to low durability!" % [target.display_name, armor_piece.name])
+					add_to_turn_log("%s's %s Armor breaks due to low durability!" % [target.display_name, armor_piece.name])
 					armor_piece.broken = true
 					broken_armor_slots.append(armor_piece. slot_name)
 					print("🧪 Break check — durability factor:", durability_factor)
@@ -507,7 +529,7 @@ func update_armor_durability(target:  BaseChar, attack_power: float) -> void:
 
 			if slot.durability < (slot.max_durability * 0.3):
 				if randf() < 0.25:
-					add_to_turn_log("%s's %s breaks under the stress unexpectedly!" % [target.display_name, slot.slot_name])
+					add_to_turn_log("%s's %s Armor breaks under the stress unexpectedly!" % [target.display_name, slot.slot_name])
 					slot.broken = true
 					slot.durability = 0
 
@@ -517,13 +539,14 @@ func adjust_momentum(actor: BaseChar, amount: int, reason: String = ""):
 	print("Momentum adjusted for %s by %d (%s). Current momentum: %d" %
 		[actor.display_name, amount, reason, actor.momentum])
 
+func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique_ = null) -> float:
+	var multiplier: float = 1.0
 
-func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type:  String, technique: Technique_ = null) -> float:
-	var multiplier = 1.0
-
-	if technique != null: 
-		multiplier = technique.power_multiplier(actor)
-
+	# Apply technique-specific multiplier
+	if technique != null:
+		multiplier *= technique.power_multiplier(actor)
+		print("non technique multiplyer")
+	# Apply attack type multiplier
 	match attack_type:
 		"light":
 			multiplier *= 1.02
@@ -531,11 +554,13 @@ func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type:  Strin
 			multiplier *= 1.2
 		"special":
 			multiplier *= 1.4
+		"finisher":
+			multiplier *= 1.7
 
-	if actor.current_hp < 0.25:
-		multiplier += actor.bonus_when_low_hp
+	# Apply low HP bonus multiplicatively
 
 	return multiplier
+
 
 
 @warning_ignore("shadowed_variable")
@@ -561,9 +586,9 @@ func generate_attack_description(actor: BaseChar, target: BaseChar, damage: int)
 					description = dodging_hit[choice] % [target.display_name, damage, actor.display_name]
 		else:
 			var dodging_miss = [
-				"%s expertly dodges %s's attack, taking no damage! ",
+				"%s expertly dodges %s's attack, taking no damage!",
 				"%s sidesteps the strike.",
-				"%s sidesteps %s's strike with ease, emerging unscathed! ",
+				"%s sidesteps %s's strike with ease, emerging unscathed!",
 				"%s dodges %s cleanly.",
 				"%s evades the attack."
 			]
@@ -578,8 +603,8 @@ func generate_attack_description(actor: BaseChar, target: BaseChar, damage: int)
 		if damage > 0:
 			var defending_hit = [
 				"%s braces for %s's attack, but the force breaks through for %d damage!",
-				"%s guards but takes %d from %s.",
-				"%s holds their ground, but %s's strike lands for %d damage!",
+				"%s guards but takes a reduced %d from %s.",
+				"%s holds their ground, and %s's strike lands for %d damage!",
 				"%s's guard falters — %d damage.",
 				"%s's guard weakens as %s's blow connects for %d damage! ",
 				"%s braces, still takes %d."
@@ -627,8 +652,8 @@ func generate_attack_description(actor: BaseChar, target: BaseChar, damage: int)
 					description = normal_hit[choice] % [actor.display_name, target.display_name, damage]
 		else:
 			var normal_miss = [
-				"%s swings at %s but misses entirely! ",
-				"%s's attack fails to connect with %s! ",
+				"%s swings at %s but misses entirely!",
+				"%s's attack fails to connect with %s!",
 				"%s's attack whiffs.",
 				"%s misjudges the strike, missing %s completely!",
 				"%s dodges just in time.",
@@ -703,7 +728,8 @@ func process_turn(action: String):
 		enemy.update_val()
 		print(turn_log)
 		finalize_turn_log()
-
+		reset_combat_states(player)
+		reset_combat_states(enemy)
 
 func enemy_turn():
 	"""
@@ -712,7 +738,7 @@ func enemy_turn():
 	if current_state == State.BATTLE_OVER:
 		return
 
-	add_to_turn_log("  ")
+	add_to_turn_log("")
 	var action = enemy_ai.choose_action_based_on_health()
 	resolve_action(enemy, action, player)
 
@@ -724,7 +750,7 @@ func enemy_turn():
 func trigger_event():
 	if not event_triggered and player.current_hp < 50 and randf() < 1.0:
 		AudioManager.play_event_music_by_key("aaaa", false)
-		add_to_turn_log("RAAAAAAAAAAAAAAAAAAAAAAAA I WILL NOT LET YOU DESTROY MY WORRRRLLLLDDD...  \n \n")
+		add_to_turn_log("/n/n No... I can't fall here, I HAVE TO WIN! \n \n")
 		player.stats["strength"] += 3
 		event_triggered = true
 

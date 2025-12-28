@@ -10,6 +10,7 @@ enum SkillCategory {
 
 # Skill properties
 @export var name: String = "Unknown Skill"
+@export var data_name: String = "null"
 @export var description: String = "Description of the skill"
 @export var cost: int = 10  # Cost in action points, stamina, mana, etc.
 @export var cooldown: int = 0  # Turns until skill is available again
@@ -17,10 +18,11 @@ enum SkillCategory {
 @export var max_level: int = 5  # Maximum level for this skill
 @export var is_active: bool = false  # If the skill is active or not
 @export var xp: int = 0
-@export var xp_required_for_next_level: int = 100
+@export var xp_required_for_next_level: int = 0
+@export var castable: bool = true
 
 # Skill effects, can be customized based on the type of skill
-@export var effect_type: String = "damage"  # "damage", "heal", "buff", etc.
+@export var effect_type: String = "Proficiency" # "damage", "heal", "buff", etc.
 @export var effect_value: int = 0  # The value of the effect (damage amount, heal amount, etc.)
 
 func gain_xp(amount: int):
@@ -45,8 +47,6 @@ func cast(caster: BaseChar, target: BaseChar) -> void:
 	damage = max(damage, 0)
 	target.current_hp -= damage
 	print("%s casts Fireball on %s for %d damage" % [caster.display_name, target.display_name, damage])
-
-
 
 # Constructor can be omitted as we are using the export variables
 

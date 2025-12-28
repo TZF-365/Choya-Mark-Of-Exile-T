@@ -8,11 +8,19 @@ critical_chance = 0.3
 reach = 1.2
 parry_bonus = 0.15
 weapon_traits = ["fragile", "precise"]
+Weapon_str = null
 id = "glass_rapier"
 name = "Shimmering Glass Rapier"
+type = "sword"
 weight = 1.05
 max_durability = 50
 durability = 50
 material = "glass"
+combat_data = {
+"attack_flavor_text": "",
+"attack_power": 5,
+"custom_use_text": "",
+"skills_linked": []
+}
 is_weapon = true
 weapon_class = "Rapier"

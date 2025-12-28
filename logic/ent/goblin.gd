@@ -4,4 +4,4 @@ extends BaseChar
 var is_enemy: bool = true
 
 func _ready():
-	name = "Goblin"
+	name = "bandit"

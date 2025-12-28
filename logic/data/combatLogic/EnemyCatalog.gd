@@ -17,7 +17,10 @@ class_name Enemy_Catalog
 	"skeleton": preload("res://logic/data/enemies/skeleton.tscn"),
 	"skeleton_knight": preload("res://logic/data/enemies/skeleton_knight.tscn"),
 
-	"training_dummy": preload("res://logic/data/enemies/training_dummy.tscn")
+	"training_dummy": preload("res://logic/data/enemies/training_dummy.tscn"),
+	
+	
+	"death": preload("res://logic/data/enemies/death.tscn"),
 }
 
 

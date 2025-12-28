@@ -38,7 +38,7 @@ var finisher_used_this_turn: bool = false
 var team_id: int = -1
 var turn_order: Array[BaseChar]
 
-@export var skills: Dictionary = {}  # Initialize as an empty Dictionary
+@export var skills: Array[SkillResource] = [] # Initialize as an empty Dictionary
 
 @export var _techniques_editor: Array[Technique_] = []
 
@@ -59,10 +59,10 @@ var current_action: String = ""
 
 # Attributes and stats
 @export var stats: Dictionary = {
-	"strength": 6,
+	"strength": 4,
 	"dexterity": 4,
 	"endurance": 5,
-	"toughness": 8,
+	"toughness": 3,
 	"perception": 5,
 	"agility": 5
 }
@@ -77,8 +77,6 @@ var current_action: String = ""
 var armor_slots: Dictionary = {}
 # ARMOR SLOTS (have to add a armorslotresource for it to show up)
 @export var armor_data: ArmorSlotsResource
-
-
 
 
 # Body part VAL (for location-based damage)
@@ -117,17 +115,21 @@ func equip_skill_from_file(path: String):
 
 		
 # Function to add skill to the character's skills dictionary
-func add_skill(skill: SkillResource):
-	if skill.name not in skills:
-		skills[skill.name] = skill
-		print(display_name + " has learned " + skill.name)
+func add_skill(skill: SkillResource) -> void:
+	if not skill is SkillResource:
+		push_error("Only SkillResource can be added.")
+		return
+	skills.append(skill)
+	print(display_name + " has learned " + skill.name)
 
 
 func get_weapon_power() -> float:
 	var weapon = get_equipped_weapon("main_hand")
 	if weapon and weapon is WeaponResource:
 		return weapon.weapon_power(self)
-	return 2.0
+	else:
+		# No weapon equipped, default power
+		return 2.0
 
 
 func take_damage(amount: int, source: BaseChar = null):
@@ -159,7 +161,7 @@ func take_damage(amount: int, source: BaseChar = null):
 
 func use_skill(skill_name: String, target: BaseChar):
 	if skills.has(skill_name):
-		var skill = skills[skill_name]
+		var skill = SkillResource[skill_name]
 		if skill.effect_type == "damage":
 			target.take_damage(skill.effect_value, self)
 			print("%s uses %s on %s for %d damage!" % [self.name, skill.name, target.name, skill.effect_value])
@@ -216,7 +218,7 @@ func unequip_weapon(slot: String) -> bool:
 
 
 
-func get_equipped_weapon(slot: String = "main_hand") -> ItemResource:
+func get_equipped_weapon(slot: String = "main_hand") -> WeaponResource:
 	if equipment.has(slot):
 		return equipment[slot]
 	return null
