@@ -4,14 +4,12 @@
 
 [resource]
 script = ExtResource("1_rehr0")
-damage_reduction = 0.18
 armor_traits = ["natural", "rugged"]
-is_armor = true
 id = "hide_armor"
 name = "Thick Hide Armor"
-description = "A thick hide armor made of hide. Offers 18% damage reduction and weighs 3.8 kg."
+description = "Beast Hide Tunic"
 weight = 3.8
-max_durability = 18
-durability = 18
+max_durability = 70
+durability = 70
 material = "hide"
 price = 105

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://dfqwqq64d84oc"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_2dm5a"]
+
+[resource]
+script = ExtResource("1_2dm5a")
+armor_class = 1
+armor_type = "iron"
+damage_reduction = 0.07
+name = "Leather_Curass"
+description = "It's a Leather_Curass"
+weight = 12.0
+cost = 80
+max_durability = 90
+durability = 90
+material = "iron"
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}
+metadata/_custom_type_script = "uid://h427wuf36vxu"

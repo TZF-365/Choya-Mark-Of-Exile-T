@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://cklnl5dmnxxth"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_3gi2b"]
+
+[resource]
+script = ExtResource("1_3gi2b")
+slot_name = "shield"
+damage_reduction = 0.08
+armor_traits = ["block", "heavy", "cover"]
+id = "Cuir Bouilli Shield"
+name = "Cuir Bouilli Shield"
+description = "A steel tower shield made of steel. Offers 40% damage reduction and weighs 6.0 kg."
+weight = 6.0
+max_durability = 70
+durability = 70
+material = "steel"
+price = 900
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

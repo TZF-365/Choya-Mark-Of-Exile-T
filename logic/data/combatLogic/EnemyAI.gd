@@ -42,9 +42,11 @@ func choose_action_based_on_state() -> String:
 	#	possible_actions = possible_actions.filter(func(a): return a != "heavy")
 
 	if player.is_defending:
-		# Avoid attacking into defended positions
 		possible_actions = possible_actions.filter(func(a): return a not in ["light", "heavy"])
-		possible_actions.append("dodge")
+		# maybe only sometimes dodge
+		if randi() % 100 < 50:
+			possible_actions.append("dodge")
+
 
 	# --- Momentum-based prioritization ---
 	if enemy.momentum > enemy.opportunity_available and not enemy.opportunity_active:

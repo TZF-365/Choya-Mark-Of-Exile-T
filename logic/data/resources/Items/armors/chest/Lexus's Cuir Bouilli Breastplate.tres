@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://byggst1n302hf"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_fp0p7"]
+
+[resource]
+script = ExtResource("1_fp0p7")
+damage_reduction = 0.18
+critical_hit_prevention = true
+armor_traits = ["heavy", "rigid", "military"]
+id = "iron_plate"
+name = "Cuir Bouilli Breastplate"
+description = "Cuir Bouilli Breastplate from lexus, has magic which makes it more durable and offers better defense"
+weight = 5.0
+cost = 899
+max_durability = 230
+durability = 230
+material = "iron"
+price = 374
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://dof8dvw2145dx"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_cnqmq"]
+
+[resource]
+script = ExtResource("1_cnqmq")
+slot_name = "head"
+damage_reduction = 0.05
+critical_hit_prevention = false
+armor_traits = ["cold_resistant", "soft"]
+id = "Chain Coif"
+name = "Chain Coif"
+weight = 3.5
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

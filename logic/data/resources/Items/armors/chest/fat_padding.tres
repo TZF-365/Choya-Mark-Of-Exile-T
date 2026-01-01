@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://ntye8qhktrr4"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_rdwwo"]
+
+[resource]
+script = ExtResource("1_rdwwo")
+damage_reduction = 0.25
+armor_traits = ["blunt_absorb", "warm"]
+id = "fat_padding"
+name = "Fat Padding"
+description = "A fat padding made of fat. Offers 25% damage reduction and weighs 4.0 kg."
+weight = 4.0
+max_durability = 25
+durability = 25
+material = "fat"
+price = 112
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

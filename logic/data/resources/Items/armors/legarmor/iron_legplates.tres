@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://k7rssg66mngy"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_0y2vd"]
+
+[resource]
+script = ExtResource("1_0y2vd")
+slot_name = "legs"
+damage_reduction = 0.15
+armor_traits = ["cold_resistant", "soft"]
+name = "Iron Legplates"
+weight = 3.5
+max_durability = 80
+durability = 80
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://dh51mad3ik1sl"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_blvim"]
+
+[resource]
+script = ExtResource("1_blvim")
+damage_reduction = 0.18
+critical_hit_prevention = true
+armor_traits = ["scaly", "versatile"]
+id = "scale_mail"
+name = "Bronze Scale Mail"
+description = "A bronze scale mail made of bronze. Offers 24% damage reduction and weighs 4.2 kg."
+weight = 4.2
+max_durability = 128
+durability = 128
+material = "bronze"
+price = 307
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

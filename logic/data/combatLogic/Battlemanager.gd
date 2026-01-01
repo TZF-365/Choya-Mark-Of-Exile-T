@@ -35,11 +35,14 @@ var damage:  int = 0
 var turndamage: int = 0
 var pending_finisher: Dictionary = {}
 
+var reaction_applied: bool = false
+
 
 # Combat states
 enum State { PLAYER_TURN, ENEMY_TURN, BATTLE_OVER }
 var current_state: State = State. PLAYER_TURN
 var current_action: String = ""
+
 
 # Technique preloads
 var cleave_technique = load("res://logic/data/resources/Techniques/cleave.tres") as Technique_
@@ -62,6 +65,69 @@ const ACTION_COSTS := {
 	"use_skill": 2,
 	"observe": 1
 }
+
+
+func reset_combat_states(character: BaseChar):
+	character.is_defending = false
+	character.is_dodging = false
+	character.reaction_applied = false
+	decay_momentum(character)
+
+
+func calculate_finisher_damage(
+	attacker: BaseChar,
+	target: BaseChar
+) -> int:
+	# Base offensive power
+	var attack_power: float = attacker.stats["strength"] * 4.0
+
+	attack_power += attacker.get_weapon_power() * 3.0
+
+	# Massive finisher multiplier
+	var finisher_multiplier := randf_range(20.0, 50.0)
+
+	var raw_damage: float = attack_power * finisher_multiplier
+
+	# Clamp so it always kills, but never overflows absurdly
+	var lethal_damage: int = max(target.current_hp, int(raw_damage))
+
+	return lethal_damage
+
+
+class CombatResolution:
+	# Participants
+	var actor: BaseChar
+	var target: BaseChar
+	
+	# Intent
+	var action_id: String
+	var technique: Technique_ = null
+	var stance: String
+	
+	# Outcome flags (explicit, never inferred)
+	var hit: bool = false
+	var dodged: bool = false
+	var blocked: bool = false
+	
+	# Damage & attrition
+	var damage_hp: int = 0
+	var damage_stamina: int = 0
+	
+	# Armor
+	var armor_hit: String = ""
+	var armor_broken: bool = false
+	
+	# Momentum
+	var momentum_delta: int = 0
+	var momentum_state_before: String
+	var momentum_state_after: String
+	
+	# Escalation
+	var opportunity_created: bool = false
+	var finisher_created: bool = false
+	
+	# Reaction chaining
+	var triggered_reaction: CombatResolution = null
 
 
 
@@ -151,9 +217,9 @@ func _load_procedural_enemy() -> void:
 	print("Procedural enemy loaded: %s" % enemy.display_name)
 
 
-func _apply_enemy_overrides(enemy: BaseChar, config: Dictionary) -> void:
+func _apply_enemy_overrides(target_enemy: BaseChar, config: Dictionary) -> void:
 	if config.has("override_display_name") and config["override_display_name"] != null:
-		enemy.display_name = config["override_display_name"]
+		target_enemy.display_name = config["override_display_name"]
 	if config.has("override_hp") and config["override_hp"] != null:
 		enemy.max_hp = int(config["override_hp"])
 		enemy.current_hp = enemy.max_hp
@@ -299,97 +365,99 @@ func _process(_delta):
 	enemy.update_val()
 
 
-# Resolve all actions
+#----
+ 
 func resolve_action(actor: BaseChar, action: String, target: BaseChar):
+	# Validation & AP
 	if not has_enough_ap(actor, action):
-		print("%s does not have enough action points." % actor.display_name)
-		add_to_turn_log("%s is unable to use %s — not enough AP, turn skipped." % [actor.display_name, action])
+		add_to_turn_log("%s is unable to act — insufficient AP." % actor.display_name)
 		return
 	consume_ap(actor, action)
-	
-	
-	var log_entry := ""
-	var is_attack := true	
-	print("\n--- Resolving action: %s by %s targeting %s ---"
-		% [action, actor.display_name, target.display_name])
 
+	var res := CombatResolution.new()
+	res.actor = actor
+	res.target = target
+	res.action_id = action
+	res.stance = actor.current_stance
 
-	# STANCE ACTIONS (NO ATTACK)
+	var is_attack := true
+
+	# ── DEFEND / DODGE ──
 	if action == "defend":
+		is_attack = false
 		actor.is_defending = true
-		log_entry = "%s prepares to defend. " % actor.display_name
-		#add_to_turn_log(log_entry)
-		is_attack = false
+		res.hit = false
+		add_to_turn_log(generate_attack_description(res))
+		return
 
-	if action == "dodge":
-		actor.is_dodging = true
-		log_entry = "%s becomes evasive. " % actor.display_name
-		#add_to_turn_log(log_entry)
+	elif action == "dodge":
 		is_attack = false
-		
-	# SKILL ACTIONS
+		actor.is_dodging = true
+		res.hit = false
+		add_to_turn_log(generate_attack_description(res))
+		return
+
+	# ── SKILL ACTIONS ──
 	if action == "use_skill":
-		# Example: active combat skills
 		actor.use_selected_skill(target)
 		return
 
+	# ── ATTACK ACTIONS ──
 	if is_attack:
-		var attack_type := action
-		var damage := 0
+		var chosen_technique = choose_technique(actor, target, action)
+		res.technique = chosen_technique
 
-		var chosen_technique = choose_technique(actor, target, attack_type)
+		var dmg_result = damage_calc(actor, target, action, chosen_technique)
+		res.hit = dmg_result.hit
+		res.dodged = dmg_result.dodged
+		res.blocked = dmg_result.blocked
+		res.damage_hp = dmg_result.damage
 
-		if chosen_technique != null:
-			log_entry += "%s uses %s! " % [actor.display_name, chosen_technique.name]
-			damage = damage_calc(actor, target, attack_type, chosen_technique)
-		else:
-			damage = damage_calc(actor, target, attack_type)
+		if res.damage_hp > 0:
+			target.current_hp = clamp(target.current_hp - res.damage_hp, 0, target.max_hp)
 
-		target.current_hp -= damage
-		target.current_hp = clamp(target.current_hp, 0, target.max_hp)
+	# ── MOMENTUM & ESCALATION ──
+	var momentum_added = calculate_momentum(actor, target, res.technique)
+	res.momentum_state_before = target.get_momentum_state()
+	if momentum_added != 0:
+		target.momentum += momentum_added
+		res.momentum_delta = momentum_added
+	res.momentum_state_after = target.get_momentum_state()
 
-		log_entry += generate_attack_description(actor, target, damage)
-
-		# ─── MOMENTUM APPLICATION ───
-		var momentum_added: int = calculate_momentum(actor, target, chosen_technique)
-
-		if momentum_added > 0:
-			target.momentum += momentum_added
-			print("\n\n%s Has gained/lost (+%d momentum). " % [target.display_name, momentum_added])
-		else:
-			print("%s Momentum remains unchanged. " % target.display_name)
-
-
-		# Consume stances ONLY when attacked
-
-	print("Target Momentum: ", target.momentum, " By ", target.display_name)
-
-	# ============================
-
+	# Escalation
 	if not target.finisher_active and target.momentum >= target.finisher_available:
 		target.finisher_active = true
-		log_entry += "\n\n%s is vulnerable — a **Finisher** is now possible!" % target.display_name
-		print("A FINISHER IS AVAILABLE ON", target.display_name)
-
+		res.finisher_created = true
 	elif not target.opportunity_active and target.momentum >= target.opportunity_available:
 		target.opportunity_active = true
-		log_entry += "\n\n%s shows weakness — an **Opportunity Attack** is possible!" % target.display_name
-		print("An OPPORTUNITY IS AVAILABLE ON", target.display_name)
+		res.opportunity_created = true
 
+	# Trigger reaction on target (once per turn)
+	res.triggered_reaction = null
 	if target.finisher_active:
-		trigger_auto_counter("finisher", target, actor)
+		res.triggered_reaction = trigger_auto_counter("finisher", actor, target)
 	elif target.opportunity_active:
-		trigger_auto_counter("opportunity", target, actor)
+		res.triggered_reaction = trigger_auto_counter("opportunity", actor, target)
 
-	print("Target HP after damage: %d / %d"
-		% [target.current_hp, target.max_hp])
 
-	add_to_turn_log(log_entry)
+	# Add main attack description
+	add_to_turn_log(generate_attack_description(res))
+
+	# Add reaction description if one exists
+	if res.triggered_reaction != null:
+		add_to_turn_log(generate_attack_description(res.triggered_reaction))
+
+	# Cleanup & UI
+	process_stamina_endurance(actor, action)
 	update_health_labels()
 	check_battle_end()
 
 
-	process_stamina_endurance(actor, action)
+
+#----
+
+
+
 
 # action point managers
 func has_enough_ap(actor: BaseChar, action: String) -> bool:
@@ -406,115 +474,175 @@ func consume_ap(actor: BaseChar, action: String) -> void:
 
 
 func regenerate_action_points(actor: BaseChar) -> int:
-	var base_regen: int = 2
-	var min_regen: int = 2
+	var regen := 2  # hard minimum
+	var roll := randf()
 
-	# Determine penalty based on val (0-10)
-	var penalty: int = 0
-	if actor.val <= 2:
-		penalty = 2
-	elif actor.val <= 5:
-		penalty = 1
+	# Base probabilities
+	var chance_three := 0.25
+	var chance_three_four := 0.10
 
-	# Apply penalty to base regen
-	var total_regen: int = max(base_regen - penalty, min_regen)
+	if actor.val >= 7:
+		# Full probabilities
+		pass
 
-	# Apply the regen
-	actor.action_points += total_regen
+	elif actor.val >= 2:
+		# Scale linearly from VAL 6 -> 2
+		# VAL 6 = near baseline
+		# VAL 2 = minimum values
 
-	# Debug prints
-	print(total_regen, " AP is the Amount Regenerated for ", actor.display_name)
-	print(actor.action_points, " is the total action points for ", actor.display_name)
+		var t := float(7 - actor.val) / 5.0
+		# t = 0 at VAL 7
+		# t = 1 at VAL 2
 
-	return total_regen
+		chance_three = lerp(0.25, 0.08, t)
+		chance_three_four = lerp(0.10, 0.02, t)
+
+	else:
+		# VAL == 1 desperation rebound
+		chance_three = 0.20
+		chance_three_four = 0.0
+
+	# Resolve regen
+	if roll < chance_three_four:
+		regen = randi_range(3, 4)
+	elif roll < chance_three_four + chance_three:
+		regen = 3
+	else:
+		regen = 2
+
+	# Apply
+	actor.action_points += regen
+
+	print(
+		"VAL:", actor.val,
+		"| Regen:", regen,
+		"| Chances — 3:", snapped(chance_three, 0.001),
+		" 3–4:", snapped(chance_three_four, 0.001)
+	)
+
+	return regen
 
 
-func trigger_auto_counter(attack_type: String, vulnerable_target: BaseChar, attacker: BaseChar) -> void:
-	print("Checking if %s can auto-retaliate with a %s technique on %s"
-		% [attacker.display_name, attack_type, vulnerable_target.display_name])
 
-	# Safety: ensure vulnerability exists
-	if attack_type == "opportunity" and not vulnerable_target.opportunity_active:
-		return
-	if attack_type == "finisher" and not vulnerable_target.finisher_active:
-		return
+func trigger_auto_counter(counter_type: String, counterer: BaseChar, victim: BaseChar) -> CombatResolution:
+	# Skip if reaction already applied this turn for this counter
+	if counterer.reaction_applied:
+		return null
+	counterer.reaction_applied = true
 
-	# Per-turn usage limits
-	if attack_type == "opportunity" and attacker.opportunity_used_this_turn:
-		return
-	if attack_type == "finisher" and attacker.finisher_used_this_turn:
-		return
+	var res := CombatResolution.new()
+	res.actor = counterer
+	res.target = victim
+	res.action_id = counter_type
+	res.stance = counterer.current_stance
 
-	for technique in attacker.techniques:
-		if technique.attack_type != attack_type:
-			continue
-		if technique.on_cooldown:
-			continue
+	var damage_result := {}
 
-		# FINISHER → queue, do not execute
-		if attack_type == "finisher":
-			pending_finisher = {
-				"attacker": attacker,
-				"target": vulnerable_target,
-				"technique": technique
+	match counter_type:
+		"finisher":
+			damage_result = {
+				"hit": true,
+				"dodged": false,
+				"blocked": false,
+				"damage": calculate_finisher_damage(counterer, victim)
 			}
-			print("Finisher queued:", technique.name)
-			return
+			res.finisher_created = false
 
-		# OPPORTUNITY → execute immediately
-		var damage: int = damage_calc(attacker, vulnerable_target, attack_type, technique)
-		vulnerable_target.current_hp = clamp(
-			vulnerable_target.current_hp - damage,
-			0,
-			vulnerable_target.max_hp
-		)
+		"opportunity":
+			var chosen_technique = choose_technique(counterer, victim, "opportunity")
+			res.technique = chosen_technique
 
-		add_to_turn_log(
-			"%s exploits an opening with %s! "
-			% [attacker.display_name, technique.name]
-			+ generate_attack_description(attacker, vulnerable_target, damage)
-		)
+			damage_result = damage_calc(counterer, victim, "opportunity", chosen_technique)
 
-		update_health_labels()
+		_:
+			return null
 
-		attacker.opportunity_used_this_turn = true
-		vulnerable_target.opportunity_active = false
-		vulnerable_target.momentum = max(vulnerable_target.momentum - 20, 0)
+	# Apply results
+	res.hit = damage_result.hit
+	res.dodged = damage_result.dodged
+	res.blocked = damage_result.blocked
+	res.damage_hp = damage_result.damage
 
-		technique.trigger_cooldown()
-		return
+	if res.damage_hp > 0:
+		victim.current_hp = clamp(victim.current_hp - res.damage_hp, 0, victim.max_hp)
 
-	print("No valid %s technique available for %s."
-		% [attack_type, attacker.display_name])
+	# Momentum from reaction
+	var momentum_delta = calculate_momentum(counterer, victim, res.technique)
+	momentum_delta = int(momentum_delta * 0.5)
+	res.momentum_state_before = victim.get_momentum_state()
+	if momentum_delta != 0:
+		victim.momentum += momentum_delta
+		res.momentum_delta = momentum_delta
+	res.momentum_state_after = victim.get_momentum_state()
+
+	# Reset opportunity/finisher on victim if needed
+	if counter_type == "finisher":
+		victim.finisher_active = false
+		victim.opportunity_active = false
+		victim.momentum = 0
+	elif counter_type == "opportunity":
+		victim.opportunity_active = false
+		victim.momentum = 10
+	return res
 
 
 
-
-func resolve_pending_finisher() -> void:
+func resolve_pending_finisher() -> CombatResolution:
 	if pending_finisher.is_empty():
-		return
+		return null
 
 	var attacker: BaseChar = pending_finisher.attacker
 	var target: BaseChar = pending_finisher.target
 	var technique: Technique_ = pending_finisher.technique
 
-	var damage: int = damage_calc(attacker, target, "finisher", technique)
-	target.current_hp = clamp(target.current_hp - damage, 0, target.max_hp)
+	var res := CombatResolution.new()
+	res.actor = attacker
+	res.target = target
+	res.action_id = "finisher"
+	res.technique = technique
+	res.stance = attacker.current_stance
 
-	add_to_turn_log(
-		"%s delivers a FINISHER — %s!"
-		% [attacker.display_name, technique.name]
-		+ " "
-		+ generate_attack_description(attacker, target, damage)
+	# ─────────────────────────────
+	# FINISHERS ARE ABSOLUTE
+	# ─────────────────────────────
+	res.hit = true
+	res.dodged = false
+	res.blocked = false
+
+	res.damage_hp = calculate_finisher_damage(attacker, target)
+	res.damage_stamina = 0
+
+	# ─────────────────────────────
+	# APPLY DAMAGE
+	# ─────────────────────────────
+	target.current_hp = clamp(
+		target.current_hp - res.damage_hp,
+		0,
+		target.max_hp
 	)
 
+	# ─────────────────────────────
+	# MOMENTUM STATE
+	# ─────────────────────────────
+	res.momentum_state_before = target.get_momentum_state()
+	res.momentum_delta = -target.momentum
+	target.momentum = 0
+	res.momentum_state_after = target.get_momentum_state()
+
+	# ─────────────────────────────
+	# CLEANUP FLAGS
+	# ─────────────────────────────
 	attacker.finisher_used_this_turn = true
 	target.finisher_active = false
-	target.momentum = 0
+	target.opportunity_active = false
 
-	technique.trigger_cooldown()
+	if technique:
+		technique.trigger_cooldown()
 
 	pending_finisher.clear()
+
+	return res
+
 
 
 func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) -> Technique_:
@@ -528,9 +656,10 @@ func choose_technique(actor: BaseChar, target: BaseChar, attack_type: String) ->
 		if techniques.trigger_condition != null and techniques.trigger_condition. is_valid():
 			if not techniques.trigger_condition.call(actor, target):
 				continue
-
-		return techniques
+				
 		print(techniques, "Is found")
+		return techniques
+		
 
 	print("No valid technique found for %s (attack type: %s). Techniques checked: %d"
 		% [actor.display_name, attack_type, actor.techniques.size()])
@@ -574,11 +703,11 @@ func calculate_momentum(actor: BaseChar, target: BaseChar, technique: Technique_
 	if technique != null:
 		match technique.attack_type:
 			"light":
-				min_mom = 3
-				max_mom = 5
+				min_mom = 4
+				max_mom = 6
 			"heavy":
 				min_mom = 5
-				max_mom = 7
+				max_mom = 8
 			"special":
 				min_mom = 10
 				max_mom = 10
@@ -638,11 +767,6 @@ func process_stamina_endurance(actor: BaseChar, action: String) -> void:
 	print("📈", actor.name, " Endurance after update: ", actor.endurance, "/", actor.max_endurance)
 
 
-func reset_combat_states(character: BaseChar):
-	character.is_defending = false
-	character.is_dodging = false
-	decay_momentum(character)
-
 
 ##LOGGING
 func add_to_turn_log(text: String):
@@ -653,60 +777,60 @@ func add_to_turn_log(text: String):
 
 
 func finalize_turn_log():
-	"""
-	Appends the collected turn log to the combat log and clears the buffer for the next turn.
-	"""
 	if turn_log.strip_edges() != "":
+		# Append collected log to combat log, separated by a blank line
 		combat_log.append_text("%s\n\n" % turn_log.strip_edges())
 		turn_log = ""
+
 	update_health_labels()
-	enemy.is_dodging = false
-	enemy.is_defending = false
+
+	# Reset states for next turn
 	player.is_dodging = false
 	player.is_defending = false
+	enemy.is_dodging = false
+	enemy.is_defending = false
 
+func damage_calc(
+	actor: BaseChar,
+	target: BaseChar,
+	attack_type: String,
+	technique: Technique_ = null
+) -> Dictionary:
+	
+	var result := {
+		"hit": true,
+		"dodged": false,
+		"blocked": false,
+		"damage": 0
+	}
 
-func damage_calc(actor: BaseChar, target: BaseChar, attack_type: String, technique: Technique_ = null) -> int:
 	var attack_power = actor.stats["strength"] * 2.7 + actor.get_weapon_power()
 	var multiplier = get_final_multiplier(actor, target, attack_type, technique)
 	var base_damage = attack_power * multiplier
-	print("🔸 Attack Power:  %.2f, Multiplier: %.2f, Base Damage: %.2f" % [attack_power, multiplier, base_damage])
 
-	var armor_reduction = apply_armor_reduction(target, attack_power)
-	print("🛡️ Armor Reduction: %.2f" % armor_reduction)
-	base_damage -= armor_reduction
-	print("🔻 Damage After Armor: %.2f" % base_damage)
 
 	if target.is_defending:
-		# Random reduction between 50% and 100%
-		# Final damage multiplier is between 0.0 and 0.5
-		var reduction := randf_range(0.5, 1.0)
-		base_damage *= (1.0 - reduction)
-		var description := generate_attack_description(actor, target, base_damage)
-		add_to_turn_log(description)
-		print("defended")
+		result.blocked = true
+		result.hit = false
+		base_damage *= randf_range(0.4, 0.7)
 
 	elif target.is_dodging:
-		# 80% chance to take no damage at all
-		if randf() < 0.8:
+		if randf() < 0.6:
+			result.dodged = true
+			result.hit = false
 			base_damage = 0
-			var description := generate_attack_description(actor, target, base_damage)
-			add_to_turn_log(description)
-			print("dodged")
-
-		else:
-			var description := generate_attack_description(actor, target, base_damage)
-			add_to_turn_log(description)
-			print("took hit")
+			
+	base_damage -= apply_armor_reduction(target, attack_power)
 
 	var defense_modifier = target.stats["toughness"] * 1.64
 	var final_damage = max(int(base_damage - defense_modifier), 0)
-	print("🧱 Toughness Reduction: %.2f, Final Damage: %d" % [defense_modifier, final_damage])
 
-	update_armor_durability(target, attack_power)
+	result.damage = final_damage
+	return result
 
-	return final_damage
 
+	
+	
 
 func apply_armor_reduction(target: BaseChar, attack_power: float) -> float:
 	if target.armor_slots == null:
@@ -715,37 +839,36 @@ func apply_armor_reduction(target: BaseChar, attack_power: float) -> float:
 	var total_reduction := 0.0
 	var broken_armor_slots := []
 
-	for armor_piece in target.armor_slots. values():
-		if armor_piece is ItemResource: 
+	# Multiplier for defending stance
+	var defend_multiplier: float = 1.0
+	if target.is_defending:
+		defend_multiplier = randf_range(1.2, 2.8)
+
+	for armor_piece in target.armor_slots.values():
+		if armor_piece is ArmorResource:
 			if armor_piece.broken:
 				continue
 
-			var percent_reduction:  float = armor_piece.damage_reduction
-			var durability_factor: float = float(armor_piece.durability) / armor_piece.max_durability
-			var scaled_reduction:  float = percent_reduction * durability_factor
-			var reduced_amount: float = attack_power * scaled_reduction
+			# Scale reduction by durability and defending stance
+			var durability_factor = float(armor_piece.durability) / armor_piece.max_durability
+			var scaled_reduction = armor_piece.damage_reduction * durability_factor * defend_multiplier
+			var reduced_amount = attack_power * scaled_reduction
 
 			total_reduction += reduced_amount
 
-			print("%s's %s reduces damage by %.2f (%. 0f%% x %. 0f%%)!" % [
-				target.display_name,
-				armor_piece.slot_name,
-				reduced_amount,
-				percent_reduction * 100,
-				durability_factor * 100
-			])
-
+			# Chance to break low-durability armor
 			if durability_factor < 0.303:
 				if randi() % 100 < 50:
 					add_to_turn_log("%s's %s Armor breaks due to low durability!" % [target.display_name, armor_piece.name])
 					armor_piece.broken = true
-					broken_armor_slots.append(armor_piece. slot_name)
-					print("🧪 Break check — durability factor:", durability_factor)
+					broken_armor_slots.append(armor_piece.slot_name)
 
-	for slot_name in broken_armor_slots: 
-		target.armor_slots. erase(slot_name)
+	# Remove broken armor from target slots
+	for slot_name in broken_armor_slots:
+		target.armor_slots.erase(slot_name)
 
 	return total_reduction
+
 
 
 func update_armor_durability(target:  BaseChar, attack_power: float) -> void:
@@ -779,9 +902,9 @@ func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type: String
 	# Apply attack type multiplier
 	match attack_type:
 		"light":
-			multiplier *= 1.02
+			multiplier *= 1.0
 		"heavy":
-			multiplier *= 1.2
+			multiplier *= 1.25
 		"special":
 			multiplier *= 1.4
 		"finisher":
@@ -794,110 +917,130 @@ func get_final_multiplier(actor: BaseChar, target: BaseChar, attack_type: String
 
 
 @warning_ignore("shadowed_variable")
-func generate_attack_description(actor: BaseChar, target: BaseChar, damage: int) -> String:
-	var description:  String = ""
+func generate_attack_description(res: CombatResolution) -> String:
+	var lines := []
 
-	if target. is_dodging:
-		if damage > 0:
-			var dodging_hit = [
-				"%s tries to dodge %s but gets clipped for %d damage.",
-				"%s gets hit while dodging — %d damage.",
-				"%s almost evades %s's strike but takes %d damage anyway! ",
-				"%s stumbles mid-dodge and takes %d from %s.",
-				"%s nearly evades %s, but still takes %d."
-			]
-			var choice := randi() % dodging_hit.size()
-			match choice:
-				0, 2, 4:
-					description = dodging_hit[choice] % [target.display_name, actor.display_name, damage]
-				1:
-					description = dodging_hit[choice] % [target.display_name, damage]
-				3:
-					description = dodging_hit[choice] % [target.display_name, damage, actor.display_name]
-		else:
-			var dodging_miss = [
-				"%s expertly dodges %s's attack, taking no damage!",
-				"%s sidesteps the strike.",
-				"%s sidesteps %s's strike with ease, emerging unscathed!",
-				"%s dodges %s cleanly.",
-				"%s evades the attack."
-			]
-			var choice := randi() % dodging_miss.size()
-			match choice:
-				0, 2, 3:
-					description = dodging_miss[choice] % [target. display_name, actor.display_name]
-				1, 4:
-					description = dodging_miss[choice] % [target.display_name]
-
-	elif target.is_defending:
-		if damage > 0:
-			var defending_hit = [
-				"%s braces for %s's attack, but the force breaks through for %d damage!",
-				"%s guards but takes a reduced %d from %s.",
-				"%s holds their ground, and %s's strike lands for %d damage!",
-				"%s's guard falters — %d damage.",
-				"%s's guard weakens as %s's blow connects for %d damage! ",
-				"%s braces, still takes %d."
-			]
-			var choice := randi() % defending_hit.size()
-			match choice:
-				0, 2, 4:
-					description = defending_hit[choice] % [target.display_name, actor.display_name, damage]
-				1:
-					description = defending_hit[choice] % [target.display_name, damage, actor.display_name]
-				3, 5:
-					description = defending_hit[choice] % [target.display_name, damage]
-		else:
-			var defending_block = [
-				"%s blocks %s completely.",
-				"%s deflects the attack.",
-				"%s raises their guard and nullifies %s's strike with precision!",
-				"%s's guard holds firm.",
-				"%s deflects %s's blow effortlessly, taking no damage! ",
-				"%s shrugs off the blow."
-			]
-			var choice := randi() % defending_block.size()
-			match choice:
-				0, 2, 4:
-					description = defending_block[choice] % [target.display_name, actor.display_name]
-				1, 3, 5:
-					description = defending_block[choice] % [target.display_name]
-
+	# --- 1. Opening Intent ---
+	if res.technique:
+		var open_flavor = [
+			"%s commits to %s.",
+			"%s delivers %s.",
+			"%s attacks with %s!",
+			"%s strikes cleanly with %s.",
+			"%s strikes with %s.",
+			"%s executes %s.",
+			"%s swings into %s.",
+			"%s strikes  using %s.",
+			"%s unleashes %s!",
+			"%s uses %s!"
+		]
+		lines.append(open_flavor[randi() % open_flavor.size()] % [res.actor.display_name, res.technique.name])
 	else:
-		if damage > 0:
-			var normal_hit = [
-				"%s hits %s for %d.",
-				"%s strikes — %d damage to %s.",
-				"%s lands a hit on %s (%d).",
-				"%s wounds %s for %d.",
-				"%s attacks %s, dealing %d."
+		if res.actor.is_defending:
+			var defend_flavor = [
+				"%s assumes a defensive stance.",
+				"%s braces for impact.",
+				"%s steadies for the incoming strike.",
+				"%s tenses, ready to deflect.",
+				"%s shifts into a defensive posture.",
+				"%s steadies their guard."
 			]
-			var choice := randi() % normal_hit.size()
-			match choice:
-				0, 3, 4:
-					description = normal_hit[choice] % [actor.display_name, target.display_name, damage]
-				1: 
-					description = normal_hit[choice] % [actor.display_name, damage, target.display_name]
-				2:
-					description = normal_hit[choice] % [actor.display_name, target.display_name, damage]
+			lines.append(defend_flavor[randi() % defend_flavor.size()] % res.actor.display_name)
+		elif res.actor.is_dodging:
+			var dodge_flavor = [
+				"%s prepares to dodge.",
+				"%s shifts weight, anticipating a strike.",
+				"%s reads the enemy’s move carefully.",
+				"%s moves lightly, avoiding harm."
+			]
+			lines.append(dodge_flavor[randi() % dodge_flavor.size()] % res.actor.display_name)
 		else:
-			var normal_miss = [
-				"%s swings at %s but misses entirely!",
-				"%s's attack fails to connect with %s!",
-				"%s's attack whiffs.",
-				"%s misjudges the strike, missing %s completely!",
-				"%s dodges just in time.",
-				"%s misses"
+			var act_flavor = [
+				"%s acts.",
+				"%s begins his action.",
+				"%s strikes decisively.",
+				"%s seizes the moment.",
+				"%s moves with intent.",
+				"%s presses the attack."
 			]
-			var choice := randi() % normal_miss.size()
-			match choice:
-				0, 1, 3:
-					description = normal_miss[choice] % [actor.display_name, target.display_name]
-				4:
-					description = normal_miss[choice] % [target.display_name]
-				2, 5:
-					description = normal_miss[choice] % [actor.display_name]
-	return description
+			lines.append(act_flavor[randi() % act_flavor.size()] % res.actor.display_name)
+
+	# --- 2. Hit / Deflect / Block ---
+	if res.dodged:
+		var dodge_flavor = "%s evades the attack!" % res.target.display_name
+		if res.target.momentum >= res.target.finisher_available * 0.7:
+			var extra = [
+				" Momentum keeps them on their toes!",
+				"They twist away, momentum aiding their reflexes!",
+				"Quick reflexes fueled by momentum!"
+			]
+			dodge_flavor += extra[randi() % extra.size()]
+		lines.append(dodge_flavor)
+	elif res.blocked:
+		var block_flavor = "%s blocks the strike." % res.target.display_name
+		if res.actor.val >= 7:
+			var extra = [
+				" %s’s precision barely scratches them." % res.actor.display_name,
+				" %s’s focus fails to break their guard." % res.actor.display_name,
+				" %s’s strike is blocked." % res.actor.display_name
+			]
+			block_flavor += extra[randi() % extra.size()]
+		lines.append(block_flavor)
+	elif res.hit:
+		var hit_flavor = "The strike hits with %d damage!" % res.damage_hp
+		if res.target.momentum >= res.target.finisher_available * 0.7:
+			var extra = [
+				" The attack rattles %s, leaving them exposed!" % res.target.display_name,
+				" %s reels from the hit!" % res.target.display_name,
+				" %s staggers, openings appear!" % res.target.display_name
+			]
+			hit_flavor += extra[randi() % extra.size()]
+		if res.actor.val >= 7:
+			var extra_val = [
+				" With focus, %s maximizes the impact!" % res.actor.display_name,
+				" %s strikes his opponent!" % res.actor.display_name,
+				" A concentrated blow from %s lands perfectly!" % res.actor.display_name
+			]
+			hit_flavor += " " + extra_val[randi() % extra_val.size()]
+		lines.append(hit_flavor)
+
+	# --- 3. Armor Reaction ---
+	if res.armor_hit != "":
+		if res.armor_broken:
+			var armor_break_flavor = [
+				"%s’s %s armor shatters!" % [res.target.display_name, res.armor_hit],
+				"A mighty blow breaks %s’s %s!" % [res.target.display_name, res.armor_hit],
+				"%s is exposed as %s armor gives way!" % [res.target.display_name, res.armor_hit]
+			]
+			lines.append(armor_break_flavor[randi() % armor_break_flavor.size()])
+		else:
+			var armor_hit_flavor = [
+				"The strike clangs against %s’s %s armor." % [res.target.display_name, res.armor_hit],
+				"%s’s %s armor absorbs the impact." % [res.target.display_name, res.armor_hit],
+				"A solid hit bounces off %s’s %s armor." % [res.target.display_name, res.armor_hit]
+			]
+			lines.append(armor_hit_flavor[randi() % armor_hit_flavor.size()])
+
+	# --- 4. Escalation Priority ---
+	if res.finisher_created:
+		var finisher_flavor = [
+			"%s is left completely exposed!" % res.target.display_name,
+			"An opening appears! %s is vulnerable!" % res.target.display_name,
+			"%s falters, inviting a decisive blow!" % res.target.display_name
+		]
+		lines.insert(0, finisher_flavor[randi() % finisher_flavor.size()])
+	elif res.opportunity_created:
+		var opp_flavor = [
+			"%s falters, leaving an opening!" % res.target.display_name,
+			"An opportunity arises! %s is off-guard!" % res.target.display_name,
+			"%s’s misstep creates a follow-up chance!" % res.target.display_name
+		]
+		lines.insert(0, opp_flavor[randi() % opp_flavor.size()])
+
+	return "  ".join(lines)
+
+
+
 
 
 ### HEALTH UI ###
@@ -960,8 +1103,11 @@ func process_turn(action: String):
 		enemy.update_val()
 		
 		print(turn_log)
+		var finisher_res := resolve_pending_finisher()
+		if finisher_res:
+			add_to_turn_log(generate_attack_description(finisher_res))
+
 		finalize_turn_log()
-		resolve_pending_finisher()
 
 
 		var player_regen = regenerate_action_points(player)
@@ -992,7 +1138,7 @@ func enemy_turn():
 
 ###EVENTS
 func trigger_event():
-	if not event_triggered and player.current_hp < 50 and randf() < 1.0:
+	if not event_triggered and player.current_hp < 50 and randf() < 0.5:
 		AudioManager.play_event_music_by_key("aaaa", false)
 		add_to_turn_log("/n/n No... I can't fall here, I HAVE TO WIN! \n \n")
 		player.stats["strength"] += 3

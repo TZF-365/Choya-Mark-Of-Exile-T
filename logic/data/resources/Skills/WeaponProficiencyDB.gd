@@ -2,7 +2,7 @@ extends Node
 class_name Weapon_Proficiency_DB
 
 # Each weapon type defines its entire proficiency curve explicitly.
-# Percentages are ADDITIVE per level and applied multiplicatively to base weapon power.
+# Percentages are ADDITIVE (DUHHHH) per level and applied multiplicatively to base weapon power.
 
 const WEAPON_PROFICIENCIES := {
 
@@ -39,10 +39,11 @@ const WEAPON_PROFICIENCIES := {
 	"greatsword": {
 		"base_power": 11,
 		"max_level": 8,
-		"xp_per_level": 250,
+		"xp_per_level": 380,
 		"level_bonuses": [0.10, 0.10, 0.10, 0.10, 0.25, 0.25, 0.25, 0.25]
 	},
 
+# has a higher consistant crit chance but no oppertunity or finisher atacks characters first weapon.
 	"club": {
 		"base_power": 6,
 		"max_level": 6,
@@ -53,14 +54,14 @@ const WEAPON_PROFICIENCIES := {
 	"mace": {
 		"base_power": 9,
 		"max_level": 7,
-		"xp_per_level": 270,
+		"xp_per_level": 500,
 		"level_bonuses": [0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14]
 	},
-
+#weapons that have a base damage of 10 or more requires 5 action points.
 	"war_hammer": {
 		"base_power": 13,
 		"max_level": 6,
-		"xp_per_level": 450,
+		"xp_per_level": 850,
 		"level_bonuses": [0.30, 0.30, 0.10, 0.10, 0.10, 0.10]
 	},
 
@@ -77,11 +78,11 @@ const WEAPON_PROFICIENCIES := {
 		"xp_per_level": 420,
 		"level_bonuses": [0.25, 0.25, 0.25, 0.12, 0.12, 0.12]
 	},
-
+# edit so you gain more damage near the middle than the end, all spears give more buffs near the middle
 	"spear": {
 		"base_power": 6,
 		"max_level": 9,
-		"xp_per_level": 260,
+		"xp_per_level": 380,
 		"level_bonuses": [0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11]
 	},
 
@@ -91,7 +92,7 @@ const WEAPON_PROFICIENCIES := {
 		"xp_per_level": 340,
 		"level_bonuses": [0.12, 0.12, 0.12, 0.12, 0.20, 0.20, 0.20, 0.20]
 	},
-
+# buffs from str and dex and adds damage from arrows. also just more customizable
 	"bow": {
 		"base_power": 5,
 		"max_level": 10,
@@ -101,7 +102,7 @@ const WEAPON_PROFICIENCIES := {
 			0.13, 0.13, 0.13, 0.13, 0.13
 		]
 	},
-
+#you can only use a crossbow every other turn, and at level 3 you can equip it in your off hand. and gain a reaction skill for it. 
 	"crossbow": {
 		"base_power": 7,
 		"max_level": 6,

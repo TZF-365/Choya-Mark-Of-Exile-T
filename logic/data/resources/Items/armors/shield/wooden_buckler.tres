@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://cfagyl8ucfg08"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_0tgwm"]
+
+[resource]
+script = ExtResource("1_0tgwm")
+slot_name = "shield"
+damage_reduction = 0.05
+armor_traits = ["block", "heavy", "cover"]
+id = "Wooden Buckler"
+name = "Wooden Buckler"
+weight = 6.0
+material = "steel"
+price = 900
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

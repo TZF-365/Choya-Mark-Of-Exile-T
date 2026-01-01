@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://bt6x0wio31mai"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_1xw3h"]
+
+[resource]
+script = ExtResource("1_1xw3h")
+slot_name = "head"
+damage_reduction = 0.01
+critical_hit_prevention = false
+armor_traits = ["cold_resistant", "soft"]
+id = "blubber_coat"
+name = "Thick Blubber Coat"
+description = "A thick blubber coat made of blubber. Offers 20% damage reduction and weighs 3.5 kg."
+weight = 3.5
+max_durability = 20
+durability = 20
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

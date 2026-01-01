@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://efhf7e3b538a"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_o8qsw"]
+
+[resource]
+script = ExtResource("1_o8qsw")
+slot_name = "head"
+damage_reduction = 0.03
+critical_hit_prevention = false
+armor_traits = ["cold_resistant", "soft"]
+id = "Leather Cap"
+name = "Leather Cap"
+weight = 3.5
+max_durability = 40
+durability = 40
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

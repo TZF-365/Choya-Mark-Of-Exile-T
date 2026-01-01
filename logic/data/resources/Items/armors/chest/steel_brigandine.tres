@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://siiim4pba286"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_84lvi"]
+
+[resource]
+script = ExtResource("1_84lvi")
+damage_reduction = 0.28
+armor_traits = ["heavy", "rigid", "military"]
+id = "iron_plate"
+name = "Iron Plate Armor"
+description = "A iron plate armor made of iron. Offers 26% damage reduction and weighs 5.0 kg."
+weight = 5.0
+max_durability = 120
+durability = 120
+material = "iron"
+price = 374
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

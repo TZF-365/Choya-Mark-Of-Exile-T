@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://n4qoeghhy58k"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_apvco"]
+
+[resource]
+script = ExtResource("1_apvco")
+slot_name = "head"
+damage_reduction = 0.05
+armor_traits = ["cold_resistant", "soft"]
+id = "Studded Hood"
+name = "Studded Hood"
+weight = 3.5
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

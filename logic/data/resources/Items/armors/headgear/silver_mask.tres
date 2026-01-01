@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://cc7sn6sd725r4"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_pia71"]
+
+[resource]
+script = ExtResource("1_pia71")
+slot_name = "head"
+damage_reduction = 0.07
+critical_hit_prevention = false
+armor_traits = ["cold_resistant", "soft"]
+id = "Silver Mask"
+name = "Silver Mask"
+weight = 3.5
+max_durability = 70
+durability = 70
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

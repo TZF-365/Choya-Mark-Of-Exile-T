@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://d3obo3p6met84"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_7ap5l"]
+
+[resource]
+script = ExtResource("1_7ap5l")
+damage_reduction = 0.02
+armor_traits = ["light", "flexible", "stealthy"]
+id = "leather_vest"
+name = "Reinforced Leather Vest"
+description = "A reinforced leather vest made of leather. Offers 15% damage reduction and weighs 2.2 kg."
+weight = 2.2
+max_durability = 70
+durability = 70
+material = "leather"
+price = 63
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://b3itgi1e1v15k"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_g1g3o"]
+
+[resource]
+script = ExtResource("1_g1g3o")
+slot_name = "head"
+damage_reduction = 0.06
+critical_hit_prevention = false
+armor_traits = ["cold_resistant", "soft"]
+id = "Bronze Helm"
+name = "Bronze Helm"
+weight = 3.5
+cost = 30
+max_durability = 60
+durability = 60
+material = "Bronze"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

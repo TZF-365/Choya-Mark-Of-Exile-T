@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://bahq6dqik6xmc"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_3tigw"]
+
+[resource]
+script = ExtResource("1_3tigw")
+slot_name = "legs"
+damage_reduction = 0.02
+armor_traits = ["cold_resistant", "soft"]
+name = "Quilted Trousers"
+weight = 3.5
+max_durability = 80
+durability = 80
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

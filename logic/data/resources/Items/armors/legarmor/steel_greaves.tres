@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=2 format=3 uid="uid://decmnqei8vj5i"]
+
+[ext_resource type="Script" uid="uid://h427wuf36vxu" path="res://logic/data/resources/ArmorResource.gd" id="1_7rxqb"]
+
+[resource]
+script = ExtResource("1_7rxqb")
+slot_name = "legs"
+damage_reduction = 0.18
+armor_traits = ["cold_resistant", "soft"]
+name = "Steel Greaves"
+weight = 3.5
+max_durability = 80
+durability = 80
+material = "blubber"
+price = 64
+conditions = {
+"destruction": {
+"min_durability": 0
+},
+"disarming": {
+"min_durability": 10
+}
+}

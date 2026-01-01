@@ -63,6 +63,7 @@ var turn_order: Array[BaseChar]
 
 @export var skills: Array[SkillResource] = [] # Initialize as an empty Dictionary
 
+var reaction_applied: bool = false
 
 
 @export var techniques: Array[Technique_] 
@@ -190,6 +191,16 @@ func take_damage(amount: int, source: BaseChar = null):
 		print("%s took %d damage!" % [self.name, amount])
 
 
+func get_momentum_state() -> String:
+	if momentum >= max_momentum:
+		return "max"
+	elif momentum >= (max_momentum * 0.5):
+		return "high"
+	elif momentum > 0:
+		return "low"
+	else:
+		return "none"
+
 
 func use_skill(skill_name: String, target: BaseChar):
 	if skills.has(skill_name):
@@ -289,7 +300,7 @@ func resolve_hit_location() -> String:
 
 func get_damage_reduction_from_hit() -> float:
 	var hit_location = resolve_hit_location()
-	var armor_piece = armor_slots[hit_location]
+	var armor_piece = armor_slots.get(hit_location, null)
 
 	if armor_piece == null:
 		print("No armor at hit location.")
@@ -297,7 +308,7 @@ func get_damage_reduction_from_hit() -> float:
 
 	# Check for durability
 	var durability_factor = armor_piece.durability / armor_piece.max_durability
-	var reduction = armor_piece.damagec_reduction * durability_factor
+	var reduction = armor_piece.damage_reduction * durability_factor
 	print("Armor durability factor:", durability_factor, "Raw reduction:", armor_piece.damage_reduction, "Final reduction:", reduction)
 
 	# Bypass & Break Logic
