@@ -47,3 +47,11 @@ res://logic/data/resources/Items/armors/shield/steel_tower_shield.tres
 res://logic/data/resources/Items/armors/shield/wooden_buckler.tres
 res://logic/data/resources/Items/armors/shield/cuir_bouilli_shield.tres
 res://logic/data/resources/Items/armors/chest/Lexus's Cuir Bouilli Breastplate.tres
+res://logic/data/scenelogic/al_sound_manager.gd
+res://scenes/utilities/AudioManager.tscn
+res://scenes/main_menu.tscn
+res://logic/backend/viewport_container.gd
+res://logic/data/combatLogic/combat_screen.gd
+res://story/Choya_Chapter1_Linear.json
+res://scenes/game_screen.tscn
+res://logic/data/scenelogic/ContentContainer.gd

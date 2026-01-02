@@ -305,9 +305,6 @@ theme_override_font_sizes/font_size = 45
 text = "Return"
 
 [node name="Player" parent="." instance=ExtResource("15_5pajh")]
-max_hp = 100
-current_hp = 100
-momentum = 15
 stats = {
 "agility": 5,
 "dexterity": 4,

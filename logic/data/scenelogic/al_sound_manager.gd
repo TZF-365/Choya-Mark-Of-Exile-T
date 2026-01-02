@@ -19,8 +19,8 @@ var loop_end_time := 0.0
 
 # --- Playlist ---
 var songs: Array = [
-	preload("res://assets/Music/Dandadan_OPMED.mp3"),
-	preload("res://assets/Music/Chainsaw-Man-OPMED.mp3"),
+	preload("res://assets/Music/Ambient1.mp3"),
+	preload("res://assets/Music/Action1.mp3"),
 	preload("res://assets/Music/battlemusic.mp3"),
 	preload("res://assets/Music/Calmingmusic.mp3"),
 	preload("res://assets/Music/Magical-Transition.mp3")
@@ -29,16 +29,18 @@ var current_song_index := 0
 
 # --- Music Libraries ---
 var sfx_music_library: Dictionary = {
-	"dandadan": preload("res://assets/Music/Dandadan_OPMED.mp3"),
-	"chainsaw": preload("res://assets/Music/Chainsaw-Man-OPMED.mp3"),
+	"dandadan": preload("res://assets/Music/Ambient1.mp3"),
+	"chainsaw": preload("res://assets/Music/Action1.mp3"),
 	"battle": preload("res://assets/Music/battlemusic.mp3"),
 	"calm": preload("res://assets/Music/Calmingmusic.mp3"),
 	"button": preload("res://assets/Music/buttonpress.mp3"),
-	"menubutton": preload("res://assets/Music/menu_click.mp3")
+	"menubutton": preload("res://assets/Music/menu_click.mp3"),
+	"combatbutton": preload("res://assets/Music/combatbutton.wav")
 }
 
 var scene_audio_streams: Dictionary = {
-	"main_menu": preload("res://assets/Music/Calmingmusic.mp3"),
+	"main_menu1": preload("res://assets/Music/Calmingmusic.mp3"),
+	"main_menu": preload("res://assets/Music/menumusic1.wav"),
 	"battlestart": preload("res://assets/Music/Battle1Start.ogg"),
 	"battlemusic": preload("res://assets/Music/03_Melee.ogg"),
 	"victory": preload("res://assets/Music/2000_Peace.ogg"),

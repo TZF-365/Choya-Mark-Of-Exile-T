@@ -39,6 +39,7 @@
 	"010_prologue_2_c1": {
 		"title": "",
 		"picture": "res://assets/art/Ancient_Forest_Eldoria.jpg",
+		"music": "res://assets/Music/Feywild_Ambience.mp3",
 		"narr_text": "Who am I? What am I doing here? The answers slip through my grasp, my thoughts scattered like leaves in the wind.",
 		"choices": {
 			"1": {
@@ -206,7 +207,7 @@
 	"010_wandering_2_c1": {
 		"title": "",
 		"picture": "res://assets/art/Dark_Forest.jpg",
-		"narr_text": "I repeat it under my breath as though it might anchor me. I was an adventurer. No... more than that. soldiers? sellswords? Images blur together—fights won, scars earned, faces forgotten.",
+		"narr_text": "I repeat it under my breath as though it might anchor me. I was an adventurer. No... more than that. soldiers? sellswords? Images blur together, fights won, scars earned, faces forgotten.",
 		"choices": {
 			"1": {
 				"text": "Take a sharp right and keep walking.",
@@ -625,13 +626,13 @@
 	"010_mark_conversation": {
 		"title": "Fragments and Marks",
 		"picture": "res://assets/art/Wrist_Mark.jpg",
-		"music": "res://assets/Music/Chainsaw-Man-OPMED.mp3",
+		"music": "res://assets/Music/Action1.mp3",
 		"narr_text": "'I don’t,' you say. 'Just... fragments. Feelings. No names, no faces.' You rub the mark on your wrist instinctively. 'And my head feels like it's constantly buzzing.'\n\nKaela exhales slowly, leaning back in her chair. 'That’s not good. The mark, I’ve seen people killed just for having a fake one. Yours is real. That makes you a target.'\n\nBefore you can ask more, a sharp shout cuts through the tavern.",
 		"choices": {
 			"1": {
 				"text": "Continue!",
 				"buffs": {
-					"current_stamina": -7
+					"stamina": -7
 				},
 				"output": "010_axe"
 			}
@@ -691,6 +692,7 @@
 	"010_after_combat": {
 		"title": "",
 		"picture": "",
+		"music": "res://assets/Music/Beru_vs_S-Rank_Hunters_OPME.mp3",
 		"narr_text": "Panting, bruised, you stagger beside Kaela. Blood drips from a wound near your ribs. She curses softly, rummages in her coat, and tosses you a vial. 'Drink. Now.' The potion stings going down, but warmth floods your veins. She offers a bronze dagger, nodding. 'Got this off the corpse. Yours now.'",
 		"choices": {
 		  "1": {
@@ -727,6 +729,7 @@
 	"010_to_the_inn": {
 		"title": "",
 		"picture": "",
+		"music": "res://assets/Music/DarkAmbient5.mp3",
 		"narr_text": "You and Kaela dart through narrow alleys, vaulting crates and fences. Her grip on your arm is iron. 'We’ll circle back to the inn,' she pants. 'Left supplies there.” “Who were they?” you ask. 'Bounty hunters. I think.' Your pulse pounds. 'For me?', 'Looks like it.' She doesn’t say more, but her jaw tightens.",
 		"choices": {
 		  "1": {
@@ -776,7 +779,7 @@
 	"010_window_escape": {
 		"title": "",
 		"picture": "",
-		"narr_text": "Kaela grabs your wrist. 'No time.' The two of you leap from the window just as voices rise behind you. You hit the mud hard. Kaela groans. 'Come on.' She pulls you up. 'We go to the elf. He has your armor—and maybe some answers.' You start running again.",
+		"narr_text": "Kaela grabs your wrist. 'No time.' The two of you leap from the window just as voices rise behind you. You hit the mud hard. Kaela groans. 'Come on.' She pulls you up. 'We go to the elf. He has your armor, and maybe some answers.' You start running again.",
 		"choices": {
 		  "1": {
 				"text": "Continue.",
@@ -868,7 +871,7 @@
 	"010_mage_5": {
 		"title": "",
 		"picture": "",
-		"narr_text": "The cauldron hissed, and the scent of bitter dandelion and powdered redroot filled the room. Glass vials lined the shelves like soldiers waiting for command, their contents glowing faintly—amber, cerulean, a vicious green that seemed to crawl. 'you brought bandits to my emporium and I have no doubt they are destroying my item display that I had outside, I assume you plan to pay for this?'\n\nThe elf stirred the mixture once, twice. Counterclockwise. Always counterclockwise. His eyes never left you as you are seated by the wall. 'I plan to, I just want to find answers.' you say desperately, the elf looks long and hard into your eyes then looks away. 'No memories...'",
+		"narr_text": "The cauldron hissed, and the scent of bitter dandelion and powdered redroot filled the room. Glass vials lined the shelves like soldiers waiting for command, their contents glowing faintly, amber, cerulean, a vicious green that seemed to crawl. 'you brought bandits to my emporium and I have no doubt they are destroying my item display that I had outside, I assume you plan to pay for this?'\n\nThe elf stirred the mixture once, twice. Counterclockwise. Always counterclockwise. His eyes never left you as you are seated by the wall. 'I plan to, I just want to find answers.' you say desperately, the elf looks long and hard into your eyes then looks away. 'No memories...'",
 		"choices": {
 		  "1": {
 				"text": "I don't remember anything.",

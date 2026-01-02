@@ -195,7 +195,7 @@ func process_choice(choice_index: int) -> void:
 		var music_path = page_data["music"]
 		var music_stream = load(music_path)
 		await AudioManager.fade_out_music()
-		AudioManager.play_music(music_stream)
+		AudioManager.play_music(music_stream, -20.0)
 
 	# --- HANDLE SCENE CHANGE ---
 	if page_data.has("scenechange"):

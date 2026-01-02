@@ -1146,34 +1146,41 @@ func trigger_event():
 
 
 func _on_light_attack_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "light"
 	process_turn(current_action)
 
 
 func _on_heavy_attack_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "heavy"
 	process_turn(current_action)
 
 
 func _on_use_skill_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "use_skill"
 	process_turn(current_action)
 
 
 func _on_defend_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "defend"
 	process_turn(current_action)
 
 
 func _on_dodge_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "dodge"
 	process_turn(current_action)
 
 
 func _on_turn_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	current_action = "attack"
 	process_turn(current_action)
 
 
 func _on_magic_pressed() -> void:
+	AudioManager.play_sfx_music_by_name("combatbutton", -20)
 	pass
