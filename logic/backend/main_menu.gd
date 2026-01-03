@@ -8,7 +8,7 @@ enum Menu { MAIN_MENU, SETTINGS_MENU }
 @export var start_scene_path : PackedScene
 @export var transition_path : PackedScene
 
-@onready var SaveManager = $"../../SaveManager"
+@onready var SaveManager = SaveManager_Node.new()
 
 var current_menu : Menu = Menu.MAIN_MENU
 

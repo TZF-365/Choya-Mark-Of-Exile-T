@@ -18,6 +18,7 @@ config/version="0.7.9"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=30
+run/low_processor_mode=true
 boot_splash/bg_color=Color(1.77181e-06, 0, 0.170817, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://bw74o0y6d2eyn"
@@ -63,7 +64,6 @@ theme/default_font_generate_mipmaps=true
 
 occlusion_culling/bvh_build_quality=1
 textures/canvas_textures/default_texture_filter=2
-renderer/rendering_method.web="mobile"
 textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/default_filters/anisotropic_filtering_level=3

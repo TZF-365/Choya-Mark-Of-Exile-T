@@ -2,23 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dht5c2q5ho733"
-path.etc2="res://.godot/imported/chromatic_abberation_offset.png-41ff22da0cdfd21f1240cf7280258c2e.etc2.ctex"
+uid="uid://dgjjnl0t5pc0y"
+path.s3tc="res://.godot/imported/chromatic_abberation_offset.png-5d43673d305d94ca4c7c8258b3267bef.s3tc.ctex"
+path.etc2="res://.godot/imported/chromatic_abberation_offset.png-5d43673d305d94ca4c7c8258b3267bef.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/sprites/shader_textures/chromatic_abberation_offset.png"
-dest_files=["res://.godot/imported/chromatic_abberation_offset.png-41ff22da0cdfd21f1240cf7280258c2e.etc2.ctex"]
+source_file="res://sprites/shader_textures/chromatic_abberation_offset.png"
+dest_files=["res://.godot/imported/chromatic_abberation_offset.png-5d43673d305d94ca4c7c8258b3267bef.s3tc.ctex", "res://.godot/imported/chromatic_abberation_offset.png-5d43673d305d94ca4c7c8258b3267bef.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -26,6 +29,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
