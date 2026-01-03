@@ -1,9 +1,8 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1767448479
+::res://::1767450641
 default_bus_layout.tres::AudioBusLayout::4192308140542725340::1745403376::0::1::::<><><>0<>0<><>::
-export_presets.cfg::TextFile::-1::1767395971::0::1::::<><><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1767450509::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1767401029::0::1::::<><><>0<>0<><>::
-::res://android/::1766627726
 ::res://assets/::1766628387
 ::res://assets/art/::1767393991
 Ancient_Forest_Eldoria.jpg::CompressedTexture2D::2762359144502853899::1745926906::1767393946::1::::<><><>0<>0<>9d66a0441c12d77bc99f1a5fa4fd1d2a<>res://.godot/imported/Ancient_Forest_Eldoria.jpg-9a73d0123bf9f745816d62eeba81cc45.ctex::
